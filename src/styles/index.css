@@ -1,0 +1,92 @@
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+
+/* Your own custom component styles */
+
+/* purgecss end ignore */
+@tailwind utilities;
+
+body {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Roboto",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+a {
+  cursor: pointer;
+}
+
+.clockdate-wrapper {
+  position: absolute;
+  top: 35%;
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.qoutes-wrapper {
+  position: absolute;
+  bottom: 0%;
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+#clock {
+  font-family: sans-serif;
+  font-size: 95px;
+  text-shadow: 0px 0px 1px #fff;
+  color: #fff;
+}
+
+.qoutes {
+  font-family: sans-serif;
+  font-size: 25px;
+  text-shadow: 0px 0px 1px #fff;
+  color: #fff;
+}
+
+#clock span {
+  text-shadow: 0px 0px 1px #333;
+  font-size: 80px;
+  top: -5px;
+  left: 10px;
+}
+
+#date {
+  letter-spacing: 3px;
+  font-size: 20px;
+  font-family: arial, sans-serif;
+  color: #fff;
+}
+
+.inset-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.glass {
+  background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 10.5px );
+-webkit-backdrop-filter: blur( 10.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}

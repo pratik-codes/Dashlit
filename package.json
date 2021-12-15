@@ -1,0 +1,80 @@
+{
+  "name": "react-tailwindcss-starter",
+  "description": "Starter Boilerplate for Tailwind CSS, TypeScript and React.js",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "author": {
+    "name": "Hulli Studio",
+    "email": "contact@hulli.studio",
+    "url": "http://hulli.studio"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/classnames": "^2.2.10",
+    "@types/jest": "^26.0.13",
+    "@types/node": "^14.10.1",
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.5",
+    "autoprefixer": "^10.0.1",
+    "axios": "^0.24.0",
+    "classnames": "^2.2.6",
+    "postcss-cli": "^8.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3",
+    "tailwindcss": "^1.8.10",
+    "typescript": "^4.0.2"
+  },
+  "scripts": {
+    "start": "npm run tailwind:css && react-scripts start",
+    "tailwind:css": "tailwind build src/styles/index.css -c tailwind.config.js -o src/styles/tailwind.css",
+    "build": "npm run tailwind:css && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "format": "prettier --write src/**/*.ts{,x}",
+    "lint": "tsc --noEmit && eslint src/**/*.ts{,x}"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./src/*.{js,jsx,ts,tsx}": [
+      "npx prettier --write",
+      "eslint src/*.js --fix-dry-run"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/prop-types": "^15.7.3",
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
+    "prop-types": "^15.7.2"
+  }
+}
