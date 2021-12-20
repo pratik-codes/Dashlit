@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const LinkSvg = () => {
   return (
@@ -85,8 +86,83 @@ const Svg: React.FC<Props> = ({ type }) => {
           />
         </svg>
       )}
+      {type === "deleteEdited" && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6 text-gray-800 editlink hidden hover:text-gray-300"
+          viewBox="0 0 20 20"
+          fill="currentColor">
+          <path
+            fillRule="evenodd"
+            d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+            clipRule="evenodd"
+          />
+        </svg>
+      )}
+      {type === "deleteWhite" && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6 text-gray-200  hover:text-gray-800"
+          viewBox="0 0 20 20"
+          fill="currentColor">
+          <path
+            fillRule="evenodd"
+            d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+            clipRule="evenodd"
+          />
+        </svg>
+      )}
+      {type === "edit" && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6 p-1 my-auto text-gray-900 editlink hidden hover:text-gray-400"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+          />
+        </svg>
+      )}
+      {type === "add" && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6 my-auto"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+          />
+        </svg>
+      )}
+      {type === "dropdown" && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-4 w-4 text-white hover:text-black font-bold"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={3}
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      )}
     </>
   );
 };
 
 export default Svg;
+
+Svg.propTypes = {
+  type: PropTypes.string.isRequired
+};
