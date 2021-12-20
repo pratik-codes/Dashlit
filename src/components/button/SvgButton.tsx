@@ -1,5 +1,6 @@
 import React from "react";
-import Svg from "../Svg";
+import Svg from "../common/Svg";
+import PropTypes from "prop-types";
 
 interface Props {
   // onClick: () => void,
@@ -7,14 +8,18 @@ interface Props {
   position: string;
 }
 
-const SvgButton = ({ type, position }) => {
+const SvgButton: React.FC<Props> = ({ type, position }) => {
   return (
     <button
-      style={{ borderRadius: "20px" }}
-      className={`absolute ${position} border-none text-gray-900 border-none shadow-lg text-sm glass font-bold px-3 m-4 py-1 focus:outline-none`}>
+      className={`absolute ${position} rounded-lg border-none text-black border-none shadow-lg text-sm glass font-bold p-2 m-4 focus:outline-none`}>
       <Svg type={type} />
     </button>
   );
 };
 
 export default SvgButton;
+
+SvgButton.propTypes = {
+  type: PropTypes.string.isRequired,
+  position: PropTypes.string.isRequired
+};

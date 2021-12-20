@@ -21327,7 +21327,7 @@ a {
 .clockdate-wrapper {
   position: absolute;
   top: 35%;
-  padding: 15px;
+  padding: 10px;
   width: 100%;
   text-align: center;
   border-radius: 5px;
@@ -21346,7 +21346,7 @@ a {
 
 #clock {
   font-family: sans-serif;
-  font-size: 95px;
+  font-size: 130px;
   text-shadow: 0px 0px 1px #fff;
   color: #fff;
 }
@@ -21380,13 +21380,127 @@ a {
           transform: translate(-50%, -50%);
 }
 
+/* css for glass bgs  */
+
 .glass {
-  background: rgba( 255, 255, 255, 0.25 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 10.5px );
-  -webkit-backdrop-filter: blur( 10.5px );
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10.5px);
+  -webkit-backdrop-filter: blur(10.5px);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.glass2 {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10.5px);
+  -webkit-backdrop-filter: blur(10.5px);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.glasslink:hover {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.glasslink:hover .editlink {
+  display: block;
+}
+
+.glasstodo {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10.5px);
+  -webkit-backdrop-filter: blur(10.5px);
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* css for scrollbar styling */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 80px;
+  box-shadow: inset 0px 0px rgb(192, 192, 192);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: rgb(196, 196, 196);
+}
+
+/* loader css */
+
+.spinner {
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+  width: 50px;
+  height: 50px;
+}
+
+.spinner .path {
+  stroke: rgb(11, 17, 22);
+  stroke-linecap: round;
+  -webkit-animation: spinner-path 1.5s ease-in-out infinite;
+          animation: spinner-path 1.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: spin(360deg);
+            transform: spin(360deg);
+  }
+}
+
+@-webkit-keyframes spinner-path {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+@keyframes spinner-path {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
 }
 
 @media (min-width: 640px) {

@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router";
+import React, { useState } from "react";
 import flames from "../assets/images/flames.jpg";
-import Headline from "../components/auth/Headline";
 import SignIn from "../components/auth/SignIn";
 import SignUp from "../components/auth/SignUp";
 
