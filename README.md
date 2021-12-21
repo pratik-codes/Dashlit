@@ -32,8 +32,8 @@ Dashlit is a browser dashboard extention very much like [momentum (over 1m users
 ## Techstack
 
 - ⚛ **React** — 16.13.1 with Hooks
-- 🛠 **Firebase** — ES6 syntax, Airbnb & React/Recommended config
-- ⚛ **Redux** — ESlint
+- 🛠 **Firebase** — for backend
+- ⚛ **Redux** — for global state management
 
 
 
