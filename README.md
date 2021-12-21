@@ -15,7 +15,7 @@
 
 Dashlit is a browser dashboard extention very much like [momentum (over 1m users)](https://momentumdash.com/) but better and all premium features for free. 
 
-## Looks (itital looks)
+## Looks (development stage)
   
   ### Homepage
 ![Image](https://github.com/pratik-codes/Dashlit/blob/master/screenshots/homepage.jpg)
