@@ -64,6 +64,7 @@ export const getUserLinksService = async (): Promise<any> => {
       };
       resData.push(data);
     });
+
     return { success: true, data: resData };
   } catch (error: any) {
     return { error: error.message };
@@ -96,7 +97,7 @@ export const updateUserLinksService = async (
 
 // ====================== delete user link ==============================
 
-// basic patch api to update user link or folder
+// basic delete api to delete user link or folder
 export const deleteUserLinksService = async (id: string): Promise<any> => {
   if (!id) {
     console.log("user not found while deleteing link");

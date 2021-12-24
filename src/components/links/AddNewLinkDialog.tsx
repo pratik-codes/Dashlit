@@ -102,7 +102,7 @@ const AddNewLinkDialog: React.FC<Props> = ({
                     type="text"
                     onChange={e => setLinkTitle(e.target.value)}
                     placeholder="Link title"
-                    className="px-3 py-2 mt-3 mb-1 border-opacity-50  placeholder-blueGray-300 text-blueGray-600 relative bg-gray-800 border-none text-white rounded text-base border-0 outline-none focus:outline-none focus:ring w-full"
+                    className="border-2 border-indigo-600 px-3 py-2 mt-3 mb-1 border-opacity-50  placeholder-blueGray-300 text-blueGray-600 relative bg-gray-800 border-none text-white rounded text-base outline-none focus:outline-none focus:ring w-full"
                   />
                   <div className="flex justify-end">
                     {/* <p style={{ fontSize: "0.8rem" }}>

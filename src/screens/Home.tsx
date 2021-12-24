@@ -5,7 +5,7 @@ import { getUserDetailsService } from "../firebase/functions/UserDetailsActions"
 import { homedir } from "os";
 import LinksDropdown from "../components/links/LinksDropdown";
 import { getUserLinksService } from "../firebase/functions/LinksActions";
-import { getLinksList } from "../Redux/Actions/User.actions";
+import { getLinksList, getTodoList } from "../Redux/Actions/User.actions";
 import { useDispatch } from "react-redux";
 import TodoDropdown from "../components/todo/TodoDropdown";
 
@@ -61,10 +61,12 @@ const Home = () => {
   }
 
   const userData = async () => {
-    // const res = await getUserDetailsService();
-    const res = localStorage.getItem("user_settings");
-    if (res) {
-      console.log(JSON.parse(res));
+    const res = await getUserDetailsService();
+    const checkUserSettingsExists = localStorage.getItem("user_settings");
+    if (checkUserSettingsExists) {
+      console.log("user settings exists", res);
+    } else {
+      localStorage.setItem("user_settings", JSON.parse(res));
     }
   };
 
@@ -72,13 +74,17 @@ const Home = () => {
 
   const getUserLinks = async () => {
     const res: any = await dispatch(getLinksList());
-    console.log(res);
+  };
+
+  const getUserTodo = async () => {
+    const res: any = await dispatch(getTodoList());
   };
 
   useEffect(() => {
     startTime();
     userData();
     getUserLinks();
+    getUserTodo();
 
     // axios
     //   .get(
