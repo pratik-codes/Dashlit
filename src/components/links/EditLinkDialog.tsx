@@ -145,30 +145,30 @@ const EditLinkDialog: React.FC<Props> = ({
                   />
                   {urls.map((link: any) => {
                     return (
-                      <div
-                        key={link.id}
-                        className="div flex justify-between bg-gray-800 rounded-lg mb-1 cursor-pointer">
-                        <a
-                          className="flex"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          href={"//" + link.link}>
-                          <img
-                            style={{ borderRadius: "100%" }}
-                            className="w-5 h-5 my-auto ml-3 "
-                            src={`https://s2.googleusercontent.com/s2/favicons?domain_url=https://${link.link}`}
-                            alt="favicon"
-                          />
-                          <h1 className="px-3 py-2 border-2  border-opacity-50  placeholder-blueGray-300 text-blueGray-600 relative bg-gray-800 border-none rounded text-white text-base border-0 outline-none focus:outline-none focus:ring w-full">
-                            {link.link.length > 45
-                              ? `${link.link.substring(0, 45)}...`
-                              : link.link}
-                          </h1>
-                        </a>
-                        <div
-                          onClick={() => linksDeleteHandler(link.id)}
-                          className="my-auto mx-2 pb-1 flex justify-between bg-gray-800">
-                          <Svg type="deleteWhite" />
+                      <div key={link.id}>
+                        <div className="div flex justify-between bg-gray-800 rounded-lg mb-1 cursor-pointer">
+                          <div
+                            className="flex"
+                            onClick={() =>
+                              window.open(`https://${link.link}`, "_blank")
+                            }>
+                            <img
+                              style={{ borderRadius: "100%" }}
+                              className="w-5 h-5 my-auto ml-3 "
+                              src={`https://s2.googleusercontent.com/s2/favicons?domain_url=https://${link.link}`}
+                              alt="favicon"
+                            />
+                            <h1 className="px-3 py-2 border-2  border-opacity-50  placeholder-blueGray-300 text-blueGray-600 relative bg-gray-800 border-none rounded text-white text-base border-0 outline-none focus:outline-none focus:ring w-full">
+                              {link.link.length > 45
+                                ? `${link.link.substring(0, 45)}...`
+                                : link.link}
+                            </h1>
+                          </div>
+                          <div
+                            onClick={() => linksDeleteHandler(link.id)}
+                            className="my-auto mx-2 pb-1 flex justify-between bg-gray-800">
+                            <Svg type="deleteWhite" />
+                          </div>
                         </div>
                       </div>
                     );

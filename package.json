@@ -41,7 +41,7 @@
   "scripts": {
     "start": "npm run tailwind:css && react-scripts start",
     "tailwind:css": "tailwind build src/styles/index.css -c tailwind.config.js -o src/styles/tailwind.css",
-    "build": "npm run tailwind:css && react-scripts build",
+    "build": "set INLINE_RUNTIME_CHUNK=false&&npm run tailwind:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write src/**/*.ts{,x}",

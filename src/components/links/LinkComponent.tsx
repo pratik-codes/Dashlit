@@ -19,21 +19,16 @@ interface Props {
 
 const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [openUrl, setOpenUrl] = React.useState(false);
   // const [editModalIsOpen, setEditModalIsOpen] = React.useState(false);
 
   const dispatch = useDispatch();
 
   const clickHandler = () => {
     if (type === "link") {
-      window.open(
-        `//${url[0].link}`,
-        "_blank",
-        "toolbar=0,location=0,menubar=0"
-      );
+      window.open(`https://${url[0].link}`, "_blank");
     } else {
       for (let i = 0; i < url.length; i++) {
-        window.open(`//${url[i].link}`, "_blank");
+        window.open(`https://${url[i].link}`, "_blank");
       }
     }
   };
@@ -52,16 +47,10 @@ const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
     console.log(isOpen);
   }
 
-  useEffect(() => {
-    if (openUrl === true) {
-      clickHandler();
-    }
-    setOpenUrl(false);
-  }, []);
   return (
     <>
       <div className="flex glasslink p-2 ">
-        <div onClick={() => setOpenUrl(true)} className="flex w-full">
+        <div onClick={() => clickHandler()} className="flex w-full">
           {type === "folder" ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
