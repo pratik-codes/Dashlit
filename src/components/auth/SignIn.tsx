@@ -16,7 +16,6 @@ const SignIn: React.FC<signInProps> = ({ setActiveView }) => {
 
   const clickHandler = async () => {
     const res = await signInHandler(email, password);
-    console.log(res);
     if (res.success) {
       setMessage("Sign In Successful");
       setColor("#1A202C");

@@ -1,9 +1,12 @@
+import { settings } from "firebase/analytics";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  signOut
 } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { addDoc, collection, doc, setDoc } from "firebase/firestore";
+import { user_setting } from "../../components/data/data";
 import { auth, db } from "../firebase-config";
 
 onAuthStateChanged(auth, currentUser => {
@@ -28,24 +31,13 @@ export const signUpHandler = async (
     return { error: "Passwords do not match" };
   }
   try {
-    createUserWithEmailAndPassword(auth, email, password).then(user => {
+    createUserWithEmailAndPassword(auth, email, password).then(async user => {
       setDoc(doc(db, "users", user.user.uid), {
         name: email,
         email: email,
-        properties: {
-          publicQuotes: true,
-          showQuotes: true,
-          publicPicture: true,
-          showBookmarks: true,
-          showClock: true,
-          showDate: true,
-          showWeather: true,
-          showLinks: true,
-          showSearch: true,
-          showTodo: true
-        }
+        settings: JSON.stringify(user_setting)
       });
-      localStorage.setItem("user", JSON.stringify(user));
+      // await addSettings(user.user.uid);
       localStorage.setItem("user_uid", user.user.uid);
     });
     return { success: true };
@@ -53,6 +45,14 @@ export const signUpHandler = async (
     console.log({ error });
     return { error: error.message.split("Firebase:")[1] };
   }
+};
+
+const addSettings = async (userId: string) => {
+  const docref = doc(collection(db, "users"), userId);
+  const settingsColRef = collection(docref, "settings");
+  user_setting.map(async setting => {
+    await addDoc(settingsColRef, setting);
+  });
 };
 
 export const signInHandler = async (
@@ -70,4 +70,8 @@ export const signInHandler = async (
   } catch (error: any) {
     return { error: error.message.split("Firebase:")[1] };
   }
+};
+
+export const logoutHandler = async () => {
+  await signOut(auth);
 };

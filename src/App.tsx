@@ -5,12 +5,9 @@ import Home from "./screens/Home";
 import "./styles/index.css";
 
 const App = () => {
-  // const [currentView, setcurrentView] = useState("home");
-  const AccessToken = localStorage.getItem("user");
+  const user_uid = localStorage.getItem("user_uid");
 
-  return (
-    <div className="App">{AccessToken === null ? <Auth /> : <Home />}</div>
-  );
+  return <div className="App">{user_uid === null ? <Auth /> : <Home />}</div>;
 };
 
 export default App;

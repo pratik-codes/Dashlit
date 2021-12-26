@@ -5,15 +5,30 @@ import { getUserDetailsService } from "../firebase/functions/UserDetailsActions"
 import { homedir } from "os";
 import LinksDropdown from "../components/links/LinksDropdown";
 import { getUserLinksService } from "../firebase/functions/LinksActions";
-import { getLinksList } from "../Redux/Actions/User.actions";
-import { useDispatch } from "react-redux";
+import {
+  getLinksList,
+  getSettingsList,
+  getTodoList
+} from "../Redux/Actions/User.actions";
+import { useDispatch, useSelector } from "react-redux";
 import TodoDropdown from "../components/todo/TodoDropdown";
+import SettingsDropdown from "../components/settings/SettingsDropdown";
+import { RootStore } from "../Redux/Store";
+import Svg from "../components/common/Svg";
 
 const Home = () => {
   const [clockTimer, setClockTimer] = useState("");
   const [date, setDate] = useState("");
   const [searchValue, setSearchValue] = useState("");
+  // state of preference state
+  const [preference, setPreference] = useState<any>([]);
+  const dispatch = useDispatch();
 
+  const SettingsDataRedux: any = useSelector(
+    (state: RootStore) => state.userSettingsData
+  );
+
+  // function that runs the clock
   function startTime() {
     const today = new Date();
     let hr = today.getHours();
@@ -53,6 +68,7 @@ const Home = () => {
       startTime();
     }, 500);
   }
+
   function checkTime(i: any) {
     if (i < 10) {
       i = "0" + i;
@@ -60,32 +76,45 @@ const Home = () => {
     return i;
   }
 
+  // fetching user settings
   const userData = async () => {
-    // const res = await getUserDetailsService();
-    const res = localStorage.getItem("user_settings");
-    if (res) {
-      console.log(JSON.parse(res));
-    }
+    const res: any = await dispatch(getSettingsList());
   };
 
-  const dispatch = useDispatch();
-
+  // fetching user links
   const getUserLinks = async () => {
     const res: any = await dispatch(getLinksList());
-    console.log(res);
   };
 
+  // fetching user todo
+  const getUserTodo = async () => {
+    const res: any = await dispatch(getTodoList());
+  };
+
+  const getPreferenceValue = (preferenceType: string) => {
+    let truth;
+    if (SettingsDataRedux.data) {
+      const settingsData = JSON.parse(SettingsDataRedux.data.settings);
+      truth = settingsData.find(
+        (x: any) => x.type === preferenceType
+      ).isToggled;
+      return truth;
+    } else return true;
+  };
+
+  // invoking the functions on home render
   useEffect(() => {
     startTime();
     userData();
     getUserLinks();
-
-    // axios
-    //   .get(
-    //     `https://api.unsplash.com/photos/random?query=landscape&orientation=landscape&client_id=${process.env.REACT_APP_UNSPLASH_SECRET_ID}`
-    //   )
-    //   .then(response => console.log(response.data));
+    getUserTodo();
   }, []);
+
+  // axios
+  //   .get(
+  //     `https://api.unsplash.com/photos/random?query=landscape&orientation=landscape&client_id=${process.env.REACT_APP_UNSPLASH_SECRET_ID}`
+  //   )
+  //   .then(response => console.log(response.data));
 
   return (
     <div
@@ -94,31 +123,47 @@ const Home = () => {
         backgroundSize: "cover"
       }}
       className="w-full h-screen">
+      {/* div that renders the clock, date and the time */}
       <div className="clockdate-wrapper">
-        <div id="clock">{clockTimer}</div>
-        <div id="date">{date}</div>
+        {getPreferenceValue("clock-settings") === true && (
+          <div id="clock">{clockTimer}</div>
+        )}
+        {getPreferenceValue("date-settings") === true && (
+          <div id="date">{date}</div>
+        )}
       </div>
-      <div className="qoutes-wrapper qoutes">
-        “Enthusiasm is the great hill-climber.”{" "}
+      {/* rendering the qoutes at the bottom of the screen */}
+      {getPreferenceValue("quotes-settings") === true && (
+        <div className="qoutes-wrapper qoutes">
+          “Enthusiasm is the great hill-climber.”{" "}
+        </div>
+      )}
+      {getPreferenceValue("links-settings") === true && <LinksDropdown />}
+      {/* search bar component */}
+      <div className="flex">
+        {" "}
+        {/* <Svg type="search" /> */}
+        {getPreferenceValue("search-settings") === true && (
+          <input
+            placeholder="Search"
+            className=" text-white absolute top-0 left-0 ml-24 mt-3 p-2 bg-transparent border-b border-gray-500 hover:border-white focus:outline-none"
+            onChange={(e: any) => setSearchValue(e.target.value)}
+            onKeyPress={e =>
+              e.key === "Enter" &&
+              window.open(
+                `http://www.google.com/search?q=' + ${searchValue}`,
+                "_blank"
+              )
+            }
+          />
+        )}
       </div>
-      <LinksDropdown />
-      <div>
-        <input
-          placeholder="Search"
-          className=" text-white absolute top-0 left-0 ml-20 mt-3 p-2 bg-transparent border-b border-gray-500 hover:border-white focus:outline-none"
-          onChange={(e: any) => setSearchValue(e.target.value)}
-          onKeyPress={e =>
-            e.key === "Enter" &&
-            window.open(
-              `http://www.google.com/search?q=' + ${searchValue}`,
-              "_blank"
-            )
-          }
-        />
-      </div>
-      <TodoDropdown />
-      <SvgButton type="settings" position="bottom-0 left-0" />
-      <SvgButton type="weather" position="top-0 right-0" />
+      {getPreferenceValue("todo-settings") === true && <TodoDropdown />}
+      {getPreferenceValue("weather-settings") === true && (
+        <SvgButton type="weather" position="top-0 right-0" />
+      )}
+      <SettingsDropdown />
+
       {/* <SvgButton type="todo" position="bottom-0 right-0" /> */}
     </div>
   );
