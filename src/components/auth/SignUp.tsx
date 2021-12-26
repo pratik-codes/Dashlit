@@ -17,11 +17,11 @@ const SignUp: React.FC<signUpProps> = ({ setActiveView }) => {
 
   const clickHandler = async () => {
     const res = await signUpHandler(email, password, confirmPassword);
-    console.log(res);
     if (res.success) {
-      setMessage("Sign Up Successful");
+      setMessage("Sign Up Successful, Please proceed with signin");
       setColor("#1A202C");
       setSnackbar(true);
+      // window.location.reload();
     } else {
       setMessage(res.error);
       setColor("#600709");

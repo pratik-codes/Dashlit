@@ -44,7 +44,6 @@ const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
 
   function openModal() {
     setIsOpen(true);
-    console.log(isOpen);
   }
 
   return (

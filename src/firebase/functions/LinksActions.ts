@@ -82,7 +82,6 @@ export const updateUserLinksService = async (
     type: string;
   }
 ): Promise<any> => {
-  console.log(data);
   if (!data.linkTitle || data.links.length === 0) {
     return { error: "link title or data is empty" };
   }

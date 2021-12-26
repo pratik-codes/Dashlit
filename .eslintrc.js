@@ -57,6 +57,7 @@ module.exports = {
   ],
   rules: {
     semi: 0,
-    quotes: 0
+    quotes: 0,
+    "react/prop-types": ["off"]
   }
 };

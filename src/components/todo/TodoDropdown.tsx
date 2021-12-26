@@ -30,10 +30,6 @@ const TodoDropdown = () => {
 
   const inputRef: any = useRef();
 
-  useEffect(() => {
-    console.log({ TodoDataRedux });
-  }, [TodoDataRedux]);
-
   return (
     <div>
       <div onClick={() => setOpenDropDown(!openDropDown)}>

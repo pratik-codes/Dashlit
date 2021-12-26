@@ -52,7 +52,6 @@ const EditLinkDialog: React.FC<Props> = ({
     const res = await updateUserLinksService(id, data);
     if (res.success === true) {
       setSnackbar(true);
-      console.log("came ");
       setColor("#1A202C");
       setMessage("Link added successfully");
       await dispatch(getLinksList());

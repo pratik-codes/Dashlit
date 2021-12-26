@@ -19,10 +19,10 @@ const Auth: React.FC = () => {
           <div className="w-8/12 mx-auto mt-10">
             <h1 className="text-xl text-white font-mono">Dashlit</h1>
             <br />
-            {activeView === "signin" ? (
-              <SignIn setActiveView={setActiveView} />
-            ) : (
+            {activeView === "signup" ? (
               <SignUp setActiveView={setActiveView} />
+            ) : (
+              <SignIn setActiveView={setActiveView} />
             )}
           </div>
         </div>

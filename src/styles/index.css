@@ -57,7 +57,7 @@ a {
 
 .qoutes {
   font-family: sans-serif;
-  font-size: 15px;
+  font-size: 20px;
   text-shadow: 0px 0px 1px #fff;
   color: #fff;
 }
@@ -95,6 +95,15 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+.glasshover {
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(5.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
 .glass2 {
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -117,7 +126,7 @@ a {
 
 .glasstodo {
   background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(10.5px);
   -webkit-backdrop-filter: blur(10.5px);
   border-radius: 10px;
@@ -185,4 +194,15 @@ a {
 
 .todo:hover .tododelete {
   display: flex;
+}
+
+/* Toggle B */
+.toggle-checkbox:checked {
+  @apply: right-0 border-green-400;
+  right: 0;
+  border-color: #68d391;
+}
+.toggle-checkbox:checked + .toggle-label {
+  @apply: bg-green-400;
+  background-color: #68d391;
 }
