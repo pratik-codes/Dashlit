@@ -91,10 +91,10 @@ const AddNewLinkDialog: React.FC<Props> = ({
               leave="ease-in duration-200"
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95">
-              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-gray-900 rounded-lg shadow-xl border-2 border-gray-800 hover:border-indigo-400">
+              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform glasshover rounded-lg shadow-xl border-2 border-gray-900">
                 <Dialog.Title
                   as="h3"
-                  className="text-lg leading-6 text-white font-bold">
+                  className="text-xl leading-6 text-gray-900 font-bold">
                   Add new link.
                 </Dialog.Title>
                 <div className="mt-2">
@@ -102,7 +102,7 @@ const AddNewLinkDialog: React.FC<Props> = ({
                     type="text"
                     onChange={e => setLinkTitle(e.target.value)}
                     placeholder="Link title"
-                    className="border-2 border-indigo-600 px-3 py-2 mt-3 mb-1 border-opacity-50  placeholder-blueGray-300 text-blueGray-600 relative bg-gray-800 border-none text-white rounded text-base outline-none focus:outline-none focus:ring w-full"
+                    className="px-3 py-2 mt-3 mb-1 border-opacity-50  placeholder-gray-900 relative bg-transparent border border-gray-900 rounded text-gray-900 text-base outline-none focus:outline-none focus:ring w-full"
                   />
                   <div className="flex justify-end">
                     {/* <p style={{ fontSize: "0.8rem" }}>
@@ -113,7 +113,7 @@ const AddNewLinkDialog: React.FC<Props> = ({
                     return (
                       <div
                         key={link.id}
-                        className="div flex justify-between bg-gray-800 rounded-lg mb-1">
+                        className="div flex justify-between mb-1 border border-gray-900 rounded">
                         <input
                           type="text"
                           placeholder="Add link here"
@@ -123,12 +123,11 @@ const AddNewLinkDialog: React.FC<Props> = ({
                               e.target.value.toLowerCase()
                             )
                           }
-                          // value={remainderDescription}
-                          className="px-3 py-2 border-2  border-opacity-50  placeholder-blueGray-300 text-blueGray-600 relative bg-gray-800 border-none rounded text-white text-base outline-none focus:outline-none focus:ring w-full"
+                          className="px-3 py-2 border-opacity-50 relative bg-transparent text-gray-900 text-base outline-none focus:outline-none focus:ring w-full placeholder-gray-900"
                         />
                         <div
                           onClick={() => inputDeleteHandler(link.id)}
-                          className="my-auto mx-2 pb-1 bg-gray-800 cursor-pointer">
+                          className="my-auto mx-2 pb-1 cursor-pointer">
                           <Svg type="deleteWhite" />
                         </div>
                       </div>
@@ -138,7 +137,7 @@ const AddNewLinkDialog: React.FC<Props> = ({
                   <div className="div flex justify-end">
                     <button
                       type="button"
-                      className=" inline-flex justify-center p-2 text-sm font-medium text-blue-200 bg-gray-800 border border-transparent rounded-lg mt-1 hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                      className="inline-flex justify-center p-2 text-sm font-medium text-gray-900  border border-transparent rounded-lg mt-1 hover:glasshover focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                       onClick={() => {
                         setLinks([...links, { link: "", id: uuidv4() }]);
                       }}>
@@ -162,7 +161,7 @@ const AddNewLinkDialog: React.FC<Props> = ({
                 <div className="mt-4">
                   <button
                     type="button"
-                    className="mr-3 inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-200 bg-gray-800 border border-transparent rounded-md hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    className="mr-3 inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 placeholder-gray-900 bg-transparent border border-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 rounded"
                     onClick={() => {
                       addHandler();
                       cleanUpHandler();
@@ -171,7 +170,7 @@ const AddNewLinkDialog: React.FC<Props> = ({
                   </button>
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-red-200 bg-gray-800 border border-transparent rounded-md hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    className="mr-3 inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 placeholder-gray-900 bg-transparent border border-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 rounded"
                     onClick={() => {
                       cleanUpHandler();
                     }}>

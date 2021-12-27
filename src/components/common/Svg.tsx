@@ -102,7 +102,7 @@ const Svg: React.FC<Props> = ({ type }) => {
       {type === "deleteWhite" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-gray-200  hover:text-gray-800"
+          className="h-6 w-6 text-gray-800  hover:text-gray-200"
           viewBox="0 0 20 20"
           fill="currentColor">
           <path

@@ -110,11 +110,17 @@ const Home = () => {
     getUserTodo();
   }, []);
 
-  // axios
-  //   .get(
-  //     `https://api.unsplash.com/photos/random?query=landscape&orientation=landscape&client_id=${process.env.REACT_APP_UNSPLASH_SECRET_ID}`
-  //   )
-  //   .then(response => console.log(response.data));
+  // useEffect(() => {
+  //   try {
+  //     axios
+  //       .get(
+  //         `https://api.unsplash.com/photos/random?query=desert&orientation=landscape&client_id=${process.env.REACT_APP_UNSPLASH_SECRET_ID}`
+  //       )
+  //       .then(response => console.log(response.data));
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }, []);
 
   return (
     <div
