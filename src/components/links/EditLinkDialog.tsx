@@ -128,10 +128,10 @@ const EditLinkDialog: React.FC<Props> = ({
               leave="ease-in duration-200"
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95">
-              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-gray-900 rounded-lg shadow-xl border-2 border-gray-800 hover:border-indigo-400">
+              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform glasshover rounded-lg shadow-xl border-0 border-gray-900">
                 <Dialog.Title
                   as="h3"
-                  className="text-lg font-medium leading-6 text-white">
+                  className="text-lg font-bold leading-6 text-gray-900 ">
                   Edit link.
                 </Dialog.Title>
                 <div className="mt-2">
@@ -140,12 +140,12 @@ const EditLinkDialog: React.FC<Props> = ({
                     onChange={e => setTitle(e.target.value)}
                     value={title}
                     placeholder="Link title"
-                    className="px-3 py-2 mt-3 mb-1 border-opacity-50  placeholder-blueGray-300 text-blueGray-600 relative bg-gray-800 border-none text-white rounded text-base border-0 outline-none focus:outline-none focus:ring w-full"
+                    className="px-3 py-2 mt-3 mb-1 border-opacity-50  placeholder-blueGray-300 text-blueGray-600 relative bg-transparent border border-gray-900 text-gray-900 rounded text-base  outline-none focus:outline-none focus:ring w-full"
                   />
                   {urls.map((link: any) => {
                     return (
                       <div key={link.id}>
-                        <div className="div flex justify-between bg-gray-800 rounded-lg mb-1 cursor-pointer">
+                        <div className="div flex justify-between bg-transparent rounded border border-gray-900 text-gray-900 mb-1 cursor-pointer">
                           <div
                             className="flex"
                             onClick={() =>
@@ -157,7 +157,7 @@ const EditLinkDialog: React.FC<Props> = ({
                               src={`https://s2.googleusercontent.com/s2/favicons?domain_url=https://${link.link}`}
                               alt="favicon"
                             />
-                            <h1 className="px-3 py-2 border-2  border-opacity-50  placeholder-blueGray-300 text-blueGray-600 relative bg-gray-800 border-none rounded text-white text-base border-0 outline-none focus:outline-none focus:ring w-full">
+                            <h1 className="px-3 py-2 border-2  border-opacity-50  placeholder-blueGray-300 text-blueGray-600 relative border-none rounded text-gray-900 text-base border-0 outline-none focus:outline-none focus:ring w-full">
                               {link.link.length > 45
                                 ? `${link.link.substring(0, 45)}...`
                                 : link.link}
@@ -165,7 +165,7 @@ const EditLinkDialog: React.FC<Props> = ({
                           </div>
                           <div
                             onClick={() => linksDeleteHandler(link.id)}
-                            className="my-auto mx-2 pb-1 flex justify-between bg-gray-800">
+                            className="my-auto mx-2 pb-1 flex justify-between ">
                             <Svg type="deleteWhite" />
                           </div>
                         </div>
@@ -177,17 +177,17 @@ const EditLinkDialog: React.FC<Props> = ({
                       return (
                         <div
                           key={link.id}
-                          className="div flex justify-between bg-gray-800 rounded-lg mb-1 cursor-pointer">
+                          className="div flex justify-between bg-transparent rounded border border-gray-900 mb-1 cursor-pointer">
                           <input
                             placeholder="add new link"
                             onChange={e =>
                               inputOnchangeHandler(link.id, e.target.value)
                             }
-                            className="px-3 py-2 border-2  border-opacity-50  placeholder-blueGray-300 text-blueGray-600 relative bg-gray-800 border-none rounded text-white text-base border-0 outline-none focus:outline-none focus:ring w-full"
+                            className="px-3 py-2 mt-3 mb-1 border-opacity-50  placeholder-gray-900 relative bg-transparent border border-gray-900 rounded text-gray-900 text-base outline-none focus:outline-none focus:ring w-full"
                           />
                           <div
                             onClick={() => inputDeleteHandler(link.id)}
-                            className="my-auto mx-2 pb-1 flex justify-between bg-gray-800">
+                            className="my-auto mx-2 pb-1 flex justify-between bg-transparent">
                             <Svg type="deleteWhite" />
                           </div>
                         </div>
@@ -197,7 +197,7 @@ const EditLinkDialog: React.FC<Props> = ({
                   <div className="div flex justify-end">
                     <button
                       type="button"
-                      className=" inline-flex justify-center p-2 text-sm font-medium text-blue-200 bg-gray-800 border border-transparent rounded-lg mt-1 hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                      className="inline-flex justify-center p-2 text-sm font-medium text-gray-900  border border-transparent rounded-lg mt-1 hover:glasshover focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                       onClick={() => {
                         setLinksCount(linksCount + 1);
                         setLinkAdded([
@@ -213,7 +213,7 @@ const EditLinkDialog: React.FC<Props> = ({
                 <div className="mt-4">
                   <button
                     type="button"
-                    className="mr-3 inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-200 bg-gray-800 border border-transparent rounded-md hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    className="mr-3 inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 placeholder-gray-900 bg-transparent border border-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 rounded"
                     onClick={() => {
                       editHandler();
                       closeModal();
@@ -222,7 +222,7 @@ const EditLinkDialog: React.FC<Props> = ({
                   </button>
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-red-200 bg-gray-800 border border-transparent rounded-md hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    className="mr-3 inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 placeholder-gray-900 bg-transparent border border-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 rounded"
                     onClick={() => {
                       closeModal();
                     }}>
