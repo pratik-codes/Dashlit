@@ -40,5 +40,17 @@ export const user_setting = [
     name: "Show search",
     description: "Disable if you dont want to see search on the home screen",
     isToggled: true
+  },
+  {
+    type: "picture-source-settings",
+    name: "Enable public picture",
+    description: "Disable if you dont want to receive public picture on home.",
+    isToggled: true
+  },
+  {
+    type: "quotes-source-settings",
+    name: "Enable public quotes",
+    description: "Disable if you dont want to receive public quotes on home.",
+    isToggled: true
   }
 ];

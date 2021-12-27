@@ -31,7 +31,7 @@ const PreferenceToggleContent: React.FC<Props> = ({
   }, []);
 
   return (
-    <div className="glasshover p-3">
+    <div className="glasshover p-3 h-full">
       <div className="flex justify-between">
         <div>
           <Svg type={preferenceType} />

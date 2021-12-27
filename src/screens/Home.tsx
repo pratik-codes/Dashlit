@@ -152,12 +152,12 @@ const Home = () => {
         {getPreferenceValue("search-settings") === true && (
           <input
             placeholder="Search"
-            className=" text-white absolute top-0 left-0 ml-24 mt-3 p-2 bg-transparent border-b border-gray-500 hover:border-white focus:outline-none"
+            className=" text-white absolute top-0 left-0 ml-20 mt-3 p-2 bg-transparent border-b border-gray-500 hover:border-white focus:outline-none"
             onChange={(e: any) => setSearchValue(e.target.value)}
             onKeyPress={e =>
               e.key === "Enter" &&
               window.open(
-                `http://www.google.com/search?q=' + ${searchValue}`,
+                `https://www.google.com/search?q=+ ${searchValue}`,
                 "_blank"
               )
             }

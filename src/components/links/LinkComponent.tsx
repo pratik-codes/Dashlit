@@ -48,7 +48,7 @@ const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
 
   return (
     <>
-      <div className="flex glasslink p-2 ">
+      <div className="flex glasslink p-2">
         <div onClick={() => clickHandler()} className="flex w-full">
           {type === "folder" ? (
             <svg

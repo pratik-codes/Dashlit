@@ -6,7 +6,7 @@ const LinkSvg = () => {
     <div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-5 w-5"
+        className="cursor-pointer h-5 w-5"
         viewBox="0 0 20 20"
         fill="currentColor">
         <path
@@ -24,7 +24,7 @@ const SettingsSvg = () => {
     <div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-5 w-5"
+        className="cursor-pointer h-5 w-5"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor">
@@ -58,7 +58,7 @@ const Svg: React.FC<Props> = ({ type }) => {
         <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
+            className="cursor-pointer h-5 w-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor">
@@ -74,7 +74,7 @@ const Svg: React.FC<Props> = ({ type }) => {
       {type === "todo" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
+          className="cursor-pointer h-5 w-5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -89,7 +89,7 @@ const Svg: React.FC<Props> = ({ type }) => {
       {type === "deleteEdited" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-gray-800 editlink hidden hover:text-gray-300"
+          className="cursor-pointer h-6 w-6 text-gray-800 editlink hidden hover:text-gray-300"
           viewBox="0 0 20 20"
           fill="currentColor">
           <path
@@ -102,7 +102,7 @@ const Svg: React.FC<Props> = ({ type }) => {
       {type === "deleteWhite" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-gray-800  hover:text-gray-200"
+          className="cursor-pointer h-6 w-6 text-gray-800  hover:text-gray-200"
           viewBox="0 0 20 20"
           fill="currentColor">
           <path
@@ -115,7 +115,7 @@ const Svg: React.FC<Props> = ({ type }) => {
       {type === "deleteTodoComponent" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5 ml-1 my-auto text-gray-900  hover:text-gray-100"
+          className="cursor-pointer h-5 w-5 text-gray-900  hover:text-gray-100"
           viewBox="0 0 20 20"
           fill="currentColor">
           <path
@@ -128,7 +128,7 @@ const Svg: React.FC<Props> = ({ type }) => {
       {type === "edit" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 p-1 my-auto text-gray-900 editlink hidden hover:text-gray-400"
+          className="cursor-pointer h-6 w-6 p-1 my-auto text-gray-900 editlink hidden hover:text-gray-400"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -143,7 +143,7 @@ const Svg: React.FC<Props> = ({ type }) => {
       {type === "editTodo" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 p-1 text-gray-900  hover:text-gray-400"
+          className="cursor-pointer h-6 w-6 p-1 mb-1 text-gray-900  hover:text-gray-400"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -158,7 +158,7 @@ const Svg: React.FC<Props> = ({ type }) => {
       {type === "add" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 my-auto"
+          className="cursor-pointer h-6 w-6 my-auto"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -173,7 +173,7 @@ const Svg: React.FC<Props> = ({ type }) => {
       {type === "dropdown" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4 text-gray-900 hover:text-white font-bold"
+          className="cursor-pointer h-4 w-4 text-gray-900 hover:text-white font-bold"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -188,7 +188,7 @@ const Svg: React.FC<Props> = ({ type }) => {
       {type === "settingsBig" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 ml-2"
+          className="cursor-pointer h-6 w-6 ml-2"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -209,7 +209,7 @@ const Svg: React.FC<Props> = ({ type }) => {
       {type === "clock-settings" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8"
+          className="cursor-pointer h-8 w-8"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -224,7 +224,7 @@ const Svg: React.FC<Props> = ({ type }) => {
       {type === "date-settings" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8"
+          className="cursor-pointer h-8 w-8"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -239,7 +239,7 @@ const Svg: React.FC<Props> = ({ type }) => {
       {type === "quotes-settings" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8"
+          className="cursor-pointer h-8 w-8"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -254,7 +254,7 @@ const Svg: React.FC<Props> = ({ type }) => {
       {type === "links-settings" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8"
+          className="cursor-pointer h-8 w-8"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -269,7 +269,7 @@ const Svg: React.FC<Props> = ({ type }) => {
       {type === "todo-settings" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8"
+          className="cursor-pointer h-8 w-8"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -284,7 +284,7 @@ const Svg: React.FC<Props> = ({ type }) => {
       {type === "weather-settings" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8"
+          className="cursor-pointer h-8 w-8"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -299,7 +299,7 @@ const Svg: React.FC<Props> = ({ type }) => {
       {type === "logout" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
+          className="cursor-pointer h-5 w-5"
           viewBox="0 0 20 20"
           fill="currentColor">
           <path
@@ -312,7 +312,7 @@ const Svg: React.FC<Props> = ({ type }) => {
       {type === "search-settings" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 font-bold"
+          className="cursor-pointer h-6 w-6 font-bold"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -321,6 +321,62 @@ const Svg: React.FC<Props> = ({ type }) => {
             strokeLinejoin="round"
             strokeWidth={3}
             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          />
+        </svg>
+      )}
+      {type === "picture-source-settings" && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="cursor-pointer h-8 w-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+          />
+        </svg>
+      )}
+      {type === "quotes-source-settings" && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="cursor-pointer h-8 w-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+          />
+        </svg>
+      )}
+      {type === "heart" && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="cursor-pointer h-5 w-5 text-gray-900"
+          viewBox="0 0 20 20"
+          fill="currentColor">
+          <path
+            fillRule="evenodd"
+            d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+            clipRule="evenodd"
+          />
+        </svg>
+      )}
+      {type === "heart-red" && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="cursor-pointer h-5 w-5 text-red-900"
+          viewBox="0 0 20 20"
+          fill="currentColor">
+          <path
+            fillRule="evenodd"
+            d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+            clipRule="evenodd"
           />
         </svg>
       )}
