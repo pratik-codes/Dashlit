@@ -49,7 +49,7 @@ const SignIn: React.FC<signInProps> = ({ setActiveView }) => {
             Email
           </label>
           <input
-            className="bg-gray-800 border-gray-800 shadow appearance-none border w-full p-3  mb-3 rounded-lg focus:outline-none focus:shadow-outline"
+            className="bg-gray-800 text-gray-400 border-gray-800 shadow appearance-none border w-full p-3  mb-3 rounded-lg focus:outline-none focus:shadow-outline"
             id="Email"
             type="text"
             onChange={(e: any) => setEmail(e.target.value)}
@@ -63,7 +63,7 @@ const SignIn: React.FC<signInProps> = ({ setActiveView }) => {
             Password
           </label>
           <input
-            className="bg-gray-800 border-gray-800 shadow appearance-none border w-full p-3 mb-3 rounded-lg focus:outline-none focus:shadow-outline"
+            className="bg-gray-800 text-gray-400 border-gray-800 shadow appearance-none border w-full p-3 mb-3 rounded-lg focus:outline-none focus:shadow-outline"
             id="password"
             type="password"
             onChange={(e: any) => setPassword(e.target.value)}

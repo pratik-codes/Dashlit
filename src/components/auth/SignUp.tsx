@@ -21,7 +21,9 @@ const SignUp: React.FC<signUpProps> = ({ setActiveView }) => {
       setMessage("Sign Up Successful, Please proceed with signin");
       setColor("#1A202C");
       setSnackbar(true);
-      // window.location.reload();
+      setTimeout(() => {
+        setActiveView("signin");
+      }, 2000);
     } else {
       setMessage(res.error);
       setColor("#600709");
