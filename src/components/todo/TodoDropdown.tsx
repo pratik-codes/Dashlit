@@ -15,6 +15,7 @@ import Loader from "../common/Loader";
 const TodoDropdown = () => {
   const [openDropDown, setOpenDropDown] = useState(false);
   const [addTodoValue, setAddTodoValue] = useState("");
+  const [addTodo, setAddTodo] = useState(false);
 
   const TodoDataRedux: any = useSelector(
     (state: RootStore) => state.userTodoData
@@ -39,71 +40,72 @@ const TodoDropdown = () => {
         className={` ${
           openDropDown === true ? "" : "hidden"
         }  text-gray-700 pt-4 absolute bottom-0 right-0 mb-16 mr-6 `}>
-        <ul className="glasstodo">
+        <ul className="glasstodo w-full h-full">
           <div
             style={{
-              minWidth: "20rem",
-              minHeight: "15rem",
+              minWidth: "25rem",
+              minHeight: "20rem",
               maxHeight: "20rem",
               overflowY: "auto",
               overflowX: "hidden"
             }}
-            className=" w-full">
+            className="w-full">
             <div className="flex my-auto ">
               <h1 className="font-bold text-gray-900 m-2 text-lg">Today</h1>
               <div className="div my-auto">
                 <Svg type="dropdown" />
               </div>
             </div>
-            <div style={{ maxHeight: "15rem" }}>
-              {TodoDataRedux.data ? (
-                TodoDataRedux.data.map((link: any) => {
-                  return (
-                    <li key={link.id}>
-                      <TodoComponent
-                        todoId={link.id}
-                        todoName={link.data.todoName}
-                        checked={link.data.checked}
-                      />
-                    </li>
-                  );
-                })
-              ) : (
-                <Loader />
-              )}
-
+            <div className="w-full h-full ">
+              <div style={{ maxHeight: "15rem", maxWidth: "19.5rem" }}>
+                {TodoDataRedux.data ? (
+                  TodoDataRedux.data.map((link: any) => {
+                    return (
+                      <li className="w-full" key={link.id}>
+                        <TodoComponent
+                          todoId={link.id}
+                          todoName={link.data.todoName}
+                          checked={link.data.checked}
+                        />
+                      </li>
+                    );
+                  })
+                ) : (
+                  <Loader />
+                )}
+              </div>
               {TodoDataRedux.loading === false &&
                 TodoDataRedux.data.length === 0 && (
-                  <div className="div flex justify-center items-center h-full">
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <h1 className="text-sm my-auto text-gray-900 font-bold">
+                  <div className="absolute inset-0 flex w-full h-full justify-center items-center">
+                    <h1 className="text-sm my-auto text-gray-900">
                       No Todo found.
                     </h1>
                     <button
-                      onClick={() => inputRef.current.focus()}
-                      className="p-1 font-bold rounded-full text-indigo-700 text-sm focus:outline-none">
+                      onClick={() => {
+                        setAddTodo(true);
+                        setTimeout(() => {
+                          inputRef.current.focus();
+                        }, 500);
+                      }}
+                      className=" ml-2 p-1 font-bold rounded-full text-white bg-gray-900 px-2 text-sm focus:outline-none">
                       Add todo
                     </button>
                   </div>
                 )}
             </div>
           </div>
-          <div>
-            <input
-              className="w-full p-1 border-none focus:outline-none bg-transparent m-1 text-white"
-              placeholder="add todo"
-              ref={inputRef}
-              value={addTodoValue}
-              onChange={e => setAddTodoValue(e.target.value)}
-              onKeyPress={e => e.key === "Enter" && addTodoHandler()}
-            />
-          </div>
+          {addTodo && (
+            <div>
+              <input
+                className="w-full p-1 border-none focus:outline-none bg-transparent m-1 text-white"
+                placeholder="add todo"
+                ref={inputRef}
+                value={addTodoValue}
+                onChange={e => setAddTodoValue(e.target.value)}
+                onKeyPress={e => e.key === "Enter" && addTodoHandler()}
+              />
+            </div>
+          )}
         </ul>
       </div>
     </div>

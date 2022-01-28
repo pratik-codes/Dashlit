@@ -9,6 +9,8 @@ import { getLinksList } from "../../Redux/Actions/User.actions";
 import Svg from "../common/Svg";
 import SettingsCategories from "./SettingsCategories";
 import { logoutHandler } from "../../firebase/functions/AuthActions";
+import Sidebar from "./Sidebar";
+import CatergoryContent from "./CatergoryContent";
 
 interface Props {
   isOpen: boolean;
@@ -21,71 +23,64 @@ const SettingsModal: React.FC<Props> = ({ isOpen, closeModal, openModal }) => {
   const [snackbar, setSnackbar] = useState(false);
   const [message, setMessage] = useState("");
   const [color, setColor] = useState("#1A202C");
+  const [view, setView] = useState("Preferences");
 
   const dispatch = useDispatch();
 
   const cleanUpHandler = () => {
     closeModal();
   };
-
+  //   className="leading-6 text-gray-900 text-3xl font-bold flex">
+  //   Settings
+  // </>
+  // <div className="flex">
+  //   <div
+  //     onClick={() => {
+  //       logoutHandler();
+  //       window.location.reload();
+  //     }}
+  //     className="flex px-2 py-1 text-sm font-bold text-bg-gray-900 focus:outline-none cursor-pointer border border-gray-900 rounded-lg">
+  //     <Svg type="logout" />
+  //   </div>
+  //     <div
+  //       onClick={closeModal}
+  //       className="ml-2 flex px-2 py-1 text-sm font-bold text-bg-gray-900 focus:outline-none cursor-pointer border border-gray-900 rounded-lg">
+  //       <Svg type="modal-close" />
+  //     </div>
+  //   </div>
+  // </div>
+  // <br />
   return (
     <>
-      <Transition appear show={isOpen} as={Fragment}>
-        <Dialog
-          as="div"
-          className="fixed inset-0 z-10 overflow-y-auto rounded-lg w-full h-full"
-          onClose={closeModal}>
-          <div className="min-h-screen px-4 text-center">
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0">
-              <Dialog.Overlay className="fixed inset-0" />
-            </Transition.Child>
-
-            {/* This element is to trick the browser into centering the modal contents. */}
-            <span
-              className="inline-block  h-screen align-middle"
-              aria-hidden="true">
-              &#8203;
-            </span>
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95">
-              <div className="inline-block w-8/12 p-6 my-8 overflow-hidden text-left align-middle transition-all transform shadow-xl rounded-lg glass">
-                <div style={{ height: "35rem" }}>
-                  <div className="flex justify-between">
-                    <Dialog.Title
-                      as="h3"
-                      className="leading-6 text-gray-900 text-3xl font-bold flex">
-                      Settings
-                    </Dialog.Title>
-                    <div
-                      onClick={() => {
-                        logoutHandler();
-                        window.location.reload();
-                      }}
-                      className="flex px-2 py-1 text-sm font-bold text-bg-gray-900 focus:outline-none cursor-pointer border border-gray-900 rounded-lg">
-                      <Svg type="logout" />
-                    </div>
-                  </div>
-                  <br />
-                  <SettingsCategories />
-                </div>
+      {isOpen && (
+        <div className="absolute top-0 bottom-0 left-0 right-0  my-16 ml-6 glasshover w-10/12 h-10/12 overflow-hidden">
+          <div className="absolute top-0 w-full">
+            <div className="flex justify-between">
+              {/* top area */}
+              <div className="leading-6 text-gray-900 text-3xl font-bold flex m-8">
+                Settings
               </div>
-            </Transition.Child>
+              <div
+                onClick={() => {
+                  logoutHandler();
+                  window.location.reload();
+                }}
+                className="flex px-2 h-8  mr-6 my-auto py-1 text-sm font-bold text-bg-gray-900 focus:outline-none cursor-pointer border border-gray-900 rounded-lg">
+                <Svg type="logout" />
+              </div>
+            </div>
+            {/* left side */}
+            <div className="flex">
+              <div className="h-full  w-2/12">
+                <Sidebar setView={setView} />
+              </div>
+              <div className="h-screen w-10/12 m-0 overflow-auto">
+                <CatergoryContent type={view} />
+              </div>
+            </div>
           </div>
-        </Dialog>
-      </Transition>
+        </div>
+      )}
       <SnackbarComponent
         message={message}
         color={color}

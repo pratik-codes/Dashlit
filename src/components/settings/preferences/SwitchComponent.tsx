@@ -9,7 +9,7 @@ interface Props {
 const SwitchComponent: React.FC<Props> = ({ enabled, setEnabled }) => {
   return (
     <div className="ml-2 mt-2 p-2">
-      <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in border border-gray-900 rounded-full">
+      <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in rounded-full">
         <input
           type="checkbox"
           name="toggle"
