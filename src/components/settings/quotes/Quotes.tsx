@@ -3,7 +3,7 @@ import QuotesTabs from "./QuotesTabs";
 
 const Quotes = () => {
   return (
-    <div>
+    <div className="flex w-full">
       <QuotesTabs />
     </div>
   );

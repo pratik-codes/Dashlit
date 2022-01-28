@@ -3,6 +3,7 @@ import React from "react";
 import Auth from "./screens/Auth";
 import Home from "./screens/Home";
 import "./styles/index.css";
+import "antd/dist/antd.css";
 
 const App = () => {
   const user_uid = localStorage.getItem("user_uid");

@@ -7,7 +7,7 @@ interface Props {
 
 const Sidebar: React.FC<Props> = ({ setView }) => {
   return (
-    <div className="">
+    <div className="p-4">
       <CategoryButtons name="Preferences" setView={setView} />
       <CategoryButtons name="Background" setView={setView} />
       <CategoryButtons name="Quotes" setView={setView} />

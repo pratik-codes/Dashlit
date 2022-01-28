@@ -52,5 +52,35 @@ export const user_setting = [
     name: "Enable public quotes",
     description: "Disable if you dont want to receive public quotes on home.",
     isToggled: true
+  },
+  {
+    type: "todo-settings",
+    name: "Show todo",
+    description: "Disable if you dont want to see todo on the home screen",
+    isToggled: true
+  },
+  {
+    type: "weather-settings",
+    name: "Show weather",
+    description: "Disable if you dont want to see weather on the home screen",
+    isToggled: true
+  },
+  {
+    type: "search-settings",
+    name: "Show search",
+    description: "Disable if you dont want to see search on the home screen",
+    isToggled: true
+  },
+  {
+    type: "picture-source-settings",
+    name: "Enable public picture",
+    description: "Disable if you dont want to receive public picture on home.",
+    isToggled: true
+  },
+  {
+    type: "quotes-source-settings",
+    name: "Enable public quotes",
+    description: "Disable if you dont want to receive public quotes on home.",
+    isToggled: true
   }
 ];

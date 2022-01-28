@@ -114,9 +114,15 @@ const Home = () => {
   //   try {
   //     axios
   //       .get(
-  //         `https://api.unsplash.com/photos/random?query=desert&orientation=landscape&client_id=${process.env.REACT_APP_UNSPLASH_SECRET_ID}`
+  //         `https://api.unsplash.com/photos/random?query=mountains&orientation=landscape&client_id=${process.env.REACT_APP_UNSPLASH_SECRET_ID}`
   //       )
-  //       .then(response => console.log(response.data));
+  //       .then(response => {
+  //         if (response.data.links) {
+  //           console.log(response.data.links);
+  //           console.log(response.data.links.download);
+  //           console.log(response.data.links.html);
+  //         }
+  //       });
   //   } catch (err) {
   //     console.log(err);
   //   }
@@ -125,7 +131,7 @@ const Home = () => {
   return (
     <div
       style={{
-        backgroundImage: `url(https://unsplash.com/photos/qfmd9bu7IgA/download?ixid=MnwyODI1MTF8MHwxfHJhbmRvbXx8fHx8fHx8fDE2Mzk5MTc0OTU)`,
+        backgroundImage: `url(https://images.unsplash.com/photo-1491613993002-8956ec08fddc?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb)`,
         backgroundSize: "cover"
       }}
       className="w-full h-screen">

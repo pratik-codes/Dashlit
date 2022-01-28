@@ -29,26 +29,28 @@ const Preference = () => {
   };
 
   return (
-    <div className="grid grid-cols-3 gap-4">
-      {settingsData ? (
-        settingsData.map((setting: any) => {
-          return (
-            <div key={setting.type}>
-              <PreferenceToggleContent
-                preferenceType={setting.type}
-                isToggled={setting.isToggled}
-                title={setting.name}
-                description={setting.description}
-                changePreference={changePreference}
-              />
-            </div>
-          );
-        })
-      ) : (
-        <div>
-          <Loader />
-        </div>
-      )}
+    <div className=" h-full">
+      <div className="grid grid-cols-3 gap-4">
+        {settingsData ? (
+          settingsData.map((setting: any) => {
+            return (
+              <div key={setting.type}>
+                <PreferenceToggleContent
+                  preferenceType={setting.type}
+                  isToggled={setting.isToggled}
+                  title={setting.name}
+                  description={setting.description}
+                  changePreference={changePreference}
+                />
+              </div>
+            );
+          })
+        ) : (
+          <div>
+            <Loader />
+          </div>
+        )}
+      </div>
     </div>
   );
 };

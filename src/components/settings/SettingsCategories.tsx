@@ -7,7 +7,7 @@ const SettingsCategories = () => {
 
   return (
     <div>
-      <div className="div flex text-gray-900 ">
+      <div className=" div flex text-gray-900 ">
         <div className="div w-2/12">
           <Sidebar setView={setView} />
         </div>
