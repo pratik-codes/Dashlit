@@ -44,7 +44,7 @@ const TodoComponent: React.FC<todo> = ({ todoId, todoName, checked }) => {
 
   return (
     <div className="todo flex justify-start m-1 w-full">
-      <div className="w-full">
+      <div className="">
         <input
           className=" mx-2 mt-1 border-0 outline-none focus:outline-none transition duration-200"
           onClick={() => {
@@ -71,7 +71,7 @@ const TodoComponent: React.FC<todo> = ({ todoId, todoName, checked }) => {
             onKeyPress={e => e.key === "Enter" && editHandler()}
           />
         ) : (
-          <h1 className="w-full">{todoName}</h1>
+          <h1 className="">{todoName}</h1>
         )}
       </div>
       <div className="tododelete hidden">

@@ -28,7 +28,9 @@ const LinksDropdown: React.FC<any> = () => {
   return (
     // add "dropdown" to the first div if want to enable hover to show dialog
     <div className="inline-block relative mb-4">
-      <div onClick={() => setOpenDialog(!openDialog)}>
+      <div
+        // onKeyPress={e => e.key === "p" && setOpenDialog(!openDialog)}pp
+        onClick={() => setOpenDialog(!openDialog)}>
         <SvgButton type="link" position="top-0 left-0" />
       </div>
       {openDialog && (

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { signInHandler } from "../../firebase/functions/AuthActions";
-import SnackbarComponent from "../common/SnackbarComponent";
+import { snackbar } from "../common/snackbar";
 
 export interface signInProps {
   setActiveView: any;
@@ -10,32 +10,19 @@ export interface signInProps {
 const SignIn: React.FC<signInProps> = ({ setActiveView }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [snackbar, setSnackbar] = useState(false);
-  const [message, setMessage] = useState("");
-  const [color, setColor] = useState("");
 
   const clickHandler = async () => {
     const res = await signInHandler(email, password);
     if (res.success) {
-      setMessage("Sign In Successful");
-      setColor("#1A202C");
-      setSnackbar(true);
+      snackbar("Success", "Sign in successful", "success");
       window.location.reload();
     } else {
-      setMessage(res.error);
-      setColor("#600709");
-      setSnackbar(true);
+      snackbar("failed", res.error, "fail");
     }
   };
 
   return (
     <div className="w-full">
-      <SnackbarComponent
-        message={message}
-        color={color}
-        setOpen={snackbar}
-        setSnackbarOpen={setSnackbar}
-      />
       <form className="pt-6 pb-8 mb-4">
         <h1 className="font-bold text-white text-3xl">Hi, Welcome Back!</h1>
         <p className="text-sm text-gray-500 text-opacity-60	">
