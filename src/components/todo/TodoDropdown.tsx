@@ -43,9 +43,9 @@ const TodoDropdown = () => {
         <ul className="glasstodo w-full h-full">
           <div
             style={{
-              minWidth: "25rem",
-              minHeight: "20rem",
-              maxHeight: "20rem",
+              minWidth: "20rem",
+              minHeight: "15rem",
+              maxHeight: "25rem",
               overflowY: "auto",
               overflowX: "hidden"
             }}
@@ -56,8 +56,8 @@ const TodoDropdown = () => {
                 <Svg type="dropdown" />
               </div>
             </div>
-            <div className="w-full h-full ">
-              <div style={{ maxHeight: "15rem", maxWidth: "19.5rem" }}>
+            <div className="w-full h-full">
+              <div>
                 {TodoDataRedux.data ? (
                   TodoDataRedux.data.map((link: any) => {
                     return (
@@ -94,18 +94,16 @@ const TodoDropdown = () => {
                 )}
             </div>
           </div>
-          {addTodo && (
-            <div>
-              <input
-                className="w-full p-1 border-none focus:outline-none bg-transparent m-1 text-white"
-                placeholder="add todo"
-                ref={inputRef}
-                value={addTodoValue}
-                onChange={e => setAddTodoValue(e.target.value)}
-                onKeyPress={e => e.key === "Enter" && addTodoHandler()}
-              />
-            </div>
-          )}
+          <div>
+            <input
+              className="w-full p-1 border-none focus:outline-none bg-transparent m-1 text-white"
+              placeholder="add todo"
+              ref={inputRef}
+              value={addTodoValue}
+              onChange={e => setAddTodoValue(e.target.value)}
+              onKeyPress={e => e.key === "Enter" && addTodoHandler()}
+            />
+          </div>
         </ul>
       </div>
     </div>

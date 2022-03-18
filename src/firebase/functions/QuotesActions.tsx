@@ -149,7 +149,8 @@ export const getAllPublicQuotesService = async (): Promise<any> => {
 
 // // ====================== add a quote my quote fav  ==============================
 
-let FavColRef = collection(docref, "favorite");
+let FavColRef: any;
+if (userId) FavColRef = collection(docref, "favorite");
 
 // basic post function
 // function to add my quotes to the database

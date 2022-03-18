@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import { signUpHandler } from "../../firebase/functions/AuthActions";
-import SnackbarComponent from "../common/SnackbarComponent";
+import { snackbar } from "../common/snackbar";
 export interface signUpProps {
   setActiveView: any;
 }
@@ -11,35 +11,27 @@ const SignUp: React.FC<signUpProps> = ({ setActiveView }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [snackbar, setSnackbar] = useState(false);
   const [message, setMessage] = useState("");
-  const [color, setColor] = useState("");
 
   const clickHandler = async () => {
     const res = await signUpHandler(email, password, confirmPassword);
     if (res.success) {
-      setMessage("Sign Up Successful, Please proceed with signin");
-      setColor("#1A202C");
-      setSnackbar(true);
+      snackbar(
+        "Success",
+        "Sign Up Successful, Please proceed with signin",
+        "success"
+      );
       setTimeout(() => {
         setActiveView("signin");
       }, 2000);
     } else {
-      setMessage(res.error);
-      setColor("#600709");
-      setSnackbar(true);
+      snackbar("failed", res.error, "fail");
     }
   };
 
   return (
     <>
       <div className="w-full">
-        <SnackbarComponent
-          message={message}
-          color={color}
-          setOpen={snackbar}
-          setSnackbarOpen={setSnackbar}
-        />
         <form className="pt-6  mb-4">
           <h1 className="font-bold text-white text-3xl">Hi, Welcome!</h1>
           <p className="text-sm text-gray-400 text-opacity-60	">

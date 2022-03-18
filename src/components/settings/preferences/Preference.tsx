@@ -30,7 +30,7 @@ const Preference = () => {
 
   return (
     <div className=" h-full">
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-4 mb-12">
         {settingsData ? (
           settingsData.map((setting: any) => {
             return (

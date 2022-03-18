@@ -21347,7 +21347,7 @@ a {
 
 #clock {
   font-family: sans-serif;
-  font-size: 150px;
+  font-size: 140px;
   text-shadow: 0px 0px 1px #fff;
   color: #fff;
 }
@@ -21368,7 +21368,7 @@ a {
 
 #date {
   letter-spacing: 3px;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
   font-family: arial, sans-serif;
   color: #fff;
