@@ -3,7 +3,7 @@ import SvgButton from "../button/SvgButton";
 import SettingsModal from "./SettingsModal";
 
 const SettingsDropdown = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
 
   function closeModal() {

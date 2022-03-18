@@ -43,7 +43,7 @@ const TodoComponent: React.FC<todo> = ({ todoId, todoName, checked }) => {
   }, [editTodo]);
 
   return (
-    <div className="todo flex justify-start m-1 w-full">
+    <div className="todo flex h-6 justify-start m-1 w-full">
       <div className="">
         <input
           className=" mx-2 mt-1 border-0 outline-none focus:outline-none transition duration-200"
@@ -71,7 +71,14 @@ const TodoComponent: React.FC<todo> = ({ todoId, todoName, checked }) => {
             onKeyPress={e => e.key === "Enter" && editHandler()}
           />
         ) : (
-          <h1 className="">{todoName}</h1>
+          <h1
+            onClick={() => {
+              setIsChecked(!isChecked);
+              setEditTodo(false);
+            }}
+            className="cursor-pointer">
+            {todoName}
+          </h1>
         )}
       </div>
       <div className="tododelete hidden">
@@ -82,7 +89,7 @@ const TodoComponent: React.FC<todo> = ({ todoId, todoName, checked }) => {
           }}>
           <Svg type="editTodo" />
         </div>
-        <div className="cursor-pointer" onClick={deleteHandler}>
+        <div className="cursor-pointer mr-2" onClick={deleteHandler}>
           <Svg type="deleteTodoComponent" />
         </div>
       </div>

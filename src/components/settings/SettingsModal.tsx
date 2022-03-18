@@ -30,26 +30,6 @@ const SettingsModal: React.FC<Props> = ({ isOpen, closeModal, openModal }) => {
   const cleanUpHandler = () => {
     closeModal();
   };
-  //   className="leading-6 text-gray-900 text-3xl font-bold flex">
-  //   Settings
-  // </>
-  // <div className="flex">
-  //   <div
-  //     onClick={() => {
-  //       logoutHandler();
-  //       window.location.reload();
-  //     }}
-  //     className="flex px-2 py-1 text-sm font-bold text-bg-gray-900 focus:outline-none cursor-pointer border border-gray-900 rounded-lg">
-  //     <Svg type="logout" />
-  //   </div>
-  //     <div
-  //       onClick={closeModal}
-  //       className="ml-2 flex px-2 py-1 text-sm font-bold text-bg-gray-900 focus:outline-none cursor-pointer border border-gray-900 rounded-lg">
-  //       <Svg type="modal-close" />
-  //     </div>
-  //   </div>
-  // </div>
-  // <br />
   return (
     <>
       {isOpen && (
