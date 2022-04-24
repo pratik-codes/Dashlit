@@ -161,7 +161,7 @@ const AddNewLinkDialog: React.FC<Props> = ({
                 <div className="mt-4">
                   <button
                     type="button"
-                    className="mr-3 inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 placeholder-gray-900 bg-transparent border border-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 rounded"
+                    className=" mr-3 inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 placeholder-gray-900 bg-transparent border border-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 rounded"
                     onClick={() => {
                       addHandler();
                       cleanUpHandler();

@@ -100,7 +100,7 @@ const AddQuotesModal: React.FC<Props> = ({
               leave="ease-in duration-200"
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95">
-              <div className="inline-block w-4/12 p-6 my-8 text-left align-middle overflow-y-auto transition-all transform shadow-xl rounded-lg glass">
+              <div className="inline-block w-4/12 p-6 my-8 text-left align-middle overflow-y-auto transition-all transform shadow-xl rounded glass">
                 <h1 className="font-bold text-gray-900 text-lg ">
                   {type === "add" ? "Add new quote" : "Edit quote"}
                 </h1>
@@ -109,24 +109,24 @@ const AddQuotesModal: React.FC<Props> = ({
                   value={quotes}
                   type="text"
                   placeholder="Add quote"
-                  className="p-2 my-2 text-gray-900 border border-gray-900 flex bg-transparent focus:outline-none w-full rounded-lg"
+                  className="p-2 my-2 text-gray-900 border border-gray-900 flex bg-transparent focus:outline-none w-full rounded"
                 />
                 <input
                   onChange={e => setAuthor(e.target.value)}
                   value={author}
                   type="text"
                   placeholder="Add author"
-                  className="p-2 my-2 text-gray-900 border border-gray-900 flex bg-transparent focus:outline-none w-full rounded-lg"
+                  className="p-2 my-2 text-gray-900 border border-gray-900 flex bg-transparent focus:outline-none w-full rounded"
                 />
                 <div className="flex">
                   <button
                     onClick={addQuoteHandler}
-                    className="mx-1 mt-4 p-2 text-indigo-900 bg-transparent border border-gray-900 rounded-lg font-bold focus:outline-none ">
+                    className="mt-4 mr-3 inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 placeholder-gray-900 bg-transparent border border-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 rounded">
                     add
                   </button>
                   <button
                     onClick={closeHandler}
-                    className="mx-1 mt-4  p-2 text-red-900 bg-transparent border border-gray-900 rounded-lg font-bold focus:outline-none">
+                    className="mt-4 mr-3 inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 placeholder-gray-900 bg-transparent border border-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 rounded">
                     cancel
                   </button>
                 </div>

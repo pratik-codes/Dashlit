@@ -12,7 +12,7 @@ import {
 import { db } from "../firebase-config";
 import { links } from "../../components/links/EditLinkDialog";
 import { error } from "console";
-import { snackbar } from "../../components/common/snackbar";
+import { snackbar, triggerMessage } from "../../components/common/snackbar";
 
 // global data used in the services
 const userId = localStorage.getItem("user_uid");
@@ -164,9 +164,8 @@ export const addFavoriteService = async (
     console.log(isPresent);
     if (isPresent) {
       console.log("already present");
-      snackbar(
-        "Already Present",
-        "The quote is already present in your favorite list",
+      triggerMessage(
+        "This quote is already present in your favorite list.",
         "fail"
       );
     } else {
@@ -175,6 +174,7 @@ export const addFavoriteService = async (
         quote: quote,
         author: author
       });
+      triggerMessage("Quote added to favourite.", "success");
     }
   } catch (error: any) {
     return { error: error.message };

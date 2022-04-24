@@ -10,6 +10,7 @@ import {
 } from "../../../firebase/functions/QuotesActions";
 import { getMyQuotesAction } from "../../../Redux/Actions/Quotes.actions";
 import AddQuotesModal from "./AddQuotesModal";
+import { triggerMessage } from "../../common/snackbar";
 
 interface Props {
   id: string;
@@ -36,6 +37,7 @@ const QuotesComponents: React.FC<Props> = ({
   const deleteQuote = async () => {
     deleteMyQuotesService(id);
     dispatch(getMyQuotesAction());
+    triggerMessage("Quote was set successfully", "success");
   };
 
   const favouriteClickHandler = async () => {
@@ -46,6 +48,7 @@ const QuotesComponents: React.FC<Props> = ({
     console.log("removing", id);
     deleteFavoriteService(id);
     getFavourites();
+    triggerMessage("Quote removed", "fail");
   };
 
   const contentDIV = (

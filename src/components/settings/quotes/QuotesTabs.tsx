@@ -37,7 +37,6 @@ const QuotesTabs = () => {
 
   const getFavouriteQuotes = async () => {
     const res = await getFavouriteService();
-    console.log(res);
     setFavQuotes(res);
   };
 
