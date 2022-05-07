@@ -1,3 +1,4 @@
+import { duration } from "@material-ui/core";
 import { notification } from "antd";
 import { message } from "antd";
 
@@ -16,7 +17,6 @@ export const snackbar = (
 };
 
 export const triggerMessage = (text: string, type: string) => {
-  console.log(text, type);
   if (type === "success") message.success(text);
   if (type === "fail") message.error(text);
   if (type === "info") message.info(text);

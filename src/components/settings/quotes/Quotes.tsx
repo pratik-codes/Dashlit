@@ -1,5 +1,5 @@
 import React from "react";
-import QuotesTabs from "./QuotesTabs";
+import QuotesTabs from "./components/QuotesTabs";
 
 const Quotes = () => {
   return (

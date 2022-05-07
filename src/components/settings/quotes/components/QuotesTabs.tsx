@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Tab } from "@headlessui/react";
 import AddQuotesModal from "./AddQuotesModal";
-import Svg from "../../common/Svg";
+import Svg from "../../../common/Svg";
 import {
   getAllPublicQuotesService,
   getFavouriteService
-} from "../../../firebase/functions/QuotesActions";
+} from "../../../../firebase/functions/QuotesActions";
 import MyQuotes from "./MyQuotes";
 import PublicQuotes from "./PublicQuotes";
-import { RootStore } from "../../../Redux/Store";
+import { RootStore } from "../../../../Redux/Store";
 import { useDispatch, useSelector } from "react-redux";
-import { getMyQuotesAction } from "../../../Redux/Actions/Quotes.actions";
+import { getMyQuotesAction } from "../../../../Redux/Actions/Quotes.actions";
 import Favourites from "./Favourites";
 
 const QuotesTabs = () => {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CatergoryContent from "./CatergoryContent";
-import Sidebar from "./Sidebar";
+import Sidebar from "../Sidebar";
 
 const SettingsCategories = () => {
   const [view, setView] = useState("Preferences");

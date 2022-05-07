@@ -1,11 +1,11 @@
 import { type } from "os";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMyQuotesService } from "../../../firebase/functions/QuotesActions";
-import { getMyQuotesAction } from "../../../Redux/Actions/Quotes.actions";
-import { getSettingsList } from "../../../Redux/Actions/User.actions";
-import { RootStore } from "../../../Redux/Store";
-import Loader from "../../common/Loader";
+import { getMyQuotesService } from "../../../../firebase/functions/QuotesActions";
+import { getMyQuotesAction } from "../../../../Redux/Actions/Quotes.actions";
+import { getSettingsList } from "../../../../Redux/Actions/User.actions";
+import { RootStore } from "../../../../Redux/Store";
+import Loader from "../../../common/Loader";
 import QuotesComponents from "./QuotesComponents";
 
 interface Props {

@@ -5,9 +5,9 @@ import {
   addMyQuotesService,
   editFavoriteService,
   updateMyQuotesService
-} from "../../../firebase/functions/QuotesActions";
-import { getMyQuotesAction } from "../../../Redux/Actions/Quotes.actions";
-import Svg from "../../common/Svg";
+} from "../../../../firebase/functions/QuotesActions";
+import { getMyQuotesAction } from "../../../../Redux/Actions/Quotes.actions";
+import Svg from "../../../common/Svg";
 
 interface Props {
   isOpen: boolean;

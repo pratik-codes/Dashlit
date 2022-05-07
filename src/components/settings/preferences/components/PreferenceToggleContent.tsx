@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Svg from "../../common/Svg";
+import Svg from "../../../common/Svg";
 import SwitchComponent from "./SwitchComponent";
 
 interface Props {

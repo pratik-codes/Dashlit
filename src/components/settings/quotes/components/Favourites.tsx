@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Loader from "../../common/Loader";
+import Loader from "../../../common/Loader";
 import QuotesComponents from "./QuotesComponents";
 
 interface Props {

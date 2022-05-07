@@ -1,16 +1,19 @@
 import React from "react";
-import Svg from "../../common/Svg";
+import Svg from "../../../common/Svg";
 import { Popover, Button } from "antd";
 import { useDispatch } from "react-redux";
+
 import {
   addFavoriteService,
   deleteFavoriteService,
   deleteMyQuotesService,
   updateMyQuotesService
-} from "../../../firebase/functions/QuotesActions";
-import { getMyQuotesAction } from "../../../Redux/Actions/Quotes.actions";
+} from "../../../../firebase/functions/QuotesActions";
+import { getMyQuotesAction } from "../../../../Redux/Actions/Quotes.actions";
 import AddQuotesModal from "./AddQuotesModal";
-import { triggerMessage } from "../../common/snackbar";
+import { triggerMessage } from "../../../common/snackbar";
+
+import "../../../../styles/AntdStyles/Popover.css";
 
 interface Props {
   id: string;
@@ -105,7 +108,9 @@ const QuotesComponents: React.FC<Props> = ({
         <h1 className="font-bold text-md text-gray-900 ">"{quotes}"</h1>
         <h1 className="font-medium text-sm text-gray-900 ">- {author}</h1>
       </div>
-      <div className="flex justify-end ml-4 my-auto max-w-1/12">
+      <div
+        style={{ borderRadius: "10px" }}
+        className="flex justify-end ml-4 my-auto max-w-1/12">
         <Popover
           content={() =>
             contentDIV(

@@ -1,7 +1,7 @@
 import React from "react";
-import Background from "./background/Background";
-import Preference from "./preferences/Preference";
-import Quotes from "./quotes/Quotes";
+import Background from "../background/Background";
+import Preference from "../preferences/Preference";
+import Quotes from "../quotes/Quotes";
 
 interface Props {
   type: string;

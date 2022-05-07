@@ -7,6 +7,7 @@ import { updateUserLinksService } from "../../firebase/functions/LinksActions";
 import { getLinksList } from "../../Redux/Actions/User.actions";
 import { useDispatch } from "react-redux";
 import SnackbarComponent from "../common/SnackbarComponent";
+import { triggerMessage } from "../common/snackbar";
 
 interface Props {
   isOpen: boolean;
@@ -51,14 +52,11 @@ const EditLinkDialog: React.FC<Props> = ({
     };
     const res = await updateUserLinksService(id, data);
     if (res.success === true) {
-      setSnackbar(true);
-      setColor("#1A202C");
-      setMessage("Link added successfully");
+      triggerMessage("Link added successfully", "success");
       await dispatch(getLinksList());
     } else {
+      triggerMessage(res.error, "fail");
       setMessage(res.error);
-      setSnackbar(true);
-      setColor("#600709");
     }
   };
 
@@ -91,12 +89,6 @@ const EditLinkDialog: React.FC<Props> = ({
 
   return (
     <div>
-      <SnackbarComponent
-        message={message}
-        color={color}
-        setOpen={snackbar}
-        setSnackbarOpen={setSnackbar}
-      />{" "}
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
           as="div"
