@@ -53,53 +53,53 @@ export const getAllImages = async () => {
   return imagesData?.data;
 };
 
-// // ====================== add a quote my quote fav  ==============================
-let docref: any;
-let FavColRef: any;
-if (userId) FavColRef = collection(docref, "favorite");
+// // // ====================== add a quote my quote fav  ==============================
+// let docref: any;
+// let FavColRef: any;
+// if (userId) FavColRef = collection(docref, "favorite");
 
-// basic post function
-// function to add my quotes to the database
-export const addFavoriteServicePicture = async (
-  id: string,
-  url: string,
-  name: string,
-  created_at: string
-): Promise<any> => {
-  try {
-    const isPresent = await checkIfPresentInFav(id);
-    console.log(isPresent);
-    if (isPresent) {
-      console.log("already present");
-      triggerMessage(
-        "This picture is already present in your favorite list.",
-        "fail"
-      );
-    } else {
-      setDoc(doc(FavColRef, id), {
-        id: id,
-        name: name,
-        url: url,
-        type: "picture",
-        created_at: new Date()
-      });
-      triggerMessage("Quote added to favourite.", "success");
-    }
-  } catch (error: any) {
-    return { error: error.message };
-  }
-};
+// // basic post function
+// // function to add my quotes to the database
+// export const addFavoriteServicePicture = async (
+//   id: string,
+//   url: string,
+//   name: string,
+//   created_at: string
+// ): Promise<any> => {
+//   try {
+//     const isPresent = await checkIfPresentInFav(id);
+//     console.log(isPresent);
+//     if (isPresent) {
+//       console.log("already present");
+//       triggerMessage(
+//         "This picture is already present in your favorite list.",
+//         "fail"
+//       );
+//     } else {
+//       setDoc(doc(FavColRef, id), {
+//         id: id,
+//         name: name,
+//         url: url,
+//         type: "picture",
+//         created_at: new Date()
+//       });
+//       triggerMessage("Quote added to favourite.", "success");
+//     }
+//   } catch (error: any) {
+//     return { error: error.message };
+//   }
+// };
 
-export const checkIfPresentInFav = async (id: string): Promise<any> => {
-  const docRef = doc(FavColRef, id);
-  let present = false;
-  try {
-    const doc = await getDoc(docRef);
-    if (doc.exists()) {
-      present = true;
-    }
-  } catch (error: any) {
-    console.log(error);
-  }
-  return present;
-};
+// export const checkIfPresentInFav = async (id: string): Promise<any> => {
+//   const docRef = doc(FavColRef, id);
+//   let present = false;
+//   try {
+//     const doc = await getDoc(docRef);
+//     if (doc.exists()) {
+//       present = true;
+//     }
+//   } catch (error: any) {
+//     console.log(error);
+//   }
+//   return present;
+// };

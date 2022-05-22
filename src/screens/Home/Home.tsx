@@ -86,7 +86,7 @@ const Home = () => {
     <div>
       <div
         style={{
-          backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/dashlit.appspot.com/o/files%2FBTzIri3j1eRkWMin13iMSGigM102%2Fbackground%2Fpawel-czerwinski-XWzKALda8kE-unsplash.jpg?alt=media&token=4bdb2cf3-948c-42e0-9e4a-af17f87b256d)`,
+          backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/dashlit.appspot.com/o/files%2Fpublic_pictures%2Fpawel-czerwinski-XWzKALda8kE-unsplash.jpg?alt=media&token=67c66538-8035-4586-a10f-86a31bc06fe7)`,
           backgroundSize: "cover"
         }}
         className="w-full h-screen">
