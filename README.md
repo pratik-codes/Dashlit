@@ -17,17 +17,20 @@ Dashlit is a browser dashboard extention very much like [momentum (over 1m users
 
 ## Looks (development stage)
   
-  ### Homepage
-![Image](https://github.com/pratik-codes/Dashlit/blob/master/screenshots/homepage.jpg)
+![Image](https://github.com/pratik-codes/Dashlit/blob/feature/settings-background/screenshots/ss-v2/homepage.png)
   
+![Image](https://github.com/pratik-codes/Dashlit/blob/feature/settings-background/screenshots/ss-v2/settings.png)
   
-  ### Edit Link
-![Image](https://github.com/pratik-codes/Dashlit/blob/master/screenshots/editlink.jpg)
+![Image](https://github.com/pratik-codes/Dashlit/blob/feature/settings-background/screenshots/ss-v2/add_quotes.png)
   
+![Image](https://github.com/pratik-codes/Dashlit/blob/feature/settings-background/screenshots/ss-v2/upload_picture.png)
+
+![Image](https://github.com/pratik-codes/Dashlit/blob/feature/settings-background/screenshots/ss-v2/pciture_crop.png)
   
-  ### Auth
-![Image](https://github.com/pratik-codes/Dashlit/blob/master/screenshots/signin.jpg)
-   
+![Image](https://github.com/pratik-codes/Dashlit/blob/feature/settings-background/screenshots/ss-v2/auth.png)
+
+
+     
   
 ## Techstack
 
