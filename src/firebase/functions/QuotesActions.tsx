@@ -7,7 +7,9 @@ import {
   addDoc,
   getDocs,
   deleteDoc,
-  setDoc
+  setDoc,
+  query,
+  where
 } from "firebase/firestore";
 import { db } from "../firebase-config";
 import { links } from "../../components/links/EditLinkDialog";
@@ -49,7 +51,8 @@ export const addMyQuotesService = async (
       const res: any = await addDoc(myQuotesColRef, {
         quote: quote,
         author: author,
-        favourite: favourite
+        favourite: favourite,
+        updated_at: new Date()
       });
       console.log(res._key.path.segments[3]);
       return { success: true };
@@ -172,7 +175,9 @@ export const addFavoriteService = async (
       setDoc(doc(FavColRef, id), {
         id: id,
         quote: quote,
-        author: author
+        author: author,
+        type: "quote",
+        created_at: new Date()
       });
       triggerMessage("Quote added to favourite.", "success");
     }
@@ -191,7 +196,9 @@ export const editFavoriteService = async (
     if (isPresent) {
       setDoc(doc(FavColRef, id), {
         id: id,
-        quote: quote
+        quote: quote,
+        type: "quote",
+        updated_at: new Date()
       });
     }
   } catch (error: any) {
@@ -210,9 +217,10 @@ export const deleteFavoriteService = async (id: string): Promise<any> => {
 };
 export const getFavouriteService = async (): Promise<any> => {
   try {
-    const querySnapshot = await getDocs(FavColRef);
+    const querySnapshot = await query(FavColRef, where("type", "==", "quote"));
+    const quoteData = await getDocs(querySnapshot);
     const resData: any = [];
-    querySnapshot.forEach(doc => {
+    quoteData.forEach(doc => {
       const data = {
         id: doc.id,
         data: doc.data()

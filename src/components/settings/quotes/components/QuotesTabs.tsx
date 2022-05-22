@@ -31,12 +31,12 @@ const QuotesTabs = () => {
 
   const getPublicQuotes = async () => {
     const res = await getAllPublicQuotesService();
-    console.log(res);
     setPublicQuotes(res);
   };
 
   const getFavouriteQuotes = async () => {
     const res = await getFavouriteService();
+    console.log(res);
     setFavQuotes(res);
   };
 

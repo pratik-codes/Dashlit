@@ -12,6 +12,7 @@ import { getMyQuotesAction } from "../../../Redux/Actions/Quotes.actions";
 import MyPictures from "./components/MyPictures";
 import UploadPictureModal from "./components/UploadPictureModal";
 import { getAllImages } from "../../../firebase/functions/UploadActions";
+import Tabs from "../../common/Tabs";
 
 const Background = () => {
   const [activeTab, setActiveTab] = useState("my_pictures");
@@ -21,7 +22,7 @@ const Background = () => {
   const [images, setImages] = useState(undefined);
 
   const getImages = async () => {
-    const res = await getAllImages();
+    const res: any = await getAllImages();
     setImages(res);
   };
 
@@ -29,15 +30,7 @@ const Background = () => {
     getImages();
   }, []);
 
-  const MyQuotesRedux: any = useSelector(
-    (state: RootStore) => state.myQuotesData
-  );
-
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getMyQuotesAction());
-  }, []);
 
   return (
     <div className="w-full h-full">
@@ -92,6 +85,7 @@ const Background = () => {
         isOpen={isUploadModal}
         openModal={() => setIsUploadModal(true)}
         closeModal={() => setIsUploadModal(false)}
+        loadPictures={() => getImages()}
       />
       <div className="flex justify-start">
         {activeTab === "my_pictures" && <MyPictures data={images} />}

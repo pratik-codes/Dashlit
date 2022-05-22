@@ -13,20 +13,20 @@ export function startTime(setClockTimer: any, setDate: any) {
   setClockTimer(hr + ":" + min + ":" + sec + " ");
 
   const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
+    "JANUARY",
+    "FEBRUARY",
+    "MARCH",
+    "APRIL",
+    "MAY",
+    "JUNE",
+    "JULY",
+    "AUGUST",
+    "SEPTEMBER",
+    "OCTOBER",
+    "NOVEMBER",
+    "DECEMBER"
   ];
-  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
   const curWeekDay = days[today.getDay()];
   const curDay = today.getDate();
   const curMonth = months[today.getMonth()];

@@ -15,13 +15,10 @@ interface Props {
 }
 
 const PictureComponent: React.FC<Props> = ({ data }) => {
-  console.log(data.metaData);
-
-  let date = new Date(data.metaData.timeCreated);
+  let date = new Date(data.created_at);
 
   return (
     <Card
-      style={{ width: 300 }}
       cover={<img alt="example" src={data.url} />}
       actions={[
         <HeartOutlined key="favourite" />,
@@ -29,7 +26,7 @@ const PictureComponent: React.FC<Props> = ({ data }) => {
         <DeleteOutlined key="delete" />
       ]}>
       <Meta
-        title={data.metaData.name}
+        title={data.name}
         description={"Uploaded at:" + " " + date.toLocaleString()}
       />
     </Card>

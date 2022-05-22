@@ -22,9 +22,7 @@ const Home = () => {
   const [clockTimer, setClockTimer] = useState("");
   const [date, setDate] = useState("");
   const [searchValue, setSearchValue] = useState("");
-
-  // state of preference state
-  const [preference, setPreference] = useState<any>([]);
+  const [preference, setPreference] = useState([]);
 
   const dispatch = useDispatch();
 
@@ -34,17 +32,17 @@ const Home = () => {
 
   // fetching user settings
   const userData = async () => {
-    const res: any = await dispatch(getSettingsList());
+    const res: any = dispatch(getSettingsList());
   };
 
   // fetching user links
   const getUserLinks = async () => {
-    const res: any = await dispatch(getLinksList());
+    const res: any = dispatch(getLinksList());
   };
 
   // fetching user todo
   const getUserTodo = async () => {
-    const res: any = await dispatch(getTodoList());
+    const res: any = dispatch(getTodoList());
   };
 
   const getPreferenceValue = (preferenceType: string) => {
@@ -88,7 +86,7 @@ const Home = () => {
     <div>
       <div
         style={{
-          backgroundImage: `url(https://images.unsplash.com/photo-1491613993002-8956ec08fddc?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb)`,
+          backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/dashlit.appspot.com/o/files%2FBTzIri3j1eRkWMin13iMSGigM102%2Fbackground%2Fpawel-czerwinski-XWzKALda8kE-unsplash.jpg?alt=media&token=4bdb2cf3-948c-42e0-9e4a-af17f87b256d)`,
           backgroundSize: "cover"
         }}
         className="w-full h-screen">

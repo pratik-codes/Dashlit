@@ -2,8 +2,6 @@ import React from "react";
 import Loader from "../../../common/Loader";
 import PictureComponent from "./PictureComponent";
 
-const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
 interface Props {
   data: any;
 }
@@ -12,12 +10,12 @@ const MyPictures: React.FC<Props> = ({ data }) => {
   return (
     <div className="w-full">
       <div className="p-2 m-2 w-full">
-        <div className="grid grid-cols-3 gap-4 w-full mb-10">
+        <div className="grid grid-cols-3 gap-6 w-full mb-10">
           {data ? (
-            data.map((quote: any) => {
+            data.map((pic: any) => {
               return (
-                <div className="full h-full">
-                  <PictureComponent data={quote} />
+                <div key={pic?.id} className="full h-full">
+                  <PictureComponent data={pic?.data} />
                 </div>
               );
             })
@@ -27,10 +25,15 @@ const MyPictures: React.FC<Props> = ({ data }) => {
             </div>
           )}
         </div>
-        {data && data.length === 0 && (
-          <h1 className="font-bold text-gray-900 text-lg ">
-            No pictures found :(
-          </h1>
+        {data && data?.length === 0 && (
+          <div className="">
+            <span className="font-bold text-gray-900 text-xl">
+              No pictures found.
+            </span>
+            <span className="text-gray-900 ml-2 text-xl">
+              Add your first picture now...
+            </span>
+          </div>
         )}
       </div>
     </div>

@@ -21327,7 +21327,7 @@ a {
 
 .clockdate-wrapper {
   position: absolute;
-  top: 35%;
+  top: 40%;
   padding: 5px;
   width: 100%;
   text-align: center;
@@ -21346,21 +21346,23 @@ a {
 }
 
 #clock {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   font-size: 140px;
   text-shadow: 0px 0px 1px #fff;
   color: #fff;
+  line-height: 1;
+  letter-spacing: -4px;
+  font-weight: 500;
 }
 
 .qoutes {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   font-size: 20px;
   text-shadow: 0px 0px 1px #fff;
   color: #fff;
 }
 
 #clock span {
-  text-shadow: 0px 0px 1px #333;
   font-size: 80px;
   top: -5px;
   left: 10px;
@@ -21369,9 +21371,10 @@ a {
 #date {
   letter-spacing: 3px;
   font-size: 20px;
-  font-weight: bold;
-  font-family: arial, sans-serif;
+  font-weight: normal;
+  /* font-family: sans-serif; */
   color: #fff;
+  margin-top: 5px;
 }
 
 .inset-center {
