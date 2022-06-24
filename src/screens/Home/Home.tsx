@@ -15,7 +15,6 @@ import TodoDropdown from "../../components/todo/TodoDropdown";
 import SettingsDropdown from "../../components/settings/SettingsDropdown";
 import { RootStore } from "../../Redux/Store";
 import Svg from "../../components/common/Svg";
-
 import { startTime } from "./home.utils";
 
 const Home = () => {
@@ -30,17 +29,14 @@ const Home = () => {
     (state: RootStore) => state.userSettingsData
   );
 
-  // fetching user settings
   const userData = async () => {
     const res: any = dispatch(getSettingsList());
   };
 
-  // fetching user links
   const getUserLinks = async () => {
     const res: any = dispatch(getLinksList());
   };
 
-  // fetching user todo
   const getUserTodo = async () => {
     const res: any = dispatch(getTodoList());
   };
@@ -56,7 +52,6 @@ const Home = () => {
     } else return true;
   };
 
-  // invoking the functions on home render
   useEffect(() => {
     startTime(setClockTimer, setDate);
     userData();
@@ -86,7 +81,7 @@ const Home = () => {
     <div>
       <div
         style={{
-          backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/dashlit.appspot.com/o/files%2Fpublic_pictures%2Fpawel-czerwinski-XWzKALda8kE-unsplash.jpg?alt=media&token=67c66538-8035-4586-a10f-86a31bc06fe7)`,
+          backgroundImage: `url(https://images.unsplash.com/photo-1653917189526-71eebe91564f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80)`,
           backgroundSize: "cover"
         }}
         className="w-full h-screen">

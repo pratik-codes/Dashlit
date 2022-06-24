@@ -11,8 +11,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMyQuotesAction } from "../../../Redux/Actions/Quotes.actions";
 import MyPictures from "./components/MyPictures";
 import UploadPictureModal from "./components/UploadPictureModal";
-import { getAllImages } from "../../../firebase/functions/UploadActions";
+import {
+  getAllImages,
+  getFavouritePictureService
+} from "../../../firebase/functions/UploadActions";
 import Tabs from "../../common/Tabs";
+import FavouritePictures from "./components/FavouritePictures";
+import PublicPictures from "./components/PublicPictures";
 
 const Background = () => {
   const [activeTab, setActiveTab] = useState("my_pictures");
@@ -88,7 +93,11 @@ const Background = () => {
         loadPictures={() => getImages()}
       />
       <div className="flex justify-start">
-        {activeTab === "my_pictures" && <MyPictures data={images} />}
+        {activeTab === "my_pictures" && (
+          <MyPictures data={images} refreshPictures={getImages} />
+        )}
+        {activeTab === "Favourites" && <FavouritePictures />}
+        {activeTab === "public_pictures" && <PublicPictures />}
       </div>
     </div>
   );

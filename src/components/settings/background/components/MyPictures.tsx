@@ -4,9 +4,10 @@ import PictureComponent from "./PictureComponent";
 
 interface Props {
   data: any;
+  refreshPictures: any;
 }
 
-const MyPictures: React.FC<Props> = ({ data }) => {
+const MyPictures: React.FC<Props> = ({ data, refreshPictures }) => {
   return (
     <div className="w-full">
       <div className="p-2 m-2 w-full">
@@ -15,7 +16,12 @@ const MyPictures: React.FC<Props> = ({ data }) => {
             data.map((pic: any) => {
               return (
                 <div key={pic?.id} className="full h-full">
-                  <PictureComponent data={pic?.data} />
+                  <PictureComponent
+                    data={pic?.data}
+                    id={pic?.id}
+                    type="my_pictures"
+                    refreshPictures={refreshPictures}
+                  />
                 </div>
               );
             })

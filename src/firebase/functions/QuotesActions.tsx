@@ -215,6 +215,7 @@ export const deleteFavoriteService = async (id: string): Promise<any> => {
     return { error: err.message };
   }
 };
+
 export const getFavouriteService = async (): Promise<any> => {
   try {
     const querySnapshot = await query(FavColRef, where("type", "==", "quote"));
