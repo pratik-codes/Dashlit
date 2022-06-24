@@ -7,10 +7,10 @@ import SnackbarComponent from "../common/SnackbarComponent";
 import { useDispatch } from "react-redux";
 import { getLinksList } from "../../Redux/Actions/User.actions";
 import Svg from "../common/Svg";
-import SettingsCategories from "./SettingsCategories";
+import SettingsCategories from "./components/SettingsCategories";
 import { logoutHandler } from "../../firebase/functions/AuthActions";
 import Sidebar from "./Sidebar";
-import CatergoryContent from "./CatergoryContent";
+import CatergoryContent from "./components/CatergoryContent";
 
 interface Props {
   isOpen: boolean;

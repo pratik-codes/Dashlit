@@ -24,13 +24,11 @@ const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
   const dispatch = useDispatch();
 
   const clickHandler = () => {
-    if (type === "link") {
-      window.open(`https://${url[0].link}`, "_blank");
-    } else {
+    if (type === "link") window.open(`https://${url[0].link}`, "_blank");
+    else
       for (let i = 0; i < url.length; i++) {
         window.open(`https://${url[i].link}`, "_blank");
       }
-    }
   };
 
   const deleteHandler = async () => {
@@ -94,10 +92,3 @@ const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
 };
 
 export default LinkComponent;
-
-LinkComponent.propTypes = {
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  url: PropTypes.any.isRequired,
-  type: PropTypes.string.isRequired
-};

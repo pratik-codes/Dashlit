@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CategoryButtons from "./CategoryButtons";
+import CategoryButtons from "./components/CategoryButtons";
 
 interface Props {
   setView: any;

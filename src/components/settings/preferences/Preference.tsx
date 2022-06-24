@@ -5,7 +5,7 @@ import { getSettingsList } from "../../../Redux/Actions/User.actions";
 import { RootStore } from "../../../Redux/Store";
 import Loader from "../../common/Loader";
 import { user_setting } from "../../data/data";
-import PreferenceToggleContent from "./PreferenceToggleContent";
+import PreferenceToggleContent from "./components/PreferenceToggleContent";
 
 const Preference = () => {
   const dispatch = useDispatch();

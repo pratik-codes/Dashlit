@@ -7,12 +7,14 @@ import {
   addDoc,
   getDocs,
   deleteDoc,
-  setDoc
+  setDoc,
+  query,
+  where
 } from "firebase/firestore";
 import { db } from "../firebase-config";
 import { links } from "../../components/links/EditLinkDialog";
 import { error } from "console";
-import { snackbar } from "../../components/common/snackbar";
+import { snackbar, triggerMessage } from "../../components/common/snackbar";
 
 // global data used in the services
 const userId = localStorage.getItem("user_uid");
@@ -49,7 +51,8 @@ export const addMyQuotesService = async (
       const res: any = await addDoc(myQuotesColRef, {
         quote: quote,
         author: author,
-        favourite: favourite
+        favourite: favourite,
+        updated_at: new Date()
       });
       console.log(res._key.path.segments[3]);
       return { success: true };
@@ -164,17 +167,19 @@ export const addFavoriteService = async (
     console.log(isPresent);
     if (isPresent) {
       console.log("already present");
-      snackbar(
-        "Already Present",
-        "The quote is already present in your favorite list",
+      triggerMessage(
+        "This quote is already present in your favorite list.",
         "fail"
       );
     } else {
       setDoc(doc(FavColRef, id), {
         id: id,
         quote: quote,
-        author: author
+        author: author,
+        type: "quote",
+        created_at: new Date()
       });
+      triggerMessage("Quote added to favourite.", "success");
     }
   } catch (error: any) {
     return { error: error.message };
@@ -191,7 +196,9 @@ export const editFavoriteService = async (
     if (isPresent) {
       setDoc(doc(FavColRef, id), {
         id: id,
-        quote: quote
+        quote: quote,
+        type: "quote",
+        updated_at: new Date()
       });
     }
   } catch (error: any) {
@@ -208,11 +215,13 @@ export const deleteFavoriteService = async (id: string): Promise<any> => {
     return { error: err.message };
   }
 };
+
 export const getFavouriteService = async (): Promise<any> => {
   try {
-    const querySnapshot = await getDocs(FavColRef);
+    const querySnapshot = await query(FavColRef, where("type", "==", "quote"));
+    const quoteData = await getDocs(querySnapshot);
     const resData: any = [];
-    querySnapshot.forEach(doc => {
+    quoteData.forEach(doc => {
       const data = {
         id: doc.id,
         data: doc.data()

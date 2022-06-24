@@ -7,6 +7,7 @@ import SnackbarComponent from "../common/SnackbarComponent";
 import { useDispatch } from "react-redux";
 import { getLinksList } from "../../Redux/Actions/User.actions";
 import Svg from "../common/Svg";
+import { triggerMessage } from "../common/snackbar";
 
 interface Props {
   isOpen: boolean;
@@ -40,9 +41,7 @@ const AddNewLinkDialog: React.FC<Props> = ({
       links,
       `${links.length > 1 ? "folder" : "link"}`
     );
-    setColor("#1A202C");
-    setMessage("Link added successfully");
-    setSnackbar(true);
+    triggerMessage("Link added successfully", "success");
     cleanUpHandler();
     dispatch(getLinksList());
   };
@@ -161,7 +160,7 @@ const AddNewLinkDialog: React.FC<Props> = ({
                 <div className="mt-4">
                   <button
                     type="button"
-                    className="mr-3 inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 placeholder-gray-900 bg-transparent border border-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 rounded"
+                    className=" mr-3 inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 placeholder-gray-900 bg-transparent border border-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 rounded"
                     onClick={() => {
                       addHandler();
                       cleanUpHandler();
@@ -182,12 +181,6 @@ const AddNewLinkDialog: React.FC<Props> = ({
           </div>
         </Dialog>
       </Transition>
-      <SnackbarComponent
-        message={message}
-        color={color}
-        setOpen={snackbar}
-        setSnackbarOpen={setSnackbar}
-      />
     </>
   );
 };

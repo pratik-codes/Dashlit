@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Tab } from "@headlessui/react";
+
 import Svg from "../../common/Svg";
 import {
   getAllPublicQuotesService,
@@ -8,23 +9,33 @@ import {
 import { RootStore } from "../../../Redux/Store";
 import { useDispatch, useSelector } from "react-redux";
 import { getMyQuotesAction } from "../../../Redux/Actions/Quotes.actions";
-import MyPictures from "./MyPictures";
+import MyPictures from "./components/MyPictures";
+import UploadPictureModal from "./components/UploadPictureModal";
+import {
+  getAllImages,
+  getFavouritePictureService
+} from "../../../firebase/functions/UploadActions";
+import Tabs from "../../common/Tabs";
+import FavouritePictures from "./components/FavouritePictures";
+import PublicPictures from "./components/PublicPictures";
 
 const Background = () => {
   const [activeTab, setActiveTab] = useState("my_pictures");
-  const [isAddQuotesModalOpen, setIsAddQuotesModalOpen] = useState(false);
+  const [isUploadModal, setIsUploadModal] = useState(false);
   const [publicQuotes, setPublicQuotes] = useState({});
   const [favQuotes, setFavQuotes] = useState({});
+  const [images, setImages] = useState(undefined);
 
-  const MyQuotesRedux: any = useSelector(
-    (state: RootStore) => state.myQuotesData
-  );
-
-  const dispatch = useDispatch();
+  const getImages = async () => {
+    const res: any = await getAllImages();
+    setImages(res);
+  };
 
   useEffect(() => {
-    dispatch(getMyQuotesAction());
+    getImages();
   }, []);
+
+  const dispatch = useDispatch();
 
   return (
     <div className="w-full h-full">
@@ -68,15 +79,25 @@ const Background = () => {
         <div>
           {activeTab === "my_pictures" && (
             <button
-              onClick={() => setIsAddQuotesModalOpen(true)}
+              onClick={() => setIsUploadModal(true)}
               className="p-2 m-1 text-gray-900 font-bold bg-transparent border border-gray-900 rounded-lg focus:outline-none">
               <Svg type="add" />
             </button>
           )}
         </div>
       </div>
+      <UploadPictureModal
+        isOpen={isUploadModal}
+        openModal={() => setIsUploadModal(true)}
+        closeModal={() => setIsUploadModal(false)}
+        loadPictures={() => getImages()}
+      />
       <div className="flex justify-start">
-        {activeTab === "my_pictures" && <MyPictures />}
+        {activeTab === "my_pictures" && (
+          <MyPictures data={images} refreshPictures={getImages} />
+        )}
+        {activeTab === "Favourites" && <FavouritePictures />}
+        {activeTab === "public_pictures" && <PublicPictures />}
       </div>
     </div>
   );

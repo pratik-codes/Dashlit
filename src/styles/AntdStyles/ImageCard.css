@@ -1,0 +1,14 @@
+.ant-card-cover img {
+  border-radius: 15px 15px 0 0 !important;
+}
+.ant-card-bordered .ant-card-cover {
+  border-radius: 15px !important;
+}
+
+.ant-card-actions {
+  border-radius: 0 0 15px 15px !important;
+}
+
+.ant-card {
+  border-radius: 15px !important;
+}
