@@ -12,6 +12,7 @@ import { RootStore } from "../../Redux/Store";
 const LinksDropdown: React.FC<any> = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
 
   const LinksDataRedux: any = useSelector(
     (state: RootStore) => state.userLinkData
@@ -45,21 +46,47 @@ const LinksDropdown: React.FC<any> = () => {
                 overflowX: "hidden"
               }}
               className="glass w-full">
+              <div className="flex justify-center align-center">
+                <input
+                  onChange={e => setSearchValue(e.target.value)}
+                  value={searchValue}
+                  style={{
+                    minWidth: "92%"
+                  }}
+                  type="text"
+                  placeholder="🔍  Search"
+                  className="p-2 m-3 text-gray-900 border border-gray-600 flex bg-transparent focus:outline-none  rounded"
+                />
+              </div>
               {LinksDataRedux.data ? (
-                LinksDataRedux.data.map((link: any) => {
-                  return (
-                    <li key={link.id}>
-                      <LinkComponent
-                        id={link.id}
-                        url={link.data.links}
-                        title={link.data.linkTitle}
-                        type={link.data.type}
-                      />
-                    </li>
-                  );
-                })
+                LinksDataRedux.data
+                  .filter((value: any) => {
+                    if (searchValue === "") {
+                      return value;
+                    } else if (
+                      value.data.linkTitle
+                        .toLocaleLowerCase()
+                        .includes(searchValue.toLocaleLowerCase())
+                    ) {
+                      return value;
+                    }
+                  })
+                  .map((link: any) => {
+                    return (
+                      <li key={link.id}>
+                        <LinkComponent
+                          id={link.id}
+                          url={link.data.links}
+                          title={link.data.linkTitle}
+                          type={link.data.type}
+                        />
+                      </li>
+                    );
+                  })
               ) : (
-                <Loader />
+                <div className="mt-5">
+                  <Loader />
+                </div>
               )}
 
               {LinksDataRedux.loading === false &&

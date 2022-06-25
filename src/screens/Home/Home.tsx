@@ -107,8 +107,11 @@ const Home = () => {
           {/* <Svg type="search" /> */}
           {getPreferenceValue("search-settings") === true && (
             <input
+              style={{
+                width: "14rem"
+              }}
               placeholder="Search"
-              className=" text-white absolute top-0 left-0 ml-20 mt-3 p-2 bg-transparent border-b border-gray-500 hover:border-white focus:outline-none"
+              className="  transition delay-75 ease-in-out text-white absolute top-0 left-0 ml-20 mt-3 p-2 bg-transparent border-b border-gray-500 hover:border-white focus:outline-none"
               onChange={(e: any) => setSearchValue(e.target.value)}
               onKeyPress={e =>
                 e.key === "Enter" &&

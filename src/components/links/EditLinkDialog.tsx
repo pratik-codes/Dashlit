@@ -169,13 +169,13 @@ const EditLinkDialog: React.FC<Props> = ({
                       return (
                         <div
                           key={link.id}
-                          className="div flex justify-between bg-transparent rounded border border-gray-900 mb-1 cursor-pointer">
+                          className="div flex justify-between bg-transparent rounded border border-gray-900 text-gray-900 cursor-pointer">
                           <input
                             placeholder="add new link"
                             onChange={e =>
                               inputOnchangeHandler(link.id, e.target.value)
                             }
-                            className="px-3 py-2 mt-3 mb-1 border-opacity-50  placeholder-gray-900 relative bg-transparent border border-gray-900 rounded text-gray-900 text-base outline-none focus:outline-none focus:ring w-full"
+                            className="px-3 py-2 mb-1 border-opacity-50  placeholder-blueGray-300 text-blueGray-600 relative bg-transparent border-0 rounded text-base  outline-none focus:outline-none focus:ring w-full"
                           />
                           <div
                             onClick={() => inputDeleteHandler(link.id)}
