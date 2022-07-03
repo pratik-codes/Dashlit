@@ -35,7 +35,7 @@ export const signUpHandler = async (
       setDoc(doc(db, "users", user.user.uid), {
         name: email,
         email: email,
-        settings: JSON.stringify(user_setting)
+        settings: user_setting
       });
       // await addSettings(user.user.uid);
       localStorage.setItem("user_uid", user.user.uid);

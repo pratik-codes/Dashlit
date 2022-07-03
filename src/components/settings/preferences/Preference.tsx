@@ -15,7 +15,7 @@ const Preference = () => {
   );
 
   let settingsData =
-    SettingsDataRedux.data && JSON.parse(SettingsDataRedux.data.settings);
+    SettingsDataRedux.data && SettingsDataRedux.data.settings;
 
   const changePreference = (preferenceType: string, status: boolean) => {
     const objIndex = settingsData.findIndex(
@@ -23,7 +23,7 @@ const Preference = () => {
     );
     settingsData[objIndex].isToggled = status;
     const data = SettingsDataRedux.data;
-    data.settings = JSON.stringify(settingsData);
+    data.settings = settingsData;
     updateUserDetailsService(data);
     dispatch(getSettingsList());
   };
