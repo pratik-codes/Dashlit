@@ -44,7 +44,8 @@ const Home = () => {
   const getPreferenceValue = (preferenceType: string) => {
     let truth;
     if (SettingsDataRedux.data) {
-      const settingsData = JSON.parse(SettingsDataRedux.data.settings);
+      const settingsData = SettingsDataRedux.data.settings || [];
+      console.log(settingsData);
       truth = settingsData.find(
         (x: any) => x.type === preferenceType
       ).isToggled;
