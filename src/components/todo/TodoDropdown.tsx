@@ -44,6 +44,7 @@ const TodoDropdown = () => {
           <div
             style={{
               minWidth: "20rem",
+              maxWidth: "15rem",
               minHeight: "15rem",
               maxHeight: "25rem",
               overflowY: "auto",
