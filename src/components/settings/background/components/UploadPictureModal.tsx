@@ -6,6 +6,7 @@ import { CloseCircleFilled } from "@ant-design/icons";
 
 import "../../../../styles/AntdStyles/Upload.css";
 import {
+  addImageURL,
   getAllImages,
   uploadBackgroundImage
 } from "../../../../firebase/functions/UploadActions";
@@ -27,6 +28,8 @@ const UploadPictureModal: React.FC<Props> = ({
   loadPictures
 }) => {
   const [isUploading, setIsUploading] = useState(false);
+  const [pictureName, setPictureName] = useState("");
+  const [pictureUrl, setPictureUrl] = useState("");
 
   const closeHandler = () => {
     closeModal();
@@ -39,6 +42,16 @@ const UploadPictureModal: React.FC<Props> = ({
     else triggerMessage("Image upload failed :(", "error");
     loadPictures();
     setIsUploading(false);
+  };
+
+  const pictureLinkAddHandler = async () => {
+    if (pictureName?.length === 0 || pictureUrl?.length === 0) {
+      triggerMessage("Please add link url and name", "fail");
+      return;
+    }
+    await addImageURL(pictureUrl, pictureName);
+    triggerMessage("Picture added.", "success");
+    loadPictures();
   };
 
   return (
@@ -83,7 +96,7 @@ const UploadPictureModal: React.FC<Props> = ({
                     className="absolute text-xl right-0 top-0 cursor-pointer mt-2 mr-3">
                     <CloseCircleFilled />
                   </div>
-                  <h1 className="font-bold text-gray-900 text-lg ">
+                  <h1 className="font-bold text-gray-900 text-lg">
                     Upload Background Picture
                   </h1>
                   <ImgCrop aspect={16 / 9}>
@@ -114,6 +127,33 @@ const UploadPictureModal: React.FC<Props> = ({
                       </button>
                     </Upload>
                   </ImgCrop>
+
+                  <div className="text-center mt-6">
+                    <div className="font-bold text-gray-900 text-lg">OR</div>
+                    <div className="font-bold text-gray-900 text-lg">
+                      Add your picture link
+                    </div>
+                    <div className="flex flex-col justify-start">
+                      <input
+                        type="text"
+                        onChange={e => setPictureName(e.target.value)}
+                        placeholder="Picture Name"
+                        className="px-3 py-2 mt-3 mb-1 border-opacity-50  placeholder-gray-900 relative bg-transparent border border-gray-900 rounded text-gray-900 text-base outline-none focus:outline-none focus:ring w-full"
+                      />
+                      <input
+                        type="text"
+                        onChange={e => setPictureUrl(e.target.value)}
+                        placeholder="Picture Link"
+                        className="px-3 py-2 mt-3 mb-1 border-opacity-50  placeholder-gray-900 relative bg-transparent border border-gray-900 rounded text-gray-900 text-base outline-none focus:outline-none focus:ring w-full"
+                      />
+                      <button
+                        type="button"
+                        className="mt-3 mb-1 inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 placeholder-gray-900 bg-transparent border border-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 rounded"
+                        onClick={pictureLinkAddHandler}>
+                        add
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </Transition.Child>
             </div>

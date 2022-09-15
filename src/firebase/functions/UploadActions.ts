@@ -52,6 +52,18 @@ export const uploadBackgroundImage = async (file: File) => {
   else return false;
 };
 
+export const addImageURL = async (file_url: string, file_name: string) => {
+  try {
+    await addDoc(BackgroundColRef, {
+      name: file_name,
+      created_at: Date.now(),
+      url: file_url
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const getAllImages = async () => {
   const imagesData = await getDataFromCollectionRef(BackgroundColRef);
   return imagesData?.data;
