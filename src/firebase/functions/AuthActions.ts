@@ -31,16 +31,17 @@ export const signUpHandler = async (
     return { error: "Passwords do not match" };
   }
   try {
-    createUserWithEmailAndPassword(auth, email, password).then(async user => {
-      console.log({ user_setting });
-      setDoc(doc(db, "users", user.user.uid), {
-        name: email,
-        email: email,
-        settings: JSON.stringify(user_setting)
-      });
-      // await addSettings(user.user.uid);
-      localStorage.setItem("user_uid", user.user.uid);
-    });
+    await createUserWithEmailAndPassword(auth, email, password).then(
+      async user => {
+        console.log({ user_setting });
+        await setDoc(doc(db, "users", user.user.uid), {
+          name: email,
+          email: email,
+          settings: JSON.stringify(user_setting)
+        });
+        localStorage.setItem("user_uid", user.user.uid);
+      }
+    );
     return { success: true };
   } catch (error: any) {
     console.log({ error });
