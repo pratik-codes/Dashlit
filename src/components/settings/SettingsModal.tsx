@@ -19,17 +19,11 @@ interface Props {
 }
 
 const SettingsModal: React.FC<Props> = ({ isOpen, closeModal, openModal }) => {
-  // dialogbox state
   const [snackbar, setSnackbar] = useState(false);
   const [message, setMessage] = useState("");
   const [color, setColor] = useState("#1A202C");
   const [view, setView] = useState("Preferences");
 
-  const dispatch = useDispatch();
-
-  const cleanUpHandler = () => {
-    closeModal();
-  };
   return (
     <>
       {isOpen && (
@@ -61,12 +55,6 @@ const SettingsModal: React.FC<Props> = ({ isOpen, closeModal, openModal }) => {
           </div>
         </div>
       )}
-      <SnackbarComponent
-        message={message}
-        color={color}
-        setOpen={snackbar}
-        setSnackbarOpen={setSnackbar}
-      />
     </>
   );
 };

@@ -15,11 +15,7 @@ const SettingsDropdown = () => {
   }
   return (
     <div>
-      <div
-        onClick={() => {
-          setIsOpen(!isOpen);
-          console.log("open settings modal", isOpen);
-        }}>
+      <div onClick={() => setIsOpen(!isOpen)}>
         <SvgButton type="settings" position="bottom-0 left-0" />
       </div>
       <SettingsModal

@@ -44,6 +44,7 @@ const TodoDropdown = () => {
           <div
             style={{
               minWidth: "20rem",
+              maxWidth: "15rem",
               minHeight: "15rem",
               maxHeight: "25rem",
               overflowY: "auto",
@@ -52,9 +53,9 @@ const TodoDropdown = () => {
             className="w-full">
             <div className="flex my-auto ">
               <h1 className="font-bold text-gray-900 m-2 text-lg">Today</h1>
-              <div className="div my-auto">
+              {/* <div className="div my-auto">
                 <Svg type="dropdown" />
-              </div>
+              </div> */}
             </div>
             <div className="w-full h-full">
               <div>

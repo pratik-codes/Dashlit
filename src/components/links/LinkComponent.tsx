@@ -64,7 +64,7 @@ const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
               alt="favicon"
             />
           )}
-          <a className=" text-l text-gray-800 font-bold  w-full my-auto py-auto px-4 block whitespace-no-wrap">
+          <a className=" text-l text-gray-900 font-bold  w-full my-auto py-auto px-4 block whitespace-no-wrap">
             {title.length > 25 ? title.substring(0, 25) + "..." : title}
           </a>
         </div>

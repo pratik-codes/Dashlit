@@ -1,8 +1,18 @@
 import { db, auth } from "../firebase-config";
 import { collection, doc, getDoc, setDoc } from "firebase/firestore";
+import {
+  getDataFromCollectionRef,
+  getSingleDocFromCollectionRef
+} from "./GenericFunctions";
 
 // global data used in the services
 const userId = localStorage.getItem("user_uid");
+let liveRef: any;
+if (userId) {
+  liveRef = doc(collection(db, "Admin"), "live");
+} else {
+  console.error("userId is not defined");
+}
 
 export const getUserDetailsService = async (): Promise<any> => {
   if (userId) {
@@ -27,4 +37,9 @@ export const updateUserDetailsService = async (data: any): Promise<any> => {
       console.log("Error setting document:", error);
     }
   }
+};
+
+export const getLiveDetails = () => {
+  const data = getSingleDocFromCollectionRef(liveRef);
+  return data;
 };

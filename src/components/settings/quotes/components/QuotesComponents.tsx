@@ -14,6 +14,8 @@ import AddQuotesModal from "./AddQuotesModal";
 import { triggerMessage } from "../../../common/snackbar";
 
 import "../../../../styles/AntdStyles/Popover.css";
+import { setUserActiveData } from "../../../../firebase/functions/UsersActiveData";
+import { getSettingsList } from "../../../../Redux/Actions/User.actions";
 
 interface Props {
   id: string;
@@ -78,7 +80,13 @@ const QuotesComponents: React.FC<Props> = ({
           </div>
         )}
         <h1
-          onClick={() => deleteQuote()}
+          onClick={async () => {
+            await setUserActiveData(
+              { quote: quotes, author_name: author },
+              "quote"
+            );
+            window.location.reload();
+          }}
           className="cursor-pointer hover:bg-gray-200 py-1 px-2 rounded-lg">
           Set this quote
         </h1>

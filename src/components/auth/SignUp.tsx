@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import { signUpHandler } from "../../firebase/functions/AuthActions";
-import { snackbar } from "../common/snackbar";
+import {
+  signInHandler,
+  signUpHandler
+} from "../../firebase/functions/AuthActions";
+import { snackbar, triggerMessage } from "../common/snackbar";
 export interface signUpProps {
   setActiveView: any;
 }
@@ -16,16 +19,13 @@ const SignUp: React.FC<signUpProps> = ({ setActiveView }) => {
   const clickHandler = async () => {
     const res = await signUpHandler(email, password, confirmPassword);
     if (res.success) {
-      snackbar(
-        "Success",
-        "Sign Up Successful, Please proceed with signin",
-        "success"
-      );
+      triggerMessage("Sign Up Successful", "success");
+      signInHandler(email, password);
       setTimeout(() => {
-        setActiveView("signin");
-      }, 2000);
+        window.location.reload();
+      }, 3000);
     } else {
-      snackbar("failed", res.error, "fail");
+      triggerMessage(res.error, "fail");
     }
   };
 

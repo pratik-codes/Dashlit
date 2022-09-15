@@ -1,5 +1,5 @@
 import { Card } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import Svg from "../../../common/Svg";
 import {
   DesktopOutlined,
@@ -15,6 +15,9 @@ import {
 } from "../../../../firebase/functions/UploadActions";
 import { type } from "os";
 import { triggerMessage } from "../../../common/snackbar";
+import { setUserActiveData } from "../../../../firebase/functions/UsersActiveData";
+import { getSettingsList } from "../../../../Redux/Actions/User.actions";
+import { useDispatch } from "react-redux";
 
 interface Props {
   data: any;
@@ -31,35 +34,45 @@ const PictureComponent: React.FC<Props> = ({
 }) => {
   let date = new Date(data.created_at);
 
+  const dispatch = useDispatch();
+
   const favPictureHandler = () => {
     addFavoriteServicePicture(id, data?.url, data?.name, data?.created_at);
   };
 
   const deleteFav = async () => {
+    triggerMessage("deleting picture...", "success");
     await deletePicture(id, data.name, "fav");
+    triggerMessage("Picture deleted.", "success");
+    refreshPictures();
+  };
+
+  const deleteMyPicture = async () => {
+    triggerMessage("deleting picture...", "success");
+    await deletePicture(id, data.name, "my_pictures");
     refreshPictures();
     triggerMessage("Picture deleted.", "success");
   };
 
-  const deleteMyPicture = () => {
-    deletePicture(id, data.name, "my_pictures");
-    refreshPictures();
-    triggerMessage("Picture deleted.", "success");
+  const setCurrentPicture = async () => {
+    console.log(data.url);
+    await setUserActiveData({ background_url: data?.url }, "picture");
+    window.location.reload();
   };
 
   const ActionMap: any = {
     my_pictures: [
       <HeartOutlined onClick={favPictureHandler} key="favourite" />,
-      <DesktopOutlined key="apply" />,
+      <DesktopOutlined onClick={setCurrentPicture} key="apply" />,
       <DeleteOutlined onClick={deleteMyPicture} key="delete" />
     ],
     fav: [
-      <DesktopOutlined key="apply" />,
+      <DesktopOutlined onClick={setCurrentPicture} key="apply" />,
       <DeleteOutlined onClick={deleteFav} key="delete" />
     ],
     public: [
       <HeartOutlined onClick={favPictureHandler} key="favourite" />,
-      <DesktopOutlined key="apply" />
+      <DesktopOutlined onClick={setCurrentPicture} key="apply" />
     ]
   };
 
@@ -69,7 +82,7 @@ const PictureComponent: React.FC<Props> = ({
       actions={ActionMap[type]}>
       <Meta
         title={data.name}
-        description={"Uploaded at:" + " " + date.toLocaleString()}
+        // description={"Uploaded at:" + " " + date.toLocaleString()}
       />
     </Card>
   );
