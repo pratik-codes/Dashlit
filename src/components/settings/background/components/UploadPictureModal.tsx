@@ -3,6 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Upload } from "antd";
 import ImgCrop from "antd-img-crop";
 import { CloseCircleFilled } from "@ant-design/icons";
+import Compressor from "compressorjs";
 
 import "../../../../styles/AntdStyles/Upload.css";
 import {
@@ -37,11 +38,17 @@ const UploadPictureModal: React.FC<Props> = ({
 
   const uploadPictureHandler = async (data: any) => {
     setIsUploading(true);
-    const isUploaded = await uploadBackgroundImage(data.file);
-    if (isUploaded) triggerMessage("Image uploaded successfully", "success");
-    else triggerMessage("Image upload failed :(", "error");
-    loadPictures();
-    setIsUploading(false);
+    new Compressor(data.file, {
+      quality: 0.8,
+      success: async (compressedResult: any) => {
+        const isUploaded = await uploadBackgroundImage(compressedResult);
+        if (isUploaded)
+          triggerMessage("Image uploaded successfully", "success");
+        else triggerMessage("Image upload failed :(", "error");
+        loadPictures();
+        setIsUploading(false);
+      }
+    });
   };
 
   const pictureLinkAddHandler = async () => {

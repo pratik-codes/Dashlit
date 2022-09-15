@@ -28,6 +28,7 @@
     "autoprefixer": "^10.0.1",
     "axios": "^0.24.0",
     "classnames": "^2.2.6",
+    "compressorjs": "^1.1.1",
     "file-saver": "^2.0.5",
     "firebase": "^9.7.0",
     "postcss-cli": "^8.0.0",
