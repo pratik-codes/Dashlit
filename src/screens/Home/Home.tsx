@@ -134,7 +134,7 @@ const Home = () => {
           )}
         </div>
         {/* rendering the qoutes at the bottom of the screen */}
-        {getPreferenceValue("quotes-settings") === true && quote && (
+        {getPreferenceValue("quotes-settings") === true && local_storage_quote && (
           <div>
             <div className="qoutes-wrapper qoutes">
               <p>"{local_storage_quote || quote}"</p>
