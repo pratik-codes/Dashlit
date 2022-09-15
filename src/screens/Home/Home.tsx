@@ -20,6 +20,7 @@ import { RootStore } from "../../Redux/Store";
 import Svg from "../../components/common/Svg";
 import { startTime } from "./home.utils";
 import { getUserActiveData } from "../../firebase/functions/UsersActiveData";
+import dummyHome from "../../assets/images/dummyHome.jpg";
 
 const Home = () => {
   const [clockTimer, setClockTimer] = useState("");
@@ -34,10 +35,6 @@ const Home = () => {
   const SettingsDataRedux: any = useSelector(
     (state: RootStore) => state.userSettingsData
   );
-  // console.log(
-  //   SettingsDataRedux?.data?.settings &&
-  //     JSON.parse(SettingsDataRedux?.data?.settings)
-  // );
 
   const userData = async () => {
     const res: any = dispatch(getSettingsList());
@@ -58,7 +55,6 @@ const Home = () => {
 
   const getActiveData = async () => {
     const activeData: any = await getUserActiveData();
-    console.log(activeData);
     setActiveUserData(activeData?.data);
   };
 
@@ -73,20 +69,6 @@ const Home = () => {
     } else return true;
   };
 
-  function toDataUrl(url: any, callback: any) {
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-      var reader = new FileReader();
-      reader.onloadend = function () {
-        callback(reader.result);
-      };
-      reader.readAsDataURL(xhr.response);
-    };
-    xhr.open("GET", url);
-    xhr.responseType = "blob";
-    xhr.send();
-  }
-
   useEffect(() => {
     startTime(setClockTimer, setDate);
     userData();
@@ -97,6 +79,9 @@ const Home = () => {
   }, []);
 
   const get_live_picture = getPreferenceValue("picture-source-settings");
+
+  const file_url_local_storage = localStorage.getItem("latest_file_url");
+
   const file_url: string = get_live_picture
     ? liveData?.data?.background_url
     : activeUserData?.background_url;
@@ -106,29 +91,16 @@ const Home = () => {
   const author_name = get_live_quote
     ? liveData?.data?.author_name
     : activeUserData?.author_name;
-  // useEffect(() => {
-  //   try {
-  //     axios
-  //       .get(
-  //         `https://api.unsplash.com/photos/random?query=mountains&orientation=landscape&client_id=${process.env.REACT_APP_UNSPLASH_SECRET_ID}`
-  //       )
-  //       .then(response => {
-  //         if (response.data.links) {
-  //           console.log(response.data.links);
-  //           console.log(response.data.links.download);
-  //           console.log(response.data.links.html);
-  //         }
-  //       });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }, []);
+
+  useEffect(() => {
+    if (file_url) localStorage.setItem("latest_file_url", file_url);
+  }, [file_url]);
 
   return (
     <div>
       <div
         style={{
-          backgroundImage: `url(${file_url})`,
+          backgroundImage: `url(${file_url_local_storage || file_url})`,
           backgroundSize: "cover"
         }}
         className="w-full h-screen">
@@ -142,7 +114,7 @@ const Home = () => {
           )}
         </div>
         {/* rendering the qoutes at the bottom of the screen */}
-        {getPreferenceValue("quotes-settings") === true && (
+        {getPreferenceValue("quotes-settings") === true && quote && (
           <div>
             <div className="qoutes-wrapper qoutes">
               <p>"{quote}"</p>
