@@ -7,7 +7,9 @@ const FavouritePictures: React.FC<any> = () => {
   const [favouriteImages, setFavouriteImages] = useState<any>(undefined);
 
   const getFavouriteImages = async () => {
+    console.log("refresh favouriteImages");
     const res: any = await getFavouritePictureService();
+    console.log({ res });
     setFavouriteImages(res?.data);
   };
 

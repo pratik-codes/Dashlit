@@ -54,8 +54,8 @@ const LinksDropdown: React.FC<any> = () => {
                     minWidth: "92%"
                   }}
                   type="text"
-                  placeholder="🔍  Search"
-                  className="p-2 m-3 text-gray-900 border border-gray-600 flex bg-transparent focus:outline-none  rounded"
+                  placeholder="Search"
+                  className="p-2 m-3 text-gray-900 border border-gray-900 flex bg-transparent focus:outline-none rounded placeholder-black"
                 />
               </div>
               {LinksDataRedux.data ? (
@@ -70,6 +70,11 @@ const LinksDropdown: React.FC<any> = () => {
                     ) {
                       return value;
                     }
+                  })
+                  .sort(function (a: any, b: any) {
+                    var textA = a?.data?.linkTitle?.toUpperCase();
+                    var textB = b?.data?.linkTitle?.toUpperCase();
+                    return textA < textB ? -1 : textA > textB ? 1 : 0;
                   })
                   .map((link: any) => {
                     return (
@@ -100,7 +105,7 @@ const LinksDropdown: React.FC<any> = () => {
                     <br />
                     <br />
                     <h1 className="font-2x my-auto text-gray-900 font-bold">
-                      No links found. Add new link.
+                      No links found. Add new link...
                     </h1>
                   </div>
                 )}

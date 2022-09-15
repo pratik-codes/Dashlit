@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import SvgButton from "../../components/button/SvgButton";
-import { getUserDetailsService } from "../../firebase/functions/UserDetailsActions";
+import {
+  getLiveDetails,
+  getUserDetailsService
+} from "../../firebase/functions/UserDetailsActions";
 import { homedir } from "os";
 import LinksDropdown from "../../components/links/LinksDropdown";
 import { getUserLinksService } from "../../firebase/functions/LinksActions";
@@ -16,18 +19,25 @@ import SettingsDropdown from "../../components/settings/SettingsDropdown";
 import { RootStore } from "../../Redux/Store";
 import Svg from "../../components/common/Svg";
 import { startTime } from "./home.utils";
+import { getUserActiveData } from "../../firebase/functions/UsersActiveData";
 
 const Home = () => {
   const [clockTimer, setClockTimer] = useState("");
   const [date, setDate] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const [preference, setPreference] = useState([]);
+  const [liveData, setLiveData] = useState<any>([]);
+  const [activeUserData, setActiveUserData] = useState<any>([]);
 
   const dispatch = useDispatch();
 
   const SettingsDataRedux: any = useSelector(
     (state: RootStore) => state.userSettingsData
   );
+  // console.log(
+  //   SettingsDataRedux?.data?.settings &&
+  //     JSON.parse(SettingsDataRedux?.data?.settings)
+  // );
 
   const userData = async () => {
     const res: any = dispatch(getSettingsList());
@@ -41,6 +51,17 @@ const Home = () => {
     const res: any = dispatch(getTodoList());
   };
 
+  const getLiveData = async () => {
+    const liveData: any = await getLiveDetails();
+    setLiveData(liveData);
+  };
+
+  const getActiveData = async () => {
+    const activeData: any = await getUserActiveData();
+    console.log(activeData);
+    setActiveUserData(activeData?.data);
+  };
+
   const getPreferenceValue = (preferenceType: string) => {
     let truth;
     if (SettingsDataRedux.data) {
@@ -52,13 +73,39 @@ const Home = () => {
     } else return true;
   };
 
+  function toDataUrl(url: any, callback: any) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+      var reader = new FileReader();
+      reader.onloadend = function () {
+        callback(reader.result);
+      };
+      reader.readAsDataURL(xhr.response);
+    };
+    xhr.open("GET", url);
+    xhr.responseType = "blob";
+    xhr.send();
+  }
+
   useEffect(() => {
     startTime(setClockTimer, setDate);
     userData();
+    getActiveData();
     getUserLinks();
     getUserTodo();
+    getLiveData();
   }, []);
 
+  const get_live_picture = getPreferenceValue("picture-source-settings");
+  const file_url: string = get_live_picture
+    ? liveData?.data?.background_url
+    : activeUserData?.background_url;
+
+  const get_live_quote = getPreferenceValue("quotes-source-settings");
+  const quote = get_live_quote ? liveData?.data?.quote : activeUserData?.quote;
+  const author_name = get_live_quote
+    ? liveData?.data?.author_name
+    : activeUserData?.author_name;
   // useEffect(() => {
   //   try {
   //     axios
@@ -81,7 +128,7 @@ const Home = () => {
     <div>
       <div
         style={{
-          backgroundImage: `url(https://images.unsplash.com/photo-1653917189526-71eebe91564f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80)`,
+          backgroundImage: `url(${file_url})`,
           backgroundSize: "cover"
         }}
         className="w-full h-screen">
@@ -96,33 +143,14 @@ const Home = () => {
         </div>
         {/* rendering the qoutes at the bottom of the screen */}
         {getPreferenceValue("quotes-settings") === true && (
-          <div className="qoutes-wrapper qoutes">
-            “Enthusiasm is the great hill-climber.”{" "}
+          <div>
+            <div className="qoutes-wrapper qoutes">
+              <p>"{quote}"</p>
+              <p className="text-sm"> - {author_name}</p>
+            </div>
           </div>
         )}
         {getPreferenceValue("links-settings") === true && <LinksDropdown />}
-        {/* search bar component */}
-        <div className="flex">
-          {" "}
-          {/* <Svg type="search" /> */}
-          {getPreferenceValue("search-settings") === true && (
-            <input
-              style={{
-                width: "14rem"
-              }}
-              placeholder="Search"
-              className="  transition delay-75 ease-in-out text-white absolute top-0 left-0 ml-20 mt-3 p-2 bg-transparent border-b border-gray-500 hover:border-white focus:outline-none"
-              onChange={(e: any) => setSearchValue(e.target.value)}
-              onKeyPress={e =>
-                e.key === "Enter" &&
-                window.open(
-                  `https://www.google.com/search?q=+ ${searchValue}`,
-                  "_blank"
-                )
-              }
-            />
-          )}
-        </div>
         {getPreferenceValue("todo-settings") === true && <TodoDropdown />}
         {getPreferenceValue("weather-settings") === true && (
           <SvgButton type="weather" position="top-0 right-0" />

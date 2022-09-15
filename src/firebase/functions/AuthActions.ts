@@ -32,6 +32,7 @@ export const signUpHandler = async (
   }
   try {
     createUserWithEmailAndPassword(auth, email, password).then(async user => {
+      console.log({ user_setting });
       setDoc(doc(db, "users", user.user.uid), {
         name: email,
         email: email,

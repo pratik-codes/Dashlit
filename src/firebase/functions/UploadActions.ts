@@ -157,24 +157,26 @@ export const deletePicture = async (
   file_name: string,
   type: string
 ): Promise<any> => {
-  console.log(id, file_name, type);
   const desertRef = ref(storage, `/files/${userId}/background/${file_name}`);
+  console.log(userId, file_name, type);
   const checkIfPresentInFavRes = await checkIfPresentInFav(id);
   const checkIfPresentInFavBackgroundRes = await checkIfPresentInBackground(id);
   const currentPictureRef = doc(BackgroundColRef, id);
   const currentPictureRefBackground = doc(FavColRef, id);
 
-  if (type === "my_pictures" && !checkIfPresentInFavRes) {
-    await deleteObject(desertRef);
-  }
-  if (type === "fav" && !checkIfPresentInFavBackgroundRes) {
-    await deleteObject(desertRef);
-  }
-
-  if (type === "my_pictures") await deleteDoc(currentPictureRef);
-  if (type === "fav") {
-    console.log({ currentPictureRefBackground });
-    await deleteDoc(currentPictureRefBackground);
+  try {
+    if (type === "my_pictures") await deleteDoc(currentPictureRef);
+    if (type === "fav") {
+      await deleteDoc(currentPictureRefBackground);
+    }
+    if (type === "my_pictures" && !checkIfPresentInFavRes) {
+      await deleteObject(desertRef);
+    }
+    if (type === "fav" && !checkIfPresentInFavBackgroundRes) {
+      await deleteObject(desertRef);
+    }
+  } catch (e: any) {
+    console.log(e, "error while deleting background");
   }
 };
 

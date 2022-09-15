@@ -28,6 +28,7 @@ const Background = () => {
 
   const getImages = async () => {
     const res: any = await getAllImages();
+    console.log("refreshing", res);
     setImages(res);
   };
 
