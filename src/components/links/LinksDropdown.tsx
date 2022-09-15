@@ -9,9 +9,9 @@ import Loader from "../common/Loader";
 import { useSelector } from "react-redux";
 import { RootStore } from "../../Redux/Store";
 
-const LinksDropdown: React.FC<any> = () => {
+const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [openDialog, setOpenDialog] = useState(false);
+  // const [openDialog, setOpenDialog] = useState(false);
   const [searchValue, setSearchValue] = useState("");
 
   const LinksDataRedux: any = useSelector(

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import SvgButton from "../../components/button/SvgButton";
 import {
@@ -29,35 +29,30 @@ const Home = () => {
   const [preference, setPreference] = useState([]);
   const [liveData, setLiveData] = useState<any>([]);
   const [activeUserData, setActiveUserData] = useState<any>([]);
+  const [openDialog, setOpenDialog] = useState(false);
 
   const dispatch = useDispatch();
 
   const SettingsDataRedux: any = useSelector(
     (state: RootStore) => state.userSettingsData
   );
-
   const userData = async () => {
     const res: any = dispatch(getSettingsList());
   };
-
   const getUserLinks = async () => {
     const res: any = dispatch(getLinksList());
   };
-
   const getUserTodo = async () => {
     const res: any = dispatch(getTodoList());
   };
-
   const getLiveData = async () => {
     const liveData: any = await getLiveDetails();
     setLiveData(liveData);
   };
-
   const getActiveData = async () => {
     const activeData: any = await getUserActiveData();
     setActiveUserData(activeData?.data);
   };
-
   const getPreferenceValue = (preferenceType: string) => {
     let truth;
     if (SettingsDataRedux.data) {
@@ -87,7 +82,10 @@ const Home = () => {
     : activeUserData?.background_url;
 
   const get_live_quote = getPreferenceValue("quotes-source-settings");
+  const local_storage_quote = localStorage.getItem("latest_quote");
   const quote = get_live_quote ? liveData?.data?.quote : activeUserData?.quote;
+
+  const local_storage_author_name = localStorage.getItem("latest_author");
   const author_name = get_live_quote
     ? liveData?.data?.author_name
     : activeUserData?.author_name;
@@ -95,6 +93,28 @@ const Home = () => {
   useEffect(() => {
     if (file_url) localStorage.setItem("latest_file_url", file_url);
   }, [file_url]);
+
+  useEffect(() => {
+    if (quote) localStorage.setItem("latest_quote", quote);
+  }, [quote]);
+
+  useEffect(() => {
+    if (author_name) localStorage.setItem("latest_author", author_name);
+  }, [author_name]);
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleClick);
+
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  }, []);
+
+  const handleClick = (e: any) => {
+    if (e.key === "l") {
+      setOpenDialog(true);
+    }
+  };
 
   return (
     <div>
@@ -117,12 +137,20 @@ const Home = () => {
         {getPreferenceValue("quotes-settings") === true && quote && (
           <div>
             <div className="qoutes-wrapper qoutes">
-              <p>"{quote}"</p>
-              <p className="text-sm"> - {author_name}</p>
+              <p>"{local_storage_quote || quote}"</p>
+              <p className="text-sm">
+                {" "}
+                - {local_storage_author_name || author_name}
+              </p>
             </div>
           </div>
         )}
-        {getPreferenceValue("links-settings") === true && <LinksDropdown />}
+        {getPreferenceValue("links-settings") === true && (
+          <LinksDropdown
+            openDialog={openDialog}
+            setOpenDialog={setOpenDialog}
+          />
+        )}
         {getPreferenceValue("todo-settings") === true && <TodoDropdown />}
         {getPreferenceValue("weather-settings") === true && (
           <SvgButton type="weather" position="top-0 right-0" />
