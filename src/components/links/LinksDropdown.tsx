@@ -41,11 +41,11 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
               style={{
                 minWidth: "24rem",
                 minHeight: "10rem",
-                maxHeight: "40rem",
+                maxHeight: "35rem",
                 overflowY: "auto",
                 overflowX: "hidden"
               }}
-              className="glass w-full">
+              className="glass w-full no-scrollbar">
               <div className="flex justify-center align-center">
                 <input
                   onChange={e => setSearchValue(e.target.value)}
