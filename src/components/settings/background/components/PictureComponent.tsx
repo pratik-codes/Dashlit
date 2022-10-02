@@ -57,7 +57,6 @@ const PictureComponent: React.FC<Props> = ({
   const setCurrentPicture = async () => {
     console.log(data.url);
     await setUserActiveData({ background_url: data?.url }, "picture");
-    window.location.reload();
   };
 
   const ActionMap: any = {

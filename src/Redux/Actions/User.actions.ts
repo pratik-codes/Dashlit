@@ -28,6 +28,7 @@ export const getLinksList = () => async (dispatch: Dispatch) => {
     });
     const res = await getUserLinksService();
     if (res.success) {
+      localStorage.setItem("links", JSON.stringify(res));
       dispatch({
         type: USER_LINKS_SUCCESS,
         payload: res.data

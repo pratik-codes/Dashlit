@@ -18,6 +18,11 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
     (state: RootStore) => state.userLinkData
   );
 
+  const linksLocalStorageData: any = localStorage.getItem("links");
+  const linksLocalStorage: any = JSON.parse(linksLocalStorageData);
+
+  const LINKS = linksLocalStorage || LinksDataRedux;
+
   function closeModal() {
     setIsOpen(false);
   }
@@ -58,8 +63,8 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
                   className="p-2 m-3 text-gray-900 border border-gray-900 flex bg-transparent focus:outline-none rounded placeholder-black"
                 />
               </div>
-              {LinksDataRedux.data ? (
-                LinksDataRedux.data
+              {LINKS.data ? (
+                LINKS.data
                   .filter((value: any) => {
                     if (searchValue === "") {
                       return value;
@@ -94,21 +99,20 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
                 </div>
               )}
 
-              {LinksDataRedux.loading === false &&
-                LinksDataRedux.data.length === 0 && (
-                  <div className="div flex justify-center items-center h-full">
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <h1 className="font-2x my-auto text-gray-900 font-bold">
-                      No links found. Add new link...
-                    </h1>
-                  </div>
-                )}
+              {LINKS.loading === false && LINKS.data.length === 0 && (
+                <div className="div flex justify-center items-center h-full">
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <h1 className="font-2x my-auto text-gray-900 font-bold">
+                    No links found. Add new link...
+                  </h1>
+                </div>
+              )}
             </div>
           </ul>
           <div

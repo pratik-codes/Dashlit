@@ -91,16 +91,13 @@ const Home = () => {
     : activeUserData?.author_name;
 
   useEffect(() => {
-    if (file_url) localStorage.setItem("latest_file_url", file_url);
-  }, [file_url]);
-
-  useEffect(() => {
-    if (quote) localStorage.setItem("latest_quote", quote);
-  }, [quote]);
-
-  useEffect(() => {
-    if (author_name) localStorage.setItem("latest_author", author_name);
-  }, [author_name]);
+    if (file_url && !file_url_local_storage)
+      localStorage.setItem("latest_file_url", file_url);
+    if (author_name && !local_storage_author_name)
+      localStorage.setItem("latest_author", author_name);
+    if (quote && !local_storage_quote)
+      localStorage.setItem("latest_quote", quote);
+  }, [file_url, author_name, quote]);
 
   useEffect(() => {
     document.addEventListener("keydown", handleClick);

@@ -24,6 +24,14 @@ export const getUserActiveData = () => {
 export const setUserActiveData = async (params: any, type: string) => {
   const old_data: any = await getUserActiveData();
   const activeDataRef = doc(collection(userDataRef, "activeData"), "data");
+
+  if (params?.background_url)
+    localStorage.setItem("latest_file_url", params?.background_url);
+  if (params?.quote) {
+    localStorage.setItem("latest_quote", params?.quote);
+    localStorage.setItem("latest_author", params?.author_name);
+  }
+
   const data = {
     ...old_data?.data,
     ...params
