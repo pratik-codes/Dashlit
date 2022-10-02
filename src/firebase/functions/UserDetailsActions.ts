@@ -19,6 +19,8 @@ export const getUserDetailsService = async (): Promise<any> => {
     const docRef = doc(db, "users", userId);
     const docSnap = await getDoc(docRef);
 
+    localStorage.setItem("user-settings", JSON.stringify(docSnap.data()));
+
     if (docSnap.exists()) {
       return docSnap.data();
     } else {

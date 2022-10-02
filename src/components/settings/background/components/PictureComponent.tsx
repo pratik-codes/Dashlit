@@ -18,6 +18,7 @@ import { triggerMessage } from "../../../common/snackbar";
 import { setUserActiveData } from "../../../../firebase/functions/UsersActiveData";
 import { getSettingsList } from "../../../../Redux/Actions/User.actions";
 import { useDispatch } from "react-redux";
+import { updateUserDetailsService } from "../../../../firebase/functions/UserDetailsActions";
 
 interface Props {
   data: any;
@@ -35,6 +36,9 @@ const PictureComponent: React.FC<Props> = ({
   let date = new Date(data.created_at);
 
   const dispatch = useDispatch();
+
+  let settings_data = localStorage.getItem("user-settings");
+  const settings_data_parsed = JSON.parse(settings_data || "");
 
   const favPictureHandler = () => {
     addFavoriteServicePicture(id, data?.url, data?.name, data?.created_at);
@@ -55,8 +59,20 @@ const PictureComponent: React.FC<Props> = ({
   };
 
   const setCurrentPicture = async () => {
-    console.log(data.url);
     await setUserActiveData({ background_url: data?.url }, "picture");
+    // set the Enable public picture to false as the user want to use their own picture as background
+    const settings = JSON.parse(settings_data_parsed?.settings);
+    const objIndex = settings.findIndex(
+      (obj: any) => obj.type === "picture-source-settings"
+    );
+    if (settings[objIndex].isToggled === true) {
+      settings[objIndex].isToggled = false;
+      settings_data_parsed["settings"] = JSON.stringify(settings);
+      if (settings_data_parsed) {
+        await updateUserDetailsService(settings_data_parsed);
+      }
+      dispatch(getSettingsList());
+    }
   };
 
   const ActionMap: any = {

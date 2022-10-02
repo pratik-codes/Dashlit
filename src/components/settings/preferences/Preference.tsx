@@ -17,7 +17,7 @@ const Preference = () => {
   let settingsData =
     SettingsDataRedux.data && JSON.parse(SettingsDataRedux.data.settings);
 
-  const changePreference = (preferenceType: string, status: boolean) => {
+  const changePreference = async (preferenceType: string, status: boolean) => {
     const objIndex = settingsData.findIndex(
       (obj: any) => obj.type === preferenceType
     );

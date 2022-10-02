@@ -16,6 +16,7 @@ import { triggerMessage } from "../../../common/snackbar";
 import "../../../../styles/AntdStyles/Popover.css";
 import { setUserActiveData } from "../../../../firebase/functions/UsersActiveData";
 import { getSettingsList } from "../../../../Redux/Actions/User.actions";
+import { updateUserDetailsService } from "../../../../firebase/functions/UserDetailsActions";
 
 interface Props {
   id: string;
@@ -50,10 +51,29 @@ const QuotesComponents: React.FC<Props> = ({
   };
 
   const removeFromFavourites = () => {
-    console.log("removing", id);
     deleteFavoriteService(id);
     getFavourites();
     triggerMessage("Quote removed", "fail");
+  };
+
+  let settings_data = localStorage.getItem("user-settings");
+  const settings_data_parsed = JSON.parse(settings_data || "");
+
+  const setCurrentQuote = async (data: any) => {
+    await setUserActiveData(data, "quote");
+    // set the Enable public picture to false as the user want to use their own picture as background
+    const settings = JSON.parse(settings_data_parsed?.settings);
+    const objIndex = settings.findIndex(
+      (obj: any) => obj.type === "quotes-source-settings"
+    );
+    if (settings[objIndex].isToggled === true) {
+      settings[objIndex].isToggled = false;
+      settings_data_parsed["settings"] = JSON.stringify(settings);
+      if (settings_data_parsed) {
+        await updateUserDetailsService(settings_data_parsed);
+      }
+      dispatch(getSettingsList());
+    }
   };
 
   const contentDIV = (
@@ -80,12 +100,8 @@ const QuotesComponents: React.FC<Props> = ({
           </div>
         )}
         <h1
-          onClick={async () => {
-            await setUserActiveData(
-              { quote: quotes, author_name: author },
-              "quote"
-            );
-            window.location.reload();
+          onClick={() => {
+            setCurrentQuote({ quote: quotes, author_name: author });
           }}
           className="cursor-pointer hover:bg-gray-200 py-1 px-2 rounded-lg">
           Set this quote

@@ -33,7 +33,6 @@ export const signUpHandler = async (
   try {
     await createUserWithEmailAndPassword(auth, email, password).then(
       async user => {
-        console.log({ user_setting });
         await setDoc(doc(db, "users", user.user.uid), {
           name: email,
           email: email,
