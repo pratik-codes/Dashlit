@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import React, { useCallback, useState } from "react";
 
-import { getUserLinksService } from "../../firebase/functions/LinksActions";
-import SvgButton from "../button/SvgButton";
-import AddNewLinkDialog from "./AddNewLinkDialog";
-import LinkComponent from "./LinkComponent";
-import Loader from "../common/Loader";
 import { useSelector } from "react-redux";
 import { RootStore } from "../../Redux/Store";
+import SvgButton from "../button/SvgButton";
+import Loader from "../common/Loader";
+import Modal from "../common/Modal";
+import AddNewLinkDialog from "./AddNewLinkDialog";
+import LinkComponent from "./LinkComponent";
 
 const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,38 +30,47 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
     setIsOpen(true);
   }
 
+  const searchInput = useCallback(inputElement => {
+    if (inputElement) {
+      setTimeout(() => {
+        inputElement.focus();
+      }, 500);
+    }
+  }, []);
+
   return (
     // add "dropdown" to the first div if want to enable hover to show dialog
-    <div className="inline-block relative mb-4">
+    <div className="inline-block mb-4 relative">
       <div
         // onKeyPress={e => e.key === "p" && setOpenDialog(!openDialog)}pp
         onClick={() => setOpenDialog(!openDialog)}>
         <SvgButton type="link" position="top-0 left-0" />
       </div>
       {openDialog && (
-        <div className="dropdown-menu text-gray-700 pt-4 mt-12 ml-4 transition-all duration-200 ease-out">
-          <ul className="">
+        <div className="dropdown-menu duration-200 ease-out ml-4 mt-12 pt-4 text-gray-700 transition-all">
+          <ul className="glass">
+            <div className="align-center flex justify-center">
+              <input
+                ref={searchInput}
+                onChange={e => setSearchValue(e.target.value)}
+                value={searchValue}
+                style={{
+                  minWidth: "92%"
+                }}
+                type="text"
+                placeholder="Search"
+                className="bg-transparent border border-gray-900 flex focus:outline-none font-bold m-3 placeholder-gray-900 placeholder-opacity-50 px-3 py-2 relative text-gray-900 text-lg"
+              />
+            </div>
             <div
               style={{
                 minWidth: "24rem",
                 minHeight: "10rem",
-                maxHeight: "35rem",
+                maxHeight: "65vh",
                 overflowY: "auto",
                 overflowX: "hidden"
               }}
-              className="glass w-full no-scrollbar">
-              <div className="flex justify-center align-center">
-                <input
-                  onChange={e => setSearchValue(e.target.value)}
-                  value={searchValue}
-                  style={{
-                    minWidth: "92%"
-                  }}
-                  type="text"
-                  placeholder="Search"
-                  className="p-2 m-3 text-gray-900 border border-gray-900 flex bg-transparent focus:outline-none rounded placeholder-black"
-                />
-              </div>
+              className="no-scrollbar w-full">
               {LINKS.data ? (
                 LINKS.data
                   .filter((value: any) => {
@@ -77,8 +85,8 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
                     }
                   })
                   .sort(function (a: any, b: any) {
-                    var textA = a?.data?.linkTitle?.toUpperCase();
-                    var textB = b?.data?.linkTitle?.toUpperCase();
+                    let textA = a?.data?.linkTitle?.toUpperCase();
+                    let textB = b?.data?.linkTitle?.toUpperCase();
                     return textA < textB ? -1 : textA > textB ? 1 : 0;
                   })
                   .map((link: any) => {
@@ -100,7 +108,7 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
               )}
 
               {LINKS.loading === false && LINKS.data.length === 0 && (
-                <div className="div flex justify-center items-center h-full">
+                <div className="div flex h-full items-center justify-center">
                   <br />
                   <br />
                   <br />
@@ -108,7 +116,7 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
                   <br />
                   <br />
                   <br />
-                  <h1 className="font-2x my-auto text-gray-900 font-bold">
+                  <h1 className="font-2x font-bold my-auto text-gray-900">
                     No links found. Add new link...
                   </h1>
                 </div>
@@ -117,13 +125,13 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
           </ul>
           <div
             style={{
-              minWidth: "24rem"
+              width: "96%"
             }}
             onClick={() => openModal()}
-            className="absolute glass2 p-2 flex cursor-pointer	">
+            className="absolute cursor-pointer flex glass2 p-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-gray-900 my-auto mx-3"
+              className="h-5 mx-3 my-auto text-gray-900 w-5"
               viewBox="0 0 20 20"
               fill="currentColor">
               <path
@@ -132,20 +140,26 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
                 clipRule="evenodd"
               />
             </svg>
-            <h1 className="p-1 text-gray-900 font-bold">
+            <h1 className="font-bold p-1 text-gray-900">
               {" "}
               Add a new link or folder
             </h1>
           </div>
         </div>
       )}
-
       {/* dialog box for adding new link */}
-      <AddNewLinkDialog
+      <Modal
         isOpen={isOpen}
         openModal={openModal}
         closeModal={closeModal}
-      />
+        Children={
+          <AddNewLinkDialog
+            isOpen={isOpen}
+            openModal={openModal}
+            closeModal={closeModal}
+          />
+        }
+      />{" "}
     </div>
   );
 };

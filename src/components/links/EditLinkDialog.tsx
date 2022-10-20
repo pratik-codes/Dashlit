@@ -1,13 +1,14 @@
-import React, { useState, Fragment, useEffect } from "react";
-import { Dialog, Transition } from "@headlessui/react";
+import { Button } from "@cred/neopop-web/lib/components";
+import { Dialog } from "@headlessui/react";
+import { Tooltip } from "@material-ui/core";
 import PropTypes from "prop-types";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import Svg from "../common/Svg";
 import { updateUserLinksService } from "../../firebase/functions/LinksActions";
 import { getLinksList } from "../../Redux/Actions/User.actions";
-import { useDispatch } from "react-redux";
-import SnackbarComponent from "../common/SnackbarComponent";
 import { triggerMessage } from "../common/snackbar";
+import Svg from "../common/Svg";
 
 interface Props {
   isOpen: boolean;
@@ -37,10 +38,6 @@ const EditLinkDialog: React.FC<Props> = ({
   const [urls, setUrls] = useState([]);
   const [linkAdded, setLinkAdded] = useState<any>([]);
   const [linksCount, setLinksCount] = useState(1);
-  // dialogbox state
-  const [snackbar, setSnackbar] = useState(false);
-  const [message, setMessage] = useState("");
-  const [color, setColor] = useState("#1A202C");
 
   const dispatch = useDispatch();
 
@@ -56,14 +53,7 @@ const EditLinkDialog: React.FC<Props> = ({
       await dispatch(getLinksList());
     } else {
       triggerMessage(res.error, "fail");
-      setMessage(res.error);
     }
-  };
-
-  const cleanUpHandler = () => {
-    closeModal();
-    setLinkAdded([{ link: "", id: uuidv4() }]);
-    setSnackbar(false);
   };
 
   const inputOnchangeHandler = (inputId: string, value: string) => {
@@ -88,144 +78,119 @@ const EditLinkDialog: React.FC<Props> = ({
   }, []);
 
   return (
-    <div>
-      <Transition appear show={isOpen} as={Fragment}>
-        <Dialog
-          as="div"
-          className="fixed inset-0 z-10 overflow-y-auto "
-          onClose={openModal}>
-          <div className=" px-4 text-center ">
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0">
-              <Dialog.Overlay className="fixed inset-0" />
-            </Transition.Child>
-
-            {/* This element is to trick the browser into centering the modal contents. */}
-            <span
-              className="inline-block h-screen align-middle"
-              aria-hidden="true">
-              &#8203;
-            </span>
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95">
-              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform glasshover rounded-lg shadow-xl border-0 border-gray-900">
-                <Dialog.Title
-                  as="h3"
-                  className="text-lg font-bold leading-6 text-gray-900 ">
-                  Edit link.
-                </Dialog.Title>
-                <div className="mt-2">
-                  <input
-                    type="text"
-                    onChange={e => setTitle(e.target.value)}
-                    value={title}
-                    placeholder="Link title"
-                    className="px-3 py-2 mt-3 mb-1 border-opacity-50  placeholder-blueGray-300 text-blueGray-600 relative bg-transparent border border-gray-900 text-gray-900 rounded text-base  outline-none focus:outline-none focus:ring w-full"
+    <div className="align-middle border-0 border-gray-900 glasshover inline-block max-w-md my-8 overflow-hidden p-6 rounded-lg shadow-xl text-left transform transition-all w-full">
+      <Dialog.Title
+        as="h3"
+        className="font-bold leading-6 text-gray-900 text-xl">
+        Edit link
+      </Dialog.Title>
+      <div className="mt-2">
+        <input
+          value={title}
+          type="text"
+          onChange={e => setTitle(e.target.value)}
+          placeholder="Link title"
+          className="bg-transparent border border-gray-900 focus:outline-none focus:ring font-bold mb-1 mt-3 outline-none p-1 placeholder-gray-900 placeholder-opacity-50 px-3 py-2 relative text-gray-900 text-lg w-full"
+        />
+        {urls.map((link: any) => {
+          return (
+            <div key={link.id}>
+              <div className="bg-transparent border border-gray-900 cursor-pointer div flex justify-between mb-1 text-gray-900">
+                <div
+                  className="flex w-9/12"
+                  onClick={() => window.open(`https://${link.link}`, "_blank")}>
+                  <img
+                    style={{ borderRadius: "100%" }}
+                    className="h-5 ml-3 my-auto w-5"
+                    src={`https://s2.googleusercontent.com/s2/favicons?domain_url=https://${link.link}`}
+                    alt="favicon"
                   />
-                  {urls.map((link: any) => {
-                    return (
-                      <div key={link.id}>
-                        <div className="div flex justify-between bg-transparent rounded border border-gray-900 text-gray-900 mb-1 cursor-pointer">
-                          <div
-                            className="flex"
-                            onClick={() =>
-                              window.open(`https://${link.link}`, "_blank")
-                            }>
-                            <img
-                              style={{ borderRadius: "100%" }}
-                              className="w-5 h-5 my-auto ml-3 "
-                              src={`https://s2.googleusercontent.com/s2/favicons?domain_url=https://${link.link}`}
-                              alt="favicon"
-                            />
-                            <h1 className="px-3 py-2 border-2  border-opacity-50  placeholder-blueGray-300 text-blueGray-600 relative border-none rounded text-gray-900 text-base border-0 outline-none focus:outline-none focus:ring w-full">
-                              {link.link.length > 45
-                                ? `${link.link.substring(0, 45)}...`
-                                : link.link}
-                            </h1>
-                          </div>
-                          <div
-                            onClick={() => linksDeleteHandler(link.id)}
-                            className="my-auto mx-2 pb-1 flex justify-between ">
-                            <Svg type="deleteWhite" />
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                  {linkAdded.length !== 0 &&
-                    linkAdded.map((link: any) => {
-                      return (
-                        <div
-                          key={link.id}
-                          className="div flex justify-between bg-transparent rounded border border-gray-900 text-gray-900 cursor-pointer">
-                          <input
-                            placeholder="add new link"
-                            onChange={e =>
-                              inputOnchangeHandler(link.id, e.target.value)
-                            }
-                            className="px-3 py-2 mb-1 border-opacity-50  placeholder-blueGray-300 text-blueGray-600 relative bg-transparent border-0 rounded text-base  outline-none focus:outline-none focus:ring w-full"
-                          />
-                          <div
-                            onClick={() => inputDeleteHandler(link.id)}
-                            className="my-auto mx-2 pb-1 flex justify-between bg-transparent">
-                            <Svg type="deleteWhite" />
-                          </div>
-                        </div>
-                      );
-                    })}
-
-                  <div className="div flex justify-end">
-                    <button
-                      type="button"
-                      className="inline-flex justify-center p-2 text-sm font-medium text-gray-900  border border-transparent rounded-lg mt-1 hover:glasshover focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                      onClick={() => {
-                        setLinksCount(linksCount + 1);
-                        setLinkAdded([
-                          ...linkAdded,
-                          { link: "", id: uuidv4() }
-                        ]);
-                      }}>
-                      <Svg type="add" />
-                    </button>
-                  </div>
+                  <Tooltip title={link.link} placement="top">
+                    <h1 className="border border-none border-opacity-50 break-all focus:outline-none focus:ring font-bold hover:text-blue-900 hover:underline outline-none placeholder-blueGray-300 px-3 py-2 relative rounded text-base text-blueGray-600 text-gray-900 w-full">
+                      {link.link.length > 20
+                        ? `${link.link.substring(0, 20)}...`
+                        : link.link}
+                    </h1>
+                  </Tooltip>
                 </div>
-
-                <div className="mt-4">
-                  <button
-                    type="button"
-                    className="mr-3 inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 placeholder-gray-900 bg-transparent border border-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 rounded"
-                    onClick={() => {
-                      editHandler();
-                      closeModal();
-                    }}>
-                    edit
-                  </button>
-                  <button
-                    type="button"
-                    className="mr-3 inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 placeholder-gray-900 bg-transparent border border-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 rounded"
-                    onClick={() => {
-                      closeModal();
-                    }}>
-                    cancel
-                  </button>
-                </div>
+                <Button
+                  kind="elevated"
+                  className="focus:outline-none"
+                  onClick={() => linksDeleteHandler(link.id)}>
+                  <Svg type="deleteWhite" />
+                </Button>
               </div>
-            </Transition.Child>
-          </div>
-        </Dialog>
-      </Transition>
+            </div>
+          );
+        })}
+        {linkAdded.length !== 0 &&
+          linkAdded.map((link: any) => {
+            return (
+              <div
+                key={link.id}
+                className="bg-transparent border border-gray-900 cursor-pointer div flex justify-between text-gray-900">
+                <input
+                  type="text"
+                  placeholder="add new link"
+                  onChange={e => inputOnchangeHandler(link.id, e.target.value)}
+                  className="bg-transparent border-opacity-50 flex focus:outline-none focus:ring font-bold outline-none placeholder-gray-900 placeholder-opacity-50 px-3 py-2 relative text-gray-900 text-lg w-12/12"
+                />
+                <Button
+                  kind="elevated"
+                  className="focus:outline-none"
+                  onClick={() => inputDeleteHandler(link.id)}>
+                  <Svg type="deleteWhite" />
+                </Button>
+              </div>
+            );
+          })}
+
+        <div className="div flex justify-end">
+          <Button
+            kind="elevated"
+            className="focus:outline-none mr-1"
+            onClick={() => {
+              setLinksCount(linksCount + 1);
+              setLinkAdded([...linkAdded, { link: "", id: uuidv4() }]);
+            }}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 my-auto w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+              />
+            </svg>
+          </Button>
+        </div>
+      </div>
+
+      <div className="flex mt-4">
+        <div className="mr-2 outline-none">
+          <Button
+            kind="elevated"
+            className="focus:outline-none mr-4"
+            onClick={() => {
+              editHandler();
+              closeModal();
+            }}>
+            Add
+          </Button>
+        </div>
+        <div>
+          <Button
+            kind="elevated"
+            className="focus:outline-none"
+            onClick={closeModal}>
+            Cancel
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };

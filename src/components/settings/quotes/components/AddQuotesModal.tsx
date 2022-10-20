@@ -1,3 +1,4 @@
+import { Button } from "@cred/neopop-web/lib/components";
 import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -7,7 +8,6 @@ import {
   updateMyQuotesService
 } from "../../../../firebase/functions/QuotesActions";
 import { getMyQuotesAction } from "../../../../Redux/Actions/Quotes.actions";
-import Svg from "../../../common/Svg";
 
 interface Props {
   isOpen: boolean;
@@ -72,7 +72,7 @@ const AddQuotesModal: React.FC<Props> = ({
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 z-10 rounded-lg w-full h-full"
+          className="fixed h-full inset-0 rounded-lg w-full z-10"
           onClose={closeHandler}>
           <div className="min-h-screen px-4 text-center">
             <Transition.Child
@@ -88,7 +88,7 @@ const AddQuotesModal: React.FC<Props> = ({
 
             {/* This element is to trick the browser into centering the modal contents. */}
             <span
-              className="inline-block  h-screen align-middle"
+              className="align-middle h-screen inline-block"
               aria-hidden="true">
               &#8203;
             </span>
@@ -100,8 +100,8 @@ const AddQuotesModal: React.FC<Props> = ({
               leave="ease-in duration-200"
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95">
-              <div className="inline-block w-4/12 p-6 my-8 text-left align-middle overflow-y-auto transition-all transform shadow-xl rounded glass">
-                <h1 className="font-bold text-gray-900 text-lg ">
+              <div className="align-middle glass inline-block my-8 overflow-y-auto p-6 rounded shadow-xl text-left transform transition-all w-4/12">
+                <h1 className="font-bold text-gray-900 text-lg">
                   {type === "add" ? "Add new quote" : "Edit quote"}
                 </h1>
                 <input
@@ -109,26 +109,29 @@ const AddQuotesModal: React.FC<Props> = ({
                   value={quotes}
                   type="text"
                   placeholder="Add quote"
-                  className="p-2 my-2 text-gray-900 border border-gray-900 flex bg-transparent focus:outline-none w-full rounded"
+                  className="bg-transparent border border-gray-900 focus:outline-none focus:ring font-bold mb-1 mt-3 outline-none p-1 placeholder-gray-900 placeholder-opacity-50 px-3 py-2 relative text-gray-900 text-lg w-full"
                 />
                 <input
                   onChange={e => setAuthor(e.target.value)}
                   value={author}
                   type="text"
                   placeholder="Add author"
-                  className="p-2 my-2 text-gray-900 border border-gray-900 flex bg-transparent focus:outline-none w-full rounded"
+                  className="bg-transparent border border-gray-900 focus:outline-none focus:ring font-bold mb-1 mt-3 outline-none p-1 placeholder-gray-900 placeholder-opacity-50 px-3 py-2 relative text-gray-900 text-lg w-full"
                 />
-                <div className="flex">
-                  <button
-                    onClick={addQuoteHandler}
-                    className="mt-4 mr-3 inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 placeholder-gray-900 bg-transparent border border-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 rounded">
-                    add
-                  </button>
-                  <button
-                    onClick={closeHandler}
-                    className="mt-4 mr-3 inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 placeholder-gray-900 bg-transparent border border-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 rounded">
-                    cancel
-                  </button>
+                <div className="flex mt-4">
+                  <Button
+                    style={{ marginRight: "10px" }}
+                    kind="elevated"
+                    className="focus:outline-none"
+                    onClick={addQuoteHandler}>
+                    Add
+                  </Button>
+                  <Button
+                    kind="elevated"
+                    className="focus:outline-none"
+                    onClick={closeHandler}>
+                    Cancel
+                  </Button>
                 </div>
               </div>
             </Transition.Child>

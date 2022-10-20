@@ -31,12 +31,12 @@ const PreferenceToggleContent: React.FC<Props> = ({
   }, []);
 
   return (
-    <div className="glasshover p-3 h-full">
+    <div className="glasshover h-full p-3">
       <div className="flex justify-between">
         <div>
           <Svg type={preferenceType} />
-          <h1 className="text-lg text-gray-900 font-bold mt-1">{title}</h1>
-          <p className="text-sm text-gray-700 font-medium">{description}</p>
+          <h1 className="font-bold mt-1 text-gray-900 text-lg">{title}</h1>
+          <p className="font-medium text-gray-700 text-sm">{description}</p>
         </div>
         <div>
           <SwitchComponent enabled={isToggle} setEnabled={changeToggle} />

@@ -1,5 +1,5 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
 const LinkSvg = () => {
   return (
@@ -90,7 +90,7 @@ const Svg: React.FC<Props> = ({ type, size }) => {
       {type === "deleteEdited" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="cursor-pointer h-6 w-6 text-gray-800 editlink hidden hover:text-gray-300"
+          className="cursor-pointer editlink h-6 hidden hover:text-gray-300 text-gray-800 w-6"
           viewBox="0 0 20 20"
           fill="currentColor">
           <path
@@ -103,7 +103,7 @@ const Svg: React.FC<Props> = ({ type, size }) => {
       {type === "deleteWhite" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="cursor-pointer h-6 w-6 text-gray-800  hover:text-gray-200"
+          className="cursor-pointer h-6 w-6"
           viewBox="0 0 20 20"
           fill="currentColor">
           <path
@@ -116,7 +116,7 @@ const Svg: React.FC<Props> = ({ type, size }) => {
       {type === "deleteTodoComponent" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="cursor-pointer h-5 w-5 text-gray-900  hover:text-gray-100"
+          className="cursor-pointer h-5 hover:text-gray-100 text-gray-900 w-5"
           viewBox="0 0 20 20"
           fill="currentColor">
           <path
@@ -129,7 +129,7 @@ const Svg: React.FC<Props> = ({ type, size }) => {
       {type === "edit" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="cursor-pointer h-6 w-6 p-1 my-auto text-gray-900 editlink hidden hover:text-gray-400"
+          className="cursor-pointer editlink h-6 hidden hover:text-gray-400 my-auto p-1 text-gray-900 w-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -144,7 +144,7 @@ const Svg: React.FC<Props> = ({ type, size }) => {
       {type === "editTodo" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="cursor-pointer h-6 w-6 p-1 mb-1 text-gray-900  hover:text-gray-400"
+          className="cursor-pointer h-6 hover:text-gray-400 mb-1 p-1 text-gray-900 w-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -159,7 +159,7 @@ const Svg: React.FC<Props> = ({ type, size }) => {
       {type === "add" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="cursor-pointer h-6 w-6 my-auto"
+          className="cursor-pointer h-6 my-auto w-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -174,7 +174,7 @@ const Svg: React.FC<Props> = ({ type, size }) => {
       {type === "dropdown" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="cursor-pointer h-4 w-4 text-gray-900 hover:text-white font-bold"
+          className="cursor-pointer font-bold h-4 hover:text-white text-gray-900 w-4"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -189,7 +189,7 @@ const Svg: React.FC<Props> = ({ type, size }) => {
       {type === "settingsBig" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="cursor-pointer h-6 w-6 ml-2"
+          className="cursor-pointer h-6 ml-2 w-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -313,7 +313,7 @@ const Svg: React.FC<Props> = ({ type, size }) => {
       {type === "search-settings" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="cursor-pointer h-6 w-6 font-bold"
+          className="cursor-pointer font-bold h-6 w-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -358,7 +358,7 @@ const Svg: React.FC<Props> = ({ type, size }) => {
       {type === "heart" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="cursor-pointer h-5 w-5 text-gray-900"
+          className="cursor-pointer h-5 text-gray-900 w-5"
           viewBox="0 0 20 20"
           fill="currentColor">
           <path
@@ -371,7 +371,7 @@ const Svg: React.FC<Props> = ({ type, size }) => {
       {type === "heart-red" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="cursor-pointer h-5 w-5 text-red-900"
+          className="cursor-pointer h-5 text-red-900 w-5"
           viewBox="0 0 20 20"
           fill="currentColor">
           <path

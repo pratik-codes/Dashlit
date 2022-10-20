@@ -1,14 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
-import PropTypes from "prop-types";
-import EditLinkDialog from "./EditLinkDialog";
-import { Link } from "react-router-dom";
-import Svg from "../common/Svg";
-import {
-  deleteUserLinksService,
-  getUserLinksService
-} from "../../firebase/functions/LinksActions";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { deleteUserLinksService } from "../../firebase/functions/LinksActions";
 import { getLinksList } from "../../Redux/Actions/User.actions";
+import Modal from "../common/Modal";
+import Svg from "../common/Svg";
+import EditLinkDialog from "./EditLinkDialog";
 
 interface Props {
   id: string;
@@ -51,7 +47,7 @@ const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
           {type === "folder" ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 my-auto ml-2 text-gray-900"
+              className="h-6 ml-2 my-auto text-gray-900 w-6"
               viewBox="0 0 20 20"
               fill="currentColor">
               <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
@@ -59,12 +55,12 @@ const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
           ) : (
             <img
               style={{ borderRadius: "100%" }}
-              className="w-5 h-5 my-auto ml-2 "
+              className="h-5 ml-2 my-auto w-5"
               src={`https://s2.googleusercontent.com/s2/favicons?domain_url=https://${url[0].link}`}
               alt="favicon"
             />
           )}
-          <a className=" text-l text-gray-900 font-bold  w-full my-auto py-auto px-4 block whitespace-no-wrap">
+          <a className="block font-bold my-auto px-4 py-auto text-gray-900 text-l w-full whitespace-no-wrap">
             {title.length > 25 ? title.substring(0, 25) + "..." : title}
           </a>
         </div>
@@ -77,14 +73,20 @@ const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
       </div>
       <div className="ml-14">
         {/* edit modal */}
-        <EditLinkDialog
+        <Modal
           isOpen={isOpen}
-          id={id}
-          linkTitle={title}
-          links={url}
-          type={type}
-          closeModal={closeModal}
           openModal={openModal}
+          Children={
+            <EditLinkDialog
+              isOpen={isOpen}
+              id={id}
+              linkTitle={title}
+              links={url}
+              type={type}
+              closeModal={closeModal}
+              openModal={openModal}
+            />
+          }
         />
       </div>
     </>

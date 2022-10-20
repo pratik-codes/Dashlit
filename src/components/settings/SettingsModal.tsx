@@ -1,16 +1,10 @@
-import React, { useState, Fragment } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import PropTypes from "prop-types";
-import { v4 as uuidv4 } from "uuid";
-import { addLinksService } from "../../firebase/functions/LinksActions";
-import SnackbarComponent from "../common/SnackbarComponent";
-import { useDispatch } from "react-redux";
-import { getLinksList } from "../../Redux/Actions/User.actions";
-import Svg from "../common/Svg";
-import SettingsCategories from "./components/SettingsCategories";
+import { Button } from "@cred/neopop-web/lib/components";
+import { Tooltip } from "antd";
+import React, { useState } from "react";
 import { logoutHandler } from "../../firebase/functions/AuthActions";
-import Sidebar from "./Sidebar";
+import Svg from "../common/Svg";
 import CatergoryContent from "./components/CatergoryContent";
+import Sidebar from "./Sidebar";
 
 interface Props {
   isOpen: boolean;
@@ -19,36 +13,37 @@ interface Props {
 }
 
 const SettingsModal: React.FC<Props> = ({ isOpen, closeModal, openModal }) => {
-  const [snackbar, setSnackbar] = useState(false);
-  const [message, setMessage] = useState("");
-  const [color, setColor] = useState("#1A202C");
   const [view, setView] = useState("Preferences");
 
   return (
     <>
       {isOpen && (
-        <div className="absolute top-0 bottom-0 left-0 right-0  my-16 ml-6 glasshover w-10/12 h-10/12 overflow-hidden">
-          <div className="absolute top-0 w-full">
+        <div className="absolute glasshover h-10/12 inset-0 ml-6 my-16 overflow-hidden w-10/12">
+          <div className="w-full">
             <div className="flex justify-between">
               {/* top area */}
-              <div className="leading-6 text-gray-900 text-3xl font-bold flex m-8">
+              <div className="flex font-bold leading-6 m-8 text-3xl text-gray-900">
                 Settings
               </div>
-              <div
-                onClick={() => {
-                  logoutHandler();
-                  window.location.reload();
-                }}
-                className="flex px-2 h-8  mr-6 my-auto py-1 text-sm font-bold text-bg-gray-900 focus:outline-none cursor-pointer border border-gray-900 rounded-lg">
-                <Svg type="logout" />
-              </div>
+              <Tooltip title="Logout">
+                <Button
+                  kind="elevated"
+                  className="focus:outline-none"
+                  style={{ margin: "10px" }}
+                  onClick={() => {
+                    logoutHandler();
+                    window.location.reload();
+                  }}>
+                  <Svg type="logout" />
+                </Button>
+              </Tooltip>
             </div>
             {/* left side */}
             <div className="flex">
-              <div className="h-full  w-2/12">
+              <div className="h-full w-2/12">
                 <Sidebar setView={setView} />
               </div>
-              <div className="h-screen w-10/12 m-0 overflow-auto">
+              <div className="h-screen m-0 overflow-auto w-10/12">
                 <CatergoryContent type={view} />
               </div>
             </div>

@@ -1,19 +1,18 @@
-import React, { Fragment, useEffect, useState } from "react";
+import { CloseCircleFilled } from "@ant-design/icons";
+import { Button } from "@cred/neopop-web/lib/components";
 import { Dialog, Transition } from "@headlessui/react";
 import { Upload } from "antd";
 import ImgCrop from "antd-img-crop";
-import { CloseCircleFilled } from "@ant-design/icons";
 import Compressor from "compressorjs";
+import React, { Fragment, useState } from "react";
 
-import "../../../../styles/AntdStyles/Upload.css";
 import {
   addImageURL,
-  getAllImages,
   uploadBackgroundImage
 } from "../../../../firebase/functions/UploadActions";
-import { triggerMessage } from "../../../common/snackbar";
-import SnackbarComponent from "../../../common/SnackbarComponent";
+import "../../../../styles/AntdStyles/Upload.css";
 import Loader from "../../../common/Loader";
+import { triggerMessage } from "../../../common/snackbar";
 
 interface Props {
   isOpen: boolean;
@@ -67,7 +66,7 @@ const UploadPictureModal: React.FC<Props> = ({
         <Transition appear show={isOpen} as={Fragment}>
           <Dialog
             as="div"
-            className="fixed inset-0 z-10 rounded-lg w-full h-full"
+            className="fixed h-full inset-0 rounded-lg w-full z-10"
             onClose={() => null}>
             <div className="min-h-screen px-4 text-center">
               <Transition.Child
@@ -83,7 +82,7 @@ const UploadPictureModal: React.FC<Props> = ({
 
               {/* This element is to trick the browser into centering the modal contents. */}
               <span
-                className="inline-block h-screen align-middle"
+                className="align-middle h-screen inline-block"
                 aria-hidden="true">
                 &#8203;
               </span>
@@ -96,14 +95,14 @@ const UploadPictureModal: React.FC<Props> = ({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95">
                 <div
-                  className="inline-block w-4/12 p-6 my-8 text-left align-middle overflow-y-auto transition-all transform shadow-xl rounded glass  overflow-hidden"
+                  className="align-middle glass inline-block my-8 overflow-hidden overflow-y-auto p-6 rounded shadow-xl text-left transform transition-all w-4/12"
                   style={{ borderRadius: "10px" }}>
                   <div
                     onClick={closeHandler}
-                    className="absolute text-xl right-0 top-0 cursor-pointer mt-2 mr-3">
+                    className="absolute border border-dashed border-gray-900 cursor-pointer flex items-center justify-items-center mr-3 mt-2 pt-1 px-2 right-0 rounded text-xl top-0">
                     <CloseCircleFilled />
                   </div>
-                  <h1 className="font-bold text-gray-900 text-lg">
+                  <h1 className="font-bold text-gray-900 text-xl">
                     Upload Background Picture
                   </h1>
                   <ImgCrop aspect={16 / 9}>
@@ -115,7 +114,7 @@ const UploadPictureModal: React.FC<Props> = ({
                       <button
                         type="button"
                         style={{ borderRadius: "10px" }}
-                        className="w-full h-40 mt-4 mr-3 justify-center items-center	px-4 py-2 text-sm font-medium bg-transparent border  border-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500">
+                        className="bg-transparent border border-dashed border-gray-900 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus:outline-none font-medium h-40 items-center justify-center mr-3 mt-4 px-4 py-2 text-sm w-full">
                         {isUploading ? (
                           <>
                             <Loader />
@@ -123,10 +122,10 @@ const UploadPictureModal: React.FC<Props> = ({
                         ) : (
                           <>
                             {" "}
-                            <h1 className="font-bold text-blue-900 text-lg ">
+                            <h1 className="font-bold text-blue-900 text-lg">
                               UPLOAD HERE
                             </h1>
-                            <p className="font-medium text-blue-900 ">
+                            <p className="font-medium text-blue-900">
                               or drag and drop your file.
                             </p>
                           </>
@@ -135,9 +134,11 @@ const UploadPictureModal: React.FC<Props> = ({
                     </Upload>
                   </ImgCrop>
 
-                  <div className="text-center mt-6">
-                    <div className="font-bold text-gray-900 text-lg">OR</div>
-                    <div className="font-bold text-gray-900 text-lg">
+                  <div className="">
+                    <div className="font-bold my-6 text-center text-gray-900 text-lg">
+                      OR
+                    </div>
+                    <div className="font-bold mb-2 text-gray-900 text-lg">
                       Add your picture link
                     </div>
                     <div className="flex flex-col justify-start">
@@ -145,20 +146,22 @@ const UploadPictureModal: React.FC<Props> = ({
                         type="text"
                         onChange={e => setPictureName(e.target.value)}
                         placeholder="Picture Name"
-                        className="px-3 py-2 mt-3 mb-1 border-opacity-50  placeholder-gray-900 relative bg-transparent border border-gray-900 rounded text-gray-900 text-base outline-none focus:outline-none focus:ring w-full"
+                        className="bg-transparent border border-gray-900 focus:outline-none focus:ring font-bold mb-1 mt-3 outline-none p-1 placeholder-gray-900 placeholder-opacity-50 px-3 py-2 relative text-gray-900 text-lg w-full"
                       />
                       <input
                         type="text"
                         onChange={e => setPictureUrl(e.target.value)}
                         placeholder="Picture Link"
-                        className="px-3 py-2 mt-3 mb-1 border-opacity-50  placeholder-gray-900 relative bg-transparent border border-gray-900 rounded text-gray-900 text-base outline-none focus:outline-none focus:ring w-full"
+                        className="bg-transparent border border-gray-900 focus:outline-none focus:ring font-bold mb-1 mt-3 outline-none p-1 placeholder-gray-900 placeholder-opacity-50 px-3 py-2 relative text-gray-900 text-lg w-full"
                       />
-                      <button
-                        type="button"
-                        className="mt-3 mb-1 inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 placeholder-gray-900 bg-transparent border border-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 rounded"
-                        onClick={pictureLinkAddHandler}>
-                        add
-                      </button>
+                      <div className="flex justify-end mt-2 w-full">
+                        <Button
+                          kind="elevated"
+                          className="focus:outline-none"
+                          onClick={pictureLinkAddHandler}>
+                          Add
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </div>

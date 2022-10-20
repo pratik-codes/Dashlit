@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUserDetailsService } from "../../../firebase/functions/UserDetailsActions";
 import { getSettingsList } from "../../../Redux/Actions/User.actions";
 import { RootStore } from "../../../Redux/Store";
 import Loader from "../../common/Loader";
-import { user_setting } from "../../data/data";
 import PreferenceToggleContent from "./components/PreferenceToggleContent";
 
 const Preference = () => {
@@ -29,8 +28,8 @@ const Preference = () => {
   };
 
   return (
-    <div className=" h-full">
-      <div className="grid grid-cols-3 gap-4 mb-12">
+    <div className="h-full">
+      <div className="gap-4 grid grid-cols-3 mb-12">
         {settingsData ? (
           settingsData.map((setting: any) => {
             return (

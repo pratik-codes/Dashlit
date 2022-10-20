@@ -1,17 +1,17 @@
+import { Button } from "@cred/neopop-web/lib/components";
 import React, { useEffect, useState } from "react";
-import { Tab } from "@headlessui/react";
-import AddQuotesModal from "./AddQuotesModal";
-import Svg from "../../../common/Svg";
+import { useDispatch, useSelector } from "react-redux";
 import {
   getAllPublicQuotesService,
   getFavouriteService
 } from "../../../../firebase/functions/QuotesActions";
+import { getMyQuotesAction } from "../../../../Redux/Actions/Quotes.actions";
+import { RootStore } from "../../../../Redux/Store";
+import Svg from "../../../common/Svg";
+import AddQuotesModal from "./AddQuotesModal";
+import Favourites from "./Favourites";
 import MyQuotes from "./MyQuotes";
 import PublicQuotes from "./PublicQuotes";
-import { RootStore } from "../../../../Redux/Store";
-import { useDispatch, useSelector } from "react-redux";
-import { getMyQuotesAction } from "../../../../Redux/Actions/Quotes.actions";
-import Favourites from "./Favourites";
 
 const QuotesTabs = () => {
   const [activeTab, setActiveTab] = useState("My quotes");
@@ -46,10 +46,10 @@ const QuotesTabs = () => {
   }, []);
 
   return (
-    <div className="w-full h-full">
-      <div className="div flex justify-between w-full p-2">
+    <div className="h-full w-full">
+      <div className="div flex justify-between p-2 w-full">
         <div className="border-b border-gray-200 dark:border-gray-700">
-          <ul className="flex flex-wrap -mb-px">
+          <ul className="-mb-px flex flex-wrap">
             <li onClick={() => setActiveTab("My quotes")} className="mr-2">
               <button
                 className={`focus:outline-none inline-block py-4 px-4 text-md font-bold text-center text-gray-700 rounded-t-lg border-b-2 border-transparent hover:text-gray-900 hover:border-gray-900 dark:text-gray-400 transition duration-300 ease-out ${
@@ -82,21 +82,14 @@ const QuotesTabs = () => {
             </li>
           </ul>
         </div>
-        <div>
-          {activeTab === "My quotes" && (
-            <button
-              onClick={() => setIsAddQuotesModalOpen(true)}
-              className="p-2 m-1 text-gray-900 font-bold bg-transparent border border-gray-900 rounded-lg focus:outline-none">
-              <Svg type="add" />
-            </button>
-          )}
-          <AddQuotesModal
-            isOpen={isAddQuotesModalOpen}
-            openModal={() => setIsAddQuotesModalOpen(true)}
-            closeModal={() => setIsAddQuotesModalOpen(false)}
-            type="add"
-          />
-        </div>
+        {activeTab === "My quotes" && (
+          <Button
+            kind="elevated"
+            className="focus:outline-none"
+            onClick={() => setIsAddQuotesModalOpen(true)}>
+            <Svg type="add" />
+          </Button>
+        )}
       </div>
       <div className="flex justify-start">
         {activeTab === "My quotes" && (
@@ -111,6 +104,12 @@ const QuotesTabs = () => {
             getFavQuotes={() => getFavouriteQuotes()}
           />
         )}
+        <AddQuotesModal
+          isOpen={isAddQuotesModalOpen}
+          openModal={() => setIsAddQuotesModalOpen(true)}
+          closeModal={() => setIsAddQuotesModalOpen(false)}
+          type="add"
+        />
       </div>
     </div>
   );

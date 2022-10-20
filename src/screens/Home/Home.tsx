@@ -1,26 +1,18 @@
-import React, { useEffect, useRef, useState } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import SvgButton from "../../components/button/SvgButton";
-import {
-  getLiveDetails,
-  getUserDetailsService
-} from "../../firebase/functions/UserDetailsActions";
-import { homedir } from "os";
 import LinksDropdown from "../../components/links/LinksDropdown";
-import { getUserLinksService } from "../../firebase/functions/LinksActions";
+import SettingsDropdown from "../../components/settings/SettingsDropdown";
+import TodoDropdown from "../../components/todo/TodoDropdown";
+import { getLiveDetails } from "../../firebase/functions/UserDetailsActions";
+import { getUserActiveData } from "../../firebase/functions/UsersActiveData";
 import {
   getLinksList,
   getSettingsList,
   getTodoList
 } from "../../Redux/Actions/User.actions";
-import { useDispatch, useSelector } from "react-redux";
-import TodoDropdown from "../../components/todo/TodoDropdown";
-import SettingsDropdown from "../../components/settings/SettingsDropdown";
 import { RootStore } from "../../Redux/Store";
-import Svg from "../../components/common/Svg";
 import { startTime } from "./home.utils";
-import { getUserActiveData } from "../../firebase/functions/UsersActiveData";
-import dummyHome from "../../assets/images/dummyHome.jpg";
 
 const Home = () => {
   const [clockTimer, setClockTimer] = useState("");
@@ -108,6 +100,7 @@ const Home = () => {
   }, []);
 
   const handleClick = (e: any) => {
+    console.log(e);
     if (e.key === "l") {
       setOpenDialog(true);
     }
@@ -120,7 +113,7 @@ const Home = () => {
           backgroundImage: `url(${file_url_local_storage || file_url})`,
           backgroundSize: "cover"
         }}
-        className="w-full h-screen">
+        className="h-screen w-full">
         {/* div that renders the clock, date and the time */}
         <div className="clockdate-wrapper">
           {getPreferenceValue("clock-settings") === true && (
@@ -133,7 +126,7 @@ const Home = () => {
         {/* rendering the qoutes at the bottom of the screen */}
         {getPreferenceValue("quotes-settings") === true && local_storage_quote && (
           <div>
-            <div className="qoutes-wrapper qoutes">
+            <div className="qoutes qoutes-wrapper">
               <p>"{local_storage_quote || quote}"</p>
               <p className="text-sm">
                 {" "}

@@ -1,23 +1,13 @@
+import { Button } from "@cred/neopop-web/lib/components";
 import React, { useEffect, useState } from "react";
-import { Tab } from "@headlessui/react";
 
+import { useDispatch } from "react-redux";
+import { getAllImages } from "../../../firebase/functions/UploadActions";
 import Svg from "../../common/Svg";
-import {
-  getAllPublicQuotesService,
-  getFavouriteService
-} from "../../../firebase/functions/QuotesActions";
-import { RootStore } from "../../../Redux/Store";
-import { useDispatch, useSelector } from "react-redux";
-import { getMyQuotesAction } from "../../../Redux/Actions/Quotes.actions";
-import MyPictures from "./components/MyPictures";
-import UploadPictureModal from "./components/UploadPictureModal";
-import {
-  getAllImages,
-  getFavouritePictureService
-} from "../../../firebase/functions/UploadActions";
-import Tabs from "../../common/Tabs";
 import FavouritePictures from "./components/FavouritePictures";
+import MyPictures from "./components/MyPictures";
 import PublicPictures from "./components/PublicPictures";
+import UploadPictureModal from "./components/UploadPictureModal";
 
 const Background = () => {
   const [activeTab, setActiveTab] = useState("my_pictures");
@@ -38,10 +28,10 @@ const Background = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="w-full h-full">
-      <div className="div flex justify-between w-full p-2">
+    <div className="h-full w-full">
+      <div className="div flex justify-between p-2 w-full">
         <div className="border-b border-gray-200 dark:border-gray-700">
-          <ul className="flex flex-wrap -mb-px">
+          <ul className="-mb-px flex flex-wrap">
             <li onClick={() => setActiveTab("my_pictures")} className="mr-2">
               <button
                 className={`focus:outline-none inline-block py-4 px-4 text-md font-bold text-center text-gray-700 rounded-t-lg border-b-2 border-transparent hover:text-gray-900 hover:border-gray-900 dark:text-gray-400 transition duration-300 ease-out ${
@@ -76,15 +66,14 @@ const Background = () => {
             </li>
           </ul>
         </div>
-        <div>
-          {activeTab === "my_pictures" && (
-            <button
-              onClick={() => setIsUploadModal(true)}
-              className="p-2 m-1 text-gray-900 font-bold bg-transparent border border-gray-900 rounded-lg focus:outline-none">
-              <Svg type="add" />
-            </button>
-          )}
-        </div>
+        {activeTab === "my_pictures" && (
+          <Button
+            kind="elevated"
+            className="focus:outline-none"
+            onClick={() => setIsUploadModal(true)}>
+            <Svg type="add" />
+          </Button>
+        )}
       </div>
       <UploadPictureModal
         isOpen={isUploadModal}
