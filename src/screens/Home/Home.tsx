@@ -29,6 +29,7 @@ const Home = () => {
   const SettingsDataRedux: any = useSelector(
     (state: RootStore) => state.userSettingsData
   );
+
   const userData = async () => {
     const res: any = dispatch(getSettingsList());
   };
@@ -46,13 +47,22 @@ const Home = () => {
     const activeData: any = await getUserActiveData();
     setActiveUserData(activeData?.data);
   };
+
+  const settingsLocalStorage = JSON.parse(
+    localStorage.getItem("user-settings") || ""
+  );
+
   const getPreferenceValue = (preferenceType: string) => {
     let truth;
-    if (SettingsDataRedux.data) {
-      const settingsData = JSON.parse(SettingsDataRedux.data.settings);
-      truth = settingsData.find(
+    const data = settingsLocalStorage
+      ? settingsLocalStorage
+      : SettingsDataRedux;
+
+    if (data?.settings) {
+      const settingsData = JSON.parse(data?.settings);
+      truth = settingsData?.find(
         (x: any) => x.type === preferenceType
-      ).isToggled;
+      )?.isToggled;
       return truth;
     } else return true;
   };
@@ -101,7 +111,6 @@ const Home = () => {
   // }, []);
 
   const handleClick = (e: any) => {
-    console.log(e);
     if (e.key === "l") {
       setOpenDialog(true);
     }
@@ -124,7 +133,9 @@ const Home = () => {
             <div id="date">{date}</div>
           )}
         </div>
-        <Focus />
+
+        {getPreferenceValue("focus-settings") === true && <Focus />}
+
         {/* rendering the qoutes at the bottom of the screen */}
         {getPreferenceValue("quotes-settings") === true && local_storage_quote && (
           <div>
@@ -137,6 +148,7 @@ const Home = () => {
             </div>
           </div>
         )}
+
         {getPreferenceValue("links-settings") === true && (
           <LinksDropdown
             openDialog={openDialog}

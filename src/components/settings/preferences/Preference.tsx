@@ -13,18 +13,50 @@ const Preference = () => {
     (state: RootStore) => state.userSettingsData
   );
 
+  const settingsLocalStorage = JSON.parse(
+    localStorage.getItem("user-settings") || ""
+  );
+
   let settingsData =
     SettingsDataRedux.data && JSON.parse(SettingsDataRedux.data.settings);
 
-  const changePreference = async (preferenceType: string, status: boolean) => {
-    const objIndex = settingsData.findIndex(
+  const changePreference = async (
+    preferenceType: string,
+    status: boolean,
+    name = "",
+    description = ""
+  ) => {
+    const obj = settingsData?.find((obj: any) => obj.type === preferenceType);
+    const objIndex = settingsData?.findIndex(
       (obj: any) => obj.type === preferenceType
     );
-    settingsData[objIndex].isToggled = status;
-    const data = SettingsDataRedux.data;
-    data.settings = JSON.stringify(settingsData);
-    updateUserDetailsService(data);
+    const data: any = SettingsDataRedux.data;
+    if (obj) {
+      settingsData[objIndex].isToggled = status;
+      data.settings = JSON.stringify(settingsData);
+      updateUserDetailsService(data);
+    } else {
+      const data = {
+        name,
+        description,
+        type: preferenceType,
+        isToggled: true
+      };
+      settingsData.push(data);
+      const newData = {
+        ...SettingsDataRedux?.data,
+        settings: JSON.stringify(settingsData)
+      };
+      updateUserDetailsService(newData);
+    }
     dispatch(getSettingsList());
+  };
+
+  const checkIfPresentInSettings = (key: any) => {
+    const data = settingsLocalStorage
+      ? JSON.parse(settingsLocalStorage.settings)
+      : SettingsDataRedux?.settings;
+    return data?.find((obj: any) => obj.type === key);
   };
 
   return (
@@ -33,23 +65,14 @@ const Preference = () => {
         {settingsData ? (
           settingsData.map((setting: any) => {
             return (
-              <div>
-                <div key={setting.type}>
-                  <PreferenceToggleContent
-                    preferenceType={setting.type}
-                    isToggled={setting.isToggled}
-                    title={setting.name}
-                    description={setting.description}
-                    changePreference={changePreference}
-                  />
-                </div>
-                {/* <PreferenceToggleContent
-                  preferenceType="focus-settings"
-                  isToggled=
+              <div key={setting.type}>
+                <PreferenceToggleContent
+                  preferenceType={setting.type}
+                  isToggled={setting.isToggled}
                   title={setting.name}
                   description={setting.description}
                   changePreference={changePreference}
-                /> */}
+                />
               </div>
             );
           })
@@ -57,6 +80,19 @@ const Preference = () => {
           <div>
             <Loader />
           </div>
+        )}
+        {settingsData && !checkIfPresentInSettings("focus-settings") && (
+          <PreferenceToggleContent
+            preferenceType="focus-settings"
+            isToggled={
+              checkIfPresentInSettings("focus-settings")?.isToggled
+                ? true
+                : false
+            }
+            title={"Enable Focus mode"}
+            description={"Disable if you dont want to focus on home."}
+            changePreference={changePreference}
+          />
         )}
       </div>
     </div>

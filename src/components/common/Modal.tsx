@@ -4,7 +4,6 @@ import React, { Fragment } from "react";
 type Props = { Children: any; openModal: any; isOpen: any };
 
 const Modal = (props: any) => {
-  console.log(props);
   const { openModal, isOpen, Children } = props;
 
   return (

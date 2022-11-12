@@ -21,7 +21,7 @@ const PreferenceToggleContent: React.FC<Props> = ({
 
   const changeToggle = (status: boolean) => {
     setIsToggle(status);
-    changePreference(preferenceType, status);
+    changePreference(preferenceType, status, title, description);
   };
 
   useEffect(() => {

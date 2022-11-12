@@ -1,9 +1,6 @@
-import { db, auth } from "../firebase-config";
 import { collection, doc, getDoc, setDoc } from "firebase/firestore";
-import {
-  getDataFromCollectionRef,
-  getSingleDocFromCollectionRef
-} from "./GenericFunctions";
+import { db } from "../firebase-config";
+import { getSingleDocFromCollectionRef } from "./GenericFunctions";
 
 // global data used in the services
 const userId = localStorage.getItem("user_uid");

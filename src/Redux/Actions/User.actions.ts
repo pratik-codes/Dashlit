@@ -2,9 +2,9 @@ import { Dispatch } from "redux";
 import { getUserLinksService } from "../../firebase/functions/LinksActions";
 import { getUserTodoService } from "../../firebase/functions/TodoActions";
 import {
+  USER_LINKS_FAIL,
   USER_LINKS_REQUEST,
-  USER_LINKS_SUCCESS,
-  USER_LINKS_FAIL
+  USER_LINKS_SUCCESS
 } from "../Constants/Links.constants";
 import {
   USER_TODO_FAIL,
@@ -12,12 +12,12 @@ import {
   USER_TODO_SUCCESS
 } from "../Constants/Todo.constants";
 
+import { getUserDetailsService } from "../../firebase/functions/UserDetailsActions";
 import {
   USER_SETTINGS_FAIL,
   USER_SETTINGS_REQUEST,
   USER_SETTINGS_SUCCESS
 } from "../Constants/Actions";
-import { getUserDetailsService } from "../../firebase/functions/UserDetailsActions";
 
 const uid = localStorage.getItem("user_uid");
 
@@ -83,6 +83,7 @@ export const getSettingsList = () => async (dispatch: Dispatch) => {
       });
       return res;
     }
+    localStorage.setItem("user-settings", JSON.stringify(JSON.parse(res)));
   } catch (error: any) {
     dispatch({
       type: USER_SETTINGS_FAIL,

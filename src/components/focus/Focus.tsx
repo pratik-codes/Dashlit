@@ -33,7 +33,7 @@ const Focus = (props: Props) => {
     return (
       <div>
         <h1 className="flex focus-container items-center justify-center text-20 text-medium text-white">
-          <div className="mr-3 mt-2">
+          <div style={{ zIndex: 0 }} className="mr-3 mt-2">
             <Checkbox
               handleChange={(e: any) => focusCheckedHandler(e.target.checked)}
               isChecked={isChecked}
