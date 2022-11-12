@@ -21569,6 +21569,18 @@ a {
   background-color: #68d391;
 }
 
+.focus-container {
+  flex-direction: row;
+  position: absolute;
+  top: 70%;
+  width: 100%;
+  text-align: center;
+  font-size: 35px;
+  font-weight: normal;
+  color: #fff;
+  font-weight: 600;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
