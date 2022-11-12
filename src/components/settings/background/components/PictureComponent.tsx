@@ -1,24 +1,21 @@
-import { Card } from "antd";
-import React, { useState } from "react";
-import Svg from "../../../common/Svg";
 import {
-  DesktopOutlined,
   DeleteOutlined,
+  DesktopOutlined,
   HeartOutlined
 } from "@ant-design/icons";
-import Meta from "antd/lib/card/Meta";
+import { Card } from "antd";
+import React from "react";
 
-import "../../../../styles/AntdStyles/ImageCard.css";
+import { useDispatch } from "react-redux";
 import {
   addFavoriteServicePicture,
   deletePicture
 } from "../../../../firebase/functions/UploadActions";
-import { type } from "os";
-import { triggerMessage } from "../../../common/snackbar";
+import { updateUserDetailsService } from "../../../../firebase/functions/UserDetailsActions";
 import { setUserActiveData } from "../../../../firebase/functions/UsersActiveData";
 import { getSettingsList } from "../../../../Redux/Actions/User.actions";
-import { useDispatch } from "react-redux";
-import { updateUserDetailsService } from "../../../../firebase/functions/UserDetailsActions";
+import "../../../../styles/AntdStyles/ImageCard.css";
+import { triggerMessage } from "../../../common/snackbar";
 
 interface Props {
   data: any;
@@ -94,12 +91,7 @@ const PictureComponent: React.FC<Props> = ({
   return (
     <Card
       cover={<img alt="example" src={data.url} />}
-      actions={ActionMap[type]}>
-      <Meta
-        title={data.name}
-        // description={"Uploaded at:" + " " + date.toLocaleString()}
-      />
-    </Card>
+      actions={ActionMap[type]}></Card>
   );
 };
 

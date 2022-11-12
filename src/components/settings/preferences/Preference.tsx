@@ -33,14 +33,23 @@ const Preference = () => {
         {settingsData ? (
           settingsData.map((setting: any) => {
             return (
-              <div key={setting.type}>
-                <PreferenceToggleContent
-                  preferenceType={setting.type}
-                  isToggled={setting.isToggled}
+              <div>
+                <div key={setting.type}>
+                  <PreferenceToggleContent
+                    preferenceType={setting.type}
+                    isToggled={setting.isToggled}
+                    title={setting.name}
+                    description={setting.description}
+                    changePreference={changePreference}
+                  />
+                </div>
+                {/* <PreferenceToggleContent
+                  preferenceType="focus-settings"
+                  isToggled=
                   title={setting.name}
                   description={setting.description}
                   changePreference={changePreference}
-                />
+                /> */}
               </div>
             );
           })

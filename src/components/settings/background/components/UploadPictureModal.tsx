@@ -51,7 +51,7 @@ const UploadPictureModal: React.FC<Props> = ({
   };
 
   const pictureLinkAddHandler = async () => {
-    if (pictureName?.length === 0 || pictureUrl?.length === 0) {
+    if (pictureUrl?.length === 0) {
       triggerMessage("Please add link url and name", "fail");
       return;
     }
@@ -142,12 +142,6 @@ const UploadPictureModal: React.FC<Props> = ({
                       Add your picture link
                     </div>
                     <div className="flex flex-col justify-start">
-                      <input
-                        type="text"
-                        onChange={e => setPictureName(e.target.value)}
-                        placeholder="Picture Name"
-                        className="bg-transparent border border-gray-900 focus:outline-none focus:ring font-bold mb-1 mt-3 outline-none p-1 placeholder-gray-900 placeholder-opacity-50 px-3 py-2 relative text-gray-900 text-lg w-full"
-                      />
                       <input
                         type="text"
                         onChange={e => setPictureUrl(e.target.value)}

@@ -55,7 +55,7 @@ const AddNewLinkDialog: React.FC<Props> = ({
 
   return (
     <>
-      <div className="align-middle border-2 border-black-900 glasshover inline-block max-w-md my-8 overflow-hidden p-6 rounded-lg shadow-xl text-left transform transition-all w-full">
+      <div className="align-middle border-2 border-black-900 glasshover inline-block max-w-md overflow-hidden p-6 rounded-lg shadow-xl text-left transform transition-all w-full">
         <Dialog.Title
           as="h3"
           className="font-bold leading-6 text-gray-900 text-xl">

@@ -1,20 +1,17 @@
-import { v4 as uuidv4 } from "uuid";
 import {
+  addDoc,
+  collection,
+  deleteDoc,
   doc,
   getDoc,
-  updateDoc,
-  collection,
-  addDoc,
   getDocs,
-  deleteDoc,
-  setDoc,
   query,
+  setDoc,
+  updateDoc,
   where
 } from "firebase/firestore";
+import { triggerMessage } from "../../components/common/snackbar";
 import { db } from "../firebase-config";
-import { links } from "../../components/links/EditLinkDialog";
-import { error } from "console";
-import { snackbar, triggerMessage } from "../../components/common/snackbar";
 
 // global data used in the services
 const userId = localStorage.getItem("user_uid");
@@ -164,7 +161,7 @@ export const addFavoriteService = async (
 ): Promise<any> => {
   try {
     const isPresent = await checkIfPresentInFav(id);
-    console.log(isPresent);
+
     if (isPresent) {
       console.log("already present");
       triggerMessage(

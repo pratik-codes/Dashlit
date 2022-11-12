@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SvgButton from "../../components/button/SvgButton";
+import Focus from "../../components/focus/Focus";
 import LinksDropdown from "../../components/links/LinksDropdown";
 import SettingsDropdown from "../../components/settings/SettingsDropdown";
 import TodoDropdown from "../../components/todo/TodoDropdown";
@@ -91,13 +92,13 @@ const Home = () => {
     if (quote) localStorage.setItem("latest_quote", quote);
   }, [file_url, author_name, quote]);
 
-  useEffect(() => {
-    document.addEventListener("keydown", handleClick);
+  // useEffect(() => {
+  //   document.addEventListener("keydown", handleClick);
 
-    return () => {
-      document.removeEventListener("click", handleClick);
-    };
-  }, []);
+  //   return () => {
+  //     document.removeEventListener("click", handleClick);
+  //   };
+  // }, []);
 
   const handleClick = (e: any) => {
     console.log(e);
@@ -123,6 +124,7 @@ const Home = () => {
             <div id="date">{date}</div>
           )}
         </div>
+        <Focus />
         {/* rendering the qoutes at the bottom of the screen */}
         {getPreferenceValue("quotes-settings") === true && local_storage_quote && (
           <div>
@@ -146,7 +148,6 @@ const Home = () => {
           <SvgButton type="weather" position="top-0 right-0" />
         )}
         <SettingsDropdown />
-
         {/* <SvgButton type="todo" position="bottom-0 right-0" /> */}
       </div>
     </div>

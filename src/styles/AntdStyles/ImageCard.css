@@ -12,3 +12,7 @@
 .ant-card {
   border-radius: 15px !important;
 }
+
+.ant-card-body {
+  display: none;
+}

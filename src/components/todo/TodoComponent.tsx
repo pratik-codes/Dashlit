@@ -1,13 +1,12 @@
-import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import Svg from "../common/Svg";
-import { createNoSubstitutionTemplateLiteral } from "typescript";
+import React, { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
 import {
   deleteUserTodoService,
   updateUserTodoService
 } from "../../firebase/functions/TodoActions";
-import { useDispatch } from "react-redux";
 import { getTodoList } from "../../Redux/Actions/User.actions";
+import Svg from "../common/Svg";
 
 interface todo {
   todoId: string;
@@ -43,10 +42,10 @@ const TodoComponent: React.FC<todo> = ({ todoId, todoName, checked }) => {
   }, [editTodo]);
 
   return (
-    <div className="todo flex h-6 justify-start m-1 w-full">
+    <div className="flex justify-start m-1 todo w-full">
       <div className="">
         <input
-          className=" mx-2 mt-1 border-0 outline-none focus:outline-none transition duration-200"
+          className="border-0 duration-200 focus:outline-none mt-1 mx-2 outline-none transition"
           onClick={() => {
             setIsChecked(!isChecked);
             setEditTodo(false);
@@ -56,7 +55,7 @@ const TodoComponent: React.FC<todo> = ({ todoId, todoName, checked }) => {
         />
       </div>
       <div
-        className={`break-words  text-gray-900 font-medium w-full ${
+        className={`break-all  text-gray-900 font-medium w-full ${
           isChecked ? "line-through" : ""
         }`}>
         {editTodo === true ? (
@@ -76,12 +75,12 @@ const TodoComponent: React.FC<todo> = ({ todoId, todoName, checked }) => {
               setIsChecked(!isChecked);
               setEditTodo(false);
             }}
-            className="cursor-pointer">
+            className="cursor-pointer mr-4">
             {todoName}
           </h1>
         )}
       </div>
-      <div className="tododelete hidden">
+      <div className="hidden tododelete">
         <div
           className="cursor-pointer"
           onClick={() => {

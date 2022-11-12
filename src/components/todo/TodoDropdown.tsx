@@ -1,16 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
-import { addLinksService } from "../../firebase/functions/LinksActions";
-import SvgButton from "../button/SvgButton";
-import Svg from "../common/Svg";
-import TodoComponent from "./TodoComponent";
-import {
-  addTodoService,
-  deleteUserTodoService
-} from "../../firebase/functions/TodoActions";
-import { getTodoList } from "../../Redux/Actions/User.actions";
+import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { addTodoService } from "../../firebase/functions/TodoActions";
+import { getTodoList } from "../../Redux/Actions/User.actions";
 import { RootStore } from "../../Redux/Store";
+import SvgButton from "../button/SvgButton";
 import Loader from "../common/Loader";
+import TodoComponent from "./TodoComponent";
 
 const TodoDropdown = () => {
   const [openDropDown, setOpenDropDown] = useState(false);
@@ -40,7 +35,7 @@ const TodoDropdown = () => {
         className={` ${
           openDropDown === true ? "" : "hidden"
         }  text-gray-700 pt-4 absolute bottom-0 right-0 mb-16 mr-6 `}>
-        <ul className="glasstodo w-full h-full">
+        <ul className="glasstodo h-full w-full">
           <div
             style={{
               minWidth: "20rem",
@@ -51,13 +46,13 @@ const TodoDropdown = () => {
               overflowX: "hidden"
             }}
             className="w-full">
-            <div className="flex my-auto ">
-              <h1 className="font-bold text-gray-900 m-2 text-lg">Today</h1>
+            <div className="flex my-auto">
+              <h1 className="font-bold m-2 text-gray-900 text-lg">Today</h1>
               {/* <div className="div my-auto">
                 <Svg type="dropdown" />
               </div> */}
             </div>
-            <div className="w-full h-full">
+            <div className="h-full w-full">
               <div>
                 {TodoDataRedux.data ? (
                   TodoDataRedux.data.map((link: any) => {
@@ -77,8 +72,8 @@ const TodoDropdown = () => {
               </div>
               {TodoDataRedux.loading === false &&
                 TodoDataRedux.data.length === 0 && (
-                  <div className="absolute inset-0 flex w-full h-full justify-center items-center">
-                    <h1 className="text-sm my-auto text-gray-900">
+                  <div className="absolute flex h-full inset-0 items-center justify-center w-full">
+                    <h1 className="my-auto text-gray-900 text-sm">
                       No Todo found.
                     </h1>
                     <button
@@ -88,7 +83,7 @@ const TodoDropdown = () => {
                           inputRef.current.focus();
                         }, 500);
                       }}
-                      className=" ml-2 p-1 font-bold rounded-full text-white bg-gray-900 px-2 text-sm focus:outline-none">
+                      className="bg-gray-900 focus:outline-none font-bold ml-2 p-1 px-2 rounded-full text-sm text-white">
                       Add todo
                     </button>
                   </div>
@@ -97,8 +92,8 @@ const TodoDropdown = () => {
           </div>
           <div>
             <input
-              className="w-full p-1 border-none focus:outline-none bg-transparent m-1 text-white"
-              placeholder="add todo"
+              className="bg-transparent border-none focus:outline-none m-1 p-1 placeholder-black text-white w-full"
+              placeholder="Add todo here..."
               ref={inputRef}
               value={addTodoValue}
               onChange={e => setAddTodoValue(e.target.value)}

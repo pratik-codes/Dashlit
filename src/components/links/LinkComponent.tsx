@@ -1,3 +1,4 @@
+import { Popconfirm } from "antd";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteUserLinksService } from "../../firebase/functions/LinksActions";
@@ -42,7 +43,7 @@ const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
 
   return (
     <>
-      <div className="flex glasslink p-2">
+      <div className="flex glasslink p-2 w-full">
         <div onClick={() => clickHandler()} className="flex w-full">
           {type === "folder" ? (
             <svg
@@ -67,9 +68,16 @@ const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
         <div onClick={() => openModal()}>
           <Svg type="edit" />
         </div>
-        <div onClick={deleteHandler}>
-          <Svg type="deleteEdited" />
-        </div>
+
+        <Popconfirm
+          title="Are you sure to delete this link/folder?"
+          onConfirm={deleteHandler}
+          okText="Yes"
+          cancelText="No">
+          <div>
+            <Svg type="deleteEdited" />
+          </div>
+        </Popconfirm>
       </div>
       <div className="ml-14">
         {/* edit modal */}

@@ -49,7 +49,7 @@ const EditLinkDialog: React.FC<Props> = ({
     };
     const res = await updateUserLinksService(id, data);
     if (res.success === true) {
-      triggerMessage("Link added successfully", "success");
+      triggerMessage("Link edited successfully", "success");
       await dispatch(getLinksList());
     } else {
       triggerMessage(res.error, "fail");
@@ -78,7 +78,7 @@ const EditLinkDialog: React.FC<Props> = ({
   }, []);
 
   return (
-    <div className="align-middle border-0 border-gray-900 glasshover inline-block max-w-md my-8 overflow-hidden p-6 rounded-lg shadow-xl text-left transform transition-all w-full">
+    <div className="align-middle border-0 border-gray-900 glasshover inline-block max-w-md overflow-hidden p-6 rounded-lg shadow-xl text-left transform transition-all w-full">
       <Dialog.Title
         as="h3"
         className="font-bold leading-6 text-gray-900 text-xl">
@@ -128,7 +128,7 @@ const EditLinkDialog: React.FC<Props> = ({
             return (
               <div
                 key={link.id}
-                className="bg-transparent border border-gray-900 cursor-pointer div flex justify-between text-gray-900">
+                className="bg-transparent border border-gray-900 cursor-pointer div flex justify-between mb-1 text-gray-900">
                 <input
                   type="text"
                   placeholder="add new link"
