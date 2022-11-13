@@ -31,9 +31,14 @@ const Focus = (props: Props) => {
 
   if (focus) {
     return (
-      <div>
-        <h1 className="flex focus-container items-center justify-center text-20 text-medium text-white">
-          <div style={{ zIndex: 0 }} className="mr-3 mt-2">
+      <div className="focus-container">
+        <span className="m-0 text-xl">TODAY</span>
+        <h1 className="flex group items-center justify-center text-20 text-medium text-white">
+          <div
+            style={{ zIndex: 0 }}
+            className={`group-hover:block mr-3 mt-2 ${
+              isChecked ? "block" : " hidden"
+            }`}>
             <Checkbox
               handleChange={(e: any) => focusCheckedHandler(e.target.checked)}
               isChecked={isChecked}
@@ -41,7 +46,9 @@ const Focus = (props: Props) => {
             />
           </div>
           <div className={isChecked ? "line-through" : ""}>{focus}</div>
-          <div onClick={() => setNewFocus("")} className="ml-2 mt-2">
+          <div
+            onClick={() => setNewFocus("")}
+            className="group-hover:block hidden ml-2 mt-2">
             <Svg type="deleteWhite" />
           </div>
         </h1>
