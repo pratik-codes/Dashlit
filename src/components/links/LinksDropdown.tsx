@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 
 import { useSelector } from "react-redux";
 import { RootStore } from "../../Redux/Store";
-import SvgButton from "../button/SvgButton";
+import SvgButton from "../common/button/SvgButton";
 import Loader from "../common/Loader";
 import Modal from "../common/Modal";
 import AddNewLinkDialog from "./AddNewLinkDialog";
@@ -34,7 +34,7 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
     if (inputElement) {
       setTimeout(() => {
         inputElement.focus();
-      }, 500);
+      }, 100);
     }
   }, []);
 

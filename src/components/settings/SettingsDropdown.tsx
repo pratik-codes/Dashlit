@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SvgButton from "../button/SvgButton";
+import SvgButton from "../common/button/SvgButton";
 import SettingsModal from "./SettingsModal";
 
 const SettingsDropdown = () => {

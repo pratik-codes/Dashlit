@@ -1,8 +1,6 @@
-import { duration } from "@material-ui/core";
-import { notification } from "antd";
-import { message } from "antd";
+import { message, notification } from "antd";
 
-export const snackbar = (
+export const SnackBar = (
   message: string,
   description: string,
   type: string

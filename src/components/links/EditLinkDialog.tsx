@@ -1,13 +1,14 @@
-import { Button } from "@cred/neopop-web/lib/components";
 import { Dialog } from "@headlessui/react";
 import { Tooltip } from "@material-ui/core";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
+
 import { updateUserLinksService } from "../../firebase/functions/LinksActions";
 import { getLinksList } from "../../Redux/Actions/User.actions";
-import { triggerMessage } from "../common/snackbar";
+import Button from "../common/button/button";
+import { triggerMessage } from "../common/SnackBar";
 import Svg from "../common/Svg";
 
 interface Props {

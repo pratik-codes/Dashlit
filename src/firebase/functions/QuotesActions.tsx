@@ -10,7 +10,7 @@ import {
   updateDoc,
   where
 } from "firebase/firestore";
-import { triggerMessage } from "../../components/common/snackbar";
+import { triggerMessage } from "../../components/common/SnackBar";
 import { db } from "../firebase-config";
 
 // global data used in the services

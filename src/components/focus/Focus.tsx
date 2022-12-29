@@ -35,8 +35,7 @@ const Focus = (props: Props) => {
         <span className="m-0 text-xl">TODAY</span>
         <h1 className="flex group items-center justify-center text-20 text-medium text-white">
           <div
-            style={{ zIndex: 0 }}
-            className={`group-hover:block mr-3 mt-2 ${
+            className={`z-0 group-hover:block mr-3 mt-2 ${
               isChecked ? "block" : " hidden"
             }`}>
             <Checkbox

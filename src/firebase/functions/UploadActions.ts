@@ -1,27 +1,24 @@
-import { Console } from "console";
 import {
-  getDownloadURL,
-  ref,
-  uploadBytesResumable,
-  listAll,
-  getMetadata,
-  deleteObject
-} from "firebase/storage";
-import {
+  addDoc,
+  collection,
+  deleteDoc,
   doc,
   getDoc,
-  updateDoc,
-  collection,
-  addDoc,
   getDocs,
-  deleteDoc,
-  setDoc,
   query,
+  setDoc,
   where
 } from "firebase/firestore";
+import {
+  deleteObject,
+  getDownloadURL,
+  getMetadata,
+  ref,
+  uploadBytesResumable
+} from "firebase/storage";
+import { triggerMessage } from "../../components/common/SnackBar";
 import { db, storage } from "../firebase-config";
 import { getDataFromCollectionRef } from "./GenericFunctions";
-import { triggerMessage } from "../../components/common/snackbar";
 import { checkIfPresentInFav } from "./QuotesActions";
 
 // global data used in the services

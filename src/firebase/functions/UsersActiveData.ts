@@ -1,10 +1,7 @@
-import { addDoc, collection, doc, setDoc } from "firebase/firestore";
-import { triggerMessage } from "../../components/common/snackbar";
+import { collection, doc, setDoc } from "firebase/firestore";
+import { triggerMessage } from "../../components/common/SnackBar";
 import { db } from "../firebase-config";
-import {
-  getDataFromCollectionRef,
-  getSingleDocFromCollectionRef
-} from "./GenericFunctions";
+import { getSingleDocFromCollectionRef } from "./GenericFunctions";
 
 // global data used in the services
 const userId = localStorage.getItem("user_uid");

@@ -1,0 +1,57 @@
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  padding: 25px;
+  cursor: text;
+  border: none;
+  outline: none;
+}
+
+.ant-select-show-search.ant-select:not(.ant-select-customize-input)
+  .ant-select-selector {
+  padding: 25px;
+}
+
+.ant-select-show-search.ant-select:not(.ant-select-customize-input)
+  .ant-select-selector
+  input {
+  padding: 25px 15px;
+  font-size: 20px;
+}
+
+.ant-select-single .ant-select-selector .ant-select-selection-placeholder {
+  padding-right: 18px;
+  position: absolute;
+  top: 0;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.ant-select-selection-item span {
+  position: absolute !important;
+}
+
+.ant-select-show-search.ant-select:not(.ant-select-customize-input)
+  .ant-select-selector {
+  border-radius: 5px;
+}
+
+.ant-select-dropdown {
+  border-radius: 5px !important;
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  background-color: none !important;
+  border: none !important;
+}
+
+.ant-select-single.ant-select-show-arrow .ant-select-selection-item,
+.ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
+  position: absolute;
+}
+
+.ant-select-single .ant-select-selector .ant-select-selection-item {
+  position: absolute !important;
+  top: 0;
+  font-size: 20px;
+  margin-left: -15px;
+  margin-top: 2px;
+}

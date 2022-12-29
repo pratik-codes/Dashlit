@@ -1,4 +1,3 @@
-import { Button } from "@cred/neopop-web/lib/components";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -7,6 +6,7 @@ import {
 } from "../../../../firebase/functions/QuotesActions";
 import { getMyQuotesAction } from "../../../../Redux/Actions/Quotes.actions";
 import { RootStore } from "../../../../Redux/Store";
+import Button from "../../../common/button/button";
 import Svg from "../../../common/Svg";
 import AddQuotesModal from "./AddQuotesModal";
 import Favourites from "./Favourites";
