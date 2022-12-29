@@ -23,6 +23,7 @@
   top: 0;
   font-size: 20px;
   margin-top: 10px;
+  font-weight: bold;
 }
 
 .ant-select-selection-item span {
@@ -54,4 +55,5 @@
   font-size: 20px;
   margin-left: -15px;
   margin-top: 2px;
+  font-weight: bold;
 }

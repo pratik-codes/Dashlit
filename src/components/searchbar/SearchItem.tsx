@@ -10,7 +10,7 @@ export const SearchItem = ({ linkTitle, links, type }: any) => {
         <BookmarkIcons url={links} type={type} />
       </div>
 
-      <div className="text-bold text-lg">{linkTitle}</div>
+      <div className="text-lg font-bold">{linkTitle}</div>
     </div>
   );
 };
