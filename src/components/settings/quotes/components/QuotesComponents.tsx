@@ -1,22 +1,21 @@
+import { Popover } from "antd";
 import React from "react";
-import Svg from "../../../common/Svg";
-import { Popover, Button } from "antd";
 import { useDispatch } from "react-redux";
 
 import {
   addFavoriteService,
   deleteFavoriteService,
-  deleteMyQuotesService,
-  updateMyQuotesService
+  deleteMyQuotesService
 } from "../../../../firebase/functions/QuotesActions";
+import { updateUserDetailsService } from "../../../../firebase/functions/UserDetailsActions";
+import { setUserActiveData } from "../../../../firebase/functions/UsersActiveData";
 import { getMyQuotesAction } from "../../../../Redux/Actions/Quotes.actions";
+import { getSettingsList } from "../../../../Redux/Actions/User.actions";
+import { triggerMessage } from "../../../common/SnackBar";
+import Svg from "../../../common/Svg";
 import AddQuotesModal from "./AddQuotesModal";
-import { triggerMessage } from "../../../common/snackbar";
 
 import "../../../../styles/AntdStyles/Popover.css";
-import { setUserActiveData } from "../../../../firebase/functions/UsersActiveData";
-import { getSettingsList } from "../../../../Redux/Actions/User.actions";
-import { updateUserDetailsService } from "../../../../firebase/functions/UserDetailsActions";
 
 interface Props {
   id: string;

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import SvgButton from "../../components/button/SvgButton";
+import SvgButton from "../../components/common/button/SvgButton";
 import Focus from "../../components/focus/Focus";
 import LinksDropdown from "../../components/links/LinksDropdown";
+import SearchBar from "../../components/searchbar/searchbar";
 import SettingsDropdown from "../../components/settings/SettingsDropdown";
 import TodoDropdown from "../../components/todo/TodoDropdown";
 import { getLiveDetails } from "../../firebase/functions/UserDetailsActions";
@@ -23,6 +24,7 @@ const Home = () => {
   const [liveData, setLiveData] = useState<any>([]);
   const [activeUserData, setActiveUserData] = useState<any>([]);
   const [openDialog, setOpenDialog] = useState(false);
+  const [openSearchBar, setOpenSearchBar] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -48,9 +50,8 @@ const Home = () => {
     setActiveUserData(activeData?.data);
   };
 
-  const settingsLocalStorage = JSON.parse(
-    localStorage.getItem("user-settings") || ""
-  );
+  let settings_data = localStorage.getItem("user-settings");
+  const settingsLocalStorage = settings_data && JSON.parse(settings_data);
 
   const getPreferenceValue = (preferenceType: string) => {
     let truth;
@@ -102,17 +103,20 @@ const Home = () => {
     if (quote) localStorage.setItem("latest_quote", quote);
   }, [file_url, author_name, quote]);
 
-  // useEffect(() => {
-  //   document.addEventListener("keydown", handleClick);
+  useEffect(() => {
+    document.addEventListener("keydown", handleClick);
 
-  //   return () => {
-  //     document.removeEventListener("click", handleClick);
-  //   };
-  // }, []);
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  }, []);
 
   const handleClick = (e: any) => {
-    if (e.key === "l") {
-      setOpenDialog(true);
+    if (e.key === "k" && e.metaKey) setOpenSearchBar(true);
+    if (e.key === "b" && e.metaKey) setOpenDialog(true);
+    if (e.key === "Escape") {
+      setOpenSearchBar(false);
+      setOpenDialog(false);
     }
   };
 
@@ -160,7 +164,8 @@ const Home = () => {
           <SvgButton type="weather" position="top-0 right-0" />
         )}
         <SettingsDropdown />
-        {/* <SvgButton type="todo" position="bottom-0 right-0" /> */}
+
+        {openSearchBar && <SearchBar setOpenSearchBar={setOpenSearchBar} />}
       </div>
     </div>
   );

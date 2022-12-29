@@ -1,7 +1,7 @@
-import React, { useState } from "react";
 import PropTypes from "prop-types";
+import React, { useState } from "react";
 import { signInHandler } from "../../firebase/functions/AuthActions";
-import { snackbar, triggerMessage } from "../common/snackbar";
+import { triggerMessage } from "../common/SnackBar";
 
 export interface signInProps {
   setActiveView: any;

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addTodoService } from "../../firebase/functions/TodoActions";
 import { getTodoList } from "../../Redux/Actions/User.actions";
 import { RootStore } from "../../Redux/Store";
-import SvgButton from "../button/SvgButton";
+import SvgButton from "../common/button/SvgButton";
 import Loader from "../common/Loader";
 import TodoComponent from "./TodoComponent";
 

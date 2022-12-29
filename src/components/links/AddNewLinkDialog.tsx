@@ -1,11 +1,11 @@
-import { Button } from "@cred/neopop-web/lib/components";
 import { Dialog } from "@headlessui/react";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { addLinksService } from "../../firebase/functions/LinksActions";
 import { getLinksList } from "../../Redux/Actions/User.actions";
-import { triggerMessage } from "../common/snackbar";
+import Button from "../common/button/button";
+import { triggerMessage } from "../common/SnackBar";
 import Svg from "../common/Svg";
 
 interface Props {

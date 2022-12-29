@@ -5,8 +5,8 @@ import {
 } from "@ant-design/icons";
 import { Card } from "antd";
 import React from "react";
-
 import { useDispatch } from "react-redux";
+
 import {
   addFavoriteServicePicture,
   deletePicture
@@ -14,8 +14,9 @@ import {
 import { updateUserDetailsService } from "../../../../firebase/functions/UserDetailsActions";
 import { setUserActiveData } from "../../../../firebase/functions/UsersActiveData";
 import { getSettingsList } from "../../../../Redux/Actions/User.actions";
+import { triggerMessage } from "../../../common/SnackBar";
+
 import "../../../../styles/AntdStyles/ImageCard.css";
-import { triggerMessage } from "../../../common/snackbar";
 
 interface Props {
   data: any;
@@ -35,7 +36,7 @@ const PictureComponent: React.FC<Props> = ({
   const dispatch = useDispatch();
 
   let settings_data = localStorage.getItem("user-settings");
-  const settings_data_parsed = JSON.parse(settings_data || "");
+  const settings_data_parsed = settings_data && JSON.parse(settings_data);
 
   const favPictureHandler = () => {
     addFavoriteServicePicture(id, data?.url, data?.name, data?.created_at);

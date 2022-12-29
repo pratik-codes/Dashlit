@@ -1,7 +1,7 @@
-import { Button } from "@cred/neopop-web/lib/components";
 import { Tooltip } from "antd";
 import React, { useState } from "react";
 import { logoutHandler } from "../../firebase/functions/AuthActions";
+import Button from "../common/button/button";
 import Svg from "../common/Svg";
 import CatergoryContent from "./components/CatergoryContent";
 import Sidebar from "./Sidebar";

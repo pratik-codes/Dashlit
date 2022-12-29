@@ -1,6 +1,6 @@
-import React from "react";
-import Svg from "../common/Svg";
 import PropTypes from "prop-types";
+import React from "react";
+import Svg from "../Svg";
 
 interface Props {
   // onClick: () => void,

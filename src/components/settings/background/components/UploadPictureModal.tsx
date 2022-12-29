@@ -1,5 +1,3 @@
-import { CloseCircleFilled } from "@ant-design/icons";
-import { Button } from "@cred/neopop-web/lib/components";
 import { Dialog, Transition } from "@headlessui/react";
 import { Upload } from "antd";
 import ImgCrop from "antd-img-crop";
@@ -10,9 +8,11 @@ import {
   addImageURL,
   uploadBackgroundImage
 } from "../../../../firebase/functions/UploadActions";
-import "../../../../styles/AntdStyles/Upload.css";
+import Button from "../../../common/button/button";
 import Loader from "../../../common/Loader";
-import { triggerMessage } from "../../../common/snackbar";
+import { triggerMessage } from "../../../common/SnackBar";
+
+import "../../../../styles/AntdStyles/Upload.css";
 
 interface Props {
   isOpen: boolean;
@@ -97,11 +97,6 @@ const UploadPictureModal: React.FC<Props> = ({
                 <div
                   className="align-middle glass inline-block my-8 overflow-hidden overflow-y-auto p-6 rounded shadow-xl text-left transform transition-all w-4/12"
                   style={{ borderRadius: "10px" }}>
-                  <div
-                    onClick={closeHandler}
-                    className="absolute border border-dashed border-gray-900 cursor-pointer flex items-center justify-items-center mr-3 mt-2 pt-1 px-2 right-0 rounded text-xl top-0">
-                    <CloseCircleFilled />
-                  </div>
                   <h1 className="font-bold text-gray-900 text-xl">
                     Upload Background Picture
                   </h1>
@@ -148,12 +143,18 @@ const UploadPictureModal: React.FC<Props> = ({
                         placeholder="Picture Link"
                         className="bg-transparent border border-gray-900 focus:outline-none focus:ring font-bold mb-1 mt-3 outline-none p-1 placeholder-gray-900 placeholder-opacity-50 px-3 py-2 relative text-gray-900 text-lg w-full"
                       />
-                      <div className="flex justify-end mt-2 w-full">
+                      <div className="flex justify-start mt-4 space-x-2 w-full">
                         <Button
                           kind="elevated"
                           className="focus:outline-none"
                           onClick={pictureLinkAddHandler}>
                           Add
+                        </Button>
+                        <Button
+                          kind="elevated"
+                          className="focus:outline-none"
+                          onClick={closeHandler}>
+                          Cancel
                         </Button>
                       </div>
                     </div>

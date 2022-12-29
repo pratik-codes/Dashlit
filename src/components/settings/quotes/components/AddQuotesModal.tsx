@@ -1,13 +1,14 @@
-import { Button } from "@cred/neopop-web/lib/components";
 import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+
 import {
   addMyQuotesService,
   editFavoriteService,
   updateMyQuotesService
 } from "../../../../firebase/functions/QuotesActions";
 import { getMyQuotesAction } from "../../../../Redux/Actions/Quotes.actions";
+import Button from "../../../common/button/button";
 
 interface Props {
   isOpen: boolean;

@@ -1,8 +1,8 @@
-import { Button } from "@cred/neopop-web/lib/components";
 import React, { useEffect, useState } from "react";
-
 import { useDispatch } from "react-redux";
+
 import { getAllImages } from "../../../firebase/functions/UploadActions";
+import Button from "../../common/button/button";
 import Svg from "../../common/Svg";
 import FavouritePictures from "./components/FavouritePictures";
 import MyPictures from "./components/MyPictures";
