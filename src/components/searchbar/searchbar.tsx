@@ -12,7 +12,12 @@ const SearchBar = ({ setOpenSearchBar }: any) => {
     (state: RootStore) => state.userLinkData
   );
 
-  const options = getOptionsValue(LinksDataRedux?.data);
+  const linksLocalStorageData: any = localStorage.getItem("links");
+  const linksLocalStorage: any = JSON.parse(linksLocalStorageData);
+
+  const LINKS = linksLocalStorage || LinksDataRedux;
+
+  const options = getOptionsValue(LINKS?.data);
 
   const selectOption = (option: any) => {
     if (inputRef?.current?.blur) inputRef.current.blur();

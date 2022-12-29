@@ -3,7 +3,7 @@ import { SearchItem } from "./SearchItem";
 export const getOptionsValue = (data: any) => {
   console.log({ data });
   const options: any = [];
-  data.forEach((link: any) => {
+  data?.forEach((link: any) => {
     const { data } = link;
     options.push({
       label: SearchItem(data),
