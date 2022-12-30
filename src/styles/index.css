@@ -1,10 +1,5 @@
-/* purgecss start ignore */
 @tailwind base;
 @tailwind components;
-
-/* Your own custom component styles */
-
-/* purgecss end ignore */
 @tailwind utilities;
 
 body {

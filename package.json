@@ -1,6 +1,5 @@
 {
-  "name": "react-tailwindcss-starter",
-  "description": "Starter Boilerplate for Tailwind CSS, TypeScript and React.js",
+  "name": "Dashlit",
   "version": "0.1.0",
   "license": "MIT",
   "private": true,
@@ -26,7 +25,6 @@
     "@types/react-router-dom": "^5.1.5",
     "antd": "^4.18.2",
     "antd-img-crop": "^4.2.3",
-    "autoprefixer": "^10.0.1",
     "axios": "^0.24.0",
     "classnames": "^2.2.6",
     "compressorjs": "^1.1.1",
@@ -41,7 +39,6 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
     "styled-components": "^5.3.6",
-    "tailwindcss": "^1.8.10",
     "typescript": "^4.0.2",
     "uuid": "^8.3.2"
   },
@@ -85,6 +82,7 @@
     "@types/prop-types": "^15.7.3",
     "@types/uuid": "^8.3.3",
     "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "autoprefixer": "^10.4.13",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "eslint": "^6.6.0",
@@ -94,9 +92,10 @@
     "husky": "^4.3.0",
     "lint-staged": "^10.4.0",
     "mini-css-extract-plugin": "^2.6.1",
-    "postcss": "^8.4.18",
+    "postcss": "^8.4.20",
     "postcss-loader": "^7.0.1",
     "prettier": "^2.1.2",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "tailwindcss": "^3.2.4"
   }
 }
