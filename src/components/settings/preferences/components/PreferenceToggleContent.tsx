@@ -35,8 +35,8 @@ const PreferenceToggleContent: React.FC<Props> = ({
       <div className="flex justify-between">
         <div>
           <Svg type={preferenceType} />
-          <h1 className="font-bold mt-1 text-gray-900 text-lg">{title}</h1>
-          <p className="font-medium text-gray-700 text-sm">{description}</p>
+          <h1 className="font-bold mt-1 text-white text-lg">{title}</h1>
+          <p className="font-medium text-white text-sm">{description}</p>
         </div>
         <div>
           <SwitchComponent enabled={isToggle} setEnabled={changeToggle} />

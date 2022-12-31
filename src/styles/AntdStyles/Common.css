@@ -37,3 +37,38 @@
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
+
+.ant-switch {
+  background-color: #565584 !important;
+}
+.ant-switch-checked {
+  background-color: rgb(105, 30, 255) !important;
+}
+
+.link {
+  display: inline-block;
+  color: rgb(105, 30, 255);
+  text-decoration: none;
+}
+
+.link::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: rgb(105, 30, 255);
+  transition: width 0.3s;
+}
+
+.link:hover::after {
+  width: 100%;
+}
+.border-purple {
+  border: 2px solid;
+  border-color: gray;
+}
+
+.border-purple:hover {
+  border-color: rgb(105, 30, 255);
+  transition: delay 1s;
+}

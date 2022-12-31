@@ -44,10 +44,10 @@ const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
 
   return (
     <>
-      <div className="flex glasslink p-2 w-full">
+      <div className="cursor-pointer flex glasslink p-2 w-full">
         <div onClick={() => clickHandler()} className="flex w-full">
           <BookmarkIcons url={url} type={type} />
-          <a className="block font-bold my-auto px-4 py-auto text-gray-900 text-l w-full whitespace-no-wrap">
+          <a className="block font-bold my-auto px-4 py-auto text-white text-l w-full whitespace-no-wrap hover:text-purple">
             {title.length > 25 ? title.substring(0, 25) + "..." : title}
           </a>
         </div>

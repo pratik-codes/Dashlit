@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from "react";
-
 import { useSelector } from "react-redux";
 import { RootStore } from "../../Redux/Store";
 import SvgButton from "../common/button/SvgButton";
+import InputComponent from "../common/InputComponent";
 import Loader from "../common/Loader";
 import Modal from "../common/Modal";
 import AddNewLinkDialog from "./AddNewLinkDialog";
@@ -47,20 +47,21 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
         <SvgButton type="link" position="top-0 left-0" />
       </div>
       {openDialog && (
-        <div className="dropdown-menu duration-200 ease-out ml-4 mt-12 pt-4 text-gray-700 transition-all">
-          <ul className="glass">
+        <div className="dropdown-menu duration-200 ease-out ml-4 mt-12 pt-4 text-white transition-all">
+          <ul className="glass rounded-t-lg">
             <div className="align-center flex justify-center">
-              <input
-                ref={searchInput}
-                onChange={e => setSearchValue(e.target.value)}
-                value={searchValue}
-                style={{
-                  minWidth: "92%"
-                }}
-                type="text"
-                placeholder="Search"
-                className="bg-transparent border border-gray-900 flex focus:outline-none font-bold m-3 placeholder-gray-900 placeholder-opacity-50 px-3 py-2 relative text-gray-900 text-lg"
-              />
+              <div className="px-3   w-full">
+                <InputComponent
+                  ref={searchInput}
+                  onChange={(e: any) => setSearchValue(e.target.value)}
+                  value={searchValue}
+                  style={{
+                    minWidth: "92%"
+                  }}
+                  type="text"
+                  placeholder="Search"
+                />
+              </div>
             </div>
             <div
               style={{
@@ -125,13 +126,14 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
           </ul>
           <div
             style={{
-              width: "96%"
+              width: "96%",
+              borderRadius: "0 0 10px 10px"
             }}
             onClick={() => openModal()}
-            className="absolute cursor-pointer flex glass2 p-2">
+            className="absolute cursor-pointer flex glass p-2 rounded-b-xl">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 mx-3 my-auto text-gray-900 w-5"
+              className="h-5 mx-3 my-auto text-white w-5 text-white hover:text-purple"
               viewBox="0 0 20 20"
               fill="currentColor">
               <path
@@ -140,7 +142,7 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
                 clipRule="evenodd"
               />
             </svg>
-            <h1 className="font-bold p-1 text-gray-900">
+            <h1 className="font-bold p-1 text-white hover:text-purple">
               {" "}
               Add a new link or folder
             </h1>

@@ -3,7 +3,8 @@ import React from "react";
 
 const Button = (props: any) => {
   const { children } = props;
-  return <CredButton {...props}>{children}</CredButton>;
+  const childrenProps = { ...props, colorMode: "dark" };
+  return <CredButton {...childrenProps}>{children}</CredButton>;
 };
 
 export default Button;

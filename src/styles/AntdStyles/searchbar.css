@@ -3,16 +3,20 @@
   cursor: text;
   border: none;
   outline: none;
+  background-color: black;
 }
 
 .ant-select-show-search.ant-select:not(.ant-select-customize-input)
   .ant-select-selector {
+  color: white;
+  font-weight: bold;
   padding: 25px;
 }
 
 .ant-select-show-search.ant-select:not(.ant-select-customize-input)
   .ant-select-selector
   input {
+  color: white;
   padding: 25px 15px;
   font-size: 20px;
 }
@@ -37,6 +41,12 @@
 
 .ant-select-dropdown {
   border-radius: 5px !important;
+  background-color: black;
+  color: white;
+}
+
+.ant-select-item-option-active {
+  background: rgb(105, 30, 255) !important;
 }
 
 .ant-select:not(.ant-select-customize-input) .ant-select-selector {
@@ -56,4 +66,8 @@
   margin-left: -15px;
   margin-top: 2px;
   font-weight: bold;
+}
+
+.ant-empty-description {
+  color: white;
 }

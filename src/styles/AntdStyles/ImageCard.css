@@ -6,7 +6,20 @@
 }
 
 .ant-card-actions {
+  color: white;
   border-radius: 0 0 15px 15px !important;
+  background: rgba(5, 0, 0, 0.55);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: none;
+}
+
+.ant-card-actions svg {
+  color: white;
+}
+
+.ant-card-actions span {
+  color: purple;
 }
 
 .ant-card {

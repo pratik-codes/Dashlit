@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import CatergoryContent from "./CatergoryContent";
 import Sidebar from "../Sidebar";
+import CatergoryContent from "./CatergoryContent";
 
 const SettingsCategories = () => {
   const [view, setView] = useState("Preferences");
@@ -9,7 +9,7 @@ const SettingsCategories = () => {
     <div>
       <div className=" div flex text-gray-900 ">
         <div className="div w-2/12">
-          <Sidebar setView={setView} />
+          <Sidebar setView={setView} view={view} />
         </div>
         <div className="div w-10/12">
           <CatergoryContent type={view} />

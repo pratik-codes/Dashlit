@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-
 import { updateUserLinksService } from "../../firebase/functions/LinksActions";
 import { getLinksList } from "../../Redux/Actions/User.actions";
 import Button from "../common/button/button";
+import InputComponent from "../common/InputComponent";
 import { triggerMessage } from "../common/SnackBar";
 import Svg from "../common/Svg";
 
@@ -82,23 +82,23 @@ const EditLinkDialog: React.FC<Props> = ({
     <div className="align-middle border-0 border-gray-900 glasshover inline-block max-w-md overflow-hidden p-6 rounded-lg shadow-xl text-left transform transition-all w-full">
       <Dialog.Title
         as="h3"
-        className="font-bold leading-6 text-gray-900 text-xl">
+        className="font-bold leading-6 text-gray-900 text-xl text-white mb-6">
         Edit link
       </Dialog.Title>
       <div className="mt-2">
-        <input
+        <InputComponent
           value={title}
           type="text"
-          onChange={e => setTitle(e.target.value)}
+          onChange={(e: any) => setTitle(e.target.value)}
           placeholder="Link title"
           className="bg-transparent border border-gray-900 focus:outline-none focus:ring font-bold mb-1 mt-3 outline-none p-1 placeholder-gray-900 placeholder-opacity-50 px-3 py-2 relative text-gray-900 text-lg w-full"
         />
         {urls.map((link: any) => {
           return (
             <div key={link.id}>
-              <div className="bg-transparent border border-gray-900 cursor-pointer div flex justify-between mb-1 text-gray-900">
+              <div className="rounded bg-transparent flex focus:outline-none font-bold my-2 placeholder-white placeholder-opacity-50 relative text-gray-100 text-lg text-white border-purple w-full text-white">
                 <div
-                  className="flex w-9/12"
+                  className="flex w-10/12"
                   onClick={() => window.open(`https://${link.link}`, "_blank")}>
                   <img
                     style={{ borderRadius: "100%" }}
@@ -107,7 +107,7 @@ const EditLinkDialog: React.FC<Props> = ({
                     alt="favicon"
                   />
                   <Tooltip title={link.link} placement="top">
-                    <h1 className="border border-none border-opacity-50 break-all focus:outline-none focus:ring font-bold hover:text-blue-900 hover:underline outline-none placeholder-blueGray-300 px-3 py-2 relative rounded text-base text-blueGray-600 text-gray-900 w-full">
+                    <h1 className="cursor-pointer border border-none border-opacity-50 break-all focus:outline-none focus:ring font-bold hover:text-purple hover:underline outline-none placeholder-blueGray-300 px-3 py-2 relative rounded text-base text-blueGray-600 text-white w-full">
                       {link.link.length > 20
                         ? `${link.link.substring(0, 20)}...`
                         : link.link}
@@ -116,7 +116,7 @@ const EditLinkDialog: React.FC<Props> = ({
                 </div>
                 <Button
                   kind="elevated"
-                  className="focus:outline-none"
+                  className="w-2/12"
                   onClick={() => linksDeleteHandler(link.id)}>
                   <Svg type="deleteWhite" />
                 </Button>
@@ -129,16 +129,20 @@ const EditLinkDialog: React.FC<Props> = ({
             return (
               <div
                 key={link.id}
-                className="bg-transparent border border-gray-900 cursor-pointer div flex justify-between mb-1 text-gray-900">
-                <input
-                  type="text"
-                  placeholder="add new link"
-                  onChange={e => inputOnchangeHandler(link.id, e.target.value)}
-                  className="bg-transparent border-opacity-50 flex focus:outline-none focus:ring font-bold outline-none placeholder-gray-900 placeholder-opacity-50 px-3 py-2 relative text-gray-900 text-lg w-12/12"
-                />
+                className="border-purple div flex justify-between mb-1 rounded">
+                <div className="w-10/12">
+                  <input
+                    type="text"
+                    placeholder="add new link"
+                    onChange={e =>
+                      inputOnchangeHandler(link.id, e.target.value)
+                    }
+                    className="bg-transparent flex focus:outline-none font-bold placeholder-white placeholder-opacity-50 px-3 py-2 relative text-gray-100 text-lg text-white w-full"
+                  />
+                </div>
                 <Button
+                  className="w-2/12"
                   kind="elevated"
-                  className="focus:outline-none"
                   onClick={() => inputDeleteHandler(link.id)}>
                   <Svg type="deleteWhite" />
                 </Button>

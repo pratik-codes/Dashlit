@@ -55,7 +55,7 @@ const TodoComponent: React.FC<todo> = ({ todoId, todoName, checked }) => {
         />
       </div>
       <div
-        className={`break-all  text-gray-900 font-medium w-full ${
+        className={`break-all  text-white  font-medium w-full ${
           isChecked ? "line-through" : ""
         }`}>
         {editTodo === true ? (
@@ -75,7 +75,7 @@ const TodoComponent: React.FC<todo> = ({ todoId, todoName, checked }) => {
               setIsChecked(!isChecked);
               setEditTodo(false);
             }}
-            className="cursor-pointer mr-4">
+            className="cursor-pointer mr-4 text-white">
             {todoName}
           </h1>
         )}
