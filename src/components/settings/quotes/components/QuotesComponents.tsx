@@ -1,7 +1,6 @@
 import { Popover } from "antd";
 import React from "react";
 import { useDispatch } from "react-redux";
-
 import {
   addFavoriteService,
   deleteFavoriteService,
@@ -11,11 +10,10 @@ import { updateUserDetailsService } from "../../../../firebase/functions/UserDet
 import { setUserActiveData } from "../../../../firebase/functions/UsersActiveData";
 import { getMyQuotesAction } from "../../../../Redux/Actions/Quotes.actions";
 import { getSettingsList } from "../../../../Redux/Actions/User.actions";
+import "../../../../styles/AntdStyles/Popover.css";
 import { triggerMessage } from "../../../common/SnackBar";
 import Svg from "../../../common/Svg";
 import AddQuotesModal from "./AddQuotesModal";
-
-import "../../../../styles/AntdStyles/Popover.css";
 
 interface Props {
   id: string;
@@ -88,12 +86,12 @@ const QuotesComponents: React.FC<Props> = ({
           <div>
             <h6
               onClick={() => editQuotes(true)}
-              className="cursor-pointer hover:bg-gray-200 py-1 px-2 rounded-lg">
+              className="cursor-pointer hover:bg-gray-200 py-1 px-2 rounded-lg text-white hover:text-purple">
               Edit quote
             </h6>
             <h1
               onClick={() => deleteQuote()}
-              className="cursor-pointer hover:bg-gray-200 py-1 px-2 rounded-lg ">
+              className="cursor-pointer hover:bg-gray-200 py-1 px-2 rounded-lg text-white hover:text-purple">
               Delete quote
             </h1>
           </div>
@@ -102,13 +100,13 @@ const QuotesComponents: React.FC<Props> = ({
           onClick={() => {
             setCurrentQuote({ quote: quotes, author_name: author });
           }}
-          className="cursor-pointer hover:bg-gray-200 py-1 px-2 rounded-lg">
+          className="cursor-pointer hover:bg-gray-200 py-1 px-2 rounded-lg text-white hover:text-purple">
           Set this quote
         </h1>
         {type === "fav_quotes" && (
           <h1
             onClick={() => removeFromFavourites()}
-            className="cursor-pointer hover:bg-gray-200 py-1 px-2 rounded-lg ">
+            className="cursor-pointer hover:bg-gray-200 py-1 px-2 rounded-lg text-white hover:text-purple">
             Remove from favourites
           </h1>
         )}
@@ -116,7 +114,7 @@ const QuotesComponents: React.FC<Props> = ({
           <div>
             <h1
               onClick={() => favouriteClickHandler()}
-              className="cursor-pointer hover:bg-gray-200 py-1 px-2 rounded-lg">
+              className="cursor-pointer hover:bg-gray-200 py-1 px-2 rounded-lg text-white hover:text-purple">
               Add to favourite
             </h1>
           </div>
@@ -128,8 +126,8 @@ const QuotesComponents: React.FC<Props> = ({
   return (
     <div className="glasshover flex w-full justify-between p-4 min-h-full">
       <div className="w-11/12 break-words">
-        <h1 className="font-bold text-md text-gray-900 ">"{quotes}"</h1>
-        <h1 className="font-medium text-sm text-gray-900 ">- {author}</h1>
+        <h1 className="font-bold text-md text-white ">"{quotes}"</h1>
+        <h1 className="font-medium text-sm text-white ">- {author}</h1>
       </div>
       <div
         style={{ borderRadius: "10px" }}
@@ -145,7 +143,7 @@ const QuotesComponents: React.FC<Props> = ({
             )
           }
           trigger="click">
-          <button className="focus:outline-none ml-2 ">
+          <button className="focus:outline-none ml-2 text-white">
             <Svg type="dot-dot" />
           </button>
         </Popover>

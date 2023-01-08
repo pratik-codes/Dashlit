@@ -52,32 +52,28 @@ const QuotesTabs = () => {
           <ul className="-mb-px flex flex-wrap">
             <li onClick={() => setActiveTab("My quotes")} className="mr-2">
               <button
-                className={`focus:outline-none inline-block py-4 px-4 text-md font-bold text-center text-gray-700 rounded-t-lg border-b-2 border-transparent hover:text-gray-900 hover:border-gray-900 dark:text-gray-400 transition duration-300 ease-out ${
-                  activeTab === "My quotes"
-                    ? "border-gray-900 text-gray-900 "
-                    : ""
+                className={`focus:outline-none inline-block py-4 px-4 text-md font-bold text-center text-gray-700 rounded-t-lg border-b-2 border-transparent hover:text-white  hover:border-white  dark:text-gray-400 transition duration-300 ease-out ${
+                  activeTab === "My quotes" ? "border-white  text-white  " : ""
                 }`}>
-                My quotes
+                MY QUOTES
               </button>
             </li>
             <li onClick={() => setActiveTab("Public quotes")} className="mr-2">
               <button
-                className={`focus:outline-none inline-block py-4 px-4 text-md font-bold text-center text-gray-700 rounded-t-lg border-b-2 border-transparent hover:text-gray-900 hover:border-gray-900 dark:text-gray-400 transition duration-300 ease-out ${
+                className={`focus:outline-none inline-block py-4 px-4 text-md font-bold text-center text-gray-700 rounded-t-lg border-b-2 border-transparent hover:text-white  hover:border-white  dark:text-gray-400 transition duration-300 ease-out ${
                   activeTab === "Public quotes"
-                    ? "border-gray-900 text-gray-900 "
+                    ? "border-white  text-white  "
                     : ""
                 }`}>
-                Public quotes
+                PUBLIC QUOTES
               </button>
             </li>
             <li onClick={() => setActiveTab("Favourites")} className="">
               <button
-                className={`focus:outline-none inline-block py-4 px-4 text-md font-bold text-center text-gray-700 rounded-t-lg border-b-2 border-transparent hover:text-gray-900 hover:border-gray-900 dark:text-gray-400 transition duration-300 ease-out ${
-                  activeTab === "Favourites"
-                    ? "border-gray-900 text-gray-900 "
-                    : ""
+                className={`focus:outline-none inline-block py-4 px-4 text-md font-bold text-center text-gray-700 rounded-t-lg border-b-2 border-transparent hover:text-white  hover:border-white  dark:text-gray-400 transition duration-300 ease-out ${
+                  activeTab === "Favourites" ? "border-white  text-white  " : ""
                 }`}>
-                favourites
+                FAVOURITE
               </button>
             </li>
           </ul>

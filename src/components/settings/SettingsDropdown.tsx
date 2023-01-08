@@ -1,24 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import SvgButton from "../common/button/SvgButton";
 import SettingsModal from "./SettingsModal";
 
-const SettingsDropdown = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const SettingsDropdown = ({
+  setOpenSettings,
+  openSettings
+}: {
+  setOpenSettings: any;
+  openSettings: boolean;
+}) => {
   function closeModal() {
-    setIsOpen(false);
+    setOpenSettings(false);
   }
 
   function openModal() {
-    setIsOpen(true);
+    setOpenSettings(true);
   }
   return (
     <div>
-      <div onClick={() => setIsOpen(!isOpen)}>
+      <div onClick={() => setOpenSettings(!openSettings)}>
         <SvgButton type="settings" position="bottom-0 left-0" />
       </div>
       <SettingsModal
-        isOpen={isOpen}
+        isOpen={openSettings}
         closeModal={closeModal}
         openModal={openModal}
       />

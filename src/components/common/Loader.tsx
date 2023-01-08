@@ -5,7 +5,7 @@ function Loader() {
     <>
       <svg className="spinner" viewBox="0 0 50 50">
         <circle
-          className="path"
+          className="path text-white"
           cx="25"
           cy="25"
           r="20"

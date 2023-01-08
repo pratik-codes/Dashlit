@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import { Switch } from "antd";
+import React from "react";
 
 interface Props {
   enabled: boolean;

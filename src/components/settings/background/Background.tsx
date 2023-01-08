@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-
 import { getAllImages } from "../../../firebase/functions/UploadActions";
 import Button from "../../common/button/button";
 import Svg from "../../common/Svg";
@@ -9,7 +8,7 @@ import MyPictures from "./components/MyPictures";
 import PublicPictures from "./components/PublicPictures";
 import UploadPictureModal from "./components/UploadPictureModal";
 
-const Background = () => {
+const Background: any = () => {
   const [activeTab, setActiveTab] = useState("my_pictures");
   const [isUploadModal, setIsUploadModal] = useState(false);
   const [publicQuotes, setPublicQuotes] = useState({});
@@ -34,34 +33,30 @@ const Background = () => {
           <ul className="-mb-px flex flex-wrap">
             <li onClick={() => setActiveTab("my_pictures")} className="mr-2">
               <button
-                className={`focus:outline-none inline-block py-4 px-4 text-md font-bold text-center text-gray-700 rounded-t-lg border-b-2 border-transparent hover:text-gray-900 hover:border-gray-900 dark:text-gray-400 transition duration-300 ease-out ${
-                  activeTab === "my_pictures"
-                    ? "border-gray-900 text-gray-900 "
-                    : ""
+                className={`focus:outline-none inline-block py-4 px-4 text-md font-bold text-center text-gray-700 rounded-t-lg border-b-2 border-transparent hover:text-white hover:border-white dark:text-gray-400 transition duration-300 ease-out ${
+                  activeTab === "my_pictures" ? "border-white text-white " : ""
                 }`}>
-                My Pictures
+                MY PICTURES
               </button>
             </li>
             <li
               onClick={() => setActiveTab("public_pictures")}
               className="mr-2">
               <button
-                className={`focus:outline-none inline-block py-4 px-4 text-md font-bold text-center text-gray-700 rounded-t-lg border-b-2 border-transparent hover:text-gray-900 hover:border-gray-900 dark:text-gray-400 transition duration-300 ease-out ${
+                className={`focus:outline-none inline-block py-4 px-4 text-md font-bold text-center text-gray-700 rounded-t-lg border-b-2 border-transparent hover:text-white hover:border-white dark:text-gray-400 transition duration-300 ease-out ${
                   activeTab === "public_pictures"
-                    ? "border-gray-900 text-gray-900 "
+                    ? "border-white text-white "
                     : ""
                 }`}>
-                Public Pictures
+                PUBLIC PICTURES
               </button>
             </li>
             <li onClick={() => setActiveTab("Favourites")} className="">
               <button
-                className={`focus:outline-none inline-block py-4 px-4 text-md font-bold text-center text-gray-700 rounded-t-lg border-b-2 border-transparent hover:text-gray-900 hover:border-gray-900 dark:text-gray-400 transition duration-300 ease-out ${
-                  activeTab === "Favourites"
-                    ? "border-gray-900 text-gray-900 "
-                    : ""
+                className={`focus:outline-none inline-block py-4 px-4 text-md font-bold text-center text-gray-700 rounded-t-lg border-b-2 border-transparent hover:text-white hover:border-white dark:text-gray-400 transition duration-300 ease-out ${
+                  activeTab === "Favourites" ? "border-white text-white " : ""
                 }`}>
-                favourites
+                FAVOURITES
               </button>
             </li>
           </ul>
@@ -75,6 +70,7 @@ const Background = () => {
           </Button>
         )}
       </div>
+
       <UploadPictureModal
         isOpen={isUploadModal}
         openModal={() => setIsUploadModal(true)}

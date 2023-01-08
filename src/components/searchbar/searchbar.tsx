@@ -49,8 +49,8 @@ const SearchBar = ({ setOpenSearchBar }: any) => {
         style={{
           position: "absolute",
           top: "10%",
-          left: "35%",
-          width: "30%",
+          left: "30%",
+          width: "40%",
           boxShadow: "0 0 0 1600px rgba(0,0,0,0.65)",
           borderRadius: "5px"
         }}

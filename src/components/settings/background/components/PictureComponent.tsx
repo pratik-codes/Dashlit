@@ -6,7 +6,6 @@ import {
 import { Card } from "antd";
 import React from "react";
 import { useDispatch } from "react-redux";
-
 import {
   addFavoriteServicePicture,
   deletePicture
@@ -14,9 +13,8 @@ import {
 import { updateUserDetailsService } from "../../../../firebase/functions/UserDetailsActions";
 import { setUserActiveData } from "../../../../firebase/functions/UsersActiveData";
 import { getSettingsList } from "../../../../Redux/Actions/User.actions";
-import { triggerMessage } from "../../../common/SnackBar";
-
 import "../../../../styles/AntdStyles/ImageCard.css";
+import { triggerMessage } from "../../../common/SnackBar";
 
 interface Props {
   data: any;
@@ -91,6 +89,7 @@ const PictureComponent: React.FC<Props> = ({
 
   return (
     <Card
+      className="glasshover"
       cover={<img alt="example" src={data.url} />}
       actions={ActionMap[type]}></Card>
   );

@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { addLinksService } from "../../firebase/functions/LinksActions";
 import { getLinksList } from "../../Redux/Actions/User.actions";
 import Button from "../common/button/button";
+import InputComponent from "../common/InputComponent";
 import { triggerMessage } from "../common/SnackBar";
 import Svg from "../common/Svg";
 
@@ -58,25 +59,20 @@ const AddNewLinkDialog: React.FC<Props> = ({
       <div className="align-middle border-2 border-black-900 glasshover inline-block max-w-md overflow-hidden p-6 rounded-lg shadow-xl text-left transform transition-all w-full">
         <Dialog.Title
           as="h3"
-          className="font-bold leading-6 text-gray-900 text-xl">
+          className="font-bold leading-6 text-white text-xl mb-6">
           Add new link
         </Dialog.Title>
         <div className="mt-2">
-          <input
+          <InputComponent
             type="text"
-            onChange={e => setLinkTitle(e.target.value)}
+            onChange={(e: any) => setLinkTitle(e.target.value)}
             placeholder="Link title"
-            className="bg-transparent border border-gray-900 focus:outline-none focus:ring font-bold mb-1 mt-3 outline-none p-1 placeholder-gray-900 placeholder-opacity-50 px-3 py-2 relative text-gray-900 text-lg w-full"
           />
-          <div className="flex justify-end">
-            {/* <p style={{ fontSize: "0.8rem" }}>
-                    {remainderTitle.length}/50
-                  </p> */}
-          </div>
+          <div className="flex justify-end"></div>
           {links.map(link => {
             return (
-              <div className="border border-gray-900 div flex justify-between mb-1">
-                <div key={link.id} className="">
+              <div className="border-purple div flex justify-between mb-1 rounded ">
+                <div key={link.id}>
                   <input
                     type="text"
                     placeholder="Add link here"
@@ -86,7 +82,7 @@ const AddNewLinkDialog: React.FC<Props> = ({
                         e.target.value.toLowerCase()
                       )
                     }
-                    className="bg-transparent border-opacity-50 flex focus:outline-none focus:ring font-bold outline-none placeholder-gray-900 placeholder-opacity-50 px-3 py-2 relative text-gray-900 text-lg w-12/12"
+                    className="bg-transparent flex focus:outline-none font-bold placeholder-white placeholder-opacity-50 px-3 py-2 relative text-gray-100 text-lg text-white w-full"
                   />
                 </div>
                 <Button
@@ -140,9 +136,7 @@ const AddNewLinkDialog: React.FC<Props> = ({
             <Button
               kind="elevated"
               className="focus:outline-none"
-              onClick={() => {
-                cleanUpHandler();
-              }}>
+              onClick={() => cleanUpHandler()}>
               Cancel
             </Button>
           </div>

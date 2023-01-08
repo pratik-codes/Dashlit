@@ -1,7 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-
 import {
   addMyQuotesService,
   editFavoriteService,
@@ -9,6 +8,7 @@ import {
 } from "../../../../firebase/functions/QuotesActions";
 import { getMyQuotesAction } from "../../../../Redux/Actions/Quotes.actions";
 import Button from "../../../common/button/button";
+import InputComponent from "../../../common/InputComponent";
 
 interface Props {
   isOpen: boolean;
@@ -101,23 +101,21 @@ const AddQuotesModal: React.FC<Props> = ({
               leave="ease-in duration-200"
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95">
-              <div className="align-middle glass inline-block my-8 overflow-y-auto p-6 rounded shadow-xl text-left transform transition-all w-4/12">
-                <h1 className="font-bold text-gray-900 text-lg">
+              <div className="align-middle rounded-lg glass inline-block my-8 overflow-y-auto p-6 rounded shadow-xl text-left transform transition-all w-4/12">
+                <h1 className="font-bold text-white  text-lg mb-6">
                   {type === "add" ? "Add new quote" : "Edit quote"}
                 </h1>
-                <input
-                  onChange={e => setQuotes(e.target.value)}
+                <InputComponent
+                  onChange={(e: any) => setQuotes(e.target.value)}
                   value={quotes}
                   type="text"
                   placeholder="Add quote"
-                  className="bg-transparent border border-gray-900 focus:outline-none focus:ring font-bold mb-1 mt-3 outline-none p-1 placeholder-gray-900 placeholder-opacity-50 px-3 py-2 relative text-gray-900 text-lg w-full"
                 />
-                <input
-                  onChange={e => setAuthor(e.target.value)}
+                <InputComponent
+                  onChange={(e: any) => setAuthor(e.target.value)}
                   value={author}
                   type="text"
                   placeholder="Add author"
-                  className="bg-transparent border border-gray-900 focus:outline-none focus:ring font-bold mb-1 mt-3 outline-none p-1 placeholder-gray-900 placeholder-opacity-50 px-3 py-2 relative text-gray-900 text-lg w-full"
                 />
                 <div className="flex mt-4">
                   <Button

@@ -3,16 +3,15 @@ import { Upload } from "antd";
 import ImgCrop from "antd-img-crop";
 import Compressor from "compressorjs";
 import React, { Fragment, useState } from "react";
-
 import {
   addImageURL,
   uploadBackgroundImage
 } from "../../../../firebase/functions/UploadActions";
+import "../../../../styles/AntdStyles/Upload.css";
 import Button from "../../../common/button/button";
+import InputComponent from "../../../common/InputComponent";
 import Loader from "../../../common/Loader";
 import { triggerMessage } from "../../../common/SnackBar";
-
-import "../../../../styles/AntdStyles/Upload.css";
 
 interface Props {
   isOpen: boolean;
@@ -97,7 +96,7 @@ const UploadPictureModal: React.FC<Props> = ({
                 <div
                   className="align-middle glass inline-block my-8 overflow-hidden overflow-y-auto p-6 rounded shadow-xl text-left transform transition-all w-4/12"
                   style={{ borderRadius: "10px" }}>
-                  <h1 className="font-bold text-gray-900 text-xl">
+                  <h1 className="font-bold text-xl text-white">
                     Upload Background Picture
                   </h1>
                   <ImgCrop aspect={16 / 9}>
@@ -109,7 +108,7 @@ const UploadPictureModal: React.FC<Props> = ({
                       <button
                         type="button"
                         style={{ borderRadius: "10px" }}
-                        className="bg-transparent border border-dashed border-gray-900 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus:outline-none font-medium h-40 items-center justify-center mr-3 mt-4 px-4 py-2 text-sm w-full">
+                        className="bg-transparent border-purple focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus:outline-none font-medium h-40 items-center justify-center mr-3 mt-4 px-4 py-2 text-sm w-full">
                         {isUploading ? (
                           <>
                             <Loader />
@@ -117,10 +116,10 @@ const UploadPictureModal: React.FC<Props> = ({
                         ) : (
                           <>
                             {" "}
-                            <h1 className="font-bold text-blue-900 text-lg">
+                            <h1 className="font-bold text-white text-lg">
                               UPLOAD HERE
                             </h1>
-                            <p className="font-medium text-blue-900">
+                            <p className="font-medium text-white">
                               or drag and drop your file.
                             </p>
                           </>
@@ -130,18 +129,18 @@ const UploadPictureModal: React.FC<Props> = ({
                   </ImgCrop>
 
                   <div className="">
-                    <div className="font-bold my-6 text-center text-gray-900 text-lg">
+                    <div className="font-bold my-6 text-center text-white text-lg">
                       OR
                     </div>
-                    <div className="font-bold mb-2 text-gray-900 text-lg">
+                    <div className="font-bold mb-2 text-white text-lg text-white">
                       Add your picture link
                     </div>
                     <div className="flex flex-col justify-start">
-                      <input
+                      <InputComponent
                         type="text"
-                        onChange={e => setPictureUrl(e.target.value)}
+                        onChange={(e: any) => setPictureUrl(e.target.value)}
                         placeholder="Picture Link"
-                        className="bg-transparent border border-gray-900 focus:outline-none focus:ring font-bold mb-1 mt-3 outline-none p-1 placeholder-gray-900 placeholder-opacity-50 px-3 py-2 relative text-gray-900 text-lg w-full"
+                        className="bg-transparent border border-gray-900 focus:outline-none focus:ring font-bold mb-1 mt-3 outline-none p-1 placeholder-gray-900 placeholder-opacity-50 px-3 py-2 relative text-white text-lg w-full"
                       />
                       <div className="flex justify-start mt-4 space-x-2 w-full">
                         <Button

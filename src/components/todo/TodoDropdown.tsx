@@ -7,8 +7,13 @@ import SvgButton from "../common/button/SvgButton";
 import Loader from "../common/Loader";
 import TodoComponent from "./TodoComponent";
 
-const TodoDropdown = () => {
-  const [openDropDown, setOpenDropDown] = useState(false);
+const TodoDropdown = ({
+  openTasks,
+  setOpenTasks
+}: {
+  openTasks: boolean;
+  setOpenTasks: any;
+}) => {
   const [addTodoValue, setAddTodoValue] = useState("");
   const [addTodo, setAddTodo] = useState(false);
 
@@ -28,26 +33,26 @@ const TodoDropdown = () => {
 
   return (
     <div>
-      <div onClick={() => setOpenDropDown(!openDropDown)}>
+      <div onClick={() => setOpenTasks(!openTasks)}>
         <SvgButton type="todo" position="bottom-0 right-0" />
       </div>
       <div
         className={` ${
-          openDropDown === true ? "" : "hidden"
+          openTasks === true ? "" : "hidden"
         }  text-gray-700 pt-4 absolute bottom-0 right-0 mb-16 mr-6 `}>
-        <ul className="glasstodo h-full w-full">
+        <ul className="glasshover h-full w-full">
           <div
             style={{
-              minWidth: "20rem",
-              maxWidth: "15rem",
-              minHeight: "15rem",
+              minWidth: "25rem",
+              maxWidth: "25rem",
+              minHeight: "20rem",
               maxHeight: "25rem",
               overflowY: "auto",
               overflowX: "hidden"
             }}
             className="w-full">
             <div className="flex my-auto">
-              <h1 className="font-bold m-2 text-gray-900 text-lg">Today</h1>
+              <h1 className="font-bold m-2 text-white  text-lg">Today</h1>
               {/* <div className="div my-auto">
                 <Svg type="dropdown" />
               </div> */}
@@ -73,19 +78,19 @@ const TodoDropdown = () => {
               {TodoDataRedux.loading === false &&
                 TodoDataRedux.data.length === 0 && (
                   <div className="absolute flex h-full inset-0 items-center justify-center w-full">
-                    <h1 className="my-auto text-gray-900 text-sm">
+                    <h1 className="my-auto text-white  text-sm">
                       No Todo found.
                     </h1>
-                    <button
+                    <a
                       onClick={() => {
                         setAddTodo(true);
                         setTimeout(() => {
                           inputRef.current.focus();
                         }, 500);
                       }}
-                      className="bg-gray-900 focus:outline-none font-bold ml-2 p-1 px-2 rounded-full text-sm text-white">
+                      className="bg-white focus:outline-none font-bold ml-2 p-1 px-2 rounded-full text-sm text-white hover:underline hover:text-purple">
                       Add todo
-                    </button>
+                    </a>
                   </div>
                 )}
             </div>

@@ -13,7 +13,7 @@ interface Props {
 }
 
 const SettingsModal: React.FC<Props> = ({ isOpen, closeModal, openModal }) => {
-  const [view, setView] = useState("Preferences");
+  const [view, setView] = useState("PREFERENCES");
 
   return (
     <>
@@ -22,7 +22,7 @@ const SettingsModal: React.FC<Props> = ({ isOpen, closeModal, openModal }) => {
           <div className="w-full">
             <div className="flex justify-between">
               {/* top area */}
-              <div className="flex font-bold leading-6 m-8 text-3xl text-gray-900">
+              <div className="flex font-bold leading-6 m-8 text-3xl text-white">
                 Settings
               </div>
               <Tooltip title="Logout">
@@ -41,7 +41,7 @@ const SettingsModal: React.FC<Props> = ({ isOpen, closeModal, openModal }) => {
             {/* left side */}
             <div className="flex">
               <div className="h-full w-2/12">
-                <Sidebar setView={setView} />
+                <Sidebar setView={setView} view={view} />
               </div>
               <div className="h-screen m-0 overflow-auto w-10/12">
                 <CatergoryContent type={view} />

@@ -42,10 +42,10 @@ const TodoComponent: React.FC<todo> = ({ todoId, todoName, checked }) => {
   }, [editTodo]);
 
   return (
-    <div className="flex justify-start m-1 todo w-full">
-      <div className="">
+    <div className="flex justify-between m-1 todo w-full items-center">
+      <div className="flex items-center">
         <input
-          className="border-0 duration-200 focus:outline-none mt-1 mx-2 outline-none transition"
+          className="border-0 duration-200 focus:outline-none mx-2 outline-none transition"
           onClick={() => {
             setIsChecked(!isChecked);
             setEditTodo(false);
@@ -53,32 +53,32 @@ const TodoComponent: React.FC<todo> = ({ todoId, todoName, checked }) => {
           checked={isChecked}
           type="checkbox"
         />
-      </div>
-      <div
-        className={`break-all  text-gray-900 font-medium w-full ${
-          isChecked ? "line-through" : ""
-        }`}>
-        {editTodo === true ? (
-          <input
-            id="editTodo"
-            className="bg-transparent focus:outline-none w-full"
-            value={todoNameInput}
-            ref={inputRef}
-            onChange={e => {
-              setTodoNameInput(e.target.value);
-            }}
-            onKeyPress={e => e.key === "Enter" && editHandler()}
-          />
-        ) : (
-          <h1
-            onClick={() => {
-              setIsChecked(!isChecked);
-              setEditTodo(false);
-            }}
-            className="cursor-pointer mr-4">
-            {todoName}
-          </h1>
-        )}
+        <div
+          className={`break-all  text-white  font-medium w-full ${
+            isChecked ? "line-through" : ""
+          }`}>
+          {editTodo === true ? (
+            <input
+              id="editTodo"
+              className="bg-transparent focus:outline-none w-full text-lg"
+              value={todoNameInput}
+              ref={inputRef}
+              onChange={e => {
+                setTodoNameInput(e.target.value);
+              }}
+              onKeyPress={e => e.key === "Enter" && editHandler()}
+            />
+          ) : (
+            <h1
+              onClick={() => {
+                setIsChecked(!isChecked);
+                setEditTodo(false);
+              }}
+              className="cursor-pointer mr-4 text-white text-lg">
+              {todoName}
+            </h1>
+          )}
+        </div>
       </div>
       <div className="hidden tododelete">
         <div

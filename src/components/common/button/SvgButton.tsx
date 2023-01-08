@@ -11,7 +11,7 @@ interface Props {
 const SvgButton: React.FC<Props> = ({ type, position }) => {
   return (
     <button
-      className={`absolute ${position} rounded-lg border-none text-black border-none shadow-lg text-sm glass font-bold p-2 m-4 focus:outline-none`}>
+      className={`absolute ${position} rounded-lg border-none text-white border-none shadow-lg text-sm glass font-bold p-2 m-4 focus:outline-none`}>
       <Svg type={type} />
     </button>
   );
