@@ -7,8 +7,13 @@ import SvgButton from "../common/button/SvgButton";
 import Loader from "../common/Loader";
 import TodoComponent from "./TodoComponent";
 
-const TodoDropdown = () => {
-  const [openDropDown, setOpenDropDown] = useState(false);
+const TodoDropdown = ({
+  openTasks,
+  setOpenTasks
+}: {
+  openTasks: boolean;
+  setOpenTasks: any;
+}) => {
   const [addTodoValue, setAddTodoValue] = useState("");
   const [addTodo, setAddTodo] = useState(false);
 
@@ -28,19 +33,19 @@ const TodoDropdown = () => {
 
   return (
     <div>
-      <div onClick={() => setOpenDropDown(!openDropDown)}>
+      <div onClick={() => setOpenTasks(!openTasks)}>
         <SvgButton type="todo" position="bottom-0 right-0" />
       </div>
       <div
         className={` ${
-          openDropDown === true ? "" : "hidden"
+          openTasks === true ? "" : "hidden"
         }  text-gray-700 pt-4 absolute bottom-0 right-0 mb-16 mr-6 `}>
         <ul className="glasshover h-full w-full">
           <div
             style={{
-              minWidth: "20rem",
-              maxWidth: "15rem",
-              minHeight: "15rem",
+              minWidth: "25rem",
+              maxWidth: "25rem",
+              minHeight: "20rem",
               maxHeight: "25rem",
               overflowY: "auto",
               overflowX: "hidden"

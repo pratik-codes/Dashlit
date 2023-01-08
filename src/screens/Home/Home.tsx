@@ -25,6 +25,8 @@ const Home = () => {
   const [activeUserData, setActiveUserData] = useState<any>([]);
   const [openDialog, setOpenDialog] = useState(false);
   const [openSearchBar, setOpenSearchBar] = useState(false);
+  const [openSettings, setOpenSettings] = useState(false);
+  const [openTasks, setOpenTasks] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -113,10 +115,14 @@ const Home = () => {
 
   const handleClick = (e: any) => {
     if (e.key === "k" && e.metaKey) setOpenSearchBar(true);
-    if (e.key === "b" && e.metaKey) setOpenDialog(true);
+    if (e.key === "h" && e.metaKey) setOpenDialog(true);
+    if (e.key === "m" && e.metaKey) setOpenSettings(true);
+    if (e.key === "j" && e.metaKey) setOpenTasks(true);
     if (e.key === "Escape") {
       setOpenSearchBar(false);
       setOpenDialog(false);
+      setOpenSettings(false);
+      setOpenTasks(false);
     }
   };
 
@@ -159,12 +165,16 @@ const Home = () => {
             setOpenDialog={setOpenDialog}
           />
         )}
-        {getPreferenceValue("todo-settings") === true && <TodoDropdown />}
+        {getPreferenceValue("todo-settings") === true && (
+          <TodoDropdown setOpenTasks={setOpenTasks} openTasks={openTasks} />
+        )}
         {getPreferenceValue("weather-settings") === true && (
           <SvgButton type="weather" position="top-0 right-0" />
         )}
-        <SettingsDropdown />
-
+        <SettingsDropdown
+          setOpenSettings={setOpenSettings}
+          openSettings={openSettings}
+        />
         {openSearchBar && <SearchBar setOpenSearchBar={setOpenSearchBar} />}
       </div>
     </div>

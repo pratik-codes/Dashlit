@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootStore } from "../../Redux/Store";
 import SvgButton from "../common/button/SvgButton";
@@ -17,6 +17,8 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
     (state: RootStore) => state.userLinkData
   );
 
+  const inputRef: any = useRef();
+
   const linksLocalStorageData: any = localStorage.getItem("links");
   const linksLocalStorage: any = JSON.parse(linksLocalStorageData);
 
@@ -30,11 +32,12 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
     setIsOpen(true);
   }
 
-  const searchInput = useCallback(inputElement => {
-    if (inputElement) {
+  useEffect(() => {
+    if (inputRef && openDialog) {
       setTimeout(() => {
-        inputElement.focus();
-      }, 100);
+        console.log("focus");
+        inputRef?.focus();
+      }, 500);
     }
   }, []);
 
@@ -52,7 +55,7 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
             <div className="align-center flex justify-center">
               <div className="px-3   w-full">
                 <InputComponent
-                  ref={searchInput}
+                  ref={inputRef}
                   onChange={(e: any) => setSearchValue(e.target.value)}
                   value={searchValue}
                   style={{
