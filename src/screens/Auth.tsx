@@ -11,10 +11,10 @@ const Auth: React.FC = () => {
   const [activeView, setActiveView] = useState("singin");
 
   return (
-    <div className="h-screen flex justify-center flex-wrap content-center bg-gray-800">
+    <div className="h-screen flex justify-center flex-wrap content-center">
       <div
-        style={{ borderRadius: "25px", maxHeight: "95%" }}
-        className="flex m-4 shadow-2xl w-10/12 p-5 bg-gray-900 border-gray-900 hover:border-indigo-600 border-2">
+        style={{ borderRadius: "25px", maxHeight: "95%", background: "#161616" }}
+        className="flex m-4 shadow-2xl w-10/12 p-6 bg-charcol-gray border-gray-900 hover:border-indigo-600 border-2">
         <div className="w-5/12">
           <div className="w-8/12 mx-auto mt-10">
             <h1 className="text-xl text-white font-mono">Dashlit</h1>

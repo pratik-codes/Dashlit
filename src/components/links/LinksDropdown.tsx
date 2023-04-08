@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+
 import { RootStore } from "../../Redux/Store";
+
 import SvgButton from "../common/button/SvgButton";
 import InputComponent from "../common/InputComponent";
 import Loader from "../common/Loader";
@@ -10,7 +12,6 @@ import LinkComponent from "./LinkComponent";
 
 const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
   const [isOpen, setIsOpen] = useState(false);
-  // const [openDialog, setOpenDialog] = useState(false);
   const [searchValue, setSearchValue] = useState("");
 
   const LinksDataRedux: any = useSelector(
@@ -33,19 +34,18 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
   }
 
   useEffect(() => {
+    console.log("focus outside", inputRef, openDialog);
     if (inputRef && openDialog) {
       setTimeout(() => {
         console.log("focus");
-        inputRef?.focus();
+        inputRef?.current?.focus();
       }, 500);
     }
-  }, []);
+  }, [openDialog]);
 
   return (
-    // add "dropdown" to the first div if want to enable hover to show dialog
     <div className="inline-block mb-4 relative">
       <div
-        // onKeyPress={e => e.key === "p" && setOpenDialog(!openDialog)}pp
         onClick={() => setOpenDialog(!openDialog)}>
         <SvgButton type="link" position="top-0 left-0" />
       </div>

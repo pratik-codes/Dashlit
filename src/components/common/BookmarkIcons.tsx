@@ -1,7 +1,7 @@
 import React from "react";
 
 const BookmarkIcons = ({ url, type }: { url: string; type: string }) => {
-  console.log({ url, type });
+
   return (
     <>
       {type === "folder" ? (

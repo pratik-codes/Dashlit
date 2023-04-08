@@ -1,7 +1,9 @@
-import "antd/dist/antd.css";
 import React from "react";
+
 import Auth from "./screens/Auth";
-import Home from "./screens/Home/Home";
+import Home from "./screens/Home";
+
+import "antd/dist/antd.css";
 import "./styles/AntdStyles/Common.css";
 import "./styles/index.css";
 import "./styles/tailwind.css";

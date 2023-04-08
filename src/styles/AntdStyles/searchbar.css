@@ -3,7 +3,7 @@
   cursor: text;
   border: none;
   outline: none;
-  background-color: black;
+  background-color: black !important;
 }
 
 .ant-select-show-search.ant-select:not(.ant-select-customize-input)
@@ -41,8 +41,8 @@
 
 .ant-select-dropdown {
   border-radius: 5px !important;
-  background-color: black;
-  color: white;
+  background-color: black !important;
+   color: white;
 }
 
 .ant-select-item-option-active {

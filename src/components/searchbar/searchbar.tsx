@@ -52,7 +52,7 @@ const SearchBar = ({ setOpenSearchBar }: any) => {
           left: "30%",
           width: "40%",
           boxShadow: "0 0 0 1600px rgba(0,0,0,0.65)",
-          borderRadius: "5px"
+          borderRadius: "5px",
         }}
         defaultOpen={true}
         placeholder="Search link..."
@@ -67,7 +67,7 @@ const SearchBar = ({ setOpenSearchBar }: any) => {
             .localeCompare((optionB?.value ?? "").toLowerCase())
         }
         options={options}
-        onSelect={option => selectOption(option)}
+        onSelect={(option: any) => selectOption(option)}
       />
     </>
   );

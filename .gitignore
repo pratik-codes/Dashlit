@@ -3,6 +3,7 @@
 /.pnp
 .pnp.js
 /src/react-app-env.d.ts
+/.history/*
 
 # editors / ide
 /idea
@@ -11,8 +12,8 @@
 /coverage
 
 # production
-/build
 
+/build
 # misc
 .env
 .DS_Store

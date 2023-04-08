@@ -1,10 +1,6 @@
 import React from "react";
 
 const InputComponent = (props: any) => {
-  console.log(
-    "🚀 ~ file: InputComponent.tsx:5 ~ InputComponent ~ props",
-    props
-  );
 
   return (
     <input

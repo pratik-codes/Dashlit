@@ -6,15 +6,14 @@ module.exports = {
       transparent: "transparent",
       current: "currentColor",
       white: "#ffffff",
-      purple: rgb(105, 30, 255),
+      "charcol-gray": "#36454F",
+      purple: "#691eff",
       midnight: "#121063",
       metal: "#565584",
       tahiti: "#3ab7bf",
       silver: "#ecebff",
       "bubble-gum": "#ff77e9",
       bermuda: "#78dcca",
-      transparent: "transparent",
-      white: "#fff",
       "off-white": "#f7f8f8",
       "transparent-white": "rgba(255, 255, 255, 0.08)",
       background: "#000212",
@@ -34,12 +33,12 @@ module.exports = {
       "hero-gradient":
         "radial-gradient(ellipse 50% 80% at 20% 40%,rgba(93,52,221,0.1),transparent), radial-gradient(ellipse 50% 80% at 80% 50%,rgba(120,119,198,0.15),transparent)",
       "hero-glow":
-        "conic-gradient(from 230.29deg at 51.63% 52.16%, rgb(36, 0, 255) 0deg, rgb(0, 135, 255) 67.5deg, rgb(108, 39, 157) 198.75deg, rgb(24, 38, 163) 251.25deg, rgb(54, 103, 196) 301.88deg, rgb(105, 30, 255) 360deg)",
+        "conic-gradient(from 230.29deg at 51.63% 52.16%, rgba(36, 0, 255) 0deg, rgba(0, 135, 255) 67.5deg, rgba(108, 39, 157) 198.75deg, rgba(24, 38, 163) 251.25deg, rgba(54, 103, 196) 301.88deg, rgba(105, 30, 255) 360deg)",
       "glow-lines":
-        "linear-gradient(var(--direction),#9d9bf2 0.43%,#7877c6 14.11%,rgba(120,119,198,0) 62.95%)"
+        "linear-gradient(var(--direction),#9d9bf2 0.43%,#7877c6 14.11%,rgbaa(120,119,198,0) 62.95%)"
     },
     boxShadow: {
-      primary: "rgb(80 63 205 / 50%) 0px 1px 40px"
+      primary: "rgba(80 63 205 / 50%) 0px 1px 40px"
     },
     transitionDelay: {
       0: "0ms"

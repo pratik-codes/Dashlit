@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import SvgButton from "../../components/common/button/SvgButton";
-import Focus from "../../components/focus/Focus";
-import LinksDropdown from "../../components/links/LinksDropdown";
-import SearchBar from "../../components/searchbar/searchbar";
-import SettingsDropdown from "../../components/settings/SettingsDropdown";
-import TodoDropdown from "../../components/todo/TodoDropdown";
-import { getLiveDetails } from "../../firebase/functions/UserDetailsActions";
-import { getUserActiveData } from "../../firebase/functions/UsersActiveData";
+import SvgButton from "../components/common/button/SvgButton";
+import Focus from "../components/focus/Focus";
+import LinksDropdown from "../components/links/LinksDropdown";
+import SearchBar from "../components/searchbar/searchbar";
+import SettingsDropdown from "../components/settings/SettingsDropdown";
+import TodoDropdown from "../components/todo/TodoDropdown";
+import { getLiveDetails } from "../firebase/functions/UserDetailsActions";
+import { getUserActiveData } from "../firebase/functions/UsersActiveData";
 import {
   getLinksList,
   getSettingsList,
   getTodoList
-} from "../../Redux/Actions/User.actions";
-import { RootStore } from "../../Redux/Store";
-import { startTime } from "./home.utils";
+} from "../Redux/Actions/User.actions";
+import { RootStore } from "../Redux/Store";
+import { startTime } from "../utils/home.utils";
 
 const Home = () => {
   const [clockTimer, setClockTimer] = useState("");
@@ -106,18 +106,23 @@ const Home = () => {
   }, [file_url, author_name, quote]);
 
   useEffect(() => {
-    document.addEventListener("keydown", handleClick);
+    document.addEventListener("keydown", handleKeypress);
 
     return () => {
-      document.removeEventListener("click", handleClick);
+      document.removeEventListener("click", handleKeypress);
     };
   }, []);
 
-  const handleClick = (e: any) => {
-    if (e.key === "k" && e.metaKey) setOpenSearchBar(true);
-    if (e.key === "h" && e.metaKey) setOpenDialog(true);
-    if (e.key === "m" && e.metaKey) setOpenSettings(true);
-    if (e.key === "j" && e.metaKey) setOpenTasks(true);
+  const onKeyMapClick = (e: any, callback: any) => {
+        e.preventDefault();
+
+  }
+
+  const handleKeypress = (e: any) => {
+    if ((e.key === "k" || e.key === "p") && (e.metaKey || e.ctrlKey)) onKeyMapClick(e, setOpenSearchBar(true))
+    if (e.key === "h" && (e.metaKey || e.ctrlKey)) onKeyMapClick(e, setOpenDialog(true))
+    if (e.key === "m" && (e.metaKey || e.ctrlKey)) onKeyMapClick(e, setOpenSettings(true))
+    if (e.key === "j" && (e.metaKey || e.ctrlKey)) onKeyMapClick(e, setOpenTasks(true));
     if (e.key === "Escape") {
       setOpenSearchBar(false);
       setOpenDialog(false);
