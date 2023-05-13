@@ -68,7 +68,7 @@ const AddNewLinkDialog: React.FC<Props> = ({
           <div className="flex justify-end"></div>
           {links.map(link => {
             return (
-              <div className="border-purple div flex justify-between mb-1 rounded ">
+              <div className="border-purple div flex justify-between mb-1 rounded-[15px] bg-grey2 py-1">
                 <div key={link.id}>
                   <input
                     type="text"
@@ -83,10 +83,10 @@ const AddNewLinkDialog: React.FC<Props> = ({
                   />
                 </div>
                 <Button
-                  kind="elevated"
-                  className="focus:outline-none"
+                  type="secondary"
+                  className="focus:outline-none my-auto mr-1"
                   onClick={() => inputDeleteHandler(link.id)}>
-                  <Svg type="deleteWhite" />
+                  <Svg type="close" classNames="p-1" />
                 </Button>
               </div>
             );
@@ -95,7 +95,7 @@ const AddNewLinkDialog: React.FC<Props> = ({
           <div className="div flex justify-end">
             <Button
               kind="elevated"
-              className="focus:outline-none mr-1"
+              className="focus:outline-none mr-1 mt-2"
               onClick={() => {
                 setLinks([...links, { link: "", id: uuidv4() }]);
               }}>
@@ -118,7 +118,6 @@ const AddNewLinkDialog: React.FC<Props> = ({
 
         <div className="flex mt-4 space-x-2">
             <Button
-              kind="elevated"
               disabled={!(linkTitle.length > 0 && links[0]?.link?.length > 0)}
               className="focus:outline-none"
               onClick={() => {
@@ -128,7 +127,7 @@ const AddNewLinkDialog: React.FC<Props> = ({
               Add
             </Button>
             <Button
-              kind="elevated"
+              type="secondary"
               className="focus:outline-none"
               onClick={() => cleanUpHandler()}>
               Cancel

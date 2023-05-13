@@ -67,20 +67,14 @@ const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
       </div>
       <div className="ml-14">
         {/* edit modal */}
-        <Modal
+      <EditLinkDialog
           isOpen={isOpen}
+          id={id}
+          linkTitle={title}
+          links={url}
+          type={type}
+          closeModal={closeModal}
           openModal={openModal}
-          Children={
-            <EditLinkDialog
-              isOpen={isOpen}
-              id={id}
-              linkTitle={title}
-              links={url}
-              type={type}
-              closeModal={closeModal}
-              openModal={openModal}
-            />
-          }
         />
       </div>
     </>

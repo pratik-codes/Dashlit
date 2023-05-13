@@ -3,10 +3,9 @@ import { Button as AntButton } from "antd";
 import "../../../styles/AntdStyles/Button.css"
 
 const Button = (props: any) => {
-  const { children, type = "primary" } = props;
+  const { children, type = "primary", size = "large" } = props;
 
-  if(type === "primary") return <AntButton type="primary" {...props}>{children}</AntButton>;
-  return <></>
+  return <AntButton type={type} size={size} {...props}>{children}</AntButton>;
 };
 
 export default Button;

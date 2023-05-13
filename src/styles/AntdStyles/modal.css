@@ -1,3 +1,26 @@
+.ant-modal-title {
+  font-weight: bold !important;
+  color: white !important;
+  font-size: 20px !important;
+}
+
+.ant-modal-header {
+  padding: 24px !important;
+  background: black !important;
+  border-bottom: 1px #282828 !important;
+  border-radius: 20px !important;
+}
+
+.ant-modal-body {
+  background: !important;
+}
+
 .ant-modal-content {
-  background: transparent !important;
+  background: black !important;
+  border-radius: 20px !important;
+}
+
+.ant-modal-footer {
+  padding: 16px !important;
+  border-top: none !important;
 }

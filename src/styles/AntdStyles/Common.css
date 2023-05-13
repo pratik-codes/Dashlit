@@ -3,26 +3,10 @@
 }
 
 .ant-message-notice-content {
-  color: white;
+  background: black !important;
+  color: white !important;
   border-radius: 15px;
-  background: rgba(5, 0, 0, 0.55);
-  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
-    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
-    12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
-    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
-    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
-    100px 100px 80px rgba(0, 0, 0, 0.07);
-  backdrop-filter: blur(5.5px);
-  -webkit-backdrop-filter: blur(5.5px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.ant-modal-content {
-  border-radius: 15px;
-}
-
-.ant-modal-header {
-  border-radius: 15px 15px 0 0;
+  padding: 14px !important;
 }
 
 .ant-card-body .ant-card-actions {
@@ -65,19 +49,11 @@
 .link:hover::after {
   width: 100%;
 }
-.border-purple {
-  border: 2px solid;
-  border-color: gray;
-}
-
-.border-purple:hover {
-  border-color: rgb(105, 30, 255);
-  transition: delay 1s;
-}
 
 .ant-popover-message {
   color: white;
 }
+
 .ant-btn {
   color: white;
   background: black;

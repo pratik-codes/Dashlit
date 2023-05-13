@@ -42,11 +42,11 @@
 .ant-select-dropdown {
   border-radius: 5px !important;
   background-color: black !important;
-   color: white;
+  color: white;
 }
 
 .ant-select-item-option-active {
-  background: rgb(105, 30, 255) !important;
+  background: #282828 !important;
 }
 
 .ant-select:not(.ant-select-customize-input) .ant-select-selector {

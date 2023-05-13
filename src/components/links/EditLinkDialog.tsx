@@ -1,5 +1,6 @@
 import { Dialog } from '@headlessui/react'
 import { Tooltip } from 'antd'
+import ModalComponent from 'components/common/Modal'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
@@ -79,27 +80,21 @@ const EditLinkDialog: React.FC<Props> = ({
   }, [])
 
   return (
-    <div className="border-gray-900 glasshover shadow-xl inline-block w-full max-w-md overflow-hidden rounded-lg border-0 p-6 text-left align-middle transition-all">
-      <Dialog.Title
-        as="h3"
-        className="text-gray-900 mb-6 text-xl font-bold leading-6 text-white"
-      >
-        Edit link
-      </Dialog.Title>
+    <ModalComponent isOpen={isOpen} onClose={closeModal} title="Edit link">
+    <div className="border-gray-900 shadow-xl inline-block w-full overflow-hidden rounded-[15px] border-0 text-left align-middle transition-all">
       <div className="mt-2">
         <InputComponent
           value={title}
           type="text"
           onChange={(e: any) => setTitle(e.target.value)}
           placeholder="Link title"
-          className="border-gray-900 placeholder:text-gray-900 text-gray-900 relative mb-1 mt-3 w-full border bg-transparent p-1 px-3 py-2 text-lg font-bold outline-none placeholder:text-opacity-50 focus:outline-none focus:ring"
         />
         {urls.map((link: any) => {
           return (
             <div key={link.id}>
-              <div className="text-gray-100 relative my-2 flex w-full rounded border-purple bg-transparent text-lg font-bold text-white placeholder:text-white placeholder:text-opacity-50 focus:outline-none">
+              <div className="bg-grey2 rounded-md relative my-2 py-2 flex w-full rounded-[15px] border-purple bg-transparent text-lg font-bold text-white placeholder:text-white placeholder:text-opacity-50 focus:outline-none">
                 <div
-                  className="flex w-10/12"
+                  className="flex w-11/12"
                   onClick={() => window.open(`https://${link.link}`, '_blank')}
                 >
                   <img
@@ -110,18 +105,18 @@ const EditLinkDialog: React.FC<Props> = ({
                   />
                   <Tooltip title={link.link} placement="top">
                     <h1 className="placeholder:text-blueGray-300 text-blueGray-600 relative w-full cursor-pointer break-all rounded border border-none border-opacity-50 px-3 py-2 text-base font-bold text-white outline-none hover:text-purple hover:underline focus:outline-none focus:ring">
-                      {link.link.length > 20
+                      {link.link.length > 35
                         ? `${link.link.substring(0, 20)}...`
                         : link.link}
                     </h1>
                   </Tooltip>
                 </div>
                 <Button
-                  kind="elevated"
-                  className="w-2/12"
+                  type="secondary"
+                  className="mr-1"
                   onClick={() => linksDeleteHandler(link.id)}
                 >
-                  <Svg type="deleteWhite" />
+                  <Svg type="close" classNames="p-1" />
                 </Button>
               </div>
             </div>
@@ -132,9 +127,9 @@ const EditLinkDialog: React.FC<Props> = ({
             return (
               <div
                 key={link.id}
-                className="div mb-1 flex justify-between rounded border-purple"
+                className="rounded bg-grey2 rounded-[15px] flex focus:outline-none font-bold my-2 placeholder-white placeholder-opacity-50 py-2 relative text-gray-100 text-lg text-white border-purple w-full flex justify-between w-11/12"
               >
-                <div className="w-10/12">
+                <div className="w-11/12">
                   <input
                     type="text"
                     placeholder="add new link"
@@ -145,11 +140,11 @@ const EditLinkDialog: React.FC<Props> = ({
                   />
                 </div>
                 <Button
-                  className="w-2/12"
-                  kind="elevated"
+                  type="secondary"
+                  className="mr-1"
                   onClick={() => inputDeleteHandler(link.id)}
                 >
-                  <Svg type="deleteWhite" />
+                  <Svg type="close" classNames="p-1" />
                 </Button>
               </div>
             )
@@ -158,7 +153,7 @@ const EditLinkDialog: React.FC<Props> = ({
         <div className="div flex justify-end">
           <Button
             kind="elevated"
-            className="mr-1 focus:outline-none"
+            className="focus:outline-none mr-1"
             onClick={() => {
               setLinksCount(linksCount + 1)
               setLinkAdded([...linkAdded, { link: '', id: uuidv4() }])
@@ -182,11 +177,11 @@ const EditLinkDialog: React.FC<Props> = ({
         </div>
       </div>
 
-      <div className="mt-4 flex">
-        <div className="mr-2 outline-none">
+      <div className="mt-2 flex">
+        <div className="outline-none">
           <Button
             kind="elevated"
-            className="mr-4 focus:outline-none"
+            className="mr-2 focus:outline-none"
             onClick={() => {
               editHandler()
               closeModal()
@@ -197,7 +192,7 @@ const EditLinkDialog: React.FC<Props> = ({
         </div>
         <div>
           <Button
-            kind="elevated"
+            type="secondary"
             className="focus:outline-none"
             onClick={closeModal}
           >
@@ -205,7 +200,8 @@ const EditLinkDialog: React.FC<Props> = ({
           </Button>
         </div>
       </div>
-    </div>
+      </div>
+    </ModalComponent>
   )
 }
 

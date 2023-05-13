@@ -44,7 +44,7 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
         <SvgButton type="link" position="top-0 left-0" cta="Links" />
       </div>
       {openDialog && (
-        <div className="dropdown-menu duration-200 ease-out ml-4 mt-12 pt-4 text-white transition-all">
+        <div className="dropdown-menu ml-4 mt-12 pt-4 text-white">
           <ul className="glass rounded-t-lg">
             <div className="align-center flex justify-center">
               <div className="px-3   w-full">
