@@ -1,16 +1,11 @@
 {
-  "name": "reactjs-vite-tailwindcss-boilerplate",
-  "description": "This is a boilerplate build with Vite, React 18, TypeScript, Vitest, Testing Library, TailwindCSS 3, Eslint and Prettier.",
+  "name": "dashlit",
   "version": "0.1.0",
   "private": true,
   "author": {
-    "name": "João Paulo Moraes",
-    "email": "joaopaulomoraes@outlook.com",
-    "url": "https://github.com/joaopaulomoraes"
-  },
-  "bugs": {
-    "url": "https://github.com/joaopaulomoraes/reactjs-vite-tailwindcss-boilerplate/issues",
-    "email": "joaopaulomoraes@outlook.com"
+    "name": "Pratik Tiwari",
+    "email": "pratiktiwari1212@gmail.com",
+    "url": "https://tiwaripratik.com/"
   },
   "scripts": {
     "dev": "vite",
@@ -23,10 +18,50 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "@headlessui/react": "^1.4.2",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/classnames": "^2.2.10",
+    "@types/file-saver": "^2.0.5",
+    "@types/jest": "^26.0.13",
+    "@types/node": "^14.10.1",
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-redux": "^7.1.20",
+    "@types/react-router-dom": "^5.1.5",
+    "antd": "^4.18.2",
+    "antd-img-crop": "^4.2.3",
+    "axios": "^0.24.0",
+    "classnames": "^2.2.6",
+    "compressorjs": "^1.1.1",
+    "file-saver": "^2.0.5",
+    "firebase": "^9.7.0",
+    "postcss-cli": "^8.0.0",    "react-redux": "^7.2.6",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.1",
+    "styled-components": "^5.3.6",
+    "typescript": "^4.0.2",
+    "uuid": "^8.3.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.21.8",
+    "@types/uuid": "^8.3.3",
     "@babel/preset-env": "^7.21.5",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.21.5",
@@ -54,6 +89,8 @@
     "typescript": "^5.0.4",
     "vite": "^4.3.5",
     "vite-tsconfig-paths": "^4.2.0",
-    "vitest": "^0.31.0"
+    "vitest": "^0.31.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.7.1"
   }
 }

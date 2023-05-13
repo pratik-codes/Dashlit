@@ -1,0 +1,9 @@
+.ant-btn-primary {
+  background: black !important;
+  border: none;
+  border-radius: 10px;
+}
+
+.ant-btn-primary:hover {
+  color: rgb(105, 30, 255);
+}

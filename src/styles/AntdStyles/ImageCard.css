@@ -1,0 +1,32 @@
+.ant-card-cover img {
+  border-radius: 15px 15px 0 0 !important;
+  background-color: black;
+}
+.ant-card-bordered .ant-card-cover {
+  border-radius: 15px !important;
+  background-color: black;
+}
+
+.ant-card-actions {
+  border-radius: 0 0 15px 15px !important;
+  background: rgba(5, 0, 0, 0.55) !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: none;
+}
+
+.ant-card-actions svg {
+  color: white;
+}
+
+.ant-card-actions span:hover {
+  color: purple;
+}
+
+.ant-card {
+  border-radius: 15px !important;
+}
+
+.ant-card-body {
+  display: none;
+}
