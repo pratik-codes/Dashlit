@@ -92,7 +92,7 @@ const EditLinkDialog: React.FC<Props> = ({
         {urls.map((link: any) => {
           return (
             <div key={link.id}>
-              <div className="bg-grey2 rounded-md relative my-2 py-2 flex w-full rounded-[15px] border-purple bg-transparent text-lg font-bold text-white placeholder:text-white placeholder:text-opacity-50 focus:outline-none">
+              <div className="bg-grey2 relative my-2 py-1 flex w-full rounded-[15px] border-purple text-lg font-bold text-white placeholder:text-white placeholder:text-opacity-50 focus:outline-none">
                 <div
                   className="flex w-11/12"
                   onClick={() => window.open(`https://${link.link}`, '_blank')}
@@ -104,7 +104,7 @@ const EditLinkDialog: React.FC<Props> = ({
                     alt="favicon"
                   />
                   <Tooltip title={link.link} placement="top">
-                    <h1 className="placeholder:text-blueGray-300 text-blueGray-600 relative w-full cursor-pointer break-all rounded border border-none border-opacity-50 px-3 py-2 text-base font-bold text-white outline-none hover:text-purple hover:underline focus:outline-none focus:ring">
+                    <h1 className="placeholder:text-blueGray-300 text-blueGray-600 relative w-full cursor-pointer break-all rounded border border-none border-opacity-50 px-3 py-1 text-base font-bold text-white outline-none hover:text-purple hover:underline focus:outline-none focus:ring">
                       {link.link.length > 35
                         ? `${link.link.substring(0, 20)}...`
                         : link.link}
@@ -127,7 +127,7 @@ const EditLinkDialog: React.FC<Props> = ({
             return (
               <div
                 key={link.id}
-                className="rounded bg-grey2 rounded-[15px] flex focus:outline-none font-bold my-2 placeholder-white placeholder-opacity-50 py-2 relative text-gray-100 text-lg text-white border-purple w-full flex justify-between w-11/12"
+                className="rounded bg-grey2 rounded-[15px] flex focus:outline-none font-bold my-2 placeholder-white placeholder-opacity-50 py-1 relative text-gray-100 text-lg text-white border-purple w-full flex justify-between w-11/12"
               >
                 <div className="w-11/12">
                   <input
@@ -136,7 +136,7 @@ const EditLinkDialog: React.FC<Props> = ({
                     onChange={(e) =>
                       inputOnchangeHandler(link.id, e.target.value)
                     }
-                    className="text-gray-100 relative flex w-full bg-transparent px-3 py-2 text-lg font-bold text-white placeholder:text-white placeholder:text-opacity-50 focus:outline-none"
+                    className="text-gray-100 relative flex w-full bg-transparent px-3 py-1 text-lg font-bold text-white placeholder:text-white placeholder:text-opacity-50 focus:outline-none"
                   />
                 </div>
                 <Button

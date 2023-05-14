@@ -42,7 +42,7 @@ const FavouritePictures: React.FC<any> = () => {
           </div>
           {favouriteImages && favouriteImages?.length === 0 && (
             <div className="">
-              <span className="font-bold text-gray-900 text-xl">
+              <span className="font-bold text-white text-xl">
                 No Favourites found.
               </span>
               <span className="text-gray-900 ml-2 text-xl">Add now...</span>

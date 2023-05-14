@@ -33,10 +33,10 @@ const MyPictures: React.FC<Props> = ({ data, refreshPictures }) => {
         </div>
         {data && data?.length === 0 && (
           <div className="">
-            <span className="font-bold text-gray-900 text-xl">
+            <span className="font-bold text-white text-xl">
               No pictures found.
             </span>
-            <span className="text-gray-900 ml-2 text-xl">
+            <span className="text-white ml-2 text-xl">
               Add your first picture now...
             </span>
           </div>

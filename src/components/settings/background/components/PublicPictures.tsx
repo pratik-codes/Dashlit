@@ -42,7 +42,7 @@ const PublicPictures = () => {
           </div>
           {publicPictures && publicPictures?.length === 0 && (
             <div className="">
-              <span className="font-bold text-gray-900 text-xl">
+              <span className="font-bold text-white text-xl">
                 No Pictures found.
               </span>
             </div>

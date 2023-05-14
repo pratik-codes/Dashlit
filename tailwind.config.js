@@ -5,8 +5,9 @@ module.exports = {
     colors: {
       grey1: "#282828",
       grey2: "#181818",
-      purple: "#4338ca",
+      purple: "#5b21b6",
       purpledark: "#3730a3",
+      black: "black",
       transparent: "transparent",
       current: "currentColor",
       white: "#ffffff",

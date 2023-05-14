@@ -1,4 +1,4 @@
-import { Popconfirm } from "antd";
+import { Popconfirm, Popover } from "antd";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteUserLinksService } from "../../firebase/functions/LinksActions";
@@ -43,27 +43,42 @@ const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
   }
 
   return (
-    <>
-      <div className="cursor-pointer flex glasslink p-2 w-full">
-        <div onClick={() => clickHandler()} className="flex w-full">
+    <div className="mx-2">
+      <div className="cursor-pointer flex glasslink p-2 w-full rounded-[8px]">
+        <div onClick={() => clickHandler()} className="flex w-full mx-1">
           <BookmarkIcons url={url} type={type} />
           <a className="block font-bold my-auto px-4 py-auto text-white text-l w-full whitespace-no-wrap hover:text-purple">
-            {title.length > 25 ? title.substring(0, 25) + "..." : title}
+            {title.length > 30 ? title.substring(0, 30) + "..." : title}
           </a>
         </div>
-        <div onClick={() => openModal()}>
-          <Svg type="edit" />
-        </div>
 
-        <Popconfirm
-          title="Are you sure to delete this link/folder?"
-          onConfirm={deleteHandler}
-          okText="Yes"
-          cancelText="No">
+        <div className="editlink hidden">
+        <Popover
+          content={
           <div>
-            <Svg type="deleteEdited" />
-          </div>
-        </Popconfirm>
+            <h6
+                  onClick={() => openModal()}
+                  className="font-bold cursor-pointer hover:bg-grey2 py-1 px-2 rounded-lg text-white hover:bg-grey2">
+              Edit
+            </h6>
+            <Popconfirm
+              title="Are you sure to delete this link/folder?"
+              onConfirm={deleteHandler}
+              okText="Yes"
+              cancelText="No">
+            <h1 className="font-bold cursor-pointer hover:bg-grey2 py-1 px-2 rounded-lg text-white hover:bg-grey2">
+              Delete
+            </h1>
+            </Popconfirm>
+              </div>
+          }
+          trigger="hover"
+          >
+          <button className="focus:outline-none mx-1 mt-1 text-white">
+            <Svg type="dot-dot" />
+          </button>
+        </Popover>
+        </div>
       </div>
       <div className="ml-14">
         {/* edit modal */}
@@ -77,7 +92,7 @@ const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
           openModal={openModal}
         />
       </div>
-    </>
+    </div>
   );
 };
 

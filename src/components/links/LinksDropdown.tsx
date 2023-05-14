@@ -45,10 +45,10 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
       </div>
       {openDialog && (
         <div className="dropdown-menu ml-4 mt-12 pt-4 text-white">
-          <ul className="glass rounded-t-lg">
+          <ul className="rounded-t-[18px] bg-black">
             <div className="align-center flex justify-center">
-              <div className="px-3   w-full">
-                <input
+              <div className="px-3 my-1 w-full">
+                <InputComponent
                   ref={inputRef}
                   onChange={(e: any) => setSearchValue(e.target.value)}
                   value={searchValue}
@@ -56,8 +56,7 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
                     minWidth: "92%"
                   }}
                   type="text"
-                  placeholder="Search"
-                  className="rounded bg-transparent flex focus:outline-none font-bold my-2 placeholder-white placeholder-opacity-50 px-3 py-2 relative text-gray-100 text-lg text-white w-full"
+                  placeholder="Search links"
                 />
               </div>
             </div>
@@ -106,7 +105,7 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
                 </div>
               )}
 
-              {LINKS.loading === false && LINKS.data.length === 0 && (
+              {LINKS && LINKS.data.length === 0 && (
                 <div className="div flex h-full items-center justify-center">
                   <br />
                   <br />
@@ -115,7 +114,7 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
                   <br />
                   <br />
                   <br />
-                  <h1 className="font-2x font-bold my-auto text-gray-900">
+                  <h1 className="font-2x font-bold my-auto text-white">
                     No links found. Add new link...
                   </h1>
                 </div>
@@ -125,13 +124,12 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
           <div
             style={{
               width: "96%",
-              borderRadius: "0 0 10px 10px"
             }}
             onClick={() => openModal()}
-            className="absolute cursor-pointer flex glass p-2 rounded-b-xl">
+            className="absolute cursor-pointer flex py-3 px-2 rounded-b-[18px] bg-grey2 hover:bg-grey1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 mx-3 my-auto text-white w-5 text-white hover:text-purple"
+              className="h-5 mx-3 my-auto text-white w-5 text-white"
               viewBox="0 0 20 20"
               fill="currentColor">
               <path
@@ -140,7 +138,7 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
                 clipRule="evenodd"
               />
             </svg>
-            <h1 className="font-bold p-1 text-white hover:text-purple">
+            <h1 className="font-bold p-1 text-white">
               {" "}
               Add a new link or folder
             </h1>

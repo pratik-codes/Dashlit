@@ -47,6 +47,8 @@
 
 .ant-select-item-option-active {
   background: #282828 !important;
+  border-radius: 10px;
+  margin: 5px;
 }
 
 .ant-select:not(.ant-select-customize-input) .ant-select-selector {
@@ -66,6 +68,7 @@
   margin-left: -15px;
   margin-top: 2px;
   font-weight: bold;
+  margin: 5px;
 }
 
 .ant-empty-description {

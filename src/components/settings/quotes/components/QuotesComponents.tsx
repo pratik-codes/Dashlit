@@ -86,12 +86,12 @@ const QuotesComponents: React.FC<Props> = ({
           <div>
             <h6
               onClick={() => editQuotes(true)}
-              className="cursor-pointer hover:bg-gray-200 py-1 px-2 rounded-lg text-white hover:text-purple">
+              className="font-bold cursor-pointer hover:bg-grey2 py-1 px-2 rounded-lg text-white hover:bg-grey2">
               Edit quote
             </h6>
             <h1
               onClick={() => deleteQuote()}
-              className="cursor-pointer hover:bg-gray-200 py-1 px-2 rounded-lg text-white hover:text-purple">
+              className="font-bold cursor-pointer hover:bg-grey2 py-1 px-2 rounded-lg text-white hover:bg-grey2">
               Delete quote
             </h1>
           </div>
@@ -100,13 +100,13 @@ const QuotesComponents: React.FC<Props> = ({
           onClick={() => {
             setCurrentQuote({ quote: quotes, author_name: author });
           }}
-          className="cursor-pointer hover:bg-gray-200 py-1 px-2 rounded-lg text-white hover:text-purple">
+          className="font-bold cursor-pointer hover:bg-grey2 py-1 px-2 rounded-lg text-white hover:bg-grey2">
           Set this quote
         </h1>
         {type === "fav_quotes" && (
           <h1
             onClick={() => removeFromFavourites()}
-            className="cursor-pointer hover:bg-gray-200 py-1 px-2 rounded-lg text-white hover:text-purple">
+            className="font-bold cursor-pointer hover:bg-grey2 py-1 px-2 rounded-lg text-white hover:bg-grey2">
             Remove from favourites
           </h1>
         )}
@@ -114,7 +114,7 @@ const QuotesComponents: React.FC<Props> = ({
           <div>
             <h1
               onClick={() => favouriteClickHandler()}
-              className="cursor-pointer hover:bg-gray-200 py-1 px-2 rounded-lg text-white hover:text-purple">
+              className="font-bold cursor-pointer hover:bg-grey2 py-1 px-2 rounded-lg text-white hover:bg-grey2">
               Add to favourite
             </h1>
           </div>
@@ -124,7 +124,7 @@ const QuotesComponents: React.FC<Props> = ({
   };
 
   return (
-    <div className="glasshover flex w-full justify-between p-4 min-h-full">
+    <div className="bg-grey2 rounded-[18px] flex w-full justify-between p-4 min-h-full">
       <div className="w-11/12 break-words">
         <h1 className="font-bold text-md text-white ">"{quotes}"</h1>
         <h1 className="font-medium text-sm text-white ">- {author}</h1>

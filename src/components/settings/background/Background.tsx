@@ -34,7 +34,7 @@ const Background: any = () => {
             <li onClick={() => setActiveTab("my_pictures")} className="mr-2">
               <button
                 className={`focus:outline-none inline-block py-4 px-4 text-md font-bold text-center text-gray-700 rounded-t-lg border-b-2 border-transparent hover:text-white hover:border-white dark:text-gray-400 transition duration-300 ease-out ${
-                  activeTab === "my_pictures" ? "border-white text-white " : ""
+                  activeTab === "my_pictures" ? "border-white text-white " : "text-purple"
                 }`}>
                 MY PICTURES
               </button>
@@ -46,7 +46,7 @@ const Background: any = () => {
                 className={`focus:outline-none inline-block py-4 px-4 text-md font-bold text-center text-gray-700 rounded-t-lg border-b-2 border-transparent hover:text-white hover:border-white dark:text-gray-400 transition duration-300 ease-out ${
                   activeTab === "public_pictures"
                     ? "border-white text-white "
-                    : ""
+                    : "text-purple"
                 }`}>
                 PUBLIC PICTURES
               </button>
@@ -54,7 +54,7 @@ const Background: any = () => {
             <li onClick={() => setActiveTab("Favourites")} className="">
               <button
                 className={`focus:outline-none inline-block py-4 px-4 text-md font-bold text-center text-gray-700 rounded-t-lg border-b-2 border-transparent hover:text-white hover:border-white dark:text-gray-400 transition duration-300 ease-out ${
-                  activeTab === "Favourites" ? "border-white text-white " : ""
+                  activeTab === "Favourites" ? "border-white text-white " : "text-purple"
                 }`}>
                 FAVOURITES
               </button>

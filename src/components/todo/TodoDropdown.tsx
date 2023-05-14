@@ -39,8 +39,8 @@ const TodoDropdown = ({
       <div
         className={` ${
           openTasks === true ? "" : "hidden"
-        }  text-gray-700 pt-4 absolute bottom-0 right-0 mb-16 mr-6 `}>
-        <ul className="glasshover h-full w-full">
+        }  text-gray-700 pt-4 absolute bottom-0 right-0 mb-16 mr-6`}>
+        <ul className="bg-black rounded-[18px] h-full w-full">
           <div
             style={{
               minWidth: "25rem",
@@ -50,7 +50,7 @@ const TodoDropdown = ({
               overflowY: "auto",
               overflowX: "hidden"
             }}
-            className="w-full">
+            className="w-full p-2">
             <div className="flex my-auto">
               <h1 className="font-bold m-2 text-white  text-lg">Today</h1>
               {/* <div className="div my-auto">
@@ -88,7 +88,7 @@ const TodoDropdown = ({
                           inputRef.current.focus();
                         }, 500);
                       }}
-                      className="focus:outline-none font-bold ml-2 p-1 px-2 rounded-full text-sm text-white hover:underline hover:text-purple">
+                      className="focus:outline-none font-bold ml-2 p-1 px-2 rounded-full text-sm text-white hover:underline text-white">
                       Add todo
                     </a>
                   </div>
@@ -98,7 +98,7 @@ const TodoDropdown = ({
           <div>
             {addTodo &&
             <input
-              className="bg-transparent border-none focus:outline-none m-1 p-1 placeholder-black text-white w-full"
+              className="bg-transparent border-none focus:outline-none m-1 p-1 placeholder-grey1 text-white w-full ml-2"
               placeholder="Add todo here..."
               ref={inputRef}
               value={addTodoValue}

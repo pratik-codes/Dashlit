@@ -1,18 +1,19 @@
 .ant-card-cover img {
   border-radius: 15px 15px 0 0 !important;
-  background-color: black;
+  background: #282828 !important;
+  aspect-ratio: 16/9 !important;
 }
 .ant-card-bordered .ant-card-cover {
   border-radius: 15px !important;
-  background-color: black;
+  background: #282828 !important;
 }
 
 .ant-card-actions {
   border-radius: 0 0 15px 15px !important;
-  background: rgba(5, 0, 0, 0.55) !important;
+  background: #282828 !important;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  border: none;
+  border-top: none !important;
 }
 
 .ant-card-actions svg {

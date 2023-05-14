@@ -1,3 +1,4 @@
+import { Checkbox, Popconfirm, Popover, Tooltip } from "antd";
 import PropTypes from "prop-types";
 import React, { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
@@ -42,16 +43,15 @@ const TodoComponent: React.FC<todo> = ({ todoId, todoName, checked }) => {
   }, [editTodo]);
 
   return (
-    <div className="flex justify-between m-1 todo w-full items-center">
-      <div className="flex items-center">
-        <input
-          className="border-0 duration-200 focus:outline-none mx-2 outline-none transition"
+    <div className="flex justify-between todo w-full items-center hover:bg-grey2 rounded-[6px]">
+      <div className="flex items-center mr-2">
+        <Checkbox
+          className="border-0 duration-200 ml-2 focus:outline-none mr-2 outline-none transition cursor-pointer my-checkbox"
           onClick={() => {
             setIsChecked(!isChecked);
             setEditTodo(false);
           }}
           checked={isChecked}
-          type="checkbox"
         />
         <div
           className={`break-all  text-white  font-medium w-full ${
@@ -75,22 +75,39 @@ const TodoComponent: React.FC<todo> = ({ todoId, todoName, checked }) => {
                 setEditTodo(false);
               }}
               className="cursor-pointer mr-4 text-white text-lg">
-              {todoName}
+              <Tooltip title={todoName}>
+                {todoName.length > 25 ? todoName.substring(0, 25) + "..." : todoName}
+              </Tooltip>
             </h1>
           )}
         </div>
       </div>
       <div className="hidden tododelete">
-        <div
-          className="cursor-pointer"
-          onClick={() => {
-            setEditTodo(!editTodo);
-          }}>
-          <Svg type="editTodo" />
-        </div>
-        <div className="cursor-pointer mr-2" onClick={deleteHandler}>
-          <Svg type="deleteTodoComponent" />
-        </div>
+        <Popover
+          content={
+          <div>
+            <h6
+                  onClick={() => setEditTodo(!editTodo)}
+                  className="font-bold cursor-pointer hover:bg-grey2 py-1 px-2 rounded-lg text-white hover:bg-grey2">
+              Edit
+            </h6>
+            <Popconfirm
+              title="Are you sure to delete this todo?"
+              onConfirm={deleteHandler}
+              okText="Yes"
+              cancelText="No">
+            <h1 className="font-bold cursor-pointer hover:bg-grey2 py-1 px-2 rounded-lg text-white hover:bg-grey2">
+              Delete
+            </h1>
+            </Popconfirm>
+              </div>
+          }
+          trigger="hover"
+          >
+          <button className="focus:outline-none mx-2 text-white">
+            <Svg type="dot-dot" />
+          </button>
+        </Popover>
       </div>
     </div>
   );

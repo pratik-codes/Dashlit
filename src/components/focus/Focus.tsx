@@ -1,4 +1,3 @@
-import { colorGuide } from "@cred/neopop-web/lib/primitives";
 import { Checkbox } from "antd";
 import React, { useEffect, useState } from "react";
 import Svg from "../common/Svg";
@@ -32,12 +31,13 @@ const Focus = (props: Props) => {
     return (
       <div className="focus-container">
         <span className="m-0 text-xl">TODAY</span>
-        <h1 className="flex group items-center justify-center text-20 text-medium text-white">
+        <h1 className="flex group align-center items-center justify-center text-20 text-medium text-white">
           <div
             className={`z-0 group-hover:block mr-3 mt-2 ${
               isChecked ? "block" : " hidden"
             }`}>
             <Checkbox
+              className="my-checkbox mb-6"
               onChange={(e: any) => focusCheckedHandler(e.target.checked)}
               checked={isChecked}
             />
@@ -46,7 +46,7 @@ const Focus = (props: Props) => {
           <div
             onClick={() => setNewFocus("")}
             className="group-hover:block hidden ml-2 mt-2">
-            <Svg type="deleteWhite" />
+            <Svg type="close" classNames="p-1 cursor-pointer mb-1 hover:text-grey1" />
           </div>
         </h1>
       </div>

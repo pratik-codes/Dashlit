@@ -73,27 +73,36 @@ const PictureComponent: React.FC<Props> = ({
     }
   };
 
+  const ACTION_CLASS = "flex justify-center items-center text-white bg-grey2 mx-auto text-lg hover:bg-grey1 rounded-[15px] h-10 w-14 cursor-pointer"
   const ActionMap: any = {
     my_pictures: [
-      <HeartOutlined onClick={favPictureHandler} key="favourite" />,
-      <DesktopOutlined onClick={setCurrentPicture} key="apply" />,
-      <DeleteOutlined onClick={deleteMyPicture} key="delete" />
+      <HeartOutlined className={ACTION_CLASS} onClick={favPictureHandler} key="favourite" />,
+      <DesktopOutlined className={ACTION_CLASS} onClick={setCurrentPicture} key="apply" />,
+      <DeleteOutlined className={ACTION_CLASS} onClick={deleteMyPicture} key="delete" />
     ],
     fav: [
-      <DesktopOutlined onClick={setCurrentPicture} key="apply" />,
-      <DeleteOutlined onClick={deleteFav} key="delete" />
+      <DesktopOutlined className={ACTION_CLASS} onClick={setCurrentPicture} key="apply" />,
+      <DeleteOutlined className={ACTION_CLASS} onClick={deleteFav} key="delete" />
     ],
     public: [
-      <HeartOutlined onClick={favPictureHandler} key="favourite" />,
-      <DesktopOutlined onClick={setCurrentPicture} key="apply" />
+      <HeartOutlined className={ACTION_CLASS} onClick={favPictureHandler} key="favourite" />,
+      <DesktopOutlined className={ACTION_CLASS} onClick={setCurrentPicture} key="apply" />
     ]
   };
 
+  const ACTIONS = ActionMap[type];
+
   return (
-    <Card
-      className="glasshover"
-      cover={<Image alt="Image Loading Error" src={data.url} preview={false} loading={"lazy"} height="220px" className="flex justify-center items-center text-white"/>}
-      actions={ActionMap[type]} />
+    <div className="bg-grey2 rounded-[18px] aspect-[16/10]">
+      <Image alt="Image Loading Error" src={data.url} preview={false} className="flex justify-center items-center text-white rounded-t-[18px] aspect-[16/9]" loading="lazy"/>
+      <div className="flex justify-between px-2 py-1">
+        {ACTIONS.map((action: any) => (
+          <>
+            {action}
+          </>
+        ))};
+      </div>
+    </div>
   );
 };
 
