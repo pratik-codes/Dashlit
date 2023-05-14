@@ -13,11 +13,11 @@ const Auth: React.FC = () => {
   return (
     <div className="h-screen flex justify-center flex-wrap content-center">
       <div
-        style={{ borderRadius: "25px", maxHeight: "95%", background: "#161616" }}
-        className="flex m-4 shadow-2xl w-10/12 p-6 bg-charcol-gray border-none hover:border-purple border-2 my-auto">
-        <div className="w-5/12">
-          <div className="w-8/12 mx-auto mt-10">
-            <h1 className="text-xl text-white font-mono">Dashlit</h1>
+        style={{ borderRadius: "25px", background: "#161616" }}
+        className="flex m-4 shadow-2xl w-10/12 p-6 bg-charcol-gray border hover:border-purple border-2 my-auto aspect-[16/8]">
+        <div className="w-5/12 my-auto">
+          <div className="w-8/12 mx-auto">
+            <h1 className="text-2xl text-white font-mono font-bold">Dashlit</h1>
             <br />
             {activeView === "signup" ? (
               <SignUp setActiveView={setActiveView} />

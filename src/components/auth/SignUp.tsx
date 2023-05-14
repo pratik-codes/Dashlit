@@ -1,3 +1,5 @@
+import Button from "components/common/button/button";
+import InputComponent from "components/common/InputComponent";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
@@ -33,68 +35,54 @@ const SignUp: React.FC<signUpProps> = ({ setActiveView }) => {
     <>
       <div className="w-full">
         <form className="pt-6  mb-4">
-          <h1 className="font-bold text-white text-3xl">Hi, Welcome!</h1>
+          <h1 className="font-bold text-white text-2xl">Hi, Welcome!</h1>
           <p className="text-sm text-white text-opacity-60	">
-            Best browser productivity dashboard!
+            We are happy to have you here...
           </p>
           <br />
-          <div className="mb-4">
-            <label
-              className="block text-white text-sm font-bold mb-2"
-              htmlFor="Email">
-              Email
-            </label>
-            <input
-              className="text-white border-grey shadow appearance-none border w-full p-3  mb-3 rounded-lg focus:outline-none focus:shadow-outline"
+          <div className="mb-3">
+            <InputComponent
+            inputType="secondary"
               id="Email"
               type="text"
               onChange={(e: any) => setEmail(e.target.value)}
               placeholder="Email"
             />
           </div>
-          <div className="mb-6">
-            <label
-              className="block text-white text-sm font-bold mb-2"
-              htmlFor="password">
-              Password
-            </label>
-            <input
-              className="text-white border-grey shadow appearance-none border w-full p-3 mb-3 rounded-lg focus:outline-none focus:shadow-outline"
+          <div className="mb-3">
+            <InputComponent
+            inputType="secondary"
               id="password"
               onChange={(e: any) => setPassword(e.target.value)}
               type="password"
-              placeholder="******************"
-            />
-            <label
-              className="block text-white text-sm font-bold mb-2"
-              htmlFor="confirmPassword">
-              Confirm Password
-            </label>
-            <input
-              className="text-white border-grey shadow appearance-none border w-full p-3 mb-3 rounded-lg focus:outline-none focus:shadow-outline"
+              placeholder="Password"
+          />
+          </div>
+          <div className="mb-3">
+            <InputComponent
+              inputType="secondary"
               id="confirmPassword"
               type="password"
               onChange={(e: any) => setConfirmPassword(e.target.value)}
-              placeholder="******************"
+              placeholder="Password"
             />
           </div>
           <br />
           <div className="flex flex-col">
-            <button
+            <Button
               onClick={clickHandler}
-              className="bg-indigo hover:bg-metal text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="button">
+            >
               Sign Up
-            </button>
-            <p className="text-center text-white text-xs mt-4">
+            </Button>
+            <p className="text-center text-white text-xs mt-4 flex justify-center">
               Already have a account?{" "}
               <div onClick={() => setActiveView("signin")}>
-                <a className="text-indigo font-bold">Sign in</a>
+                <a className="text-indigo font-bold ml-2">Sign in</a>
               </div>
             </p>
           </div>
           <br />
-          <p className="text-center text-white text-xs">
+          <p className="text-center text-white text-xs mt-8">
             &copy;2020 Dashlit. All rights reserved.
           </p>
         </form>

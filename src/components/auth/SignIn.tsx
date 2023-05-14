@@ -1,3 +1,5 @@
+import Button from "components/common/button/button";
+import InputComponent from "components/common/InputComponent";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import { signInHandler } from "../../firebase/functions/AuthActions";
@@ -26,19 +28,14 @@ const SignIn: React.FC<signInProps> = ({ setActiveView }) => {
   return (
     <div className="w-full">
       <form className="pt-6 pb-8 mb-4">
-        <h1 className="font-bold text-white text-3xl">Hi, Welcome Back!</h1>
+        <h1 className="font-bold text-white text-2xl">Hi, welcome back!</h1>
         <p className="text-sm text-white text-opacity-60	">
-          Best browser productivity dashboard!
+          we are happy to have you back here...
         </p>
         <br />
         <div className="mb-4">
-          <label
-            className="block text-white text-sm font-bold mb-2"
-            htmlFor="Email">
-            Email
-          </label>
-          <input
-            className="bg-gray-800 text-white border-none shadow appearance-none border w-full p-3  mb-3 rounded-lg focus:outline-none focus:shadow-outline"
+          <InputComponent
+            inputType="secondary"
             id="Email"
             type="text"
             onChange={(e: any) => setEmail(e.target.value)}
@@ -46,17 +43,13 @@ const SignIn: React.FC<signInProps> = ({ setActiveView }) => {
           />
         </div>
         <div className="mb-6">
-          <label
-            className="block text-white text-sm font-bold mb-2"
-            htmlFor="password">
-            Password
-          </label>
-          <input
+          <InputComponent
+            inputType="secondary"
             className="text-white border-none shadow appearance-none border w-full p-3 mb-3 rounded-lg focus:outline-none focus:shadow-outline"
             id="password"
             type="password"
             onChange={(e: any) => setPassword(e.target.value)}
-            placeholder="******************"
+            placeholder="Password"
           />
           {/* <div className="flex justify-end">
             <a
@@ -68,12 +61,10 @@ const SignIn: React.FC<signInProps> = ({ setActiveView }) => {
         </div>
         <br />
         <div className="flex flex-col">
-          <button
-            className="bg-indigo hover:bg-metal text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="button"
+          <Button
             onClick={clickHandler}>
             Sign In
-          </button>
+          </Button>
           <p className="text-center text-white text-xs mt-4">
             <div onClick={() => setActiveView("signup")}>
               Not registered yet?{" "}
@@ -83,7 +74,7 @@ const SignIn: React.FC<signInProps> = ({ setActiveView }) => {
         </div>
       </form>
       <p className="text-center text-white text-xs">
-        &copy;2020 Dashlit. All rights reserved.
+        &copy;2023 Dashlit. All rights reserved.
       </p>
     </div>
   );
