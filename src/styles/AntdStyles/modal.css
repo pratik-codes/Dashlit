@@ -1,0 +1,32 @@
+.ant-modal-title {
+  font-weight: bold !important;
+  color: white !important;
+  font-size: 20px !important;
+}
+
+.ant-modal-header {
+  padding: 24px !important;
+  background: black !important;
+  border-bottom: 1px #282828 !important;
+  border-radius: 20px !important;
+}
+
+.ant-modal-content {
+  background: black !important;
+  border-radius: 20px !important;
+  height: 100% !important;
+  overflow-y: scroll !important;
+}
+
+.ant-modal-content::-webkit-scrollbar {
+  display: none;
+}
+
+.ant-modal-body {
+  overflow: scroll !import;
+}
+
+.ant-modal-footer {
+  padding: 16px !important;
+  border-top: none !important;
+}
