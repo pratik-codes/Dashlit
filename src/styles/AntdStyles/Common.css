@@ -1,0 +1,51 @@
+.anticon svg {
+  margin-bottom: 5px;
+}
+
+.ant-message-notice-content {
+  background: black !important;
+  color: white !important;
+  border-radius: 15px;
+  padding: 10px 12px !important;
+}
+
+.ant-popover-message {
+  color: white;
+  border-radius: 18px !important;
+}
+
+.ant-btn {
+  color: white;
+  background: black;
+}
+
+.ant-popover-inner-content {
+  background: black !important;
+  border-radius: 18px !important;
+}
+
+.ant-popover-inner {
+  background: black !important;
+  border-radius: 18px !important;
+}
+
+.ant-popover-arrow {
+  display: none;
+}
+
+.my-checkbox input[type='checkbox']:checked + .ant-checkbox-inner {
+  background-color: black;
+  border-color: black;
+}
+
+.my-checkbox .ant-checkbox-checked .ant-checkbox-inner::after {
+  border-color: white;
+}
+
+.ant-switch {
+  background-color: #282828 !important;
+}
+
+.ant-switch-checked {
+  background-color: #3730a3 !important;
+}

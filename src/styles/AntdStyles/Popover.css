@@ -1,0 +1,8 @@
+.ant-popover-inner {
+  background-color: black;
+  border-radius: 15px !important;
+}
+
+.ant-popover-arrow-content {
+  background-color: black;
+}

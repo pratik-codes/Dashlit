@@ -1,15 +1,17 @@
+![reactjs-vite-tailwindcss-boilerplate](https://user-images.githubusercontent.com/16243531/217138979-b854309c-4742-4275-a705-f9fec5158217.jpg)
+
 # React Tailwindcss Boilerplate build with Vite
 
-This is a [ReactJS](https://reactjs.org) + [Vite](https://vitejs.dev) boilerplate to be used with [Tailwindcss](https://tailwindcss.com).
+This is a boilerplate build with Vite, React 18, TypeScript, Vitest, Testing Library, TailwindCSS 3, Eslint and Prettier.
 
 ## What is inside?
 
 This project uses many tools like:
 
-- [ReactJS](https://reactjs.org)
 - [Vite](https://vitejs.dev)
+- [ReactJS](https://reactjs.org)
 - [TypeScript](https://www.typescriptlang.org)
-- [Jest](https://jestjs.io)
+- [Vitest](https://vitest.dev)
 - [Testing Library](https://testing-library.com)
 - [Tailwindcss](https://tailwindcss.com)
 - [Eslint](https://eslint.org)
@@ -17,42 +19,60 @@ This project uses many tools like:
 
 ## Getting Started
 
-### Installing
+### Install
 
 Create the project.
 
 ```bash
-npx create-next-app -e https://github.com/joaopaulomoraes/reactjs-vite-tailwindcss-boilerplate your-app
+npx degit joaopaulomoraes/reactjs-vite-tailwindcss-boilerplate my-app
 ```
 
 Access the project directory.
 
 ```bash
-cd your-app
+cd my-app
 ```
 
 Install dependencies.
 
 ```bash
-npm install
+pnpm install
 ```
 
-Serve with hot reload at http://localhost:3000.
+Serve with hot reload at <http://localhost:5173>.
 
 ```bash
-npm run dev
+pnpm run dev
+```
+
+### Lint
+
+```bash
+pnpm run lint
+```
+
+### Typecheck
+
+```bash
+pnpm run typecheck
 ```
 
 ### Build
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 ### Test
 
 ```bash
-npm run test
+pnpm run test
+```
+
+View and interact with your tests via UI.
+
+```bash
+pnpm run test:ui
 ```
 
 ## License

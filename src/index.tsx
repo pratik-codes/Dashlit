@@ -1,11 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import 'tailwindcss/tailwind.css'
-import App from './App'
+import React from "react";
+import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-)
+import App from "./App";
+import store from "./redux/Store";
+import * as serviceWorker from "./serviceWorker";
+
+const container = document.getElementById('root');
+const root = createRoot(container!); // createRoot(container!) if you use TypeScript
+
+root.render(
+  <Provider store={store}><App /></Provider>
+);
+
+serviceWorker.unregister();

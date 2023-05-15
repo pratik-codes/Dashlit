@@ -1,0 +1,8 @@
+.ant-upload {
+  width: 100%;
+}
+
+.ant-upload-list-item-info {
+  border-radius: 10px;
+  padding: 5px;
+}

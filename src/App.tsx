@@ -1,28 +1,16 @@
-import React from 'react'
-import Avatar from './components/Avatar'
+import { createRoot } from 'react-dom/client';
 
-function App() {
-  return (
-    <div className="bg-white">
-      <div className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 mx-auto max-w-screen-xl">
-        <div className="text-center">
-          <h2 className="text-base font-semibold tracking-wide text-blue-600 uppercase">
-            Welcome to
-          </h2>
-          <p className="my-3 text-4xl sm:text-5xl lg:text-6xl font-bold sm:tracking-tight text-gray-900">
-            reactjs-vite-tailwindcss-boilerplate
-          </p>
-          <p className="text-xl text-gray-400">Start building for free.</p>
-          <p className="mt-5">
-            <Avatar
-              size="large"
-              src="https://www.gravatar.com/avatar/4405735f6f3129e0286d9d43e7b460d0"
-            />
-          </p>
-        </div>
-      </div>
-    </div>
-  )
-}
+import Auth from "./screens/Auth";
+import Home from "./screens/Home";
 
-export default App
+import "antd/dist/antd.css";
+import "./styles/AntdStyles/Common.css";
+import "./styles/index.css";
+
+const App = () => {
+  const user_uid = localStorage.getItem("user_uid");
+
+  return <div className="App">{user_uid === null ? <Auth /> : <Home />}</div>;
+};
+
+export default App;
