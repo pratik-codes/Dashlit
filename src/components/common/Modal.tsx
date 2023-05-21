@@ -2,7 +2,7 @@ import { Modal } from "antd";
 
 import Svg from "./Svg";
 
-import "../../styles/AntdStyles/modal.css"
+import "../../styles/AntdStyles/modal.css";
 
 type Props = { Children: any; openModal: any; isOpen: any };
 

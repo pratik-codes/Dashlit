@@ -4,5 +4,10 @@
   },
   "files.associations": {
     "*.css": "tailwindcss"
-  }
+  },
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "cSpell.autoFormatConfigFile": false,
+  "editor.formatOnType": false,
+  "html.format.indentInnerHtml": true
 }

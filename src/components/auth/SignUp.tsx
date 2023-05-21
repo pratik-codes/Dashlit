@@ -1,35 +1,37 @@
-import Button from "components/common/button/button";
-import InputComponent from "components/common/InputComponent";
-import PropTypes from "prop-types";
-import React, { useState } from "react";
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+
+import Button from 'components/common/button/button'
+import InputComponent from 'components/common/InputComponent'
 
 import {
   signInHandler,
   signUpHandler
-} from "../../firebase/functions/AuthActions";
-import triggerMessage from "../common/SnackBar";
+} from '../../firebase/functions/AuthActions'
+import triggerMessage from '../common/SnackBar'
+import { googleAuthHandler } from './utils'
 export interface signUpProps {
-  setActiveView: any;
+  setActiveView: any
 }
 
 const SignUp: React.FC<signUpProps> = ({ setActiveView }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [message, setMessage] = useState("");
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [message, setMessage] = useState('')
 
   const clickHandler = async () => {
-    const res = await signUpHandler(email, password, confirmPassword);
+    const res = await signUpHandler(email, password, confirmPassword)
     if (res.success) {
-      triggerMessage("Sign Up Successful", "success");
-      signInHandler(email, password);
+      triggerMessage('Sign Up Successful', 'success')
+      signInHandler(email, password)
       setTimeout(() => {
-        window.location.reload();
-      }, 3000);
+        window.location.reload()
+      }, 2000)
     } else {
-      triggerMessage(res.error, "fail");
+      triggerMessage(res.error, 'fail')
     }
-  };
+  }
 
   return (
     <>
@@ -42,7 +44,7 @@ const SignUp: React.FC<signUpProps> = ({ setActiveView }) => {
           <br />
           <div className="mb-3">
             <InputComponent
-            inputType="secondary"
+              inputType="secondary"
               id="Email"
               type="text"
               onChange={(e: any) => setEmail(e.target.value)}
@@ -51,12 +53,12 @@ const SignUp: React.FC<signUpProps> = ({ setActiveView }) => {
           </div>
           <div className="mb-3">
             <InputComponent
-            inputType="secondary"
+              inputType="secondary"
               id="password"
               onChange={(e: any) => setPassword(e.target.value)}
               type="password"
               placeholder="Password"
-          />
+            />
           </div>
           <div className="mb-3">
             <InputComponent
@@ -64,19 +66,31 @@ const SignUp: React.FC<signUpProps> = ({ setActiveView }) => {
               id="confirmPassword"
               type="password"
               onChange={(e: any) => setConfirmPassword(e.target.value)}
-              placeholder="Password"
+              placeholder="Confirm Password"
             />
           </div>
           <br />
           <div className="flex flex-col">
+            <Button onClick={clickHandler}>Sign Up</Button>
             <Button
-              onClick={clickHandler}
+              onClick={googleAuthHandler}
+              type="secondary"
+              className="my-4"
             >
-              Sign Up
+              <div className="relative flex items-center space-x-4 justify-center">
+                <img
+                  src="https://tailus.io/sources/blocks/social/preview/images/google.svg"
+                  className="absolute left-0 w-5"
+                  alt="google logo"
+                />
+                <span className="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">
+                  Continue with Google
+                </span>
+              </div>
             </Button>
             <p className="text-center text-white text-xs mt-4 flex justify-center">
-              Already have a account?{" "}
-              <div onClick={() => setActiveView("signin")}>
+              Already have a account?{' '}
+              <div onClick={() => setActiveView('signin')}>
                 <a className="text-indigo font-bold ml-2">Sign in</a>
               </div>
             </p>
@@ -88,11 +102,11 @@ const SignUp: React.FC<signUpProps> = ({ setActiveView }) => {
         </form>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default SignUp;
+export default SignUp
 
 SignUp.propTypes = {
   setActiveView: PropTypes.string.isRequired
-};
+}

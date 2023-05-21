@@ -1,11 +1,31 @@
 {
   "manifest_version": 3,
-  "name": "Productivity Dashboard",
+  "name": "Dashlit",
   "author": "Pratik Tiwari",
   "version": "1.0.0",
-  "description": "Productivity Dashboard",
+  "description": "An open source browser productivity extension, makes the browser experience 100x.",
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-  "permissions": ["tabs"]
+  "permissions": [
+    "tabs",
+    "http://localhost/",
+    "http://*/*",
+    "http://*/*",
+    "identity",
+    "indetity.profile",
+    "identity.email",
+    "https://www.googleapis.com/*"
+  ],
+  "oauth2": {
+    "client_id": "172185571230-dsvi02qegh6oqipfkmg2kqc8j629lt4c.apps.googleusercontent.com",
+    "scopes": [
+      "openid",
+      "email",
+      "profile",
+      "https://www.googleapis.com/auth/userinfo.email"
+    ],
+    "redirect_uris": ["https://dashlit.com"]
+  },
+  "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCfHy1M+jghaHyaVAILzx/c/Dy+RXtcaP9/5pC7EY8JlNEI/G4DIIng9IzlrH8UWStpMWMyGUsdyusn2PkYFrqfVzhc2azVF3PX9D0KHG3FLN3mNoz1YTBHvO5QSXJf292qW0tTYuoGqeTfXtF9odLdg20Xd0YrLmtS4TQkpSYGDwIDAQAB"
 }

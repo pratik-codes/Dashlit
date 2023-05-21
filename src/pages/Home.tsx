@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SvgButton from "../components/common/button/SvgButton";
 import Focus from "../components/focus/Focus";
 import LinksDropdown from "../components/links/LinksDropdown";
-import SearchBar from "../components/searchbar/searchbar";
+import SearchBar from "../components/searchbar/Searchbar";
 import SettingsDropdown from "../components/settings/SettingsDropdown";
 import TodoDropdown from "../components/todo/TodoDropdown";
 import { getLiveDetails } from "../firebase/functions/UserDetailsActions";
