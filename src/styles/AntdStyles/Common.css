@@ -49,3 +49,13 @@
 .ant-switch-checked {
   background-color: #3730a3 !important;
 }
+
+.ant-tooltip-inner {
+  background: black !important;
+  border-radius: 15px !important;
+}
+
+.ant-tooltip-arrow {
+  display: none !important;
+  font-wight: bold !important;
+}

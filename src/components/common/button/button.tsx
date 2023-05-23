@@ -1,11 +1,15 @@
-import { Button as AntButton } from "antd";
+import { Button as AntButton } from 'antd'
 
-import "../../../styles/AntdStyles/Button.css"
+import '../../../styles/AntdStyles/Button.css'
 
 const Button = (props: any) => {
-  const { children, type = "primary", size = "large" } = props;
+  const { children, loading, type = 'primary', size = 'large', icon } = props
 
-  return <AntButton type={type} size={size} {...props}>{children}</AntButton>;
-};
+  return (
+    <AntButton loading={loading} type={type} size={size} icon={icon} {...props}>
+      {children}
+    </AntButton>
+  )
+}
 
-export default Button;
+export default Button

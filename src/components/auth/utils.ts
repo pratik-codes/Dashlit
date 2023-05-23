@@ -7,10 +7,10 @@ import { user_setting } from '../../components/data/data';
 import { auth, db } from '../../firebase/firebase-config';
 import { getSingleDocFromCollectionRef } from '../../firebase/functions/GenericFunctions';
 
-const getGoogleAuthCredential = () => {
+export const getGoogleAuthCredential = (scopes: string[] = ['profile', 'email', 'openid']) => {
   return new Promise<ReturnType<typeof GoogleAuthProvider.credential>>((resolve, reject) => {
     if (typeof chrome !== 'undefined' && chrome.identity) {
-      chrome.identity.getAuthToken({ interactive: true }, (token: any) => {
+      chrome.identity.getAuthToken({ interactive: true, scopes: scopes }, (token: any) => {
         if (chrome.runtime.lastError) {
           reject(chrome.runtime.lastError);
         }

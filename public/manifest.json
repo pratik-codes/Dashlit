@@ -9,13 +9,13 @@
   },
   "permissions": [
     "tabs",
-    "http://localhost/",
-    "http://*/*",
-    "http://*/*",
+    "http://localhost/*",
     "identity",
     "indetity.profile",
     "identity.email",
-    "https://www.googleapis.com/*"
+    "https://www.googleapis.com/*",
+    "https://www.googleapis.com/auth/calendar.readonly",
+    "script-src 'self' https://apis.google.com 'unsafe-eval'; object-src 'self'"
   ],
   "oauth2": {
     "client_id": "172185571230-dsvi02qegh6oqipfkmg2kqc8j629lt4c.apps.googleusercontent.com",
@@ -24,8 +24,7 @@
       "email",
       "profile",
       "https://www.googleapis.com/auth/userinfo.email"
-    ],
-    "redirect_uris": ["https://dashlit.com"]
+    ]
   },
   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCfHy1M+jghaHyaVAILzx/c/Dy+RXtcaP9/5pC7EY8JlNEI/G4DIIng9IzlrH8UWStpMWMyGUsdyusn2PkYFrqfVzhc2azVF3PX9D0KHG3FLN3mNoz1YTBHvO5QSXJf292qW0tTYuoGqeTfXtF9odLdg20Xd0YrLmtS4TQkpSYGDwIDAQAB"
 }

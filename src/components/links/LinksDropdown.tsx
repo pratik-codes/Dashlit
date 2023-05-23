@@ -1,46 +1,56 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
+import { animate, stagger } from 'framer-motion'
+import React, { useEffect, useRef, useState } from 'react'
+import { useSelector } from 'react-redux'
 
-import { RootStore } from "../../redux/Store";
+import { RootStore } from '../../redux/Store'
 
-import SvgButton from "../common/button/SvgButton";
-import InputComponent from "../common/InputComponent";
-import Loader from "../common/Loader";
-import Modal from "../common/Modal";
-import AddNewLinkDialog from "./AddNewLinkDialog";
-import LinkComponent from "./LinkComponent";
+import SvgButton from '../common/button/SvgButton'
+import InputComponent from '../common/InputComponent'
+import Loader from '../common/Loader'
+import AddNewLinkDialog from './AddNewLinkDialog'
+import LinkComponent from './LinkComponent'
 
 const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
+  const [isOpen, setIsOpen] = useState(false)
+  const [searchValue, setSearchValue] = useState('')
 
   const LinksDataRedux: any = useSelector(
     (state: RootStore) => state.userLinkData
-  );
+  )
 
-  const inputRef: any = useRef();
+  const inputRef: any = useRef()
 
-  const linksLocalStorageData: any = localStorage.getItem("links");
-  const linksLocalStorage: any = JSON.parse(linksLocalStorageData);
-  const LINKS = linksLocalStorage || LinksDataRedux;
+  const linksLocalStorageData: any = localStorage.getItem('links')
+  const linksLocalStorage: any = JSON.parse(linksLocalStorageData)
+  const LINKS = linksLocalStorage || LinksDataRedux
 
   function closeModal() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
 
   function openModal() {
-    setIsOpen(true);
+    setIsOpen(true)
   }
 
   useEffect(() => {
+    if (openDialog)
+      animate(
+        '.dropdown-menu',
+        { y: 10, fillOpacity: 1 },
+        {
+          delay: stagger(0.1),
+          type: 'spring',
+          damping: 15,
+          stiffness: 500
+        }
+      )
     if (inputRef && openDialog)
       setTimeout(() => inputRef?.current?.focus(), 500)
-  }, [openDialog]);
+  }, [openDialog])
 
   return (
     <div className="inline-block mb-4 relative">
-      <div
-        onClick={() => setOpenDialog(!openDialog)}>
+      <div onClick={() => setOpenDialog(!openDialog)}>
         <SvgButton type="link" position="top-0 left-0" cta="Links" />
       </div>
       {openDialog && (
@@ -53,7 +63,7 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
                   onChange={(e: any) => setSearchValue(e.target.value)}
                   value={searchValue}
                   style={{
-                    minWidth: "92%"
+                    minWidth: '92%'
                   }}
                   type="text"
                   placeholder="Search links"
@@ -62,30 +72,31 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
             </div>
             <div
               style={{
-                minWidth: "24rem",
-                minHeight: "10rem",
-                maxHeight: "65vh",
-                overflowY: "auto",
-                overflowX: "hidden"
+                minWidth: '24rem',
+                minHeight: '10rem',
+                maxHeight: '65vh',
+                overflowY: 'auto',
+                overflowX: 'hidden'
               }}
-              className="no-scrollbar w-full">
+              className="no-scrollbar w-full"
+            >
               {LINKS.data ? (
                 LINKS.data
                   .filter((value: any) => {
-                    if (searchValue === "") {
-                      return value;
+                    if (searchValue === '') {
+                      return value
                     } else if (
                       value.data.linkTitle
                         .toLocaleLowerCase()
                         .includes(searchValue.toLocaleLowerCase())
                     ) {
-                      return value;
+                      return value
                     }
                   })
                   .sort(function (a: any, b: any) {
-                    let textA = a?.data?.linkTitle?.toUpperCase();
-                    let textB = b?.data?.linkTitle?.toUpperCase();
-                    return textA < textB ? -1 : textA > textB ? 1 : 0;
+                    let textA = a?.data?.linkTitle?.toUpperCase()
+                    let textB = b?.data?.linkTitle?.toUpperCase()
+                    return textA < textB ? -1 : textA > textB ? 1 : 0
                   })
                   .map((link: any) => {
                     return (
@@ -97,7 +108,7 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
                           type={link.data.type}
                         />
                       </li>
-                    );
+                    )
                   })
               ) : (
                 <div className="mt-5">
@@ -122,16 +133,15 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
             </div>
           </ul>
           <div
-            style={{
-              width: "96%",
-            }}
             onClick={() => openModal()}
-            className="absolute cursor-pointer flex py-3 px-2 rounded-b-[18px] bg-grey2 hover:bg-grey1">
+            className="absolute w-full cursor-pointer flex py-3 px-2 rounded-b-[18px] bg-grey2 hover:bg-grey1"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 mx-3 my-auto text-white w-5 text-white"
               viewBox="0 0 20 20"
-              fill="currentColor">
+              fill="currentColor"
+            >
               <path
                 fillRule="evenodd"
                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
@@ -139,20 +149,20 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
               />
             </svg>
             <h1 className="font-bold p-1 text-white">
-              {" "}
+              {' '}
               Add a new link or folder
             </h1>
           </div>
         </div>
       )}
       {/* dialog box for adding new link */}
-     <AddNewLinkDialog
+      <AddNewLinkDialog
         isOpen={isOpen}
         openModal={openModal}
         closeModal={closeModal}
       />
     </div>
-  );
-};
+  )
+}
 
-export default LinksDropdown;
+export default LinksDropdown

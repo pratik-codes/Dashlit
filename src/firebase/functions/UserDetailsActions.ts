@@ -1,9 +1,9 @@
-import { collection, doc, getDoc, setDoc } from "firebase/firestore";
+import { collection, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase-config";
-import { getSingleDocFromCollectionRef } from "./GenericFunctions";
+import { getSingleDocFromCollectionRef, replaceOrAddSetting } from "./GenericFunctions";
 
 // global data used in the services
-const userId = localStorage.getItem("user_uid");
+const userId: any = localStorage.getItem("user_uid");
 let liveRef: any;
 if (userId) {
   liveRef = doc(collection(db, "Admin"), "live");
@@ -42,3 +42,32 @@ export const getLiveDetails = () => {
   const data = getSingleDocFromCollectionRef(liveRef);
   return data;
 };
+
+export const markUserAsAuthenticated = async () => {
+  console.log("ran markUserAsAuthenticated")
+  // get reference to user uid doc from user collections
+  const docRef = doc(db, "users", userId);
+  const docSnap = await getDoc(docRef);
+  if (docSnap.exists()) {
+    const settings = docSnap.data()?.settings;
+    const newSettings = replaceOrAddSetting(settings, {
+      type: 'calendar-settings',
+      name: 'Show calendar',
+      description: 'Disable if you dont want to see google calendar on the home screen',
+      isToggled: true,
+      isAuthenticated: true
+    });
+    await updateDoc(docRef, {
+      settings: newSettings
+    })
+    getUserDetailsService();
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000)
+  } else {
+    // doc.data() will be undefined in this case
+    console.log("No such document!");
+  }
+
+
+}
