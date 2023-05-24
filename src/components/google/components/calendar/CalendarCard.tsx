@@ -45,7 +45,9 @@ const CalendarCad = ({ eventData, indexNumber }: any) => {
   return (
     <Tooltip
       title={
-        is5MinsLeft
+        timeLeftInMins < 0
+          ? 'Event is going on...'
+          : is5MinsLeft
           ? '5 mins remaining to the event'
           : is15MinsLeft
           ? '15 mins remaining to the event'
@@ -72,7 +74,7 @@ const CalendarCad = ({ eventData, indexNumber }: any) => {
                     : 'No Title'}
                 </Tooltip>
                 {!sameDate ? (
-                  <div className="text-lg font-medium px-1">
+                  <div className="text-md font-medium px-1">
                     <span className="font-bold">
                       {new Date(eventData.start.dateTime).toLocaleDateString(
                         'en-US',
@@ -82,7 +84,7 @@ const CalendarCad = ({ eventData, indexNumber }: any) => {
                         }
                       )}
                     </span>
-                    <span className="mx-1 font-bold text-lg">-</span>
+                    <span className="mx-1 font-bold">-</span>
                     <span className="font-bold">
                       {new Date(eventData.end.dateTime).toLocaleDateString(
                         'en-US',

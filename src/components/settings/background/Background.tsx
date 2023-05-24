@@ -1,3 +1,4 @@
+import TabsComponent from 'components/common/TabsComponent'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { getAllImages } from '../../../firebase/functions/UploadActions'
@@ -26,48 +27,31 @@ const Background: any = () => {
 
   const dispatch = useDispatch()
 
+  const tabsProps = {
+    tabs: [
+      {
+        id: 'my_pictures',
+        label: 'My pictures'
+      },
+      {
+        id: 'public_pictures',
+        label: 'Public pictures'
+      },
+      {
+        id: 'Favourites',
+        label: 'Favourites'
+      }
+    ],
+    onClick: (id: string) => {
+      setActiveTab(id)
+    }
+  }
+
   return (
     <div className="h-full w-full">
       <div className="div flex justify-between p-2 w-full">
         <div className="border-b border-gray-200 dark:border-gray-700">
-          <ul className="-mb-px flex flex-wrap">
-            <li onClick={() => setActiveTab('my_pictures')} className="mr-2">
-              <button
-                className={`focus:outline-none inline-block py-4 px-4 text-md font-bold text-center text-gray-700 rounded-t-lg border-b-2 border-transparent hover:text-white hover:border-white dark:text-gray-400 transition duration-300 ease-out ${
-                  activeTab === 'my_pictures'
-                    ? 'border-white text-white '
-                    : 'text-purple'
-                }`}
-              >
-                MY PICTURES
-              </button>
-            </li>
-            <li
-              onClick={() => setActiveTab('public_pictures')}
-              className="mr-2"
-            >
-              <button
-                className={`focus:outline-none inline-block py-4 px-4 text-md font-bold text-center text-gray-700 rounded-t-lg border-b-2 border-transparent hover:text-white hover:border-white dark:text-gray-400 transition duration-300 ease-out ${
-                  activeTab === 'public_pictures'
-                    ? 'border-white text-white '
-                    : 'text-purple'
-                }`}
-              >
-                PUBLIC PICTURES
-              </button>
-            </li>
-            <li onClick={() => setActiveTab('Favourites')} className="">
-              <button
-                className={`focus:outline-none inline-block py-4 px-4 text-md font-bold text-center text-gray-700 rounded-t-lg border-b-2 border-transparent hover:text-white hover:border-white dark:text-gray-400 transition duration-300 ease-out ${
-                  activeTab === 'Favourites'
-                    ? 'border-white text-white '
-                    : 'text-purple'
-                }`}
-              >
-                FAVOURITES
-              </button>
-            </li>
-          </ul>
+          <TabsComponent {...tabsProps} />
         </div>
         {activeTab === 'my_pictures' && (
           <Button
