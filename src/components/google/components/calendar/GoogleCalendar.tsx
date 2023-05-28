@@ -1,6 +1,6 @@
 import { Empty } from 'antd'
-import Button from 'components/common/button/button'
 import Svg from 'components/common/Svg'
+import Button from 'components/common/button/button'
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import useMeasure from 'react-use-measure'
@@ -15,7 +15,7 @@ const GoogleCalendar = ({ calendarEvents, showEmails }: any) => {
   return (
     <div
       className={`bg-grey2 rounded-[15px] shadow-xl absolute right-0 top-0 text-white p-2 min-w-[50] m-4 ${
-        showEmails && 'mr-[350px]'
+        showEmails && 'mr-[22rem]'
       }`}
     >
       <motion.div

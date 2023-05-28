@@ -1,5 +1,3 @@
-import { createRoot } from 'react-dom/client';
-
 import Auth from "./pages/Auth";
 import Home from "./pages/Home";
 

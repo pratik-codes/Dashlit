@@ -1,9 +1,8 @@
 import TabsComponent from 'components/common/TabsComponent'
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
 import { getAllImages } from '../../../firebase/functions/UploadActions'
-import Button from '../../common/button/button'
 import Svg from '../../common/Svg'
+import Button from '../../common/button/button'
 import FavouritePictures from './components/FavouritePictures'
 import MyPictures from './components/MyPictures'
 import PublicPictures from './components/PublicPictures'
@@ -12,8 +11,6 @@ import UploadPictureModal from './components/UploadPictureModal'
 const Background: any = () => {
   const [activeTab, setActiveTab] = useState('my_pictures')
   const [isUploadModal, setIsUploadModal] = useState(false)
-  const [publicQuotes, setPublicQuotes] = useState({})
-  const [favQuotes, setFavQuotes] = useState({})
   const [images, setImages] = useState(undefined)
 
   const getImages = async () => {
@@ -24,8 +21,6 @@ const Background: any = () => {
   useEffect(() => {
     getImages()
   }, [])
-
-  const dispatch = useDispatch()
 
   const tabsProps = {
     tabs: [
