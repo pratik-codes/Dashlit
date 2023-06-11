@@ -36,8 +36,8 @@ VITE_FIREBASE_MEASUREMENT_ID = ADD_THE_VALUE_HERE
 
 # Product screenshots
 ![ss1](https://raw.githubusercontent.com/pratik-codes/Dashlit/main/screenshots/ss1.png)
-![ss1](https://raw.githubusercontent.com/pratik-codes/Dashlit/main/screenshots/ss1.png)
-![ss1](https://raw.githubusercontent.com/pratik-codes/Dashlit/main/screenshots/ss1.png)
+![ss1](https://raw.githubusercontent.com/pratik-codes/Dashlit/main/screenshots/ss2.png)
+![ss1](https://raw.githubusercontent.com/pratik-codes/Dashlit/main/screenshots/ss3.png)
 ![ss1](https://raw.githubusercontent.com/pratik-codes/Dashlit/main/screenshots/ss4.png)
 ![ss1](https://raw.githubusercontent.com/pratik-codes/Dashlit/main/screenshots/ss5.png)
 
