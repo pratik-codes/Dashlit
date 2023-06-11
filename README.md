@@ -1,80 +1,44 @@
-![reactjs-vite-tailwindcss-boilerplate](https://user-images.githubusercontent.com/16243531/217138979-b854309c-4742-4275-a705-f9fec5158217.jpg)
+**An Open source productivity extension for you browser. Best way to manage your links, todo, customize you browser home screen, manage your meetings, mails and much more.**
+Built with love by [**Patik**](https://twitter.com/pratikk_tiwari).
 
-# React Tailwindcss Boilerplate build with Vite
+# Techstack
+- React 18
+- Typescript
+- Tailwind css
+- Firebase
+- Vite
+- Redux
+- Antd Components
 
-This is a boilerplate build with Vite, React 18, TypeScript, Vitest, Testing Library, TailwindCSS 3, Eslint and Prettier.
+<br />
 
-## What is inside?
+# Contributions
+1. Clone the repository locally.
+2. As the backend uses firebase you would need to create a firebase project and copy all the creds to the `.env` file in the root of the project.
+The env file will look something like this.
 
-This project uses many tools like:
-
-- [Vite](https://vitejs.dev)
-- [ReactJS](https://reactjs.org)
-- [TypeScript](https://www.typescriptlang.org)
-- [Vitest](https://vitest.dev)
-- [Testing Library](https://testing-library.com)
-- [Tailwindcss](https://tailwindcss.com)
-- [Eslint](https://eslint.org)
-- [Prettier](https://prettier.io)
-
-## Getting Started
-
-### Install
-
-Create the project.
-
-```bash
-npx degit joaopaulomoraes/reactjs-vite-tailwindcss-boilerplate my-app
 ```
-
-Access the project directory.
-
-```bash
-cd my-app
+# firebase keys
+VITE_FIREBASE_API_KEY = ADD_THE_VALUE_HERE
+VITE_FIREBASE_AUTH_DOMAIN = ADD_THE_VALUE_HERE
+VITE_FIREBASE_PROJECT_ID = ADD_THE_VALUE_HERE
+VITE_FIREBASE_STORAGE_BUCKET = ADD_THE_VALUE_HERE
+VITE_FIREBASE_MESSAGING_SENDER_ID = ADD_THE_VALUE_HERE
+VITE_FIREBASE_APP_ID = ADD_THE_VALUE_HERE
+VITE_FIREBASE_MEASUREMENT_ID = ADD_THE_VALUE_HERE
 ```
+3. Once the above steps are done use npm to install dependencies `npm install`
+4. Now run the dev server with `npm run dev`
+5. You are all set.
 
-Install dependencies.
+<br />
 
-```bash
-pnpm install
-```
 
-Serve with hot reload at <http://localhost:5173>.
+# Product screenshots
+![ss1](https://raw.githubusercontent.com/pratik-codes/Dashlit/main/screenshots/ss1.png)
+![ss1](https://raw.githubusercontent.com/pratik-codes/Dashlit/main/screenshots/ss1.png)
+![ss1](https://raw.githubusercontent.com/pratik-codes/Dashlit/main/screenshots/ss1.png)
+![ss1](https://raw.githubusercontent.com/pratik-codes/Dashlit/main/screenshots/ss4.png)
+![ss1](https://raw.githubusercontent.com/pratik-codes/Dashlit/main/screenshots/ss5.png)
 
-```bash
-pnpm run dev
-```
 
-### Lint
-
-```bash
-pnpm run lint
-```
-
-### Typecheck
-
-```bash
-pnpm run typecheck
-```
-
-### Build
-
-```bash
-pnpm run build
-```
-
-### Test
-
-```bash
-pnpm run test
-```
-
-View and interact with your tests via UI.
-
-```bash
-pnpm run test:ui
-```
-
-## License
-
-This project is licensed under the MIT License.
