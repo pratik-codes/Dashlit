@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://pbs.twimg.com/profile_images/1609233823094681601/2fb4bUCN_400x400.jpg" alt="LOGO" style="border-radius: 50%">
+</div>
+
 **An Open source productivity extension for you browser. Best way to manage your links, todo, customize you browser home screen, manage your meetings, mails and much more.**
 Built with love by [**Patik**](https://twitter.com/pratikk_tiwari).
 
