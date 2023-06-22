@@ -14,9 +14,7 @@ const GoogleCalendar = ({ calendarEvents, showEmails }: any) => {
 
   return (
     <div
-      className={`bg-grey2 rounded-[15px] shadow-xl absolute right-0 top-0 text-white p-2 min-w-[50] m-4 ${
-        showEmails && 'mr-[22rem]'
-      }`}
+      className={`bg-grey2 rounded-[15px] shadow-xl h-full text-white p-2 min-w-[50]`}
     >
       <motion.div
         className="overflow-hidden min-w-6/12"

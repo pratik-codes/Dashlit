@@ -16,6 +16,7 @@ const Sidebar: React.FC<Props> = ({ setView, view }) => {
         <CategoryButtons name="Preferences" setView={setView} view={view} />
         <CategoryButtons name="Background" setView={setView} view={view} />
         <CategoryButtons name="Quotes" setView={setView} view={view} />
+        <CategoryButtons name="Keymaps" setView={setView} view={view} />
         <CategoryButtons name="Contact us" setView={setView} view={view} />
       </div>
 

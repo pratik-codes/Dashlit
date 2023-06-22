@@ -7,7 +7,7 @@ import { fetchGoogleData } from './utils'
 
 const Google = ({ settingsData, show }: any) => {
   const [googleCalendarSettings, SetGoogleCalendarSettings] = useState<any>()
-  const [googleData, setGoogleData] = useState<{ events: any; emails: any }>()
+  const [googleData, setGoogleData] = useState<{ events: any; emails: any }>({emails: [], events: []})
 
   const user_settings: any = JSON.parse(
     localStorage.getItem('user-settings') || '{}'
@@ -68,15 +68,15 @@ const Google = ({ settingsData, show }: any) => {
   }
 
   return (
-    <>
-      {show.emails && <Gmail emails={googleData?.emails} />}
-      {show.calendar && (
+    <div className='absolute top-0 right-0 display flex gap-2 m-4'>
+      {show?.calendar && (
         <GoogleCalendar
           calendarEvents={googleData?.events}
-          showEmails={show.emails}
+          showEmails={show?.emails}
         />
       )}
-    </>
+      {show?.emails && <Gmail emails={googleData?.emails} />}
+   </div>
   )
 }
 

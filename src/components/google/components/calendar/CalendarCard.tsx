@@ -13,7 +13,7 @@ const CalendarCad = ({ eventData, indexNumber }: any) => {
     const index = url.indexOf('calendar')
     if (index !== -1) {
       const modifiedURL =
-        url.slice(0, index + 8) + '/u/0/r' + url.slice(index + 8)
+        url?.slice(0, index + 8) + '/u/0/r' + url?.slice(index + 8)
       return modifiedURL
     }
     return url

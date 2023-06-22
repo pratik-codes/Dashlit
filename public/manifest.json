@@ -8,14 +8,11 @@
     "newtab": "index.html"
   },
   "permissions": [
-    "tabs",
     "http://localhost/*",
     "identity",
-    "indetity.profile",
     "identity.email",
     "https://www.googleapis.com/*",
-    "https://www.googleapis.com/auth/calendar.readonly",
-    "script-src 'self' https://apis.google.com 'unsafe-eval'; object-src 'self'"
+    "https://www.googleapis.com/auth/calendar.readonly"
   ],
   "oauth2": {
     "client_id": "172185571230-dsvi02qegh6oqipfkmg2kqc8j629lt4c.apps.googleusercontent.com",

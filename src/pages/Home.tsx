@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
 import Focus from '../components/focus/Focus'
 import Google from '../components/google/Google'
 import LinksDropdown from '../components/links/LinksDropdown'
 import SearchBar from '../components/searchbar/Searchbar'
 import SettingsDropdown from '../components/settings/SettingsDropdown'
 import TodoDropdown from '../components/todo/TodoDropdown'
+
 import { getLiveDetails } from '../firebase/functions/UserDetailsActions'
 import { getUserActiveData } from '../firebase/functions/UsersActiveData'
 import {
@@ -73,15 +75,19 @@ const Home = () => {
     e.preventDefault()
   }
 
+  const handleKeyBindings = (keys: string[], KeyboardEvent: any, callbackFunction: any) => {
+    if(keys.includes(KeyboardEvent.key.toLowerCase()) && (KeyboardEvent.metaKey || KeyboardEvent.ctrlKey || KeyboardEvent.shiftKey) ) {
+      console.log("callback function excuted")
+      callbackFunction();
+    }
+  }
+
   const handleKeypress = (e: any) => {
-    if ((e.key === 'k' || e.key === 'p') && (e.metaKey || e.ctrlKey))
-      onKeyMapClick(e, setOpenSearchBar(true))
-    if (e.key === 'h' && (e.metaKey || e.ctrlKey))
-      onKeyMapClick(e, setOpenDialog(true))
-    if (e.key === 'm' && (e.metaKey || e.ctrlKey))
-      onKeyMapClick(e, setOpenSettings(true))
-    if (e.key === 'j' && (e.metaKey || e.ctrlKey))
-      onKeyMapClick(e, setOpenTasks(true))
+    e.preventDefault()
+    handleKeyBindings(['k', 'p'], e, () => setOpenSearchBar(true))
+    handleKeyBindings(['h'], e, () => setOpenDialog(true))
+    handleKeyBindings(['m'], e, () => setOpenSettings(true))
+    handleKeyBindings(['j'], e, () => setOpenTasks(true))
     if (e.key === 'Escape') {
       setOpenSearchBar(false)
       setOpenDialog(false)
