@@ -1,5 +1,4 @@
 import Button from "components/common/button/button";
-import Svg from "components/common/Svg";
 
 interface Props {
   name: string;
