@@ -75,15 +75,21 @@ const Home = () => {
     e.preventDefault()
   }
 
-  const handleKeyBindings = (keys: string[], KeyboardEvent: any, callbackFunction: any) => {
-    if(keys.includes(KeyboardEvent.key.toLowerCase()) && (KeyboardEvent.metaKey || KeyboardEvent.ctrlKey || KeyboardEvent.shiftKey) ) {
-      console.log("callback function excuted")
-      callbackFunction();
+  const handleKeyBindings = (
+    keys: string[],
+    KeyboardEvent: any,
+    callbackFunction: any
+  ) => {
+    if (
+      keys.includes(KeyboardEvent.key.toLowerCase()) &&
+      (KeyboardEvent.metaKey || KeyboardEvent.ctrlKey || KeyboardEvent.shiftKey)
+    ) {
+      console.log('callback function excuted')
+      callbackFunction()
     }
   }
 
   const handleKeypress = (e: any) => {
-    e.preventDefault()
     handleKeyBindings(['k', 'p'], e, () => setOpenSearchBar(true))
     handleKeyBindings(['h'], e, () => setOpenDialog(true))
     handleKeyBindings(['m'], e, () => setOpenSettings(true))
