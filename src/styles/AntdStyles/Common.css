@@ -1,38 +1,3 @@
-.anticon svg {
-  margin-bottom: 5px;
-}
-
-.ant-message-notice-content {
-  background: black !important;
-  color: white !important;
-  border-radius: 15px;
-  padding: 10px 12px !important;
-}
-
-.ant-popover-message {
-  color: white;
-  border-radius: 18px !important;
-}
-
-.ant-btn {
-  color: white;
-  background: black;
-}
-
-.ant-popover-inner-content {
-  background: black !important;
-  border-radius: 18px !important;
-}
-
-.ant-popover-inner {
-  background: black !important;
-  border-radius: 18px !important;
-}
-
-.ant-popover-arrow {
-  display: none;
-}
-
 .my-checkbox input[type='checkbox']:checked + .ant-checkbox-inner {
   background-color: black;
   border-color: black;
@@ -51,11 +16,17 @@
 }
 
 .ant-tooltip-inner {
+  font-weight: bold !important;
+  border: 3px #2730a3 solid !important;
+  padding: 10px !important;
   background: black !important;
   border-radius: 15px !important;
 }
 
 .ant-tooltip-arrow {
   display: none !important;
-  font-wight: bold !important;
+}
+
+.ant-alert {
+  border-radius: 15px !important;
 }

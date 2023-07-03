@@ -1,4 +1,5 @@
 .ant-btn {
+  color: white !important;
   border: none !important;
   border-radius: 15px !important;
   outline: none !important;
@@ -10,15 +11,10 @@
 }
 
 .ant-btn-primary {
-  background: #4c1d95 !important;
+  background: #3730a3 !important;
 }
-
-.ant-btn-primary:hover {
-  background: #5b21b6 !important;
-}
-
 .ant-btn-secondary:focus {
-  color: #5b21b6 !important;
+  color: #980dff !important;
 }
 
 .ant-btn-secondary {
