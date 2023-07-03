@@ -1,8 +1,36 @@
-.ant-popover-inner {
-  background-color: black;
+.ant-message-notice-content {
+  background-color: black !important;
+  color: white !important;
   border-radius: 15px !important;
+  padding: 10px 12px !important;
 }
 
-.ant-popover-arrow-content {
-  background-color: black;
+.ant-popover-message {
+  color: white;
+  border-radius: 18px !important;
+}
+
+.ant-btn {
+  color: white;
+  background: black;
+}
+
+.ant-popover-inner-content {
+  background: black !important;
+  border-radius: 18px !important;
+}
+
+.ant-popover-inner {
+  background: black !important;
+  border-radius: 18px !important;
+  border: #3730a3 3px solid !important;
+}
+
+.ant-popover-arrow {
+  display: none !important;
+}
+
+.ant-popover-message {
+  color: white !important;
+  border-radius: 18px !important;
 }

@@ -1,11 +1,12 @@
+import Button from 'components/common/button/button'
 import { animate, stagger } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addTodoService } from '../../firebase/functions/TodoActions'
 import { getTodoList } from '../../redux/Actions/User.actions'
 import { RootStore } from '../../redux/Store'
-import SvgButton from '../common/button/SvgButton'
 import Loader from '../common/Loader'
+import SvgButton from '../common/button/SvgButton'
 import TodoComponent from './TodoComponent'
 
 const TodoDropdown = ({
@@ -93,17 +94,18 @@ const TodoDropdown = ({
                       <h1 className="my-auto text-white  text-sm">
                         No Todo found.
                       </h1>
-                      <a
+                      <Button
+                        type="secondary"
                         onClick={() => {
                           setAddTodo(true)
                           setTimeout(() => {
                             inputRef.current.focus()
                           }, 500)
                         }}
-                        className="focus:outline-none font-bold ml-2 p-1 px-2 rounded-full text-sm text-white hover:underline text-white"
+                        className="focus:outline-none font-bold ml-2 p-1 px-2 rounded-full text-sm text-white hover:underline"
                       >
                         Add todo
-                      </a>
+                      </Button>
                     </div>
                   )}
               </div>
@@ -111,7 +113,7 @@ const TodoDropdown = ({
             <div>
               {addTodo && (
                 <input
-                  className="bg-transparent border-none focus:outline-none m-1 p-1 placeholder-grey1 text-white w-full ml-2"
+                  className="bg-transparent border-none focus:outline-none m-1 p-1 text-white w-full ml-2"
                   placeholder="Add todo here..."
                   ref={inputRef}
                   value={addTodoValue}

@@ -8,6 +8,7 @@ import SearchBar from '../components/searchbar/Searchbar'
 import SettingsDropdown from '../components/settings/SettingsDropdown'
 import TodoDropdown from '../components/todo/TodoDropdown'
 
+import SetBodyStyle from 'components/theme/SetBodyStyle'
 import { getLiveDetails } from '../firebase/functions/UserDetailsActions'
 import { getUserActiveData } from '../firebase/functions/UsersActiveData'
 import {
@@ -146,6 +147,15 @@ const Home = () => {
   }, [file_url, author_name, quote])
 
   useEffect(() => {
+    try {
+      const bodyStyle: any = document.body.style
+      const devicePixelRatio = window.devicePixelRatio
+      const zoomPercentage = (1 / devicePixelRatio) * 100
+      if (zoomPercentage === 100) bodyStyle.zoom = '80%'
+    } catch (error) {
+      console.log('error in zooming', error)
+    }
+
     document.addEventListener('keydown', handleKeypress)
 
     return () => {
@@ -155,13 +165,11 @@ const Home = () => {
 
   return (
     <div>
-      <div
-        style={{
-          backgroundImage: `url(${file_url_local_storage || file_url})`,
-          backgroundSize: 'cover'
-        }}
-        className="h-screen w-full"
-      >
+      <SetBodyStyle
+        fileUrlLocalStorage={file_url_local_storage}
+        fileUrl={file_url}
+      />
+      <div className="h-screen w-full">
         {/* div that renders the clock, date and the time */}
         <div className="clockdate-wrapper">
           {getPreferenceValue('clock-settings') === true && (

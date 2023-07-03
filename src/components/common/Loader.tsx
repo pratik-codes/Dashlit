@@ -1,4 +1,3 @@
-import React from "react";
 
 function Loader() {
   return (
@@ -10,7 +9,7 @@ function Loader() {
           cy="25"
           r="20"
           fill="none"
-          strokeWidth="5"></circle>
+          strokeWidth="3"></circle>
       </svg>
     </>
   );
