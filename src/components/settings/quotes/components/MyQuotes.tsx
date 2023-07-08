@@ -1,19 +1,13 @@
-import { type } from "os";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getMyQuotesService } from "../../../../firebase/functions/QuotesActions";
-import { getMyQuotesAction } from "../../../../redux/Actions/Quotes.actions";
-import { getSettingsList } from "../../../../redux/Actions/User.actions";
-import { RootStore } from "../../../../redux/Store";
-import Loader from "../../../common/Loader";
-import QuotesComponents from "./QuotesComponents";
+import React, { useState } from 'react'
+import Loader from '../../../common/Loader'
+import QuotesComponents from './QuotesComponents'
 
 interface Props {
-  MyQuotesRedux: any;
+  MyQuotesRedux: any
 }
 
 const MyQuotes: React.FC<Props> = ({ MyQuotesRedux }) => {
-  const [quotes, setQuotes] = useState([]);
+  const [quotes, setQuotes] = useState([])
 
   return (
     <div className="p-2 m-2 w-full">
@@ -31,7 +25,7 @@ const MyQuotes: React.FC<Props> = ({ MyQuotesRedux }) => {
                   getFavourites={undefined}
                 />
               </div>
-            );
+            )
           })
         ) : (
           <div>
@@ -50,7 +44,7 @@ const MyQuotes: React.FC<Props> = ({ MyQuotesRedux }) => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default MyQuotes;
+export default MyQuotes

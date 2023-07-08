@@ -12,7 +12,7 @@ const MyPictures: React.FC<Props> = ({ data, refreshPictures }) => {
     <div className="w-full">
       <div className="p-2 m-2 w-full">
         <div className="grid grid-cols-3 gap-6 w-full mb-10">
-          {data?.length > 0 ? (
+          {data ? (
             data.map((pic: any) => {
               return (
                 <div key={pic?.id} className="full h-full">

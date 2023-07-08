@@ -12,7 +12,8 @@ export const getMyQuotesAction = () => async (dispatch: Dispatch) => {
       type: USER_MY_QUOTES_REQUEST
     });
     const res = await getMyQuotesService();
-    if (res) {
+    if (res?.data) {
+      localStorage.setItem("my_quotes", JSON.stringify({ data: res.data, loading: false }));
       dispatch({
         type: USER_MY_QUOTES_SUCCESS,
         payload: res.data

@@ -1,28 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { getFavouritePictureService } from "../../../../firebase/functions/UploadActions";
-import Loader from "../../../common/Loader";
-import PictureComponent from "./PictureComponent";
+import React, { useEffect, useState } from 'react'
+import { getFavouritePictureService } from '../../../../firebase/functions/UploadActions'
+import Loader from '../../../common/Loader'
+import PictureComponent from './PictureComponent'
 
 const FavouritePictures: React.FC<any> = () => {
-  const [favouriteImages, setFavouriteImages] = useState<any>(undefined);
+  const [favouriteImages, setFavouriteImages] = useState<any>(undefined)
 
   const getFavouriteImages = async () => {
-    const res: any = await getFavouritePictureService();
-    console.log({ res });
-    setFavouriteImages(res?.data);
-  };
+    const res: any = await getFavouritePictureService()
+    console.log({ res })
+    setFavouriteImages(res?.data)
+  }
 
   useEffect(() => {
-    getFavouriteImages();
-  }, []);
+    getFavouriteImages()
+  }, [])
 
+  const FAV_PICTURES =
+    JSON.parse(localStorage.getItem('fav_pictures') as any) || favouriteImages
+
+  console.log({ FAV_PICTURES })
   return (
     <div>
       <div className="w-full">
         <div className="p-2 m-2 w-full">
           <div className="grid grid-cols-3 gap-6 w-full mb-10">
-            {favouriteImages ? (
-              favouriteImages.map((pic: any) => {
+            {FAV_PICTURES ? (
+              FAV_PICTURES.map((pic: any) => {
                 return (
                   <div key={pic?.id} className="full h-full">
                     <PictureComponent
@@ -32,7 +36,7 @@ const FavouritePictures: React.FC<any> = () => {
                       refreshPictures={getFavouriteImages}
                     />
                   </div>
-                );
+                )
               })
             ) : (
               <div>
@@ -40,7 +44,7 @@ const FavouritePictures: React.FC<any> = () => {
               </div>
             )}
           </div>
-          {favouriteImages && favouriteImages?.length === 0 && (
+          {FAV_PICTURES && FAV_PICTURES?.length === 0 && (
             <div className="">
               <span className="font-bold text-white text-xl">
                 No Favourites found.
@@ -51,7 +55,7 @@ const FavouritePictures: React.FC<any> = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FavouritePictures;
+export default FavouritePictures

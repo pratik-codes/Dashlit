@@ -7,8 +7,8 @@ import {
 } from '../../../../firebase/functions/QuotesActions'
 import { getMyQuotesAction } from '../../../../redux/Actions/Quotes.actions'
 import { RootStore } from '../../../../redux/Store'
-import Button from '../../../common/button/button'
 import Svg from '../../../common/Svg'
+import Button from '../../../common/button/button'
 import AddQuotesModal from './AddQuotesModal'
 import Favourites from './Favourites'
 import MyQuotes from './MyQuotes'
@@ -26,25 +26,30 @@ const QuotesTabs = () => {
 
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch(getMyQuotesAction())
-  }, [])
-
   const getPublicQuotes = async () => {
     const res = await getAllPublicQuotesService()
+    if (!res?.error) localStorage.setItem('public_quotes', JSON.stringify(res))
     setPublicQuotes(res)
   }
 
   const getFavouriteQuotes = async () => {
     const res = await getFavouriteService()
-    console.log(res)
+    if (!res?.error) localStorage.setItem('fav_quotes', JSON.stringify(res))
     setFavQuotes(res)
   }
 
   useEffect(() => {
+    dispatch(getMyQuotesAction())
     getPublicQuotes()
     getFavouriteQuotes()
   }, [])
+
+  const MY_QUOTES =
+    JSON.parse(localStorage.getItem('my_quotes') || '{}') || MyQuotesRedux
+  const PUBLIC_QUOTES =
+    JSON.parse(localStorage.getItem('public_quotes') || '{}') || publicQuotes
+  const FAV_QUOTES =
+    JSON.parse(localStorage.getItem('fav_quotes') || '{}') || favQuotes
 
   const tabsProps = {
     tabs: [
@@ -83,15 +88,13 @@ const QuotesTabs = () => {
         )}
       </div>
       <div className="flex justify-start">
-        {activeTab === 'My quotes' && (
-          <MyQuotes MyQuotesRedux={MyQuotesRedux} />
-        )}
+        {activeTab === 'My quotes' && <MyQuotes MyQuotesRedux={MY_QUOTES} />}
         {activeTab === 'Public quotes' && (
-          <PublicQuotes publicQuotesData={publicQuotes} />
+          <PublicQuotes publicQuotesData={PUBLIC_QUOTES} />
         )}
         {activeTab === 'Favourites' && (
           <Favourites
-            favQuotesData={favQuotes}
+            favQuotesData={FAV_QUOTES}
             getFavQuotes={() => getFavouriteQuotes()}
           />
         )}
