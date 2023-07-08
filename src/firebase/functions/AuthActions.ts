@@ -1,4 +1,3 @@
-import { settings } from "firebase/analytics";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -6,7 +5,7 @@ import {
   signOut
 } from "firebase/auth";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
-import { user_setting } from "../../components/data/data";
+import { user_setting } from "../../utils/data/data";
 import { auth, db } from "../firebase-config";
 
 onAuthStateChanged(auth, currentUser => {

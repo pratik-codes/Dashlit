@@ -1,7 +1,7 @@
 import {
+  USER_TODO_FAIL,
   USER_TODO_REQUEST,
-  USER_TODO_SUCCESS,
-  USER_TODO_FAIL
+  USER_TODO_SUCCESS
 } from "../Constants/Todo.constants";
 
 export type getTodoAction = {
@@ -19,6 +19,7 @@ export const getTodoReducers = (
     case USER_TODO_REQUEST:
       return { loading: true };
     case USER_TODO_SUCCESS:
+      localStorage.setItem("TodoData", JSON.stringify(action.payload));
       return { loading: false, data: action.payload };
     case USER_TODO_FAIL:
       return { loading: false, error: action.payload };

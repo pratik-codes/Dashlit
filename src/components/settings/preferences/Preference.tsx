@@ -1,63 +1,65 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { updateUserDetailsService } from "../../../firebase/functions/UserDetailsActions";
-import { getSettingsList } from "../../../redux/Actions/User.actions";
-import { RootStore } from "../../../redux/Store";
-import Loader from "../../common/Loader";
-import PreferenceToggleContent from "./components/PreferenceToggleContent";
+import { useDispatch, useSelector } from 'react-redux'
+import { updateUserDetailsService } from '../../../firebase/functions/UserDetailsActions'
+import { getSettingsList } from '../../../redux/Actions/User.actions'
+import { RootStore } from '../../../redux/Store'
+import Loader from '../../common/Loader'
+import PreferenceToggleContent from './components/PreferenceToggleContent'
 
 const Preference = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const SettingsDataRedux: any = useSelector(
     (state: RootStore) => state.userSettingsData
-  );
+  )
 
   const settingsLocalStorage = JSON.parse(
-    localStorage.getItem("user-settings") || ""
-  );
+    localStorage.getItem('user-settings') || ''
+  )
 
   let settingsData =
-    SettingsDataRedux.data && JSON.parse(SettingsDataRedux.data.settings);
+    JSON.parse(settingsLocalStorage?.settings) ||
+    (SettingsDataRedux.data && JSON.parse(SettingsDataRedux.data.settings))
+
+  console.log({ settingsData, SettingsDataRedux, settingsLocalStorage })
 
   const changePreference = async (
     preferenceType: string,
     status: boolean,
-    name = "",
-    description = ""
+    name = '',
+    description = ''
   ) => {
-    const obj = settingsData?.find((obj: any) => obj.type === preferenceType);
+    const obj = settingsData?.find((obj: any) => obj.type === preferenceType)
     const objIndex = settingsData?.findIndex(
       (obj: any) => obj.type === preferenceType
-    );
-    const data: any = SettingsDataRedux.data;
+    )
+    const data: any = SettingsDataRedux.data
     if (obj) {
-      settingsData[objIndex].isToggled = status;
-      data.settings = JSON.stringify(settingsData);
-      updateUserDetailsService(data);
+      settingsData[objIndex].isToggled = status
+      data.settings = JSON.stringify(settingsData)
+      updateUserDetailsService(data)
     } else {
       const data = {
         name,
         description,
         type: preferenceType,
         isToggled: true
-      };
-      settingsData.push(data);
+      }
+      settingsData.push(data)
       const newData = {
         ...SettingsDataRedux?.data,
         settings: JSON.stringify(settingsData)
-      };
-      updateUserDetailsService(newData);
+      }
+      updateUserDetailsService(newData)
     }
-    dispatch(getSettingsList());
-  };
+    dispatch(getSettingsList())
+  }
 
   const checkIfPresentInSettings = (key: any) => {
     const data = settingsLocalStorage
       ? JSON.parse(settingsLocalStorage.settings)
-      : SettingsDataRedux?.settings;
-    return data?.find((obj: any) => obj.type === key);
-  };
+      : SettingsDataRedux?.settings
+    return data?.find((obj: any) => obj.type === key)
+  }
 
   return (
     <div className="h-full">
@@ -74,29 +76,29 @@ const Preference = () => {
                   changePreference={changePreference}
                 />
               </div>
-            );
+            )
           })
         ) : (
           <div>
             <Loader />
           </div>
         )}
-        {settingsData && !checkIfPresentInSettings("focus-settings") && (
+        {settingsData && !checkIfPresentInSettings('focus-settings') && (
           <PreferenceToggleContent
             preferenceType="focus-settings"
             isToggled={
-              checkIfPresentInSettings("focus-settings")?.isToggled
+              checkIfPresentInSettings('focus-settings')?.isToggled
                 ? true
                 : false
             }
-            title={"Enable Focus mode"}
-            description={"Disable if you dont want to focus on home."}
+            title={'Enable Focus mode'}
+            description={'Disable if you dont want to focus on home.'}
             changePreference={changePreference}
           />
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Preference;
+export default Preference

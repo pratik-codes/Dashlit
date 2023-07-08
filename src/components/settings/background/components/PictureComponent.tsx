@@ -16,6 +16,7 @@ import { setUserActiveData } from '../../../../firebase/functions/UsersActiveDat
 import { getSettingsList } from '../../../../redux/Actions/User.actions'
 import triggerMessage from '../../../common/SnackBar'
 
+import { mutateDataHandler } from 'utils/demoapp.utils'
 import '../../../../styles/AntdStyles/ImageCard.css'
 
 interface Props {
@@ -75,45 +76,46 @@ const PictureComponent: React.FC<Props> = ({
 
   const ACTION_CLASS =
     'flex justify-center items-center text-white bg-grey2 mx-auto text-lg hover:bg-grey1 rounded-[15px] h-10 w-14 cursor-pointer'
+
   const ActionMap: any = {
     my_pictures: [
       <HeartOutlined
         className={ACTION_CLASS}
-        onClick={favPictureHandler}
+        onClick={() => mutateDataHandler(favPictureHandler)}
         key="Add to favourite"
       />,
       <DesktopOutlined
         className={ACTION_CLASS}
-        onClick={setCurrentPicture}
+        onClick={() => mutateDataHandler(setCurrentPicture)}
         key="Apply as background"
       />,
       <DeleteOutlined
         className={ACTION_CLASS}
-        onClick={deleteMyPicture}
+        onClick={() => mutateDataHandler(deleteMyPicture)}
         key="Delete picture"
       />
     ],
     fav: [
       <DesktopOutlined
         className={ACTION_CLASS}
-        onClick={setCurrentPicture}
+        onClick={() => mutateDataHandler(setCurrentPicture)}
         key="Apply as background"
       />,
       <DeleteOutlined
         className={ACTION_CLASS}
-        onClick={deleteFav}
+        onClick={() => mutateDataHandler(deleteFav)}
         key="Delete picture"
       />
     ],
     public: [
       <HeartOutlined
         className={ACTION_CLASS}
-        onClick={favPictureHandler}
+        onClick={() => mutateDataHandler(favPictureHandler)}
         key="Add to favouritej"
       />,
       <DesktopOutlined
         className={ACTION_CLASS}
-        onClick={setCurrentPicture}
+        onClick={() => mutateDataHandler(setCurrentPicture)}
         key="Apply as background"
       />
     ]

@@ -48,6 +48,7 @@ const SignUp: React.FC<signUpProps> = ({ setActiveView }) => {
               id="Email"
               type="text"
               onChange={(e: any) => setEmail(e.target.value)}
+              enterClickHandler={clickHandler}
               placeholder="Email"
             />
           </div>
@@ -57,6 +58,7 @@ const SignUp: React.FC<signUpProps> = ({ setActiveView }) => {
               id="password"
               onChange={(e: any) => setPassword(e.target.value)}
               type="password"
+              enterClickHandler={clickHandler}
               placeholder="Password"
             />
           </div>
@@ -67,6 +69,7 @@ const SignUp: React.FC<signUpProps> = ({ setActiveView }) => {
               type="password"
               onChange={(e: any) => setConfirmPassword(e.target.value)}
               placeholder="Confirm Password"
+              enterClickHandler={clickHandler}
             />
           </div>
           <br />

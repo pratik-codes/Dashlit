@@ -3,6 +3,7 @@ import ImgCrop from 'antd-img-crop'
 import ModalComponent from 'components/common/Modal'
 import Compressor from 'compressorjs'
 import React, { useState } from 'react'
+import { mutateDataHandler } from 'utils/demoapp.utils'
 import {
   addImageURL,
   uploadBackgroundImage
@@ -69,7 +70,7 @@ const UploadPictureModal: React.FC<Props> = ({
           <Upload
             multiple={false}
             accept=".png,.jpeg,.jpg"
-            customRequest={uploadPictureHandler}
+            customRequest={() => mutateDataHandler(uploadPictureHandler)}
             showUploadList={false}
           >
             <button
@@ -113,7 +114,7 @@ const UploadPictureModal: React.FC<Props> = ({
                 disabled={pictureUrl?.length === 0}
                 kind="elevated"
                 className="focus:outline-none"
-                onClick={pictureLinkAddHandler}
+                onClick={() => mutateDataHandler(pictureLinkAddHandler)}
               >
                 Add
               </Button>

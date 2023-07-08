@@ -1,25 +1,25 @@
-import { Dialog, Transition } from "@headlessui/react";
-import ModalComponent from "components/common/Modal";
-import React, { Fragment, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import ModalComponent from 'components/common/Modal'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { mutateDataHandler } from 'utils/demoapp.utils'
 import {
   addMyQuotesService,
   editFavoriteService,
   updateMyQuotesService
-} from "../../../../firebase/functions/QuotesActions";
-import { getMyQuotesAction } from "../../../../redux/Actions/Quotes.actions";
-import Button from "../../../common/button/button";
-import InputComponent from "../../../common/InputComponent";
+} from '../../../../firebase/functions/QuotesActions'
+import { getMyQuotesAction } from '../../../../redux/Actions/Quotes.actions'
+import InputComponent from '../../../common/InputComponent'
+import Button from '../../../common/button/button'
 
 interface Props {
-  isOpen: boolean;
-  closeModal: any;
-  openModal: any;
-  type: string;
-  id?: string;
-  fav?: any;
-  quote?: string;
-  authorName?: string;
+  isOpen: boolean
+  closeModal: any
+  openModal: any
+  type: string
+  id?: string
+  fav?: any
+  quote?: string
+  authorName?: string
 }
 
 const AddQuotesModal: React.FC<Props> = ({
@@ -32,46 +32,50 @@ const AddQuotesModal: React.FC<Props> = ({
   quote,
   authorName
 }) => {
-  const [quotes, setQuotes] = useState("");
-  const [author, setAuthor] = useState("");
+  const [quotes, setQuotes] = useState('')
+  const [author, setAuthor] = useState('')
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const addQuoteHandler = async () => {
-    if (type === "add") {
-      addMyQuotesService(quotes, author, false);
-      dispatch(getMyQuotesAction());
-      closeHandler();
+    if (type === 'add') {
+      addMyQuotesService(quotes, author, false)
+      dispatch(getMyQuotesAction())
+      closeHandler()
     }
-    if (type === "edit") {
-      console.log("edit", quotes);
+    if (type === 'edit') {
+      console.log('edit', quotes)
       if (id) {
         updateMyQuotesService(id, {
           quote: quotes,
           author: author,
           favourite: fav
-        });
-        dispatch(getMyQuotesAction());
-        editFavoriteService(id, quotes);
-        closeHandler();
+        })
+        dispatch(getMyQuotesAction())
+        editFavoriteService(id, quotes)
+        closeHandler()
       }
     }
-  };
+  }
 
   const closeHandler = () => {
-    closeModal();
-    setAuthor("");
-    setQuotes("");
-  };
+    closeModal()
+    setAuthor('')
+    setQuotes('')
+  }
 
   useEffect(() => {
-    if (quote) setQuotes(quote);
-    if (authorName) setAuthor(authorName);
-  }, []);
+    if (quote) setQuotes(quote)
+    if (authorName) setAuthor(authorName)
+  }, [])
 
   return (
     <div>
-      <ModalComponent isOpen={isOpen} onClose={closeHandler} title={type === "add" ? "Add new quote" : "Edit quote"}>
+      <ModalComponent
+        isOpen={isOpen}
+        onClose={closeHandler}
+        title={type === 'add' ? 'Add new quote' : 'Edit quote'}
+      >
         <InputComponent
           onChange={(e: any) => setQuotes(e.target.value)}
           value={quotes}
@@ -86,22 +90,24 @@ const AddQuotesModal: React.FC<Props> = ({
         />
         <div className="flex mt-8">
           <Button
-            style={{ marginRight: "10px" }}
+            style={{ marginRight: '10px' }}
             kind="elevated"
             className="focus:outline-none"
-            onClick={addQuoteHandler}>
+            onClick={() => mutateDataHandler(addQuoteHandler)}
+          >
             Add
           </Button>
           <Button
             type="secondary"
             className="focus:outline-none"
-            onClick={closeHandler}>
+            onClick={closeHandler}
+          >
             Cancel
           </Button>
         </div>
       </ModalComponent>
     </div>
-  );
-};
+  )
+}
 
-export default AddQuotesModal;
+export default AddQuotesModal

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 
-import Button from 'components/common/button/button'
 import InputComponent from 'components/common/InputComponent'
+import Button from 'components/common/button/button'
 import triggerMessage from '../common/SnackBar'
 
 import { signInHandler } from '../../firebase/functions/AuthActions'
@@ -38,6 +38,7 @@ const SignIn: React.FC<signInProps> = ({ setActiveView }) => {
         <br />
         <div className="mb-4">
           <InputComponent
+            enterClickHandler={() => clickHandler()}
             inputType="secondary"
             id="Email"
             type="text"
@@ -47,6 +48,7 @@ const SignIn: React.FC<signInProps> = ({ setActiveView }) => {
         </div>
         <div className="mb-6">
           <InputComponent
+            enterClickHandler={() => clickHandler()}
             inputType="secondary"
             className="text-white border-none shadow appearance-none border w-full p-3 mb-3 rounded-lg focus:outline-none focus:shadow-outline"
             id="password"
