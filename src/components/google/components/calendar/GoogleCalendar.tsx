@@ -2,7 +2,7 @@ import { Empty } from 'antd'
 import Svg from 'components/common/Svg'
 import Button from 'components/common/button/button'
 import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import useMeasure from 'react-use-measure'
 import CalendarCad from './CalendarCard'
 
@@ -10,7 +10,7 @@ const GoogleCalendar = ({ calendarEvents, showEmails }: any) => {
   const [showMore, setShowMore] = useState(false)
   const [ref, bounds] = useMeasure()
 
-  useEffect(() => console.log('rendered', calendarEvents), [calendarEvents])
+  // useEffect(() => console.log('rendered', calendarEvents), [calendarEvents])
 
   return (
     <div

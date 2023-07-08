@@ -2,6 +2,7 @@ import Button from 'components/common/button/button'
 import { animate, stagger } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { mutateDataHandler } from 'utils/demoapp.utils'
 import { addTodoService } from '../../firebase/functions/TodoActions'
 import { getTodoList } from '../../redux/Actions/User.actions'
 import { RootStore } from '../../redux/Store'
@@ -19,9 +20,15 @@ const TodoDropdown = ({
   const [addTodoValue, setAddTodoValue] = useState('')
   const [addTodo, setAddTodo] = useState(false)
 
+  const TodoDataLocalStorage = localStorage.getItem('TodoData')
   const TodoDataRedux: any = useSelector(
     (state: RootStore) => state.userTodoData
   )
+
+  const TODO_DATA =
+    { loading: false, data: JSON.parse(TodoDataLocalStorage || '{}') } ||
+    TodoDataRedux
+  console.log({ TODO_DATA })
 
   const dispatch = useDispatch()
 
@@ -32,7 +39,6 @@ const TodoDropdown = ({
   }
 
   const inputRef: any = useRef()
-
   useEffect(() => {
     if (openTasks) {
       animate(
@@ -72,8 +78,8 @@ const TodoDropdown = ({
               </div>
               <div className="h-full w-full">
                 <div>
-                  {TodoDataRedux.data ? (
-                    TodoDataRedux.data.map((link: any) => {
+                  {TODO_DATA.data ? (
+                    TODO_DATA.data.map((link: any) => {
                       return (
                         <li className="w-full" key={link.id}>
                           <TodoComponent
@@ -88,37 +94,39 @@ const TodoDropdown = ({
                     <Loader />
                   )}
                 </div>
-                {TodoDataRedux.loading === false &&
-                  TodoDataRedux.data.length === 0 && (
-                    <div className="absolute flex h-full inset-0 items-center justify-center w-full">
-                      <h1 className="my-auto text-white  text-sm">
-                        No Todo found.
-                      </h1>
-                      <Button
-                        type="secondary"
-                        onClick={() => {
-                          setAddTodo(true)
-                          setTimeout(() => {
-                            inputRef.current.focus()
-                          }, 500)
-                        }}
-                        className="focus:outline-none font-bold ml-2 p-1 px-2 rounded-full text-sm text-white hover:underline"
-                      >
-                        Add todo
-                      </Button>
-                    </div>
-                  )}
+                {TODO_DATA.loading === false && TODO_DATA.data.length === 0 && (
+                  <div className="absolute flex h-full inset-0 items-center justify-center w-full">
+                    <h1 className="my-auto text-white  text-sm">
+                      No Todo found.
+                    </h1>
+                    <Button
+                      type="secondary"
+                      onClick={() => {
+                        setAddTodo(true)
+                        setTimeout(() => {
+                          inputRef.current.focus()
+                        }, 500)
+                      }}
+                      className="focus:outline-none font-bold ml-2 p-1 px-2 rounded-full text-sm text-white hover:underline"
+                    >
+                      Add todo
+                    </Button>
+                  </div>
+                )}
               </div>
             </div>
             <div>
-              {addTodo && (
+              {(addTodo || TODO_DATA?.data?.length > 0) && (
                 <input
                   className="bg-transparent border-none focus:outline-none m-1 p-1 text-white w-full ml-2"
                   placeholder="Add todo here..."
                   ref={inputRef}
                   value={addTodoValue}
                   onChange={(e) => setAddTodoValue(e.target.value)}
-                  onKeyPress={(e) => e.key === 'Enter' && addTodoHandler()}
+                  onKeyPress={(e) =>
+                    e.key === 'Enter' &&
+                    mutateDataHandler(() => addTodoHandler())
+                  }
                 />
               )}
             </div>
