@@ -63,6 +63,7 @@ export const addImageURL = async (file_url: string, file_name: string) => {
 
 export const getAllImages = async () => {
   const imagesData = await getDataFromCollectionRef(BackgroundColRef);
+  localStorage.setItem("background_images", JSON.stringify(imagesData?.data));
   return imagesData?.data;
 };
 

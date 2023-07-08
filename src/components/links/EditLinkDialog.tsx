@@ -186,8 +186,9 @@ const EditLinkDialog: React.FC<Props> = ({
                 editHandler()
                 closeModal()
               }}
+              checkForDemoApp={true}
             >
-              Add
+              Edit
             </Button>
           </div>
           <div>

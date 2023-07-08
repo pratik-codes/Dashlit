@@ -4,6 +4,7 @@ import CategoryButtons from './components/CategoryButtons'
 
 import Svg from 'components/common/Svg'
 import { logoutHandler } from 'firebase/functions/AuthActions'
+import { mutateDataHandler } from 'utils/demoapp.utils'
 interface Props {
   setView: any
   view: string
@@ -24,10 +25,12 @@ const Sidebar: React.FC<Props> = ({ setView, view }) => {
         <Button
           type="text"
           className="focus:outline-none flex space-x-1 w-26 m-6 align-center items-center"
-          onClick={() => {
-            logoutHandler()
-            window.location.reload()
-          }}
+          onClick={() =>
+            mutateDataHandler(() => {
+              logoutHandler()
+              window.location.reload()
+            })
+          }
         >
           <Svg type="logout" /> <span>Logout</span>
         </Button>

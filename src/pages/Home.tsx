@@ -26,8 +26,6 @@ const Home = () => {
 
   const [clockTimer, setClockTimer] = useState('')
   const [date, setDate] = useState('')
-  const [searchValue, setSearchValue] = useState('')
-  const [preference, setPreference] = useState([])
   const [liveData, setLiveData] = useState<any>([])
   const [activeUserData, setActiveUserData] = useState<any>([])
   const [openDialog, setOpenDialog] = useState(false)
@@ -38,16 +36,16 @@ const Home = () => {
 
   const dispatch = useDispatch()
 
-  const userData = async () => {
-    const res: any = dispatch(getSettingsList())
+  const userData = () => {
+    dispatch(getSettingsList())
   }
 
-  const getUserLinks = async () => {
-    const res: any = dispatch(getLinksList())
+  const getUserLinks = () => {
+    dispatch(getLinksList())
   }
 
-  const getUserTodo = async () => {
-    const res: any = dispatch(getTodoList())
+  const getUserTodo = () => {
+    dispatch(getTodoList())
   }
 
   const getLiveData = async () => {
@@ -70,10 +68,6 @@ const Home = () => {
       )?.isToggled
       return truth
     } else return true
-  }
-
-  const onKeyMapClick = (e: any, callback: any) => {
-    e.preventDefault()
   }
 
   const handleKeyBindings = (

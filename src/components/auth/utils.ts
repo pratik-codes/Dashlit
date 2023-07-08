@@ -3,9 +3,9 @@ import { doc, setDoc } from 'firebase/firestore';
 
 import triggerMessage from '../../components/common/SnackBar';
 
-import { user_setting } from '../../components/data/data';
 import { auth, db } from '../../firebase/firebase-config';
 import { getSingleDocFromCollectionRef } from '../../firebase/functions/GenericFunctions';
+import { user_setting } from '../../utils/data/data';
 
 export const getGoogleAuthCredential = (scopes: string[] = ['profile', 'email', 'openid']) => {
   return new Promise<ReturnType<typeof GoogleAuthProvider.credential>>((resolve, reject) => {
@@ -38,6 +38,7 @@ const addSettingsForNewGoogleUser: any = async (user: User) => {
 }
 
 export const googleAuthHandler = async () => {
+  triggerMessage("Signing in with Google...", "info")
   try {
     let credential;
     // Check if running in Chrome extension environment

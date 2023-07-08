@@ -1,5 +1,6 @@
 import TabsComponent from 'components/common/TabsComponent'
 import { useEffect, useState } from 'react'
+
 import { getAllImages } from '../../../firebase/functions/UploadActions'
 import Svg from '../../common/Svg'
 import Button from '../../common/button/button'
@@ -21,6 +22,8 @@ const Background: any = () => {
   useEffect(() => {
     getImages()
   }, [])
+
+  // JSON.stringify(localStorage.getItem('background_images') || images
 
   const tabsProps = {
     tabs: [

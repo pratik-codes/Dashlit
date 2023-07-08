@@ -7,7 +7,10 @@ import { fetchGoogleData } from './utils'
 
 const Google = ({ settingsData, show }: any) => {
   const [googleCalendarSettings, SetGoogleCalendarSettings] = useState<any>()
-  const [googleData, setGoogleData] = useState<{ events: any; emails: any }>({emails: [], events: []})
+  const [googleData, setGoogleData] = useState<{ events: any; emails: any }>({
+    emails: [],
+    events: []
+  })
 
   const user_settings: any = JSON.parse(
     localStorage.getItem('user-settings') || '{}'
@@ -21,7 +24,7 @@ const Google = ({ settingsData, show }: any) => {
 
   useEffect(() => {
     getData()
-    console.log({ googleCalendarSettings, user_settings })
+    // console.log({ googleCalendarSettings, user_settings })
   }, [googleCalendarSettings])
 
   useEffect(() => {
@@ -46,7 +49,7 @@ const Google = ({ settingsData, show }: any) => {
     )
   }, [])
 
-  useEffect(() => console.log(googleData), [googleData])
+  // useEffect(() => console.log(googleData), [googleData])
 
   if (!googleCalendarSettings?.isAuthenticated) {
     return (
@@ -68,7 +71,7 @@ const Google = ({ settingsData, show }: any) => {
   }
 
   return (
-    <div className='absolute top-0 right-0 display flex gap-2 m-4'>
+    <div className="absolute top-0 right-0 display flex gap-2 m-4">
       {show?.calendar && (
         <GoogleCalendar
           calendarEvents={googleData?.events}
@@ -76,7 +79,7 @@ const Google = ({ settingsData, show }: any) => {
         />
       )}
       {show?.emails && <Gmail emails={googleData?.emails} />}
-   </div>
+    </div>
   )
 }
 

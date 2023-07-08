@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
-import Svg from "../../../common/Svg";
-import SwitchComponent from "./SwitchComponent";
+import React, { useEffect, useState } from 'react'
+import { mutateDataHandler } from 'utils/demoapp.utils'
+import Svg from '../../../common/Svg'
+import SwitchComponent from './SwitchComponent'
 
 interface Props {
-  preferenceType: string;
-  title: string;
-  description: string;
-  isToggled: boolean;
-  changePreference: any;
+  preferenceType: string
+  title: string
+  description: string
+  isToggled: boolean
+  changePreference: any
 }
 
 const PreferenceToggleContent: React.FC<Props> = ({
@@ -17,18 +18,18 @@ const PreferenceToggleContent: React.FC<Props> = ({
   isToggled,
   changePreference
 }) => {
-  const [isToggle, setIsToggle] = useState(false);
+  const [isToggle, setIsToggle] = useState(false)
 
   const changeToggle = (status: boolean) => {
-    setIsToggle(status);
-    changePreference(preferenceType, status, title, description);
-  };
+    setIsToggle(status)
+    changePreference(preferenceType, status, title, description)
+  }
 
   useEffect(() => {
     if (isToggled) {
-      setIsToggle(isToggled);
+      setIsToggle(isToggled)
     }
-  }, []);
+  }, [])
 
   return (
     <div className="bg-grey2 rounded-[16px] h-full p-4 border-2 hover:border-purple">
@@ -40,11 +41,14 @@ const PreferenceToggleContent: React.FC<Props> = ({
           <p className="font-medium text-white text-sm">{description}</p>
         </div>
         <div>
-          <SwitchComponent enabled={isToggle} setEnabled={changeToggle} />
+          <SwitchComponent
+            enabled={isToggle}
+            setEnabled={() => mutateDataHandler(changeToggle)}
+          />
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PreferenceToggleContent;
+export default PreferenceToggleContent

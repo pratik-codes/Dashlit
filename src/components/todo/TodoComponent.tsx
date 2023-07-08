@@ -2,6 +2,7 @@ import { Checkbox, Popconfirm, Popover, Tooltip } from 'antd'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
 import { useDispatch } from 'react-redux'
+import { mutateDataHandler } from 'utils/demoapp.utils'
 import {
   deleteUserTodoService,
   updateUserTodoService
@@ -98,7 +99,7 @@ const TodoComponent: React.FC<todo> = ({ todoId, todoName, checked }) => {
               </h6>
               <Popconfirm
                 title="Are you sure to delete this todo?"
-                onConfirm={deleteHandler}
+                onConfirm={() => mutateDataHandler(deleteHandler)}
                 okText="Yes"
                 cancelText="No"
               >
