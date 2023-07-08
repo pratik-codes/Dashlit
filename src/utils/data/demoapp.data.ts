@@ -47,5 +47,29 @@ export const demoAppData = [
   {
     key: "TodoData",
     value: JSON.stringify([{ "id": "Zc3O7YHSqN4tSmbmLuP4", "data": { "checked": false, "todoName": "Demo todo 1" } }, { "id": "iSdtSYY5Pf2pSDfPPhke", "data": { "checked": false, "todoName": "Demo todo 2 " } }])
+  },
+  {
+    key: "background_images",
+    value: JSON.stringify([{ "id": "C7ZQ5WPrFNByvOmCjOJV", "data": { "url": "https://images.unsplash.com/photo-1687817861464-8e25a829b3c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", "name": "", "created_at": 1688801965189 } }, { "id": "z3SgdoG6oi1XNUEZkKCi", "data": { "created_at": 1688822307317, "url": "https://images.unsplash.com/photo-1682687981974-c5ef2111640c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80", "name": "" } }])
+  },
+  {
+    key: "fav_pictures",
+    value: JSON.stringify([{ "id": "z3SgdoG6oi1XNUEZkKCi", "data": { "id": "z3SgdoG6oi1XNUEZkKCi", "url": "https://images.unsplash.com/photo-1682687981974-c5ef2111640c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80", "name": "", "created_at": 1688822307317, "type": "picture" } }])
+  },
+  {
+    key: "public_pictures",
+    value: JSON.stringify([{ "id": "Onb0GWkrhk2m6mfm8Lz3", "data": { "url": "https://images.unsplash.com/photo-1542708993627-b6e5bbae43c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80", "created_at": "176253172653", "name": "Fri 15 Sep" } }, { "id": "YyRGvwCrvR9EkYYMn1Jv", "data": { "url": "https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1575&q=80", "name": "5 oct", "create_at": { "seconds": 1664908200, "nanoseconds": 996000000 } } }, { "id": "cDchJuqiGT2mzSrE0lNu", "data": { "created_at": { "seconds": 1654216200, "nanoseconds": 0 }, "name": "Image by: Aiva Apsite", "url": "https://images.unsplash.com/photo-1655669357124-394d107b3aaf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80" } }, { "id": "kZkX1eDFwzdR5jdy8HeA", "data": { "name": "Image by: Elia Pellegrini", "created_at": { "seconds": 1654305240, "nanoseconds": 0 }, "url": "https://images.unsplash.com/photo-1655463223445-7c7cc696fdf8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" } }])
+  },
+  {
+    key: "public_quotes",
+    value: JSON.stringify({ "success": true, "data": [{ "id": "QJ0iI8ybR9rtgWVP4vKN", "data": { "author": "Tyga", "created_at": { "seconds": 1643308200, "nanoseconds": 0 }, "quote": "Hate comes from intimidation, love comes from appreciation." } }, { "id": "quYJIZLvdCW7JW18C5tX", "data": { "quote": "Starting and growing a business is as much about the innovation, drive, and determination of the people behind it as the product they sell.", "author": "Elon Musk", "created_at": { "seconds": 1643221800, "nanoseconds": 0 } } }] })
+  },
+  {
+    key: "my_quotes",
+    value: JSON.stringify({ "data": [{ "id": "sHlf0rNeJ94Gjle1HxVt", "data": { "author": "Naval", "updated_at": { "seconds": 1688844607, "nanoseconds": 337000000 }, "quote": "Wealth buys freedom", "favourite": false } }], "loading": false })
+  },
+  {
+    key: "fav_quotes",
+    value: JSON.stringify({ "success": true, "data": [{ "id": "JMpDnmCXSFaiwCd7KD2q", "data": { "quote": "test", "created_at": { "seconds": 1688816195, "nanoseconds": 832000000 }, "author": "test", "id": "JMpDnmCXSFaiwCd7KD2q", "type": "quote" } }, { "id": "QJ0iI8ybR9rtgWVP4vKN", "data": { "author": "Tyga", "created_at": { "seconds": 1688804652, "nanoseconds": 976000000 }, "id": "QJ0iI8ybR9rtgWVP4vKN", "type": "quote", "quote": "Hate comes from intimidation, love comes from appreciation." } }] })
   }
 ]

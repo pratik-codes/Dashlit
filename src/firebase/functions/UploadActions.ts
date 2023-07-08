@@ -63,7 +63,8 @@ export const addImageURL = async (file_url: string, file_name: string) => {
 
 export const getAllImages = async () => {
   const imagesData = await getDataFromCollectionRef(BackgroundColRef);
-  localStorage.setItem("background_images", JSON.stringify(imagesData?.data));
+  console.log({ imagesData })
+  if (imagesData?.data.length > 0) localStorage.setItem("background_images", JSON.stringify(imagesData?.data));
   return imagesData?.data;
 };
 
@@ -125,6 +126,7 @@ export const getFavouritePictureService = async (): Promise<any> => {
       resData.push(data);
     });
 
+    if (resData) localStorage.setItem("fav_pictures", JSON.stringify(resData));
     return { success: true, data: resData };
   } catch (error: any) {
     return { error: error.message };
@@ -154,7 +156,7 @@ export const getAllPublicPicturesService = async (): Promise<any> => {
       };
       resData.push(data);
     });
-
+    if (resData) localStorage.setItem("public_pictures", JSON.stringify(resData));
     return { success: true, data: resData };
   } catch (error: any) {
     return { error: error.message };

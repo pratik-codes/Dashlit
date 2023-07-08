@@ -12,7 +12,7 @@ import UploadPictureModal from './components/UploadPictureModal'
 const Background: any = () => {
   const [activeTab, setActiveTab] = useState('my_pictures')
   const [isUploadModal, setIsUploadModal] = useState(false)
-  const [images, setImages] = useState(undefined)
+  const [images, setImages] = useState()
 
   const getImages = async () => {
     const res: any = await getAllImages()
@@ -23,6 +23,10 @@ const Background: any = () => {
     getImages()
   }, [])
 
+  const storedImages = localStorage.getItem('background_images')
+  const parsedImages = storedImages ? JSON.parse(storedImages) : []
+
+  const IMAGES = images || parsedImages
   // JSON.stringify(localStorage.getItem('background_images') || images
 
   const tabsProps = {
@@ -70,7 +74,7 @@ const Background: any = () => {
       />
       <div className="flex justify-start">
         {activeTab === 'my_pictures' && (
-          <MyPictures data={images} refreshPictures={getImages} />
+          <MyPictures data={IMAGES} refreshPictures={getImages} />
         )}
         {activeTab === 'Favourites' && <FavouritePictures />}
         {activeTab === 'public_pictures' && <PublicPictures />}
