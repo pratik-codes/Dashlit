@@ -44,7 +44,6 @@ const AddQuotesModal: React.FC<Props> = ({
       closeHandler()
     }
     if (type === 'edit') {
-      console.log('edit', quotes)
       if (id) {
         updateMyQuotesService(id, {
           quote: quotes,

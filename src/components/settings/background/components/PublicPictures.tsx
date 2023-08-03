@@ -8,7 +8,6 @@ const PublicPictures = () => {
 
   const getPublicPictures = async () => {
     const res = await getAllPublicPicturesService()
-    console.log(res)
     setPublicPictures(res?.data)
   }
 

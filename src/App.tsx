@@ -12,7 +12,6 @@ const App = () => {
   const isDemoApp = import.meta.env.VITE_DEMO_APP === 'true'
 
   useEffect(() => {
-    console.log('isDemoApp', isDemoApp)
     if (isDemoApp) loginDemoUser()
   }, [])
 

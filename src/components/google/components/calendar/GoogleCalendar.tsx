@@ -10,8 +10,6 @@ const GoogleCalendar = ({ calendarEvents, showEmails }: any) => {
   const [showMore, setShowMore] = useState(false)
   const [ref, bounds] = useMeasure()
 
-  // useEffect(() => console.log('rendered', calendarEvents), [calendarEvents])
-
   return (
     <div
       className={`bg-grey2 rounded-[15px] shadow-xl h-full text-white p-2 min-w-[50]`}

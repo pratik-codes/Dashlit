@@ -8,7 +8,6 @@ const FavouritePictures: React.FC<any> = () => {
 
   const getFavouriteImages = async () => {
     const res: any = await getFavouritePictureService()
-    console.log({ res })
     setFavouriteImages(res?.data)
   }
 
@@ -19,7 +18,6 @@ const FavouritePictures: React.FC<any> = () => {
   const FAV_PICTURES =
     JSON.parse(localStorage.getItem('fav_pictures') as any) || favouriteImages
 
-  console.log({ FAV_PICTURES })
   return (
     <div>
       <div className="w-full">

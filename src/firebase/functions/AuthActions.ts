@@ -42,7 +42,6 @@ export const signUpHandler = async (
     );
     return { success: true };
   } catch (error: any) {
-    console.log({ error });
     return { error: error.message.split("Firebase:")[1] };
   }
 };

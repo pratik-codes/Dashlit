@@ -36,19 +36,23 @@
 
 .ant-select-show-search.ant-select:not(.ant-select-customize-input)
   .ant-select-selector {
-  border-radius: 5px;
+  border-radius: 14px;
+}
+
+.ant-select-selector {
+  border-radius: 14px !important;
 }
 
 .ant-select-dropdown {
-  border-radius: 5px !important;
+  border-radius: 14px !important;
   background-color: black !important;
   color: white;
+  margin: 5px;
 }
 
 .ant-select-item-option-active {
-  background: #282828 !important;
-  border-radius: 10px;
-  margin: 5px;
+  background: #3b21b6 !important;
+  border-radius: 14px;
 }
 
 .ant-select:not(.ant-select-customize-input) .ant-select-selector {
@@ -67,10 +71,14 @@
   font-size: 20px;
   margin-left: -15px;
   margin-top: 2px;
-  font-weight: bold;
+  font-weight: medium;
   margin: 5px;
 }
 
 .ant-empty-description {
   color: white;
+}
+
+.rc-virtual-list-holder-inner {
+  padding: 5px !important;
 }

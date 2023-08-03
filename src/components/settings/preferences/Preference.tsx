@@ -20,8 +20,6 @@ const Preference = () => {
     JSON.parse(settingsLocalStorage?.settings) ||
     (SettingsDataRedux.data && JSON.parse(SettingsDataRedux.data.settings))
 
-  console.log({ settingsData, SettingsDataRedux, settingsLocalStorage })
-
   const changePreference = async (
     preferenceType: string,
     status: boolean,
