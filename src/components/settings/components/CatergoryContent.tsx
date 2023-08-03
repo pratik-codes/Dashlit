@@ -11,7 +11,6 @@ interface Props {
 }
 
 const CatergoryContent: React.FC<Props> = ({ type }) => {
-  console.log({ type })
   return (
     <div style={{ marginBottom: '12rem' }} className="flex p-4 text-gray-900 ">
       {type === 'Preferences' && <Preference />}

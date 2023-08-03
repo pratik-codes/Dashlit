@@ -24,9 +24,7 @@ export const getSingleDocFromCollectionRef = async (ColRef: any) => {
     if (querySnapshot.exists()) {
       return { success: true, data: querySnapshot.data() };
     } else {
-      console.log("No such document!");
     }
-    console.log({ querySnapshot });
   } catch (error: any) {
     return { error: error.message };
   }
@@ -37,7 +35,6 @@ export const getSingleDocFromCollectionRef = async (ColRef: any) => {
 // function to add or replace setting
 export function replaceOrAddSetting(settingsArray: any, newSetting: any) {
   const oldSettings = JSON.parse(settingsArray);
-  console.log({ oldSettings })
   const existingIndex = oldSettings.findIndex(
     (setting: any) => setting.name === newSetting.name
   );
@@ -47,7 +44,6 @@ export function replaceOrAddSetting(settingsArray: any, newSetting: any) {
   } else {
     oldSettings.push(newSetting);
   }
-  console.log("newSettings", oldSettings)
 
 
   return JSON.stringify(oldSettings);

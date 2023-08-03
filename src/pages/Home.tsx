@@ -60,7 +60,6 @@ const Home = () => {
 
   const getPreferenceValue = (preferenceType: string) => {
     let truth
-
     if (userSettings?.settings) {
       const settingsData = JSON.parse(userSettings?.settings)
       truth = settingsData?.find(
@@ -145,7 +144,10 @@ const Home = () => {
       const bodyStyle: any = document.body.style
       const devicePixelRatio = window.devicePixelRatio
       const zoomPercentage = (1 / devicePixelRatio) * 100
-      if (zoomPercentage === 100) bodyStyle.zoom = '80%'
+      if (zoomPercentage !== 80 && !localStorage.getItem('ZoomLevelChanged')) {
+        localStorage.setItem('ZoomLevelChanged', 'true')
+        bodyStyle.zoom = '80%'
+      }
     } catch (error) {
       console.log('error in zooming', error)
     }

@@ -28,7 +28,6 @@ const TodoDropdown = ({
   const TODO_DATA =
     { loading: false, data: JSON.parse(TodoDataLocalStorage || '{}') } ||
     TodoDataRedux
-  console.log({ TODO_DATA })
 
   const dispatch = useDispatch()
 
