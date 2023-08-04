@@ -142,9 +142,15 @@ const Home = () => {
   useEffect(() => {
     try {
       const bodyStyle: any = document.body.style
-      bodyStyle.zoom = '80%'
+      bodyStyle.zoom = ''
     } catch (error) {
       console.log('error in zooming', error)
+    }
+
+    document.addEventListener('keydown', handleKeypress)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeypress)
     }
   }, [])
 

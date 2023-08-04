@@ -34,3 +34,14 @@
   color: white !important;
   border-radius: 18px !important;
 }
+
+/* add margin top -6px to svg inside anticon */
+.anticon-check-circle svg {
+  margin-top: -6px;
+}
+.anticon-close-circle svg {
+  margin-top: -6px;
+}
+.anticon-info-circle svg {
+  margin-top: -6px;
+}
