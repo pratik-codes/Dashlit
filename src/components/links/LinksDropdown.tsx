@@ -4,12 +4,12 @@ import { useSelector } from 'react-redux'
 
 import { RootStore } from '../../redux/Store'
 
-import SvgButton from '../common/button/SvgButton'
+import { motion } from 'framer-motion'
 import InputComponent from '../common/InputComponent'
 import Loader from '../common/Loader'
+import SvgButton from '../common/button/SvgButton'
 import AddNewLinkDialog from './AddNewLinkDialog'
 import LinkComponent from './LinkComponent'
-import { motion } from 'framer-motion'
 
 const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -106,7 +106,7 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
                         initial={{ y: 0, opacity: 0, x: 120 }}
                         animate={{ y: 0, opacity: 1, x: -5 }}
                         exit={{ y: 10, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        transition={{ duration: 0.6, ease: 'backInOut' }}
                       >
                         <LinkComponent
                           id={link.id}

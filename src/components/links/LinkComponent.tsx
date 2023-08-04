@@ -1,4 +1,5 @@
 import { Popconfirm, Popover } from 'antd'
+import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { mutateDataHandler } from 'utils/demoapp.utils'
@@ -7,7 +8,6 @@ import { getLinksList } from '../../redux/Actions/User.actions'
 import BookmarkIcons from '../common/BookmarkIcons'
 import Svg from '../common/Svg'
 import EditLinkDialog from './EditLinkDialog'
-import { motion } from 'framer-motion'
 
 interface Props {
   id: string
@@ -52,9 +52,9 @@ const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
     <motion.div
       initial={{ opacity: 1 }}
       animate={deleteAnimation ? { opacity: 0, x: 300 } : 'Error Animation'}
-      transition={{ duration: 0.4, ease: 'easeInOut' }}
+      transition={{ duration: 0.6, ease: 'easeInOut' }}
     >
-      <div className="mx-2">
+      <div className="mx-3">
         <div className="cursor-pointer flex glasslink p-2 w-full rounded-[8px]">
           <div onClick={() => clickHandler()} className="flex w-full mx-1">
             <BookmarkIcons url={url} type={type} />
@@ -69,7 +69,7 @@ const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
                 <div>
                   <h6
                     onClick={() => openModal()}
-                    className="font-bold cursor-pointer hover:bg-grey2 py-1 px-2 rounded-lg text-white hover:bg-grey2"
+                    className="font-bold cursor-pointer hover:bg-grey2 py-1 px-2 rounded-lg text-white"
                   >
                     Edit
                   </h6>
@@ -79,7 +79,7 @@ const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
                     okText="Yes"
                     cancelText="No"
                   >
-                    <h1 className="font-bold cursor-pointer hover:bg-grey2 py-1 px-2 rounded-lg text-white hover:bg-grey2">
+                    <h1 className="font-bold cursor-pointer hover:bg-grey2 py-1 px-2 rounded-lg text-white">
                       Delete
                     </h1>
                   </Popconfirm>
