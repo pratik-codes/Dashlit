@@ -11,15 +11,6 @@
 **An Open source productivity extension for you browser. Best way to manage your links, todo, customize you browser home screen, manage your meetings, mails and much more.**
 Built with love by [**Patik**](https://twitter.com/pratikk_tiwari).
 
-# Techstack
-- React 18
-- Typescript
-- Tailwind css
-- Firebase
-- Vite
-- Redux
-- Antd Components
-
 <br />
 
 # Contributions
