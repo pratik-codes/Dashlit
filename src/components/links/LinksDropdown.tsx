@@ -9,6 +9,7 @@ import InputComponent from '../common/InputComponent'
 import Loader from '../common/Loader'
 import AddNewLinkDialog from './AddNewLinkDialog'
 import LinkComponent from './LinkComponent'
+import { motion } from 'framer-motion'
 
 const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -100,14 +101,20 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
                   })
                   .map((link: any) => {
                     return (
-                      <li key={link.id}>
+                      <motion.li
+                        key={link.id}
+                        initial={{ y: 0, opacity: 0, x: 120 }}
+                        animate={{ y: 0, opacity: 1, x: -5 }}
+                        exit={{ y: 10, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                      >
                         <LinkComponent
                           id={link.id}
                           url={link.data.links}
                           title={link.data.linkTitle}
                           type={link.data.type}
                         />
-                      </li>
+                      </motion.li>
                     )
                   })
               ) : (

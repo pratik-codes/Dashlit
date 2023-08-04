@@ -1,5 +1,5 @@
 import Button from 'components/common/button/button'
-import { animate, stagger } from 'framer-motion'
+import { animate, motion, stagger } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { mutateDataHandler } from 'utils/demoapp.utils'
@@ -80,13 +80,20 @@ const TodoDropdown = ({
                   {TODO_DATA.data ? (
                     TODO_DATA.data.map((link: any) => {
                       return (
-                        <li className="w-full" key={link.id}>
+                        <motion.li
+                          className="w-full"
+                          key={link.id}
+                          initial={{ y: 0, opacity: 0, x: 120 }}
+                          animate={{ y: 0, opacity: 1, x: -5 }}
+                          exit={{ y: 10, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        >
                           <TodoComponent
                             todoId={link.id}
                             todoName={link.data.todoName}
                             checked={link.data.checked}
                           />
-                        </li>
+                        </motion.li>
                       )
                     })
                   ) : (
