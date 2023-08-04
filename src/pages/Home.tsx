@@ -60,6 +60,7 @@ const Home = () => {
 
   const getPreferenceValue = (preferenceType: string) => {
     let truth
+
     if (userSettings?.settings) {
       const settingsData = JSON.parse(userSettings?.settings)
       truth = settingsData?.find(
@@ -139,25 +140,6 @@ const Home = () => {
     if (quote) localStorage.setItem('latest_quote', quote)
   }, [file_url, author_name, quote])
 
-  useEffect(() => {
-    try {
-      const bodyStyle: any = document.body.style
-      const devicePixelRatio = window.devicePixelRatio
-      const zoomPercentage = (1 / devicePixelRatio) * 100
-      if (zoomPercentage !== 80 && !localStorage.getItem('ZoomLevelChanged')) {
-        localStorage.setItem('ZoomLevelChanged', 'true')
-        bodyStyle.zoom = '80%'
-      }
-    } catch (error) {
-      console.log('error in zooming', error)
-    }
-
-    document.addEventListener('keydown', handleKeypress)
-
-    return () => {
-      document.removeEventListener('keydown', handleKeypress)
-    }
-  }, [])
 
   return (
     <div>

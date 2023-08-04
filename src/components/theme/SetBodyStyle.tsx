@@ -15,6 +15,7 @@ const SetBodyStyle = ({
       document.body.style.backgroundSize = '100% 100%'
       document.body.style.backgroundRepeat = 'no-repeat'
       document.body.style.backgroundPosition = 'center center'
+      document.body.style.zoom = '80%'
     }
 
     setBodyStyle()
