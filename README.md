@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://pbs.twimg.com/profile_images/1609233823094681601/2fb4bUCN_400x400.jpg" alt="LOGO" style="border-radius: 50%">
+<!--   <img src="https://pbs.twimg.com/profile_images/1609233823094681601/2fb4bUCN_400x400.jpg" alt="LOGO" style="border-radius: 50%"> -->
 </div>
 <div align="center">
   <h3>Dashlit 🔥</h1>
