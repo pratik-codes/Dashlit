@@ -45,3 +45,18 @@ function checkTime(i: any) {
   }
   return i;
 }
+
+export const handleKeyBindings = (
+  keys: string[],
+  KeyboardEvent: any,
+  callbackFunction: any
+) => {
+  if (
+    keys.includes(KeyboardEvent.key.toLowerCase()) &&
+    (KeyboardEvent.metaKey || KeyboardEvent.ctrlKey || KeyboardEvent.shiftKey)
+  ) {
+    callbackFunction()
+  }
+}
+
+

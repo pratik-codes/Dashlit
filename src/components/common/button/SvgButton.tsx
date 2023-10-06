@@ -7,20 +7,21 @@ interface Props {
   type: string
   position: string
   cta?: string
+  style?: string
 }
 
-const SvgButton: React.FC<Props> = ({ type, position, cta }) => {
+const SvgButton: React.FC<Props> = ({ type, position, cta, style }) => {
   const [mouseEntered, setMouseEntered] = useState(false)
 
   return (
     <Button
       type="secondary"
-      onMouseEnter={(e: any) => setMouseEntered(true)}
-      onMouseLeave={(e: any) => setMouseEntered(false)}
-      className={`absolute ${position} rounded-lg border-none text-white border-none shadow-lg text-sm font-bold p-3 m-4 focus:outline-none text-white hover:text-purple hover:border-purple flex justify-between items-center`}
+      className={`absolute group ${position} z-10 rounded-lg border-none shadow-lg text-sm font-bold p-3 m-4 focus:outline-none text-white hover:text-purple hover:border-purple flex justify-between items-center ${style}`}
     >
       <Svg type={type} />
-      {mouseEntered && <div className="mx-2 ">{cta}</div>}
+      <div className="transition-all duration-300 delay-200 hidden group-hover:block mx-2">
+        {cta}
+      </div>
     </Button>
   )
 }

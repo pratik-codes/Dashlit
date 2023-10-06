@@ -1,33 +1,27 @@
-import React from "react";
-import SvgButton from "../common/button/SvgButton";
-import SettingsModal from "./SettingsModal";
+import SvgButton from '../common/button/SvgButton'
+import SettingsPanel from './SettingsPanell'
 
 const SettingsDropdown = ({
   setOpenSettings,
-  openSettings
+  openSettings,
+  isMinimalMode
 }: {
-  setOpenSettings: any;
-  openSettings: boolean;
+  setOpenSettings: any
+  openSettings: boolean
+  isMinimalMode: Boolean
 }) => {
-  function closeModal() {
-    setOpenSettings(false);
-  }
-
-  function openModal() {
-    setOpenSettings(true);
-  }
   return (
     <div>
       <div onClick={() => setOpenSettings(!openSettings)}>
-        <SvgButton type="settings" position="bottom-0 left-0" cta="Settings" />
+        <SvgButton
+          type="settings"
+          position={isMinimalMode ? 'bottom-0 left-0' : 'bottom-0 left-0'}
+          cta="Settings"
+        />
       </div>
-      <SettingsModal
-        isOpen={openSettings}
-        closeModal={closeModal}
-        openModal={openModal}
-      />
-    </div>
-  );
-};
+      <SettingsPanel openSettings={openSettings} setOpenSettings={setOpenSettings} />
+   </div>
+  )
+}
 
-export default SettingsDropdown;
+export default SettingsDropdown

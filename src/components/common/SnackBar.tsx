@@ -16,7 +16,7 @@ export const SnackBar = (
 }
 
 const triggerMessage = (text: string, type: string) => {
-  if (type === 'success') message.success(text, 99999999999999)
+  if (type === 'success') message.success(text)
   if (type === 'fail') message.error(text)
   if (type === 'info') message.info(text)
 }

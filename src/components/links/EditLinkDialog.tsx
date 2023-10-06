@@ -182,7 +182,8 @@ const EditLinkDialog: React.FC<Props> = ({
             <Button
               kind="elevated"
               className="mr-2 focus:outline-none"
-              onClick={() => {
+              onClick={(e: any) => {
+                e.stopPropogration();
                 editHandler()
                 closeModal()
               }}

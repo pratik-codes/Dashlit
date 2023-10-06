@@ -4,6 +4,7 @@ import Button from 'components/common/button/button'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import useMeasure from 'react-use-measure'
+import ShowMore from '../ShowMore'
 import CalendarCad from './CalendarCard'
 
 const GoogleCalendar = ({ calendarEvents, showEmails }: any) => {
@@ -12,7 +13,7 @@ const GoogleCalendar = ({ calendarEvents, showEmails }: any) => {
 
   return (
     <div
-      className={`bg-grey2 rounded-[15px] shadow-xl h-full text-white p-2 min-w-[50]`}
+      className={`bg-grey2 rounded-[18px] shadow-xl h-full text-white p-2 min-w-[50]`}
     >
       <motion.div
         className="overflow-hidden min-w-6/12"
@@ -32,7 +33,7 @@ const GoogleCalendar = ({ calendarEvents, showEmails }: any) => {
                 size="medium"
                 className="ml-6 m-2 hover:underline"
               >
-                <a>{showMore ? 'less' : 'more'}</a>
+                <ShowMore showMore={showMore} />
               </Button>
             )}
           </div>

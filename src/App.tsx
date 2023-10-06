@@ -1,9 +1,10 @@
+import { useEffect } from 'react'
+
+import { loginDemoUser } from 'utils/demoapp.utils'
 import Auth from './pages/Auth'
 import Home from './pages/Home'
 
 import 'antd/dist/antd.css'
-import { useEffect } from 'react'
-import { loginDemoUser } from 'utils/demoapp.utils'
 import './styles/AntdStyles/Common.css'
 import './styles/index.css'
 

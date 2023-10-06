@@ -2,9 +2,19 @@
 module.exports = {
   content: ['./public/**/*.html', './src/**/*.{js,jsx,ts,tsx,vue}'],
   theme: {
+    borderRadius: {
+      common: '23px', // Add the common border radius of 23px
+      sm: '0.125rem', // 2pxm
+      default: '0.25rem', // 4px
+      md: '0.375rem', // 6px
+      lg: '0.5rem', // 8px
+      xl: '0.75rem', // 12px
+      '2xl': '1rem' // 16px
+    },
     colors: {
       grey1: '#282828',
       grey2: '#181818',
+      light_grey: '#86868B',
       purple: '#5b21b6',
       purpledark: '#3730a3',
       black: 'black',

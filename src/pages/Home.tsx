@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import DateTime from 'components/Home/DateTIme'
+import MinimalHomeLinks from 'components/Home/MinimalHomeLinks'
+import SetBodyStyle from 'components/theme/SetBodyStyle'
 import Focus from '../components/focus/Focus'
 import Google from '../components/google/Google'
 import LinksDropdown from '../components/links/LinksDropdown'
@@ -8,7 +11,6 @@ import SearchBar from '../components/searchbar/Searchbar'
 import SettingsDropdown from '../components/settings/SettingsDropdown'
 import TodoDropdown from '../components/todo/TodoDropdown'
 
-import SetBodyStyle from 'components/theme/SetBodyStyle'
 import { getLiveDetails } from '../firebase/functions/UserDetailsActions'
 import { getUserActiveData } from '../firebase/functions/UsersActiveData'
 import {
@@ -17,15 +19,9 @@ import {
   getTodoList
 } from '../redux/Actions/User.actions'
 import { RootStore } from '../redux/Store'
-import { startTime } from '../utils/home.utils'
+import { handleKeyBindings } from 'utils/home.utils'
 
 const Home = () => {
-  const SettingsDataRedux: any = useSelector(
-    (state: RootStore) => state.userSettingsData
-  )
-
-  const [clockTimer, setClockTimer] = useState('')
-  const [date, setDate] = useState('')
   const [liveData, setLiveData] = useState<any>([])
   const [activeUserData, setActiveUserData] = useState<any>([])
   const [openDialog, setOpenDialog] = useState(false)
@@ -36,29 +32,24 @@ const Home = () => {
 
   const dispatch = useDispatch()
 
-  const userData = () => {
-    dispatch(getSettingsList())
-  }
-
-  const getUserLinks = () => {
-    dispatch(getLinksList())
-  }
-
-  const getUserTodo = () => {
-    dispatch(getTodoList())
-  }
-
+  // gather all the data
+  const userData = () => dispatch(getSettingsList())
+  const getUserLinks = () => dispatch(getLinksList())
+  const getUserTodo = () => dispatch(getTodoList())
   const getLiveData = async () => {
     const liveData: any = await getLiveDetails()
     setLiveData(liveData)
   }
-
   const getActiveData = async () => {
     const activeData: any = await getUserActiveData()
     setActiveUserData(activeData?.data)
   }
 
-  const getPreferenceValue = (preferenceType: string) => {
+  const SettingsDataRedux: any = useSelector(
+    (state: RootStore) => state.userSettingsData
+  )
+
+  const getPreferenceValue = (preferenceType: string): Boolean => {
     let truth
     if (userSettings?.settings) {
       const settingsData = JSON.parse(userSettings?.settings)
@@ -69,21 +60,12 @@ const Home = () => {
     } else return true
   }
 
-  const handleKeyBindings = (
-    keys: string[],
-    KeyboardEvent: any,
-    callbackFunction: any
-  ) => {
-    if (
-      keys.includes(KeyboardEvent.key.toLowerCase()) &&
-      (KeyboardEvent.metaKey || KeyboardEvent.ctrlKey || KeyboardEvent.shiftKey)
-    ) {
-      console.log('callback function excuted')
-      callbackFunction()
-    }
-  }
+  // const minimalHomeSetting = getPreferenceValue('minimal-home-settings');
+  // WIP: Minimal mode
+  const MINIMAL_HOME = false
 
-  const handleKeypress = (e: any) => {
+  const handleKeypress = (e: KeyboardEvent) => {
+    e.stopPropagation()
     handleKeyBindings(['k', 'p'], e, () => setOpenSearchBar(true))
     handleKeyBindings(['h'], e, () => setOpenDialog(true))
     handleKeyBindings(['m'], e, () => setOpenSettings(true))
@@ -97,17 +79,13 @@ const Home = () => {
   }
 
   const get_live_picture = getPreferenceValue('picture-source-settings')
-
   const file_url_local_storage = localStorage.getItem('latest_file_url')
-
   const file_url: string = get_live_picture
     ? liveData?.data?.background_url
     : activeUserData?.background_url
-
   const get_live_quote = getPreferenceValue('quotes-source-settings')
   const local_storage_quote = localStorage.getItem('latest_quote')
   const quote = get_live_quote ? liveData?.data?.quote : activeUserData?.quote
-
   const local_storage_author_name = localStorage.getItem('latest_author')
   const author_name = get_live_quote
     ? liveData?.data?.author_name
@@ -122,7 +100,6 @@ const Home = () => {
   }, [localStorage.getItem('user-settings'), localStorage])
 
   useEffect(() => {
-    startTime(setClockTimer, setDate)
     userData()
     getUserLinks()
     getUserTodo()
@@ -142,7 +119,7 @@ const Home = () => {
   useEffect(() => {
     try {
       const bodyStyle: any = document.body.style
-      bodyStyle.zoom = ''
+      bodyStyle.zoom = '80%'
     } catch (error) {
       console.log('error in zooming', error)
     }
@@ -159,49 +136,38 @@ const Home = () => {
       <SetBodyStyle
         fileUrlLocalStorage={file_url_local_storage}
         fileUrl={file_url}
+        isMinimalMode={MINIMAL_HOME}
+      />
+      <DateTime
+        getPreferenceValue={getPreferenceValue}
+        isMinimalHome={MINIMAL_HOME}
       />
       <div className="h-screen w-full">
-        {/* div that renders the clock, date and the time */}
-        <div className="clockdate-wrapper">
-          {getPreferenceValue('clock-settings') === true && (
-            <div id="clock">{clockTimer}</div>
-          )}
-          {getPreferenceValue('date-settings') === true && (
-            <div id="date">{date}</div>
-          )}
-        </div>
-
-        {getPreferenceValue('focus-settings') === true && <Focus />}
-
-        {/* rendering the qoutes at the bottom of the screen */}
-        {getPreferenceValue('quotes-settings') === true &&
-          local_storage_quote && (
-            <div>
-              <div className="qoutes qoutes-wrapper">
-                <p>"{local_storage_quote || quote}"</p>
-                <p className="text-sm">
-                  {' '}
-                  - {local_storage_author_name || author_name}
-                </p>
-              </div>
-            </div>
-          )}
-
-        {getPreferenceValue('links-settings') === true && (
+        {getPreferenceValue('focus-settings') === true && !MINIMAL_HOME && (
+          <Focus />
+        )}
+        {getPreferenceValue('links-settings') === true && !MINIMAL_HOME && (
           <LinksDropdown
             openDialog={openDialog}
             setOpenDialog={setOpenDialog}
           />
         )}
-
         {getPreferenceValue('todo-settings') === true && (
           <TodoDropdown setOpenTasks={setOpenTasks} openTasks={openTasks} />
         )}
+        {getPreferenceValue('quotes-settings') === true &&
+          !MINIMAL_HOME &&
+          local_storage_quote && (
+            <div className="qoutes qoutes-wrapper group">
+              <p>"{local_storage_quote || quote}"</p>
+              <p className="text-sm ml-4 opacity-0 group-hover:mb-2 group-hover:opacity-100 transition-all duration-300 delay-200">
+                {' '}
+                - {local_storage_author_name || author_name}
+              </p>
+            </div>
+          )}
 
-        {/* {getPreferenceValue("weather-settings") === true && (
-          <SvgButton type="weather" position="top-0 right-0" cta="Weather (coming soon)"/>
-        )} */}
-
+        {MINIMAL_HOME && <MinimalHomeLinks />}
         <Google
           settingsData={userSettings}
           show={{
@@ -209,10 +175,10 @@ const Home = () => {
             emails: getPreferenceValue('email-settings')
           }}
         />
-
         <SettingsDropdown
           setOpenSettings={setOpenSettings}
           openSettings={openSettings}
+          isMinimalMode={MINIMAL_HOME}
         />
         {openSearchBar && <SearchBar setOpenSearchBar={setOpenSearchBar} />}
       </div>

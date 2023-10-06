@@ -22,7 +22,7 @@ const PublicPictures = () => {
     <div>
       <div className="w-full">
         <div className="p-2 m-2 w-full">
-          <div className="grid grid-cols-3 gap-6 w-full mb-10">
+          <div className="grid grid-cols-2 gap-6 w-full mb-10">
             {PUBLIC_IMAGES ? (
               PUBLIC_IMAGES.map((pic: any) => {
                 return (

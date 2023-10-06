@@ -1,13 +1,8 @@
-import { Popconfirm, Popover } from 'antd'
 import { motion } from 'framer-motion'
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { mutateDataHandler } from 'utils/demoapp.utils'
-import { deleteUserLinksService } from '../../firebase/functions/LinksActions'
-import { getLinksList } from '../../redux/Actions/User.actions'
+import React from 'react'
 import BookmarkIcons from '../common/BookmarkIcons'
-import Svg from '../common/Svg'
-import EditLinkDialog from './EditLinkDialog'
+import EditDeleteLink from './EditDeleteLink'
+import { LinkClickHandler } from './utils'
 
 interface Props {
   id: string
@@ -17,46 +12,17 @@ interface Props {
 }
 
 const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
-  const [isOpen, setIsOpen] = useState(false)
-  // const [editModalIsOpen, setEditModalIsOpen] = React.useState(false);
-  const [deleteAnimation, setDeleteAnimation] = useState(false)
-
-  const dispatch = useDispatch()
-
-  const clickHandler = () => {
-    if (type === 'link') window.open(`https://${url[0].link}`, '_blank')
-    else
-      for (let i = 0; i < url.length; i++) {
-        window.open(`https://${url[i].link}`, '_blank')
-      }
-  }
-
-  const deleteHandler = async () => {
-    deleteUserLinksService(id)
-    setDeleteAnimation(true)
-
-    setTimeout(async () => {
-      await dispatch(getLinksList())
-    }, 300)
-  }
-
-  function closeModal() {
-    setIsOpen(false)
-  }
-
-  function openModal() {
-    setIsOpen(true)
-  }
-
   return (
     <motion.div
       initial={{ opacity: 1 }}
-      animate={deleteAnimation ? { opacity: 0, x: 300 } : 'Error Animation'}
       transition={{ duration: 0.6, ease: 'easeInOut' }}
     >
       <div className="mx-3">
         <div className="cursor-pointer flex glasslink p-2 w-full rounded-[8px]">
-          <div onClick={() => clickHandler()} className="flex w-full mx-1">
+          <div
+            onClick={() => LinkClickHandler(type, url)}
+            className="flex w-full mx-1"
+          >
             <BookmarkIcons url={url} type={type} />
             <a className="block font-bold my-auto px-4 py-auto text-white text-l w-full whitespace-no-wrap hover:text-purple">
               {title.length > 30 ? title.substring(0, 30) + '...' : title}
@@ -64,47 +30,10 @@ const LinkComponent: React.FC<Props> = ({ id, title, url, type }) => {
           </div>
 
           <div className="editlink hidden">
-            <Popover
-              content={
-                <div>
-                  <h6
-                    onClick={() => openModal()}
-                    className="font-bold cursor-pointer hover:bg-grey2 py-1 px-2 rounded-lg text-white"
-                  >
-                    Edit
-                  </h6>
-                  <Popconfirm
-                    title="Are you sure to delete this link/folder?"
-                    onConfirm={() => mutateDataHandler(deleteHandler)}
-                    okText="Yes"
-                    cancelText="No"
-                  >
-                    <h1 className="font-bold cursor-pointer hover:bg-grey2 py-1 px-2 rounded-lg text-white">
-                      Delete
-                    </h1>
-                  </Popconfirm>
-                </div>
-              }
-              trigger="hover"
-            >
-              <button className="focus:outline-none mx-1 mt-1 text-white">
-                <Svg type="dot-dot" />
-              </button>
-            </Popover>
+            <EditDeleteLink link={{ id, title, url, type }} />
           </div>
         </div>
-        <div className="ml-14">
-          {/* edit modal */}
-          <EditLinkDialog
-            isOpen={isOpen}
-            id={id}
-            linkTitle={title}
-            links={url}
-            type={type}
-            closeModal={closeModal}
-            openModal={openModal}
-          />
-        </div>
+        <div className="ml-14">{/* edit modal */}</div>
       </div>
     </motion.div>
   )
