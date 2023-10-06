@@ -4,6 +4,7 @@ import Button from 'components/common/button/button'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import useMeasure from 'react-use-measure'
+import ShowMore from '../ShowMore'
 import EmailCard from './EmailCard'
 
 const Gmail = ({ emails }: any) => {
@@ -11,7 +12,7 @@ const Gmail = ({ emails }: any) => {
   const [ref, bounds] = useMeasure()
 
   return (
-    <div className="bg-grey2 rounded-[15px] min-w-[40] shadow-xl h-full text-white p-2">
+    <div className="bg-grey2 rounded-[18px] min-w-[40] shadow-xl h-full text-white p-2">
       <motion.div
         className="overflow-hidden min-w-6/12"
         animate={{ height: bounds.height > 0 ? bounds.height : undefined }}
@@ -30,7 +31,7 @@ const Gmail = ({ emails }: any) => {
                 size="medium"
                 className="ml-6 m-2 hover:underline"
               >
-                <a>{showMore ? 'less' : 'more'}</a>
+                <ShowMore showMore={showMore} />
               </Button>
             )}
           </div>
@@ -38,11 +39,15 @@ const Gmail = ({ emails }: any) => {
             {emails?.length > 0 && emails?.length == 0 && (
               <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} className="mb-2" />
             )}
-            {emails.length > 0 && emails?.slice(0, 2)?.map((email: any) => (
-              <EmailCard key={email.snippet} email={email} />
-            ))}
+            {emails.length > 0 &&
+              emails
+                ?.slice(0, 2)
+                ?.map((email: any) => (
+                  <EmailCard key={email.snippet} email={email} />
+                ))}
             {showMore &&
-              emails?.slice(2, emails.length)
+              emails
+                ?.slice(2, emails.length)
                 ?.map((email: any) => (
                   <EmailCard key={email.snippet} email={email} />
                 ))}

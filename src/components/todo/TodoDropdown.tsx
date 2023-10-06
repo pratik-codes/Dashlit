@@ -55,9 +55,9 @@ const TodoDropdown = ({
       </div>
       {openTasks && (
         <div
-          className={`text-gray-700 pt-4 absolute bottom-0 right-0 mb-16 mr-6 todo-card`}
+          className={`text-gray-700 pt-4 absolute bottom-0 right-0 mb-16 mr-6 todo-card z-10`}
         >
-          <ul className="bg-black rounded-[18px] h-full w-full">
+          <ul className="bg-black rounded-common h-full w-full">
             <div
               style={{
                 minWidth: '25rem',
@@ -70,7 +70,9 @@ const TodoDropdown = ({
               className="w-full p-2"
             >
               <div className="flex my-auto">
-                <h1 className="font-bold m-2 text-white  text-lg">Today</h1>
+                <h1 className="font-bold m-2 text-white  text-xl mb-4">
+                  Today
+                </h1>
                 {/* <div className="div my-auto">
                 <Svg type="dropdown" />
               </div> */}
@@ -113,7 +115,7 @@ const TodoDropdown = ({
                           inputRef.current.focus()
                         }, 500)
                       }}
-                      className="focus:outline-none font-bold ml-2 p-1 px-2 rounded-full text-sm text-white hover:underline"
+                      className="focus:outline-none font-bold ml-2 p-1 px-2 rounded-common text-sm text-white hover:underline"
                     >
                       Add todo
                     </Button>
@@ -124,7 +126,7 @@ const TodoDropdown = ({
             <div>
               {(addTodo || TODO_DATA?.data?.length > 0) && (
                 <input
-                  className="bg-transparent border-none focus:outline-none m-1 p-1 text-white w-full ml-2"
+                  className="bg-transparent border-none focus:outline-none m-1 p-1 text-white w-full ml-3"
                   placeholder="Add todo here..."
                   ref={inputRef}
                   value={addTodoValue}

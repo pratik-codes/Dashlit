@@ -12,14 +12,14 @@ const EmailCard = ({ email }: any) => {
   const snippet = email.snippet
 
   return (
-    <div className={`bg-grey1 rounded-[8px] p-1`}>
+    <div className={`bg-grey1 rounded-[12px] p-1`}>
       <div className="flex justify-between items-center">
         <div className="flex-col justify-between items-center space-x-1 my-auto">
           <div className="flex space-x-2">
-            <div className="my-auto border border-grey2 rounded-md p-1">
+            <div className="my-auto border border-grey2 rounded-[12px] p-1">
               <Svg
                 type="email"
-                classNames={`w-8 h-8 p-1 border border-grey2 rounded-md ml-1`}
+                classNames={`w-10 h-10 p-2 border border-grey2 rounded-[12px]`}
               />
             </div>
             <div>

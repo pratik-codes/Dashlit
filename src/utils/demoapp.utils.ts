@@ -4,7 +4,6 @@ import { demoAppData } from "./data/demoapp.data";
 export const isDemoApp = import.meta.env.VITE_DEMO_APP === 'true';
 
 export const mutateDataHandler = (executeCallBack: any): any => {
-  console.log({ isDemoApp });
   if (isDemoApp) {
     triggerMessage("This is a demo app. You cannot perform this action.", "info");
     return;

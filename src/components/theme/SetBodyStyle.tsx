@@ -2,31 +2,39 @@ import { useEffect } from 'react'
 
 const SetBodyStyle = ({
   fileUrlLocalStorage,
-  fileUrl
+  fileUrl,
+  isMinimalMode = false
 }: {
   fileUrlLocalStorage: string | null
   fileUrl: string
+  isMinimalMode: Boolean
 }) => {
   useEffect(() => {
+    const body: any = document.body;
     const setBodyStyle = () => {
-      document.body.style.backgroundImage = `url(${
+      body.style.backgroundImage = `url(${
         fileUrlLocalStorage || fileUrl
       })`
-      document.body.style.backgroundSize = '100% 100%'
-      document.body.style.backgroundRepeat = 'no-repeat'
-      document.body.style.backgroundPosition = 'center center'
+      body.style.backgroundSize = '100% 100%'
+      body.style.backgroundRepeat = 'no-repeat'
+      body.style.backgroundPosition = 'center center'
     }
 
     setBodyStyle()
 
+    if(isMinimalMode) {
+      body.style.backgroundImage = undefined;
+    }
+
     return () => {
       // Cleanup function
       // Reset body style when the component is unmounted
-      document.body.style.backgroundImage = ''
-      document.body.style.backgroundSize = ''
-      document.body.style.backgroundRepeat = ''
-      document.body.style.backgroundPosition = ''
+      body.style.backgroundImage = ''
+      body.style.backgroundSize = ''
+      body.style.backgroundRepeat = ''
+      body.style.backgroundPosition = ''
     }
+
   }, [fileUrlLocalStorage, fileUrl])
 
   return null

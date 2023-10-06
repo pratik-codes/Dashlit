@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
+
 import { updateUserDetailsService } from '../../../firebase/functions/UserDetailsActions'
 import { getSettingsList } from '../../../redux/Actions/User.actions'
 import { RootStore } from '../../../redux/Store'
@@ -26,6 +27,7 @@ const Preference = () => {
     name = '',
     description = ''
   ) => {
+    console.log({ preferenceType, status, name, description })
     const obj = settingsData?.find((obj: any) => obj.type === preferenceType)
     const objIndex = settingsData?.findIndex(
       (obj: any) => obj.type === preferenceType
@@ -42,6 +44,7 @@ const Preference = () => {
         type: preferenceType,
         isToggled: true
       }
+      console.log({ data })
       settingsData.push(data)
       const newData = {
         ...SettingsDataRedux?.data,
@@ -61,7 +64,7 @@ const Preference = () => {
 
   return (
     <div className="h-full">
-      <div className="gap-4 grid grid-cols-3 mb-12">
+      <div className="gap-4 grid grid-cols-2 mb-12">
         {settingsData ? (
           settingsData.map((setting: any) => {
             return (
@@ -80,19 +83,6 @@ const Preference = () => {
           <div>
             <Loader />
           </div>
-        )}
-        {settingsData && !checkIfPresentInSettings('focus-settings') && (
-          <PreferenceToggleContent
-            preferenceType="focus-settings"
-            isToggled={
-              checkIfPresentInSettings('focus-settings')?.isToggled
-                ? true
-                : false
-            }
-            title={'Enable Focus mode'}
-            description={'Disable if you dont want to focus on home.'}
-            changePreference={changePreference}
-          />
         )}
       </div>
     </div>

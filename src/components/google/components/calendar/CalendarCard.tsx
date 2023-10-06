@@ -54,14 +54,14 @@ const CalendarCad = ({ eventData, indexNumber }: any) => {
           : null
       }
     >
-      <div className={`${backgroundColor} ${fontColor} rounded-[8px] p-1`}>
+      <div className={`${backgroundColor} ${fontColor} rounded-[10px] p-1`}>
         <div className="flex justify-between items-center">
           <div className="flex-col justify-between items-center space-x-1 my-auto">
             <div className="flex space-x-2">
               <div className="my-auto">
                 <Svg
                   type="calendar-event"
-                  classNames={`w-8 h-8 p-1 border border-${fontColor} border-grey2 rounded-md ml-1`}
+                  classNames={`w-8 h-8 p-1 border border-${fontColor} border-grey2 rounded-[8px] ml-1`}
                 />
               </div>
 
@@ -121,7 +121,7 @@ const CalendarCad = ({ eventData, indexNumber }: any) => {
             </div>
           </div>
           <div
-            className={`flex justify-between items-center ml-8`}
+            className={`flex hover:rounded-md justify-between items-center ml-8`}
             onClick={() =>
               window.open(appendURLOptions(eventData.htmlLink), '_blank')
             }

@@ -1,17 +1,18 @@
-import { animate, stagger } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { animate, motion, stagger } from 'framer-motion'
 
 import { RootStore } from '../../redux/Store'
-
-import { motion } from 'framer-motion'
 import InputComponent from '../common/InputComponent'
 import Loader from '../common/Loader'
 import SvgButton from '../common/button/SvgButton'
 import AddNewLinkDialog from './AddNewLinkDialog'
 import LinkComponent from './LinkComponent'
 
-const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
+const LinksDropdown: React.FC<{
+  openDialog: boolean
+  setOpenDialog: (openDialog: boolean) => void
+}> = ({ openDialog, setOpenDialog }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [searchValue, setSearchValue] = useState('')
 
@@ -33,20 +34,16 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
     setIsOpen(true)
   }
 
+  const dropDownContainerStyles = {
+    minWidth: '24rem',
+    minHeight: '10rem',
+    maxHeight: '65vh',
+    overflowY: 'auto',
+    overflowX: 'hidden'
+  }
+
   useEffect(() => {
-    if (openDialog)
-      animate(
-        '.dropdown-menu',
-        { y: 10, fillOpacity: 1 },
-        {
-          delay: stagger(0.1),
-          type: 'spring',
-          damping: 15,
-          stiffness: 500
-        }
-      )
-    if (inputRef && openDialog)
-      setTimeout(() => inputRef?.current?.focus(), 500)
+    if (inputRef && openDialog) inputRef?.current?.focus(), 1000
   }, [openDialog])
 
   return (
@@ -56,7 +53,7 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
       </div>
       {openDialog && (
         <div className="dropdown-menu ml-4 mt-12 pt-4 text-white">
-          <ul className="rounded-t-[18px] bg-black">
+          <ul className={`rounded-t-common bg-black`}>
             <div className="align-center flex justify-center">
               <div className="px-3 my-1 w-full">
                 <InputComponent
@@ -106,7 +103,7 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
                         initial={{ y: 0, opacity: 0, x: 120 }}
                         animate={{ y: 0, opacity: 1, x: -5 }}
                         exit={{ y: 10, opacity: 0 }}
-                        transition={{ duration: 0.6, ease: 'backInOut' }}
+                        transition={{ duration: 0.5, ease: 'backInOut' }}
                       >
                         <LinkComponent
                           id={link.id}
@@ -125,14 +122,7 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
 
               {LINKS && LINKS.data.length === 0 && (
                 <div className="div flex h-full items-center justify-center">
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <h1 className="font-2x font-bold my-auto text-white">
+                  <h1 className="font-2x font-bold text-white my-16">
                     No links found. Add new link...
                   </h1>
                 </div>
@@ -141,11 +131,11 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
           </ul>
           <div
             onClick={() => openModal()}
-            className="absolute w-full cursor-pointer flex py-3 px-2 rounded-b-[18px] bg-grey2 hover:bg-grey1"
+            className={`absolute w-full cursor-pointer flex py-3 px-2 rounded-b-common bg-grey2 hover:bg-grey1`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 mx-3 my-auto text-white w-5 text-white"
+              className="h-5 mx-3 my-auto text-white w-5"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
@@ -156,7 +146,6 @@ const LinksDropdown: React.FC<any> = ({ openDialog, setOpenDialog }) => {
               />
             </svg>
             <h1 className="font-bold p-1 text-white">
-              {' '}
               Add a new link or folder
             </h1>
           </div>

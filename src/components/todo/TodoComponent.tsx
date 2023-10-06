@@ -1,4 +1,5 @@
 import { Checkbox, Popconfirm, Popover, Tooltip } from 'antd'
+import { motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
@@ -9,7 +10,6 @@ import {
 } from '../../firebase/functions/TodoActions'
 import { getTodoList } from '../../redux/Actions/User.actions'
 import Svg from '../common/Svg'
-import { motion } from 'framer-motion'
 
 interface todo {
   todoId: string

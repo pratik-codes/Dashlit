@@ -61,11 +61,10 @@ export const initialLoadScripts = async () => {
     usersSnap.forEach(async (doc: any) => {
       const settings = doc.data().settings
       const newSettings = replaceOrAddSetting(settings, {
-        type: 'email-settings',
-        name: 'Show emails',
-        description: 'Disable if you dont want to see emails on the home screen',
-        isToggled: true,
-        isAuthenticated: false
+        type: 'minimal-home-settings',
+        name: 'Minimal Home',
+        description: 'Disable if you dont want to minimal home screen',
+        isToggled: false,
       });
       await updateDoc(doc.ref, {
         settings: newSettings

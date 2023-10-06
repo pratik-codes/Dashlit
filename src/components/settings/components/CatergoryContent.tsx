@@ -7,17 +7,17 @@ import Help from './Help'
 import Keymaps from './Keymaps'
 
 interface Props {
-  type: string
+  contentId: string
 }
 
-const CatergoryContent: React.FC<Props> = ({ type }) => {
+const CatergoryContent: React.FC<Props> = ({ contentId }) => {
   return (
     <div style={{ marginBottom: '12rem' }} className="flex p-4 text-gray-900 ">
-      {type === 'Preferences' && <Preference />}
-      {type === 'Quotes' && <Quotes />}
-      {type === 'Background' && <Background />}
-      {type === 'Contact us' && <Help />}
-      {type === 'Keymaps' && <Keymaps />}
+      {contentId === '1' && <Preference />}
+      {contentId === '3' && <Quotes />}
+      {contentId === '2' && <Background />}
+      {contentId === '5' && <Help />}
+      {contentId === '4' && <Keymaps />}
     </div>
   )
 }

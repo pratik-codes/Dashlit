@@ -50,7 +50,7 @@ export const demoAppData = [
   },
   {
     key: "background_images",
-    value: JSON.stringify([{ "id": "C7ZQ5WPrFNByvOmCjOJV", "data": { "url": "https://images.unsplash.com/photo-1687817861464-8e25a829b3c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", "name": "", "created_at": 1688801965189 } }, { "id": "z3SgdoG6oi1XNUEZkKCi", "data": { "created_at": 1688822307317, "url": "https://images.unsplash.com/photo-1682687981974-c5ef2111640c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80", "name": "" } }])
+    value: JSON.stringify([{ "id": "C7ZQ5WPrFNByvOmCjOJV", "data": { "url": "https://images.unsplash.com/photo-1691651642061-6ce0d07c4ba1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=80", "name": "", "created_at": 1688801965189 } }, { "id": "z3SgdoG6oi1XNUEZkKCi", "data": { "created_at": 1688822307317, "url": "https://images.unsplash.com/photo-1682687981974-c5ef2111640c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80", "name": "" } }])
   },
   {
     key: "fav_pictures",

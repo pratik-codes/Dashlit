@@ -19,13 +19,17 @@ const SearchBar = ({ setOpenSearchBar }: any) => {
 
   const options = getOptionsValue(LINKS?.data)
 
-  const selectOption = (option: any) => {
-    if (inputRef?.current?.blur) inputRef.current.blur()
-    const selectedOption: any = options.find(
-      (data: any) => data.value === option
-    )
-    clickHandler(selectedOption.link)
-    setOpenSearchBar(false)
+  const selectOption = (e: any, select: boolean) => {
+    const value = select ? e : e.target.value
+    console.log({ value, select })
+    if ((e.keyCode === 13 || select) && value.length > 0) {
+      const selectedOption: any = options.find((data: any) =>
+        data.value.toLowerCase().includes(value.toLowerCase())
+      )
+      if (!selectedOption) return
+      clickHandler(selectedOption.link)
+      setOpenSearchBar(false)
+    }
   }
 
   const clickHandler = ({ type, links }: any) => {
@@ -43,33 +47,33 @@ const SearchBar = ({ setOpenSearchBar }: any) => {
   }, [])
 
   return (
-    <>
-      <Select
-        showSearch
-        style={{
-          position: 'absolute',
-          top: '10%',
-          left: '30%',
-          width: '40%',
-          boxShadow: '0 0 0 1600px rgba(0,0,0,0.65)',
-          borderRadius: '14px'
-        }}
-        defaultOpen={true}
-        placeholder="Search link here.."
-        optionFilterProp="children"
-        ref={inputRef}
-        filterOption={(input: any, option: any) =>
-          (option?.value ?? '').toLowerCase().includes(input.toLowerCase())
-        }
-        filterSort={(optionA, optionB) =>
-          (optionA?.value ?? '')
-            .toLowerCase()
-            .localeCompare((optionB?.value ?? '').toLowerCase())
-        }
-        options={options}
-        onSelect={(option: any) => selectOption(option)}
-      />
-    </>
+    <Select
+      showSearch
+      style={{
+        position: 'absolute',
+        top: '10%',
+        left: '30%',
+        width: '40%',
+        boxShadow: '0 0 0 1600px rgba(0,0,0,0.65)',
+        borderRadius: '14px'
+      }}
+      onChange={(e: any) => e.stopPropagation()}
+      defaultOpen={true}
+      placeholder="Search link here.."
+      optionFilterProp="children"
+      ref={inputRef}
+      filterOption={(input: any, option: any) =>
+        (option?.value ?? '').toLowerCase().includes(input.toLowerCase())
+      }
+      filterSort={(optionA, optionB) =>
+        (optionA?.value ?? '')
+          .toLowerCase()
+          .localeCompare((optionB?.value ?? '').toLowerCase())
+      }
+      onInputKeyDown={(e: any) => selectOption(e, false)}
+      options={options}
+      onSelect={(option: any) => selectOption(option, true)}
+    />
   )
 }
 
