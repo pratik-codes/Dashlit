@@ -131,7 +131,7 @@ const LinksDropdown: React.FC<{
           </ul>
           <div
             onClick={() => openModal()}
-            className={`absolute w-full cursor-pointer flex py-3 px-2 rounded-b-common bg-grey2 hover:bg-grey1`}
+            className={`absolute w-[96%] cursor-pointer flex py-3 px-2 rounded-b-common bg-grey2 hover:bg-grey1`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
