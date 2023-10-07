@@ -38,6 +38,7 @@ The organizational scheme of the repository is delineated as follows:
 **packages/**: This directory is planned for modular development.
 
 **ui**: Currently empty, but intended for integrating Shadcn UI to create reusable UI components.
+
 **utils**: This folder is also empty at present, designated for utility functions that will be shared across the application.
 
 package.json, pnpm.lock: These files manage project dependencies.
