@@ -1,6 +1,5 @@
 import { Checkbox, Popconfirm, Popover, Tooltip } from 'antd'
 import { motion } from 'framer-motion'
-import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { mutateDataHandler } from 'utils/demoapp.utils'
@@ -133,9 +132,3 @@ const TodoComponent: React.FC<todo> = ({ todoId, todoName, checked }) => {
 }
 
 export default TodoComponent
-
-TodoComponent.propTypes = {
-  todoId: PropTypes.string.isRequired,
-  todoName: PropTypes.string.isRequired,
-  checked: PropTypes.bool.isRequired
-}

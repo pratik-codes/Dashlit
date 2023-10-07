@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 
 const LinkSvg = () => {
@@ -648,6 +647,3 @@ const Svg: React.FC<Props> = ({ type, size, classNames }) => {
 
 export default Svg
 
-Svg.propTypes = {
-  type: PropTypes.string.isRequired
-}

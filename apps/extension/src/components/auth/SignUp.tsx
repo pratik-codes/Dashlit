@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 
 import Button from 'components/common/button/button'
@@ -110,6 +109,3 @@ const SignUp: React.FC<signUpProps> = ({ setActiveView }) => {
 
 export default SignUp
 
-SignUp.propTypes = {
-  setActiveView: PropTypes.string.isRequired
-}

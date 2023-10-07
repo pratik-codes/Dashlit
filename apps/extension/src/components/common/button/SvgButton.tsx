@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import Svg from '../Svg'
 import Button from './button'
@@ -28,7 +27,3 @@ const SvgButton: React.FC<Props> = ({ type, position, cta, style }) => {
 
 export default SvgButton
 
-SvgButton.propTypes = {
-  type: PropTypes.string.isRequired,
-  position: PropTypes.string.isRequired
-}

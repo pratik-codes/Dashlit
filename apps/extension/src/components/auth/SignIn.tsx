@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 
 import InputComponent from 'components/common/InputComponent'
@@ -94,8 +93,4 @@ const SignIn: React.FC<signInProps> = ({ setActiveView }) => {
   )
 }
 
-export default SignIn
-
-SignIn.propTypes = {
-  setActiveView: PropTypes.string.isRequired
-}
+export default SignIn;

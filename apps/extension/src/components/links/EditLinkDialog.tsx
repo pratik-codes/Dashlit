@@ -1,6 +1,5 @@
 import { Tooltip } from 'antd'
 import ModalComponent from 'components/common/Modal'
-import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid'
@@ -208,13 +207,3 @@ const EditLinkDialog: React.FC<Props> = ({
 }
 
 export default EditLinkDialog
-
-EditLinkDialog.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  closeModal: PropTypes.any,
-  openModal: PropTypes.any,
-  id: PropTypes.string.isRequired,
-  links: PropTypes.any.isRequired,
-  linkTitle: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired
-}
