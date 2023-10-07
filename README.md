@@ -2,7 +2,7 @@
 
 ![Dashlit Logo](https://github.com/pratik-codes/Dashlit/blob/monorepo-migration/apps/landing/public/logo-black.png)
 
-### Dashlit
+### Dashlit - [Demo Extension](https://demo.dashlit.com/)
 </div>
 
 ---
