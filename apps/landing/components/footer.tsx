@@ -37,7 +37,10 @@ export const Footer = () => (
       <div>
         <div className="flex h-full flex-row justify-between lg:flex-col">
           <div className="flex items-center text-grey">
-            <img className="mr-2" src={"/logo-navy.png"} />
+            <img
+              className="mr-4 w-10 h-10 drop-shadow-2xl shadow-2xl rounded-2xl"
+              src={"/logo-black.png"}
+            />
             Dashlit - the modern browser dashboard
           </div>
           <div className="mt-auto flex space-x-4 text-grey">
