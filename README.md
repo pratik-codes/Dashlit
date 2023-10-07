@@ -1,81 +1,104 @@
-# Turborepo starter
+<div align="center">
 
-This is an official starter Turborepo.
+![Dashlit Logo](https://github.com/pratik-codes/Dashlit/blob/monorepo-migration/apps/landing/public/logo-black.png)
 
-## Using this example
+### Dashlit
+</div>
 
-Run the following command:
+---
 
-```sh
-npx create-turbo@latest
+**Dashlit**: An open-source productivity extension for your browser. It offers an efficient method to manage your links, to-dos, customize your browser's home screen, manage meetings, emails, and ensures rapid accessibility. Developed with fervour by [**Pratik**](https://twitter.com/pratikk_tiwari).
+
+---
+
+
+## Architecture and Folder Structure
+
+The organizational scheme of the repository is delineated as follows:
+
+```plaintext
+.
+├── app/
+│   ├── extension
+│   └── landing
+├── packages/
+│   ├── ui
+│   └── utils
+├── package.json
+├── pnpm.lock
+├── turbo.json
+└── tsconfig.json
 ```
 
-## What's inside?
+### Explanation
+**app/**: This directory constitutes the core application layers.
 
-This Turborepo includes the following packages/apps:
+**extension**: This sub-folder houses the codebase for the browser extension itself, incorporating logic, views, and related assets.
+**landing**: This is the landing page for the Dashlit application, responsible for the initial user interface.
+**packages/**: This directory is planned for modular development.
 
-### Apps and Packages
+**ui**: Currently empty, but intended for integrating Shadcn UI to create reusable UI components.
+**utils**: This folder is also empty at present, designated for utility functions that will be shared across the application.
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+package.json, pnpm.lock: These files manage project dependencies.
+turbo.json: Configuration file for TurboRepo.
+tsconfig.json: Configuration settings for TypeScript compiler.
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+<br/>
 
-### Utilities
+## Contributions
 
-This Turborepo has some additional tools already setup for you:
+Interested in contributing? Follow the steps below to set up the development environment.
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+### Pre-requisites
 
-### Build
+1. **Clone the Repository**: Clone the repository locally onto your machine.
 
-To build all apps and packages, run the following command:
+    ```bash
+    git clone <repository-link>
+    ```
 
-```
-cd my-turborepo
-pnpm build
-```
+2. **Firebase Backend**: This project uses Firebase as its backend. Create a Firebase project and populate the `.env` file located at the project root with the appropriate credentials.
 
-### Develop
+    Example of `.env` configuration:
 
-To develop all apps and packages, run the following command:
+    ```env
+    # Firebase keys
+    VITE_FIREBASE_API_KEY=ADD_THE_VALUE_HERE
+    VITE_FIREBASE_AUTH_DOMAIN=ADD_THE_VALUE_HERE
+    VITE_FIREBASE_PROJECT_ID=ADD_THE_VALUE_HERE
+    VITE_FIREBASE_STORAGE_BUCKET=ADD_THE_VALUE_HERE
+    VITE_FIREBASE_MESSAGING_SENDER_ID=ADD_THE_VALUE_HERE
+    VITE_FIREBASE_APP_ID=ADD_THE_VALUE_HERE
+    VITE_FIREBASE_MEASUREMENT_ID=ADD_THE_VALUE_HERE
+    ```
 
-```
-cd my-turborepo
-pnpm dev
-```
+### Installation
 
-### Remote Caching
+3. **Turbo CLI**: Install the Turbo CLI globally as this project utilizes TurboRepo.
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+    ```bash
+    npm install turbo --global
+    ```
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+4. **Dependencies**: Run the following command to install all the required dependencies:
 
-```
-cd my-turborepo
-npx turbo login
-```
+    ```bash
+    pnpm install
+    ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+### Execution
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+5. **Development Server**: Start the development server.
 
-```
-npx turbo link
-```
+    ```bash
+    turbo dev
+    ```
 
-## Useful Links
+6. **Access**: Post successful execution, the extension application will be accessible at `http://localhost:5173`, and the landing page at `http://localhost:3000`.
 
-Learn more about the power of Turborepo:
+7. **build**: To build the extension and the landing page run `turbo build` and the output folder would be created, `dist` for the extension and `.next` for the landing page app. You can use this dist folder to import in the chrome browser in the extension section to test and use it locally.
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+You are all set to contribute!
+
+---
