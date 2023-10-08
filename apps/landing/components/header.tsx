@@ -20,14 +20,13 @@ export const Header = () => {
       <Container className="flex h-navigation-height justify-between">
         <Link className="flex items-center text-xl font-bold" href="/">
           <img
-            className="mr-4 w-10 h-10 drop-shadow-2xl shadow-2xl rounded-2xl"
+            className="mr-4 w-8 h-8 drop-shadow-2xl shadow-2xl rounded-2xl"
             src={"/logo-black.png"}
           />
           Dashlit
         </Link>
 
         <div className="ml-auto flex h-full items-center">
-         
           <a
             href="https://discord.gg/7am7ZRvv"
             target="_blank"
