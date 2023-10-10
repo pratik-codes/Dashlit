@@ -28,7 +28,7 @@ const TodoComponent: React.FC<todo> = ({ todoId, todoName, checked }) => {
 
   const inputRef: any = useRef()
 
-  const dispatch = useDispatch()
+  const dispatch: any = useDispatch()
 
   const editHandler = () => {
     updateUserTodoService(todoId, todoNameInput, isChecked)

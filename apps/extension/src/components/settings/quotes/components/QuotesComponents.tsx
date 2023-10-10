@@ -36,7 +36,7 @@ const QuotesComponents: React.FC<Props> = ({
   const [visible, setVisible] = React.useState(false)
   const [openModal, setOpenModal] = React.useState(false)
 
-  const dispatch = useDispatch()
+  const dispatch: any = useDispatch()
 
   const deleteQuote = async () => {
     deleteMyQuotesService(id)

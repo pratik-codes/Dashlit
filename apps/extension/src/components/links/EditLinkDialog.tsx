@@ -39,7 +39,7 @@ const EditLinkDialog: React.FC<Props> = ({
   const [linkAdded, setLinkAdded] = useState<any>([])
   const [linksCount, setLinksCount] = useState(1)
 
-  const dispatch = useDispatch()
+  const dispatch: any = useDispatch()
 
   const editHandler = async () => {
     const data = {

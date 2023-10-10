@@ -11,7 +11,7 @@ const EditDeleteLink = ({ link }: any) => {
   const { id, title, url, type } = link
   const [isOpen, setIsOpen] = useState(false)
 
-  const dispatch = useDispatch()
+  const dispatch: any = useDispatch()
 
   function closeModal() {
     setIsOpen(false)

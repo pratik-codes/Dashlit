@@ -34,7 +34,7 @@ const PictureComponent: React.FC<Props> = ({
 }) => {
   let date = new Date(data.created_at)
 
-  const dispatch = useDispatch()
+  const dispatch: any  = useDispatch()
 
   let settings_data = localStorage.getItem('user-settings')
   const settings_data_parsed = settings_data && JSON.parse(settings_data)

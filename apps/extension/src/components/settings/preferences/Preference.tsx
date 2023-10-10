@@ -7,7 +7,7 @@ import Loader from '../../common/Loader'
 import PreferenceToggleContent from './components/PreferenceToggleContent'
 
 const Preference = () => {
-  const dispatch = useDispatch()
+  const dispatch: any = useDispatch()
 
   const SettingsDataRedux: any = useSelector(
     (state: RootStore) => state.userSettingsData
