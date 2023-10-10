@@ -5,6 +5,8 @@ import CustomDrawer from 'components/common/CustomDrawer'
 import CatergoryContent from './components/CatergoryContent'
 import Button from 'components/common/button/button'
 import Svg from 'components/common/Svg'
+import { mutateDataHandler } from 'utils/demoapp.utils'
+import { logoutHandler } from 'firebase/functions/AuthActions'
 
 const SettingsPanel: React.FC<{
   openSettings: boolean
@@ -48,7 +50,12 @@ const SettingsPanel: React.FC<{
             tabs={tabsComponentData}
             onClick={(data: string) => setCurrentTab(data)}
           />
-          <Button type="shadow" className="flex space-x-2 items-center mb-2">
+          <Button onClick={() =>
+            mutateDataHandler(() => {
+              logoutHandler()
+              window.location.reload()
+            })
+          } type="shadow" className="flex space-x-2 items-center mb-2">
             <Svg type="logout" />
             Logout
           </Button>
