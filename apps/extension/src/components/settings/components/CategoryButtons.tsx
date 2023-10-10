@@ -1,9 +1,9 @@
-import Button from "components/common/button/button";
+import Button from 'components/common/button/button'
 
 interface Props {
-  name: string;
-  setView: any;
-  view: string;
+  name: string
+  setView: any
+  view: string
 }
 
 const CategoryButtons: React.FC<Props> = ({ name, setView, view }) => {
@@ -11,13 +11,13 @@ const CategoryButtons: React.FC<Props> = ({ name, setView, view }) => {
     <div className="mt-3">
       <Button
         type="secondary"
-        className={view === name ? "text-purple" : "text-white"}
-        onClick={() => setView(name)}>
+        className={view === name ? 'text-purple' : 'text-white'}
+        onClick={() => setView(name)}
+      >
         <span>{name}</span>
       </Button>
     </div>
+  )
+}
 
-  );
-};
-
-export default CategoryButtons;
+export default CategoryButtons

@@ -39,7 +39,7 @@ const HeroSection = () => {
             <span className="ml-2">Github</span>
           </Button>
         </div>
-    
+
         <Button
           href="https://chrome.google.com/webstore/detail/dashlit/modghppmaijnnbhleacfecnbgcjhkcnk"
           target="__blank"

@@ -1,5 +1,5 @@
 import SvgButton from '../common/button/SvgButton'
-import SettingsPanel from './SettingsPanell'
+import SettingsPanel from './SettingsPanel'
 
 const SettingsDropdown = ({
   setOpenSettings,
@@ -19,8 +19,11 @@ const SettingsDropdown = ({
           cta="Settings"
         />
       </div>
-      <SettingsPanel openSettings={openSettings} setOpenSettings={setOpenSettings} />
-   </div>
+      <SettingsPanel
+        openSettings={openSettings}
+        setOpenSettings={setOpenSettings}
+      />
+    </div>
   )
 }
 

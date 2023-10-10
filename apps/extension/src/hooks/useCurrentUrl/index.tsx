@@ -1,1 +1,1 @@
-export { default } from "./useCurrentUrl";
+export { default } from './useCurrentUrl'

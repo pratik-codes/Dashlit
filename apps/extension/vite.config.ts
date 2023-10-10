@@ -11,9 +11,9 @@ export default defineConfig({
     setupFiles: '.vitest/setup',
     include: ['**/test.{ts,tsx}']
   },
-  "build": {
-    "rollupOptions": {
-      "external": [/^chrome$/]
+  build: {
+    rollupOptions: {
+      external: [/^chrome$/]
     }
-  },
+  }
 })

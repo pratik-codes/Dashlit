@@ -53,9 +53,8 @@ const [openTasks, setOpenTasks] = useState(false)
     let truth
     if (userSettings?.settings) {
       const settingsData = JSON.parse(userSettings?.settings)
-      truth = settingsData?.find(
-        (x: any) => x.type === preferenceType
-      )?.isToggled
+      truth = settingsData?.find((x: any) => x.type === preferenceType)
+        ?.isToggled
       return truth
     } else return true
   }

@@ -1,5 +1,5 @@
-import { deleteUserLinksService } from "firebase/functions/LinksActions"
-import { getLinksList } from "redux/Actions/User.actions"
+import { deleteUserLinksService } from 'firebase/functions/LinksActions'
+import { getLinksList } from 'redux/Actions/User.actions'
 
 export const LinkClickHandler = (type: string, url: any) => {
   if (type === 'link') window.open(`https://${url[0].link}`, '_blank')
@@ -17,4 +17,3 @@ export const linkDeleteHandler = async (id: string, dispatch: any) => {
     await dispatch(getLinksList())
   }, 300)
 }
-

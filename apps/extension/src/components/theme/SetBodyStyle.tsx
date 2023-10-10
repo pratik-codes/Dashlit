@@ -10,11 +10,9 @@ const SetBodyStyle = ({
   isMinimalMode: Boolean
 }) => {
   useEffect(() => {
-    const body: any = document.body;
+    const body: any = document.body
     const setBodyStyle = () => {
-      body.style.backgroundImage = `url(${
-        fileUrlLocalStorage || fileUrl
-      })`
+      body.style.backgroundImage = `url(${fileUrlLocalStorage || fileUrl})`
       body.style.backgroundSize = '100% 100%'
       body.style.backgroundRepeat = 'no-repeat'
       body.style.backgroundPosition = 'center center'
@@ -22,8 +20,8 @@ const SetBodyStyle = ({
 
     setBodyStyle()
 
-    if(isMinimalMode) {
-      body.style.backgroundImage = undefined;
+    if (isMinimalMode) {
+      body.style.backgroundImage = undefined
     }
 
     return () => {
@@ -34,7 +32,6 @@ const SetBodyStyle = ({
       body.style.backgroundRepeat = ''
       body.style.backgroundPosition = ''
     }
-
   }, [fileUrlLocalStorage, fileUrl])
 
   return null

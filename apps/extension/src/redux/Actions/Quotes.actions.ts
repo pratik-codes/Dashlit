@@ -1,24 +1,27 @@
-import { Dispatch } from "redux";
-import { getMyQuotesService } from "../../firebase/functions/QuotesActions";
+import { Dispatch } from 'redux'
+import { getMyQuotesService } from '../../firebase/functions/QuotesActions'
 import {
   USER_MY_QUOTES_FAIL,
   USER_MY_QUOTES_REQUEST,
   USER_MY_QUOTES_SUCCESS
-} from "../Constants/Actions";
+} from '../Constants/Actions'
 
 export const getMyQuotesAction = () => async (dispatch: Dispatch) => {
   try {
     dispatch({
       type: USER_MY_QUOTES_REQUEST
-    });
-    const res = await getMyQuotesService();
+    })
+    const res = await getMyQuotesService()
     if (res?.data) {
-      localStorage.setItem("my_quotes", JSON.stringify({ data: res.data, loading: false }));
+      localStorage.setItem(
+        'my_quotes',
+        JSON.stringify({ data: res.data, loading: false })
+      )
       dispatch({
         type: USER_MY_QUOTES_SUCCESS,
         payload: res.data
-      });
-      return res;
+      })
+      return res
     }
   } catch (error: any) {
     dispatch({
@@ -27,6 +30,6 @@ export const getMyQuotesAction = () => async (dispatch: Dispatch) => {
         error.response && error.response.data.message
           ? error.response.data.message
           : error.message
-    });
+    })
   }
-};
+}

@@ -3,6 +3,8 @@ import { useState } from 'react'
 import TabsComponent from 'components/common/TabsComponent'
 import CustomDrawer from 'components/common/CustomDrawer'
 import CatergoryContent from './components/CatergoryContent'
+import Button from 'components/common/button/button'
+import Svg from 'components/common/Svg'
 
 const SettingsPanel: React.FC<{
   openSettings: boolean
@@ -41,11 +43,15 @@ const SettingsPanel: React.FC<{
       open={openSettings}
     >
       <div className="space-y-4">
-        <div className="mb-8">
+        <div className="mb-8 flex justify-between items-center">
           <TabsComponent
             tabs={tabsComponentData}
             onClick={(data: string) => setCurrentTab(data)}
           />
+          <Button type="shadow" className="flex space-x-2 items-center mb-2">
+            <Svg type="logout" />
+            Logout
+          </Button>
         </div>
         <CatergoryContent contentId={currentTab} />
       </div>

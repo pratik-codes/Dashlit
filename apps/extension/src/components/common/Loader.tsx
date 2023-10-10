@@ -1,4 +1,3 @@
-
 function Loader() {
   return (
     <>
@@ -9,10 +8,11 @@ function Loader() {
           cy="25"
           r="20"
           fill="none"
-          strokeWidth="3"></circle>
+          strokeWidth="3"
+        ></circle>
       </svg>
     </>
-  );
+  )
 }
 
-export default Loader;
+export default Loader

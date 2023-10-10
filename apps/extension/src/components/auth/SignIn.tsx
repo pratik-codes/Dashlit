@@ -93,4 +93,4 @@ const SignIn: React.FC<signInProps> = ({ setActiveView }) => {
   )
 }
 
-export default SignIn;
+export default SignIn

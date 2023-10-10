@@ -1,5 +1,5 @@
-const BORDER_RADIUS = "23px"
+const BORDER_RADIUS = '23px'
 
 export const appConstants = {
-  BORDER_RADIUS,
+  BORDER_RADIUS
 }

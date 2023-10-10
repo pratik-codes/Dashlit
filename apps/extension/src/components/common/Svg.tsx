@@ -646,4 +646,3 @@ const Svg: React.FC<Props> = ({ type, size, classNames }) => {
 }
 
 export default Svg
-
