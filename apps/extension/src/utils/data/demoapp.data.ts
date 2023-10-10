@@ -45,31 +45,159 @@ export const demoAppData = [
       '{"success":true,"data":[{"id":"0aghPxRzFMblLT8FbTO2","data":{"links":[{"link":"blogs.tiwaripratik.com/","id":"554a819e-b13b-4630-a603-e379bf1b5a01"}],"type":"link","linkTitle":"Blog website"}},{"id":"9aUNJwMmGDM8zvkO9uGM","data":{"type":"folder","links":[{"link":"github.com/pratik-codes","id":"7bd6d535-0b86-471f-b91b-375183141eb6"},{"link":"www.linkedin.com/in/pratiktiwari12/","id":"6eebd80a-e604-4aa5-a428-6971c6f898cc"},{"link":"twitter.com/pratikk_tiwari","id":"d0ab1259-423c-404d-9c13-d5957f034037"}],"linkTitle":"Socials"}},{"id":"PwaoWtYN5ZHZjFkcmQnQ","data":{"linkTitle":"Blogs","links":[{"link":"blogs.tiwaripratik.com/mono-respositories-in-jsts-what-why-and-how-with-nx","id":"2b143e82-ebcd-49db-b275-f5f9ddb6d5dd"},{"link":"blogs.tiwaripratik.com/dive-into-nestjs-and-amplication-a-powerful-framework-for-nodejs-and-an-easy-way-to-build-your-services","id":"e05cab93-9f2f-4183-b64a-d40ffd17e8d1"},{"link":"blogs.tiwaripratik.com/simplifying-google-authentication-with-mv3-and-firebase-for-chrome-extensions-reacttypescript","id":"21dd57e4-4c6f-49d8-a9f4-abe20aa2721a"},{"link":"blogs.tiwaripratik.com/understanding-reacts-ui-rendering-process-understanding-virtual-dom-in-depth","id":"d920528c-df02-4bb8-ba8f-aa31e7089880"},{"link":"blogs.tiwaripratik.com/lets-talk-about-react-performance","id":"490fbd8c-601a-4092-a613-f532d5d77a3e"}],"type":"folder"}},{"id":"sTNk19Xct5oj4FmSgEOj","data":{"linkTitle":"Dashlit Landing Page","type":"link","links":[{"link":"dashlit.com/","id":"dfea0adc-f68f-405d-ad7e-f85c90e58223"}]}},{"id":"ygF0vAYvkyySEpeVchQh","data":{"type":"link","linkTitle":"Portfolio","links":[{"link":"tiwaripratik.com/","id":"492645f8-8fc7-4ce4-8312-d43d58e326ba"}]}}]}'
   },
   {
-    key: "TodoData",
-    value: JSON.stringify([{ "id": "Zc3O7YHSqN4tSmbmLuP4", "data": { "checked": false, "todoName": "Demo todo 1" } }, { "id": "iSdtSYY5Pf2pSDfPPhke", "data": { "checked": false, "todoName": "Demo todo 2 " } }])
+    key: 'TodoData',
+    value: JSON.stringify([
+      {
+        id: 'Zc3O7YHSqN4tSmbmLuP4',
+        data: { checked: false, todoName: 'Demo todo 1' }
+      },
+      {
+        id: 'iSdtSYY5Pf2pSDfPPhke',
+        data: { checked: false, todoName: 'Demo todo 2 ' }
+      }
+    ])
   },
   {
-    key: "background_images",
-    value: JSON.stringify([{ "id": "C7ZQ5WPrFNByvOmCjOJV", "data": { "url": "https://images.unsplash.com/photo-1687817861464-8e25a829b3c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", "name": "", "created_at": 1688801965189 } }, { "id": "z3SgdoG6oi1XNUEZkKCi", "data": { "created_at": 1688822307317, "url": "https://images.unsplash.com/photo-1682687981974-c5ef2111640c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80", "name": "" } }])
+    key: 'background_images',
+    value: JSON.stringify([
+      {
+        id: 'C7ZQ5WPrFNByvOmCjOJV',
+        data: {
+          url: 'https://images.unsplash.com/photo-1687817861464-8e25a829b3c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+          name: '',
+          created_at: 1688801965189
+        }
+      },
+      {
+        id: 'z3SgdoG6oi1XNUEZkKCi',
+        data: {
+          created_at: 1688822307317,
+          url: 'https://images.unsplash.com/photo-1682687981974-c5ef2111640c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80',
+          name: ''
+        }
+      }
+    ])
   },
   {
-    key: "fav_pictures",
-    value: JSON.stringify([{ "id": "z3SgdoG6oi1XNUEZkKCi", "data": { "id": "z3SgdoG6oi1XNUEZkKCi", "url": "https://images.unsplash.com/photo-1682687981974-c5ef2111640c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80", "name": "", "created_at": 1688822307317, "type": "picture" } }])
+    key: 'fav_pictures',
+    value: JSON.stringify([
+      {
+        id: 'z3SgdoG6oi1XNUEZkKCi',
+        data: {
+          id: 'z3SgdoG6oi1XNUEZkKCi',
+          url: 'https://images.unsplash.com/photo-1682687981974-c5ef2111640c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80',
+          name: '',
+          created_at: 1688822307317,
+          type: 'picture'
+        }
+      }
+    ])
   },
   {
-    key: "public_pictures",
-    value: JSON.stringify([{ "id": "Onb0GWkrhk2m6mfm8Lz3", "data": { "url": "https://images.unsplash.com/photo-1542708993627-b6e5bbae43c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80", "created_at": "176253172653", "name": "Fri 15 Sep" } }, { "id": "YyRGvwCrvR9EkYYMn1Jv", "data": { "url": "https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1575&q=80", "name": "5 oct", "create_at": { "seconds": 1664908200, "nanoseconds": 996000000 } } }, { "id": "cDchJuqiGT2mzSrE0lNu", "data": { "created_at": { "seconds": 1654216200, "nanoseconds": 0 }, "name": "Image by: Aiva Apsite", "url": "https://images.unsplash.com/photo-1655669357124-394d107b3aaf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80" } }, { "id": "kZkX1eDFwzdR5jdy8HeA", "data": { "name": "Image by: Elia Pellegrini", "created_at": { "seconds": 1654305240, "nanoseconds": 0 }, "url": "https://images.unsplash.com/photo-1655463223445-7c7cc696fdf8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" } }])
+    key: 'public_pictures',
+    value: JSON.stringify([
+      {
+        id: 'Onb0GWkrhk2m6mfm8Lz3',
+        data: {
+          url: 'https://images.unsplash.com/photo-1542708993627-b6e5bbae43c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80',
+          created_at: '176253172653',
+          name: 'Fri 15 Sep'
+        }
+      },
+      {
+        id: 'YyRGvwCrvR9EkYYMn1Jv',
+        data: {
+          url: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1575&q=80',
+          name: '5 oct',
+          create_at: { seconds: 1664908200, nanoseconds: 996000000 }
+        }
+      },
+      {
+        id: 'cDchJuqiGT2mzSrE0lNu',
+        data: {
+          created_at: { seconds: 1654216200, nanoseconds: 0 },
+          name: 'Image by: Aiva Apsite',
+          url: 'https://images.unsplash.com/photo-1655669357124-394d107b3aaf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80'
+        }
+      },
+      {
+        id: 'kZkX1eDFwzdR5jdy8HeA',
+        data: {
+          name: 'Image by: Elia Pellegrini',
+          created_at: { seconds: 1654305240, nanoseconds: 0 },
+          url: 'https://images.unsplash.com/photo-1655463223445-7c7cc696fdf8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
+        }
+      }
+    ])
   },
   {
-    key: "public_quotes",
-    value: JSON.stringify({ "success": true, "data": [{ "id": "QJ0iI8ybR9rtgWVP4vKN", "data": { "author": "Tyga", "created_at": { "seconds": 1643308200, "nanoseconds": 0 }, "quote": "Hate comes from intimidation, love comes from appreciation." } }, { "id": "quYJIZLvdCW7JW18C5tX", "data": { "quote": "Starting and growing a business is as much about the innovation, drive, and determination of the people behind it as the product they sell.", "author": "Elon Musk", "created_at": { "seconds": 1643221800, "nanoseconds": 0 } } }] })
+    key: 'public_quotes',
+    value: JSON.stringify({
+      success: true,
+      data: [
+        {
+          id: 'QJ0iI8ybR9rtgWVP4vKN',
+          data: {
+            author: 'Tyga',
+            created_at: { seconds: 1643308200, nanoseconds: 0 },
+            quote: 'Hate comes from intimidation, love comes from appreciation.'
+          }
+        },
+        {
+          id: 'quYJIZLvdCW7JW18C5tX',
+          data: {
+            quote:
+              'Starting and growing a business is as much about the innovation, drive, and determination of the people behind it as the product they sell.',
+            author: 'Elon Musk',
+            created_at: { seconds: 1643221800, nanoseconds: 0 }
+          }
+        }
+      ]
+    })
   },
   {
-    key: "my_quotes",
-    value: JSON.stringify({ "data": [{ "id": "sHlf0rNeJ94Gjle1HxVt", "data": { "author": "Naval", "updated_at": { "seconds": 1688844607, "nanoseconds": 337000000 }, "quote": "Wealth buys freedom", "favourite": false } }], "loading": false })
+    key: 'my_quotes',
+    value: JSON.stringify({
+      data: [
+        {
+          id: 'sHlf0rNeJ94Gjle1HxVt',
+          data: {
+            author: 'Naval',
+            updated_at: { seconds: 1688844607, nanoseconds: 337000000 },
+            quote: 'Wealth buys freedom',
+            favourite: false
+          }
+        }
+      ],
+      loading: false
+    })
   },
   {
-    key: "fav_quotes",
-    value: JSON.stringify({ "success": true, "data": [{ "id": "JMpDnmCXSFaiwCd7KD2q", "data": { "quote": "test", "created_at": { "seconds": 1688816195, "nanoseconds": 832000000 }, "author": "test", "id": "JMpDnmCXSFaiwCd7KD2q", "type": "quote" } }, { "id": "QJ0iI8ybR9rtgWVP4vKN", "data": { "author": "Tyga", "created_at": { "seconds": 1688804652, "nanoseconds": 976000000 }, "id": "QJ0iI8ybR9rtgWVP4vKN", "type": "quote", "quote": "Hate comes from intimidation, love comes from appreciation." } }] })
+    key: 'fav_quotes',
+    value: JSON.stringify({
+      success: true,
+      data: [
+        {
+          id: 'JMpDnmCXSFaiwCd7KD2q',
+          data: {
+            quote: 'test',
+            created_at: { seconds: 1688816195, nanoseconds: 832000000 },
+            author: 'test',
+            id: 'JMpDnmCXSFaiwCd7KD2q',
+            type: 'quote'
+          }
+        },
+        {
+          id: 'QJ0iI8ybR9rtgWVP4vKN',
+          data: {
+            author: 'Tyga',
+            created_at: { seconds: 1688804652, nanoseconds: 976000000 },
+            id: 'QJ0iI8ybR9rtgWVP4vKN',
+            type: 'quote',
+            quote: 'Hate comes from intimidation, love comes from appreciation.'
+          }
+        }
+      ]
+    })
   }
 ]

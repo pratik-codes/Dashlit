@@ -26,4 +26,3 @@ const SvgButton: React.FC<Props> = ({ type, position, cta, style }) => {
 }
 
 export default SvgButton
-

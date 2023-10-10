@@ -2,14 +2,14 @@ import {
   USER_SETTINGS_REQUEST,
   USER_SETTINGS_SUCCESS,
   USER_SETTINGS_FAIL
-} from "../Constants/Actions";
+} from '../Constants/Actions'
 
 export type getUserSettingsAction = {
-  type: string;
-  payload: any;
-};
+  type: string
+  payload: any
+}
 
-const settingsInitialState = { settingsInitialState: [] };
+const settingsInitialState = { settingsInitialState: [] }
 
 export const getSettingsReducers = (
   state = settingsInitialState,
@@ -17,12 +17,12 @@ export const getSettingsReducers = (
 ) => {
   switch (action.type) {
     case USER_SETTINGS_REQUEST:
-      return { loading: true };
+      return { loading: true }
     case USER_SETTINGS_SUCCESS:
-      return { loading: false, data: action.payload };
+      return { loading: false, data: action.payload }
     case USER_SETTINGS_FAIL:
-      return { loading: false, error: action.payload };
+      return { loading: false, error: action.payload }
     default:
-      return state;
+      return state
   }
-};
+}

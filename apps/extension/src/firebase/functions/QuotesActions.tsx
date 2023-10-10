@@ -9,21 +9,21 @@ import {
   setDoc,
   updateDoc,
   where
-} from "firebase/firestore";
-import triggerMessage from "../../components/common/SnackBar";
-import { db } from "../firebase-config";
+} from 'firebase/firestore'
+import triggerMessage from '../../components/common/SnackBar'
+import { db } from '../firebase-config'
 
 // global data used in the services
-const userId = localStorage.getItem("user_uid");
+const userId = localStorage.getItem('user_uid')
 // goinig inside userData and inside links
-let docref: any;
-let myQuotesColRef: any;
+let docref: any
+let myQuotesColRef: any
 
 if (userId) {
-  docref = doc(collection(db, "userData"), userId);
-  myQuotesColRef = collection(docref, "my_quotes");
+  docref = doc(collection(db, 'userData'), userId)
+  myQuotesColRef = collection(docref, 'my_quotes')
 } else {
-  console.error("userId is not defined");
+  console.error('userId is not defined')
 }
 
 // ====================== create a my quotes ==============================
@@ -36,13 +36,13 @@ export const addMyQuotesService = async (
   favourite: boolean
 ): Promise<any> => {
   if (!quote) {
-    return { error: "quotes or fav is empty is empty" };
+    return { error: 'quotes or fav is empty is empty' }
   }
   console.log({
     quote: quote,
     author: author,
     favourite: favourite
-  });
+  })
   try {
     if (userId) {
       const res: any = await addDoc(myQuotesColRef, {
@@ -50,35 +50,35 @@ export const addMyQuotesService = async (
         author: author,
         favourite: favourite,
         updated_at: new Date()
-      });
-      console.log(res._key.path.segments[3]);
-      return { success: true };
+      })
+      console.log(res._key.path.segments[3])
+      return { success: true }
     }
   } catch (error: any) {
-    return { error: error.message };
+    return { error: error.message }
   }
-};
+}
 
 // // ====================== get user my quotes ==============================
 
 // basic get function to get all user my quotes
 export const getMyQuotesService = async (): Promise<any> => {
   try {
-    const querySnapshot = await getDocs(myQuotesColRef);
-    const resData: any = [];
-    querySnapshot.forEach(doc => {
+    const querySnapshot = await getDocs(myQuotesColRef)
+    const resData: any = []
+    querySnapshot.forEach((doc) => {
       const data = {
         id: doc.id,
         data: doc.data()
-      };
-      resData.push(data);
-    });
+      }
+      resData.push(data)
+    })
 
-    return { success: true, data: resData };
+    return { success: true, data: resData }
   } catch (error: any) {
-    return { error: error.message };
+    return { error: error.message }
   }
-};
+}
 
 // // ====================== update user my quotes ==============================
 
@@ -86,71 +86,71 @@ export const getMyQuotesService = async (): Promise<any> => {
 export const updateMyQuotesService = async (
   id: string,
   data: {
-    quote: string;
-    author: string;
-    favourite: boolean;
+    quote: string
+    author: string
+    favourite: boolean
   },
-  type = "my_quotes"
+  type = 'my_quotes'
 ): Promise<any> => {
-  console.log(data);
+  console.log(data)
   try {
-    const linksDocRef = doc(myQuotesColRef, id);
-    await updateDoc(linksDocRef, data);
+    const linksDocRef = doc(myQuotesColRef, id)
+    await updateDoc(linksDocRef, data)
   } catch (err: any) {
-    return { error: err.message };
+    return { error: err.message }
   }
-};
+}
 
 // // ====================== delete user my quotes ==============================
 
 // basic delete api to delete user my quotes
 export const deleteMyQuotesService = async (id: string): Promise<any> => {
   if (!id) {
-    console.log("user not found while deleteing link");
+    console.log('user not found while deleteing link')
   }
   try {
-    const docref = doc(myQuotesColRef, id);
-    await deleteDoc(docref);
-    return { success: true };
+    const docref = doc(myQuotesColRef, id)
+    await deleteDoc(docref)
+    return { success: true }
   } catch (err: any) {
-    return { error: err.message };
+    return { error: err.message }
   }
-};
+}
 
 // // ====================== get all public quotes ==============================
 
 // going inside userData and inside links
-let publicQuotesRef: any;
-let allQuotes: any;
+let publicQuotesRef: any
+let allQuotes: any
 if (userId) {
-  publicQuotesRef = doc(collection(db, "Admin"), "public_quotes");
-  allQuotes = collection(publicQuotesRef, "quotes");
+  publicQuotesRef = doc(collection(db, 'Admin'), 'public_quotes')
+  allQuotes = collection(publicQuotesRef, 'quotes')
 } else {
-  console.error("userId is not defined");
+  console.error('userId is not defined')
 }
 
 export const getAllPublicQuotesService = async (): Promise<any> => {
   try {
-    const querySnapshot = await getDocs(allQuotes);
-    const resData: any = [];
-    querySnapshot.forEach(doc => {
+    const querySnapshot = await getDocs(allQuotes)
+    const resData: any = []
+    querySnapshot.forEach((doc) => {
       const data = {
         id: doc.id,
         data: doc.data()
-      };
-      resData.push(data);
-    });
+      }
+      resData.push(data)
+    })
 
-    return { success: true, data: resData };
+    return { success: true, data: resData }
   } catch (error: any) {
-    return { error: error.message };
+    return { error: error.message }
   }
-};
+}
 
 // // ====================== add a quote my quote fav  ==============================
 
-let FavColRef: any;
-if (userId) FavColRef = collection(docref, "favorite");
+let FavColRef: any
+if (userId) FavColRef = collection(docref, 'favorite')
 
 // basic post function
 // function to add my quotes to the database
@@ -160,88 +160,88 @@ export const addFavoriteService = async (
   author: string
 ): Promise<any> => {
   try {
-    const isPresent = await checkIfPresentInFav(id);
+    const isPresent = await checkIfPresentInFav(id)
 
     if (isPresent) {
-      console.log("already present");
+      console.log('already present')
       triggerMessage(
-        "This quote is already present in your favorite list.",
-        "fail"
-      );
+        'This quote is already present in your favorite list.',
+        'fail'
+      )
     } else {
       setDoc(doc(FavColRef, id), {
         id: id,
         quote: quote,
         author: author,
-        type: "quote",
+        type: 'quote',
         created_at: new Date()
-      });
-      triggerMessage("Quote added to favourite.", "success");
+      })
+      triggerMessage('Quote added to favourite.', 'success')
     }
   } catch (error: any) {
-    return { error: error.message };
+    return { error: error.message }
   }
-};
+}
 
 export const editFavoriteService = async (
   id: string,
   quote: string
 ): Promise<any> => {
   try {
-    const isPresent = await checkIfPresentInFav(id);
-    console.log(isPresent);
+    const isPresent = await checkIfPresentInFav(id)
+    console.log(isPresent)
     if (isPresent) {
       setDoc(doc(FavColRef, id), {
         id: id,
         quote: quote,
-        type: "quote",
+        type: 'quote',
         updated_at: new Date()
-      });
+      })
     }
   } catch (error: any) {
-    return { error: error.message };
+    return { error: error.message }
   }
-};
+}
 
 export const deleteFavoriteService = async (id: string): Promise<any> => {
   try {
-    const docref = doc(FavColRef, id);
-    await deleteDoc(docref);
-    return { success: true };
+    const docref = doc(FavColRef, id)
+    await deleteDoc(docref)
+    return { success: true }
   } catch (err: any) {
-    return { error: err.message };
+    return { error: err.message }
   }
-};
+}
 
 export const getFavouriteService = async (): Promise<any> => {
   try {
-    const querySnapshot = await query(FavColRef, where("type", "==", "quote"));
-    const quoteData = await getDocs(querySnapshot);
-    const resData: any = [];
-    quoteData.forEach(doc => {
+    const querySnapshot = await query(FavColRef, where('type', '==', 'quote'))
+    const quoteData = await getDocs(querySnapshot)
+    const resData: any = []
+    quoteData.forEach((doc) => {
       const data = {
         id: doc.id,
         data: doc.data()
-      };
-      resData.push(data);
-    });
+      }
+      resData.push(data)
+    })
 
-    return { success: true, data: resData };
+    return { success: true, data: resData }
   } catch (error: any) {
-    return { error: error.message };
+    return { error: error.message }
   }
-};
+}
 
 export const checkIfPresentInFav = async (id: string): Promise<any> => {
-  const docRef = doc(FavColRef, id);
-  let present = false;
+  const docRef = doc(FavColRef, id)
+  let present = false
   try {
-    const doc = await getDoc(docRef);
+    const doc = await getDoc(docRef)
     if (doc.exists()) {
-      present = true;
+      present = true
     }
   } catch (error: any) {
-    console.log(error);
+    console.log(error)
   }
-  return present;
-};
+  return present
+}

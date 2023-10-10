@@ -40,20 +40,14 @@ export const buttonClasses = cva(
       variant: "primary",
       size: "medium",
     },
-  }
+  },
 );
 
 export const IconWrapper = ({ children }: { children: React.ReactNode }) => (
   <span className="icon-wrapper">{children}</span>
 );
 
-export const Button = ({
-  children,
-  href,
-  variant,
-  size,
-  ...props
-}: any) => {
+export const Button = ({ children, href, variant, size, ...props }: any) => {
   return (
     <Link
       {...props}

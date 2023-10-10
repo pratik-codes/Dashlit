@@ -2,14 +2,14 @@ import {
   USER_TODO_FAIL,
   USER_TODO_REQUEST,
   USER_TODO_SUCCESS
-} from "../Constants/Todo.constants";
+} from '../Constants/Todo.constants'
 
 export type getTodoAction = {
-  type: string;
-  payload: any;
-};
+  type: string
+  payload: any
+}
 
-const TodoInitialState = { TodoInitialState: [] };
+const TodoInitialState = { TodoInitialState: [] }
 
 export const getTodoReducers = (
   state = TodoInitialState,
@@ -17,13 +17,13 @@ export const getTodoReducers = (
 ) => {
   switch (action.type) {
     case USER_TODO_REQUEST:
-      return { loading: true };
+      return { loading: true }
     case USER_TODO_SUCCESS:
-      localStorage.setItem("TodoData", JSON.stringify(action.payload));
-      return { loading: false, data: action.payload };
+      localStorage.setItem('TodoData', JSON.stringify(action.payload))
+      return { loading: false, data: action.payload }
     case USER_TODO_FAIL:
-      return { loading: false, error: action.payload };
+      return { loading: false, error: action.payload }
     default:
-      return state;
+      return state
   }
-};
+}

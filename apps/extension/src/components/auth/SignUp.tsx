@@ -108,4 +108,3 @@ const SignUp: React.FC<signUpProps> = ({ setActiveView }) => {
 }
 
 export default SignUp
-

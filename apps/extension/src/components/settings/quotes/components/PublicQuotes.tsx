@@ -1,10 +1,10 @@
-import { data } from "autoprefixer";
-import React from "react";
-import Loader from "../../../common/Loader";
-import QuotesComponents from "./QuotesComponents";
+import { data } from 'autoprefixer'
+import React from 'react'
+import Loader from '../../../common/Loader'
+import QuotesComponents from './QuotesComponents'
 
 interface Props {
-  publicQuotesData: any;
+  publicQuotesData: any
 }
 
 const PublicQuotes: React.FC<Props> = ({ publicQuotesData }) => {
@@ -24,14 +24,14 @@ const PublicQuotes: React.FC<Props> = ({ publicQuotesData }) => {
                   getFavourites={undefined}
                 />
               </div>
-            );
+            )
           })
         ) : (
           <Loader />
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PublicQuotes;
+export default PublicQuotes

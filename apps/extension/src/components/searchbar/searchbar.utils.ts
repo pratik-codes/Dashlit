@@ -1,15 +1,15 @@
-import { SearchItem } from "./SearchItem";
+import { SearchItem } from './SearchItem'
 
 export const getOptionsValue = (data: any) => {
- const options: any = [];
+  const options: any = []
   data?.forEach((link: any) => {
-    const { data } = link;
+    const { data } = link
     options.push({
       label: SearchItem(data),
       value: data.linkTitle,
       link: data,
       key: data.id
-    });
-  });
-  return options;
-};
+    })
+  })
+  return options
+}

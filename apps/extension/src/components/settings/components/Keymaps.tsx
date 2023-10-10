@@ -15,8 +15,10 @@ const SingleKeyMap = ({
   keyMapName,
   metaKeys,
   triggerKeys,
-  icon
+  icon,
+  desc
 }: {
+  desc: string
   icon: string
   keyMapName: string
   metaKeys: Array<{ name: string; sign: string }>
@@ -24,14 +26,17 @@ const SingleKeyMap = ({
 }) => {
   return (
     <div className="flex w-full h-full">
-      <div className="w-full space-y-6  px-4 py-6 m-2 rounded-xl bg-transparent-white">
-        <div className="flex justify-center space-x-2">
-          <div className="flex justify-center mt-1">
+      <div className="w-full space-y-8  px-4 py-6 m-2 rounded-xl bg-transparent-white">
+        <div className="flex space-x-2 items-center">
+          <div className="flex justify-center mt-1 rounded-full p-3 border border-grey1">
             <Svg type={icon} />
           </div>
-          <div className="text-center text-xl font-bold">{keyMapName}</div>
+          <div>
+            <div className="text-xl font-bold">{keyMapName}</div>
+            <div className="text-whtie">{desc}</div>
+          </div>
         </div>
-        <div className="space-y-4 mb-4 pb-4 text-center">
+        <div className="space-y-4 mb-4 pb-4">
           {metaKeys.map((metaKey) => (
             <SwitchPill text={metaKey.name} sign={metaKey.sign} />
           ))}
@@ -48,6 +53,7 @@ const SingleKeyMap = ({
 const KeymapsData = [
   {
     name: 'Open Searchbar',
+    desc: 'Open the searchbar to search for your bookmarks.',
     icon: 'search',
     metaKeys: [
       { name: 'CTRL', sign: '/' },
@@ -61,6 +67,7 @@ const KeymapsData = [
   },
   {
     name: 'Open Links',
+    desc: "Open the links you've saved.",
     icon: 'link',
     metaKeys: [
       { name: 'CTRL', sign: '/' },
@@ -71,6 +78,7 @@ const KeymapsData = [
   },
   {
     name: 'Open Todo',
+    desc: 'Open the todo list.',
     icon: 'todo',
     metaKeys: [
       { name: 'CTRL', sign: '/' },
@@ -81,6 +89,7 @@ const KeymapsData = [
   },
   {
     name: 'Open Settings',
+    desc: 'Open the settings panel.',
     icon: 'settings',
     metaKeys: [
       { name: 'CTRL', sign: '/' },
@@ -102,6 +111,7 @@ const Keymaps = () => {
       <div className="grid grid-cols-2 gap-2 w-full mt-4">
         {KeymapsData.map((keymap) => (
           <SingleKeyMap
+            desc={keymap.desc}
             icon={keymap.icon}
             keyMapName={keymap.name}
             metaKeys={keymap.metaKeys}

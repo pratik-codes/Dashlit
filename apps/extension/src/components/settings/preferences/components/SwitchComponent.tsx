@@ -1,9 +1,9 @@
-import { Switch } from "antd";
-import React from "react";
+import { Switch } from 'antd'
+import React from 'react'
 
 interface Props {
-  enabled: boolean;
-  setEnabled: any;
+  enabled: boolean
+  setEnabled: any
 }
 
 const SwitchComponent: React.FC<Props> = ({ enabled, setEnabled }) => {
@@ -17,7 +17,7 @@ const SwitchComponent: React.FC<Props> = ({ enabled, setEnabled }) => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SwitchComponent;
+export default SwitchComponent

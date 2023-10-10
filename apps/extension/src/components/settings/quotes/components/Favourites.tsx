@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
-import Loader from "../../../common/Loader";
-import QuotesComponents from "./QuotesComponents";
+import React, { useEffect } from 'react'
+import Loader from '../../../common/Loader'
+import QuotesComponents from './QuotesComponents'
 
 interface Props {
-  favQuotesData: any;
-  getFavQuotes: any;
+  favQuotesData: any
+  getFavQuotes: any
 }
 
 const Favourites: React.FC<Props> = ({ getFavQuotes, favQuotesData }) => {
   useEffect(() => {
-    getFavQuotes();
-  }, [getFavQuotes]);
+    getFavQuotes()
+  }, [getFavQuotes])
 
   return (
     <div className="w-full p-2 m-2">
@@ -28,7 +28,7 @@ const Favourites: React.FC<Props> = ({ getFavQuotes, favQuotesData }) => {
                   getFavourites={getFavQuotes}
                 />
               </div>
-            );
+            )
           })
         ) : (
           <Loader />
@@ -45,7 +45,7 @@ const Favourites: React.FC<Props> = ({ getFavQuotes, favQuotesData }) => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Favourites;
+export default Favourites
