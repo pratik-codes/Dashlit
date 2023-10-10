@@ -27,10 +27,10 @@ const Home = () => {
   const [openDialog, setOpenDialog] = useState(false)
   const [openSearchBar, setOpenSearchBar] = useState(false)
   const [openSettings, setOpenSettings] = useState(false)
-  const [openTasks, setOpenTasks] = useState(false)
+const [openTasks, setOpenTasks] = useState(false)
   const [userSettings, setUserSettings] = useState<any>()
 
-  const dispatch = useDispatch()
+  const dispatch: any = useDispatch()
 
   // gather all the data
   const userData = () => dispatch(getSettingsList())

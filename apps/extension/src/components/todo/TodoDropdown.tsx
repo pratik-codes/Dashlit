@@ -29,7 +29,7 @@ const TodoDropdown = ({
     { loading: false, data: JSON.parse(TodoDataLocalStorage || '{}') } ||
     TodoDataRedux
 
-  const dispatch = useDispatch()
+  const dispatch: any = useDispatch()
 
   const addTodoHandler = () => {
     addTodoService(addTodoValue)

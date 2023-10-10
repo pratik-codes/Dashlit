@@ -25,7 +25,7 @@ const AddNewLinkDialog: React.FC<Props> = ({
   const [linkTitle, setLinkTitle] = useState('')
   const [links, setLinks] = useState([{ link: '', id: uuidv4() }])
 
-  const dispatch = useDispatch()
+  const dispatch: any = useDispatch()
 
   const cleanUpHandler = () => {
     closeModal()

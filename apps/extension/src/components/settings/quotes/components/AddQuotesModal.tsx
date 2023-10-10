@@ -35,7 +35,7 @@ const AddQuotesModal: React.FC<Props> = ({
   const [quotes, setQuotes] = useState('')
   const [author, setAuthor] = useState('')
 
-  const dispatch = useDispatch()
+  const dispatch: any = useDispatch()
 
   const addQuoteHandler = async () => {
     if (type === 'add') {

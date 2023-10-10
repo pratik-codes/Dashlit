@@ -24,7 +24,7 @@ const QuotesTabs = () => {
     (state: RootStore) => state.myQuotesData
   )
 
-  const dispatch = useDispatch()
+  const dispatch: any = useDispatch()
 
   const getPublicQuotes = async () => {
     const res = await getAllPublicQuotesService()
