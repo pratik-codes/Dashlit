@@ -17,11 +17,7 @@ interface Props {
   openModal: any
 }
 
-const AddNewLinkDialog: React.FC<Props> = ({
-  isOpen,
-  closeModal,
-  openModal
-}) => {
+const AddNewLinkDialog: React.FC<Props> = ({ isOpen, closeModal }) => {
   const [linkTitle, setLinkTitle] = useState('')
   const [links, setLinks] = useState([{ link: '', id: uuidv4() }])
 
@@ -34,6 +30,12 @@ const AddNewLinkDialog: React.FC<Props> = ({
   }
 
   const addHandler = async () => {
+    console.log({ links }, links[0], links[0]?.link === '')
+    if (links[0]?.link === '') {
+      console.log('inside')
+      triggerMessage('Please add a link', 'fail')
+      return
+    }
     setLinkTitle('')
     addLinksService(linkTitle, links, `${links.length > 1 ? 'folder' : 'link'}`)
     triggerMessage('Link added successfully', 'success')
@@ -117,7 +119,6 @@ const AddNewLinkDialog: React.FC<Props> = ({
 
         <div className="flex mt-4 space-x-2">
           <Button
-            disabled={!(linkTitle.length > 0 && links[0]?.link?.length > 0)}
             className="focus:outline-none"
             checkForDemoApp={true}
             onClick={() => {

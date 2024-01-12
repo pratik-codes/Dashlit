@@ -7,6 +7,9 @@
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
+  "background": {
+    "service_worker": "./background/bookmarks.js"
+  },
   "icons": {
     "16": "d.png",
     "48": "d.png",

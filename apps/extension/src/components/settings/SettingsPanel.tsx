@@ -50,12 +50,16 @@ const SettingsPanel: React.FC<{
             tabs={tabsComponentData}
             onClick={(data: string) => setCurrentTab(data)}
           />
-          <Button onClick={() =>
-            mutateDataHandler(() => {
-              logoutHandler()
-              window.location.reload()
-            })
-          } type="shadow" className="flex space-x-2 items-center mb-2">
+          <Button
+            type="shadow"
+            onClick={() =>
+              mutateDataHandler(() => {
+                logoutHandler()
+                window.location.reload()
+              })
+            }
+            className="flex space-x-2 items-center mb-2"
+          >
             <Svg type="logout" />
             Logout
           </Button>

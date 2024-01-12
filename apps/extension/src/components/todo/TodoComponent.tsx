@@ -108,6 +108,7 @@ const TodoComponent: React.FC<todo> = ({ todoId, todoName, checked }) => {
                   Edit
                 </h6>
                 <Popconfirm
+                  placement="left"
                   title="Are you sure to delete this todo?"
                   onConfirm={() => mutateDataHandler(deleteHandler)}
                   okText="Yes"

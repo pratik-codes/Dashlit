@@ -55,7 +55,7 @@ const Google = ({ settingsData, show }: any) => {
     return (
       <div className="my-4 absolute right-0 top-0 m-4">
         <Button
-          onClick={async () => await getData(true)}
+          onClick={async () => await getData(false)}
           type="secondary"
           className="flex items-center space-x-2"
         >

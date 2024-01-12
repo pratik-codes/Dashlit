@@ -9,6 +9,15 @@ import SvgButton from '../common/button/SvgButton'
 import AddNewLinkDialog from './AddNewLinkDialog'
 import LinkComponent from './LinkComponent'
 
+const fetchBookmarks = async () => {
+  console.log('fetching bookmarks...')
+  chrome.runtime.onMessage.addListener((message) => {
+    if (message.type === 'fetchBookmarks') {
+      console.log({ message })
+    }
+  })
+}
+
 const LinksDropdown: React.FC<{
   openDialog: boolean
   setOpenDialog: (openDialog: boolean) => void
@@ -34,16 +43,19 @@ const LinksDropdown: React.FC<{
     setIsOpen(true)
   }
 
-  const dropDownContainerStyles = {
-    minWidth: '24rem',
-    minHeight: '10rem',
-    maxHeight: '65vh',
-    overflowY: 'auto',
-    overflowX: 'hidden'
-  }
-
   useEffect(() => {
     if (inputRef && openDialog) inputRef?.current?.focus(), 1000
+    fetchBookmarks()
+  }, [openDialog])
+
+  useEffect(() => {
+    if (openDialog) {
+      animate(
+        '.link-dropdown',
+        { y: 50, fillOpacity: 1 },
+        { delay: stagger(0.1), type: 'spring', damping: 25, stiffness: 500 }
+      )
+    }
   }, [openDialog])
 
   return (
@@ -52,7 +64,7 @@ const LinksDropdown: React.FC<{
         <SvgButton type="link" position="top-0 left-0" cta="Links" />
       </div>
       {openDialog && (
-        <div className="dropdown-menu ml-4 mt-12 pt-4 text-white">
+        <div className="dropdown-menu link-dropdown ml-4 pt-4 text-white">
           <ul className={`rounded-t-common bg-black`}>
             <div className="align-center flex justify-center">
               <div className="px-3 my-1 w-full">
@@ -131,7 +143,7 @@ const LinksDropdown: React.FC<{
           </ul>
           <div
             onClick={() => openModal()}
-            className={`absolute w-[96%] cursor-pointer flex py-3 px-2 rounded-b-common bg-grey2 hover:bg-grey1`}
+            className={`absolute w-full cursor-pointer flex py-3 px-2 rounded-b-common bg-grey2 hover:bg-grey1`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

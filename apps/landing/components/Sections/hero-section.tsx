@@ -4,7 +4,6 @@ import { Button, buttonClasses, IconWrapper } from "../button";
 import { Hero, HeroSubtitle, HeroTitle } from "../hero";
 import { ChevronIcon } from "../icons/chevron";
 import { GithubIcon } from "../icons/github";
-import Icons from "../icons/Icons";
 
 const HeroSection = () => {
   return (
@@ -15,7 +14,7 @@ const HeroSection = () => {
           size: "medium",
         })}
       >
-        Lifetime free for all beta users. Get Dashlit now!
+        Limited time free. Get Dashlit now!
       </span>
       <HeroTitle className="translate-y-[-1rem] animate-fade-in  pb-6 opacity-0 [--animation-delay:200ms]">
         An open source productivity extension for your browser.
