@@ -39,7 +39,7 @@ export const Footer = () => (
           <div className="flex items-center text-grey">
             <img
               className="mr-4 w-10 h-10 drop-shadow-2xl shadow-2xl rounded-2xl"
-              src={"/logo-black.png"}
+              src={"/logo-white.png"}
             />
             Dashlit - the modern browser dashboard
           </div>

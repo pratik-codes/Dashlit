@@ -21,7 +21,7 @@ export const Header = () => {
         <Link className="flex items-center text-xl font-bold" href="/">
           <img
             className="mr-4 w-8 h-8 drop-shadow-2xl shadow-2xl rounded-2xl"
-            src={"/logo-black.png"}
+            src={"/logo-white.png"}
           />
           Dashlit
         </Link>

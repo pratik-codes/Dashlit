@@ -1,6 +1,6 @@
 <div align="center">
 
-![Dashlit Logo](https://github.com/pratik-codes/Dashlit/blob/monorepo-migration/apps/landing/public/logo-black.png)
+![Dashlit Logo](https://github.com/pratik-codes/Dashlit/blob/monorepo-migration/apps/landing/public/logo-white.png)
 
 ### Dashlit - [Demo Extension](https://demo.dashlit.com/)
 
