@@ -8,10 +8,12 @@ export const SearchItem = ({ linkTitle, links, type }: any) => {
         <BookmarkIcons url={links} type={type} />
         <div className="text-white text-lg font-bold">{linkTitle}</div>
       </div>
-
-      <div className="text-white flex justify-end">
-        <EditDeleteLink link={{ title: linkTitle, url: links, type }} />
-      </div>
     </div>
   )
 }
+
+//
+// <div className="text-white flex justify-end">
+//   <EditDeleteLink link={{ title: linkTitle, url: links, type }} />
+// </div>
+//

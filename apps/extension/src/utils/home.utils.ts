@@ -10,7 +10,7 @@ export function startTime(setClockTimer: any, setDate: any) {
   hr = checkTime(hr)
   min = checkTime(min)
   sec = checkTime(sec)
-  setClockTimer(hr + ':' + min + ':' + sec + ' ')
+  setClockTimer(hr + ':' + min)
 
   const months = [
     'JANUARY',
@@ -26,6 +26,7 @@ export function startTime(setClockTimer: any, setDate: any) {
     'NOVEMBER',
     'DECEMBER'
   ]
+
   const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
   const curWeekDay = days[today.getDay()]
   const curDay = today.getDate()

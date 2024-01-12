@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import flames from '../assets/images/flames.jpg'
 import SignIn from '../components/auth/SignIn'
 import SignUp from '../components/auth/SignUp'
-import logo from '../../public/d.png'
+import logo from '../../public/d-white.png'
 
 interface AuthProps {
   path: string
@@ -20,7 +20,7 @@ const Auth: React.FC = () => {
         <div className="w-5/12 my-auto">
           <div className="w-8/12 mx-auto">
             <div className="flex align-center space-x-2 items-center">
-              <img className="mb-1" src={logo} height={25} width={25} />
+              <img className="rounded-lg" src={logo} height={25} width={25} />
               <h1 className="text-2xl text-white font-mono font-bold">
                 Dashlit
               </h1>

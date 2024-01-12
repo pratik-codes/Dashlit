@@ -13,7 +13,11 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      external: [/^chrome$/]
+      output: {
+        dir: 'dist',
+        entryFileNames: 'background/bookmarks.js',
+        format: 'iife'
+      }
     }
   }
 })

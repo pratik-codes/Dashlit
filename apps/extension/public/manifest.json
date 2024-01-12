@@ -7,10 +7,13 @@
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
+  "background": {
+    "service_worker": "./background/bookmarks.js"
+  },
   "icons": {
-    "16": "d.png",
-    "48": "d.png",
-    "128": "d.png"
+    "16": "d-white.png",
+    "48": "d-white.png",
+    "128": "d-white.png"
   },
   "permissions": [
     "http://localhost/*",

@@ -79,7 +79,10 @@ const EditLinkDialog: React.FC<Props> = ({
 
   return (
     <ModalComponent isOpen={isOpen} onClose={closeModal} title="Edit link">
-      <div className="border-gray-900 shadow-xl inline-block w-full overflow-hidden rounded-[15px] border-0 text-left align-middle transition-all">
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="border-gray-900 shadow-xl inline-block w-full overflow-hidden rounded-[15px] border-0 text-left align-middle transition-all"
+      >
         <div className="mt-2">
           <InputComponent
             value={title}

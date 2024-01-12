@@ -76,7 +76,7 @@ const JoinWaitListSection = () => {
             </div>
             <div className="mb-4 text-center text-lg text-grey">
               by signing up for dashlit now you will be a beta tester and get
-              dashlit access for lifetime!
+              dashlit access for free!
             </div>
             <div className="flex justify-center space-x-1">
               <Button
