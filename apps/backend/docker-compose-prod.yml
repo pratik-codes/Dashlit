@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  postgres_db:
+    container_name: core_pg_db
+    image: postgres:13-alpine
+    environment:
+      - POSTGRES_USER=${MASTER_DB_USER}
+      - POSTGRES_PASSWORD=${MASTER_DB_PASSWORD}
+      - POSTGRES_DB=${MASTER_DB_NAME}
+    volumes:
+      - prod_postgres_data:/var/lib/postgresql/data/
+    restart: always
+
+  server:
+    container_name: go_server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    depends_on:
+      - postgres_db
+    links:
+      - postgres_db:postgres_db
+    restart: on-failure
+
+volumes:
+  prod_postgres_data:

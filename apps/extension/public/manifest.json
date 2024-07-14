@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Dashlit",
+  "author": "Pratik Tiwari",
+  "version": "1.0.5",
+  "description": "An open source browser productivity extension, makes the browser experience 100x.",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "background": {
+    "service_worker": "./background/bookmarks.js"
+  },
+  "icons": {
+    "16": "d-white.png",
+    "48": "d-white.png",
+    "128": "d-white.png"
+  },
+  "permissions": [
+    "http://localhost/*",
+    "identity",
+    "identity.email",
+    "https://www.googleapis.com/*",
+    "https://www.googleapis.com/auth/calendar.readonly"
+  ],
+  "oauth2": {
+    "client_id": "172185571230-dsvi02qegh6oqipfkmg2kqc8j629lt4c.apps.googleusercontent.com",
+    "scopes": [
+      "openid",
+      "email",
+      "profile",
+      "https://www.googleapis.com/auth/userinfo.email"
+    ]
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzme7OlW8N2vE/iuKQKXIk/f/C1klySdCl50WarOiolWLkPaAQhosKvDfEw3A4vNGJua/kYBZDd2s/Koe0qgyXZDFbplThQHCiksQSlDoPMC+egiuoWH6MdSvfcncWXoehQIj3gDyMnamo7DtoIyulDrG02cCbosUYxjDlz7PjQvFHkrap9r7XYJh7j+cEt1K/Nl4L9nGMoa6S4pZcu751kT+sBVtuKHpiVCjnLpPwtcS0+duP9nLm0gmPvRBEpncSmsj5FnHbpkwAqe4YEDxKDmY6m+yPNYfGwvQ2z4Fzn79DlPOrXv+NV1zPhOEU9aR/8HbHSb5gBoKitoamN74PwIDAQAB"
+}

@@ -1,0 +1,56 @@
+.ant-btn {
+  color: white !important;
+  background: none !important;
+  border: none !important;
+  border-radius: 15px !important;
+  outline: none !important;
+  font-weight: bold !important;
+}
+
+.ant-btn:focus {
+  color: white !important;
+  border: none !important;
+  border-radius: 15px !important;
+  outline: none !important;
+  font-weight: bold !important;
+}
+
+.ant-btn:hover {
+  color: white!important;
+  border: none !important;
+  border-radius: 15px !important;
+  outline: none !important;
+  font-weight: bold !important;
+}
+
+.ant-btn:focus {
+  color: white!important;
+  border: none !important;
+  border-radius: 15px !important;
+  outline: none !important;
+  font-weight: bold !important;
+}
+
+.ant-btn-primary {
+  background: #3730a3 !important;
+}
+
+.ant-btn-secondary {
+  background: #181818 !important;
+}
+
+.ant-btn-secondary:hover {
+  background: #282828 !important;
+}
+
+.ant-btn-text:hover {
+  background: #282828 !important;
+}
+
+.ant-bt-shadow:hover {
+  background: transparent !important;
+}
+
+.ant-btn-text:focus {
+  color: #282828 !important;
+}

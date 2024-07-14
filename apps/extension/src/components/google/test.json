@@ -1,0 +1,1727 @@
+{
+  "kind": "calendar#events",
+  "etag": "\"p3249996vr23fu0g\"",
+  "summary": "pratik2018id@gmail.com",
+  "updated": "2023-05-21T15:09:54.325Z",
+  "timeZone": "Asia/Kolkata",
+  "accessRole": "owner",
+  "defaultReminders": [
+    {
+      "method": "popup",
+      "minutes": 30
+    }
+  ],
+  "nextSyncToken": "CIiUpN_Yhv8CEIiUpN_Yhv8CGAUgluyY_AE=",
+  "items": [
+    {
+      "kind": "calendar#event",
+      "etag": "\"3163258982350000\"",
+      "id": "6oojac1j6lgm4b9lc5im4b9k70ojebb274p36b9pclj3gc9k74ojipj1cg",
+      "status": "tentative",
+      "htmlLink": "https://www.google.com/calendar/event?eid=Nm9vamFjMWo2bGdtNGI5bGM1aW00YjlrNzBvamViYjI3NHAzNmI5cGNsajNnYzlrNzRvamlwajFjZyBwcmF0aWsyMDE4aWRAbQ",
+      "created": "2020-02-13T21:31:00.000Z",
+      "updated": "2020-02-13T21:31:31.175Z",
+      "summary": "UINXT MEETUP",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "start": {
+        "dateTime": "2020-02-22T09:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2020-02-22T14:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "6oojac1j6lgm4b9lc5im4b9k70ojebb274p36b9pclj3gc9k74ojipj1cg@google.com",
+      "sequence": 1,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3246511693538000\"",
+      "id": "4m3ncp1mfkvc27r8lt9m7m6ff3",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=NG0zbmNwMW1ma3ZjMjdyOGx0OW03bTZmZjMgcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-06-09T16:24:06.000Z",
+      "updated": "2021-06-09T16:24:06.769Z",
+      "summary": "Visit Kotak ",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "start": {
+        "dateTime": "2021-06-10T15:30:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-06-10T16:30:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "4m3ncp1mfkvc27r8lt9m7m6ff3@google.com",
+      "sequence": 0,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3295397139756000\"",
+      "id": "4orgiaqm97di34j2rolee5dgkk",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=NG9yZ2lhcW05N2RpMzRqMnJvbGVlNWRna2sgcHJhdGlrMjAxOGlkQG0",
+      "created": "2022-03-19T14:02:48.000Z",
+      "updated": "2022-03-19T14:02:49.878Z",
+      "summary": "Pratik Tiwari and Hrishikesh Suslade",
+      "description": "Event Name: 15 Minute Meeting\n\nLocation: This is a Zoom web conference.\n\nYou can join this meeting from your computer, tablet, or smartphone.\nhttps://us04web.zoom.us/j/73590952218?pwd=jF0dfa471BR72m4A669vB6HKuYzSAc.1\n\nPassword: AF3nck\n\nPlease share anything that will help prepare for our meeting.: I am a software developer with a exp of 1.5 year working in a good startup. I want to move to usa/canada i am looking for opportunities abroad and preparing for faang like companies or good strrups like coinbase and etc. I dont have a mentor or someone to share my progress and how should i go about my life forward hence looking forward to this session.\n\nNeed to make changes to this event?\nCancel: https://calendly.com/cancellations/79bf1be8-dc7e-49bf-8921-2dcff184f208\nReschedule: https://calendly.com/reschedulings/79bf1be8-dc7e-49bf-8921-2dcff184f208\n\nPowered by Calendly.com\n",
+      "location": "https://us04web.zoom.us/j/73590952218?pwd=jF0dfa471BR72m4A669vB6HKuYzSAc.1",
+      "creator": {
+        "email": "hrishi.suslade84@gmail.com"
+      },
+      "organizer": {
+        "email": "hrishi.suslade84@gmail.com"
+      },
+      "start": {
+        "dateTime": "2022-04-03T18:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2022-04-03T18:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "4orgiaqm97di34j2rolee5dgkk@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "hrishi.suslade84@gmail.com",
+          "organizer": true,
+          "responseStatus": "accepted"
+        },
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3307478763254000\"",
+      "id": "g1rv7qr8j6rc7kokq6lv8plroc",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=ZzFydjdxcjhqNnJjN2tva3E2bHY4cGxyb2MgcHJhdGlrMjAxOGlkQG0",
+      "created": "2022-05-26T01:55:02.000Z",
+      "updated": "2022-05-28T12:03:01.627Z",
+      "summary": "Counselling Session | Leap Scholar",
+      "description": "Attend this session and get following benefits:\n1. Live Q&A with an expert counsellor\n2. Get University Shortlist\n3. Free Profile Evaluation\n \nLink for the counselling session : https://leapscholar.com/spot-counselling/join-redirect?batch_id=18953&utm_term=calendar_invite&utm_source=calendar_invite",
+      "creator": {
+        "email": "salma.a@leapfinance.com"
+      },
+      "organizer": {
+        "email": "salma.a@leapfinance.com"
+      },
+      "start": {
+        "dateTime": "2022-05-28T18:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2022-05-28T19:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "g1rv7qr8j6rc7kokq6lv8plroc@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "needsAction"
+        }
+      ],
+      "guestsCanSeeOtherGuests": false,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3307518252252000\"",
+      "id": "_6tlnaqrle5p6cpb4dhmj4phpehijisj1d8s74qrkdhi6me3ad5gmae9g6hq6etjc6hj7acbg75mjie3dc5o70s1h60sj2rjbe5ij0priclkj0",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=XzZ0bG5hcXJsZTVwNmNwYjRkaG1qNHBocGVoaWppc2oxZDhzNzRxcmtkaGk2bWUzYWQ1Z21hZTlnNmhxNmV0amM2aGo3YWNiZzc1bWppZTNkYzVvNzBzMWg2MHNqMnJqYmU1aWowcHJpY2xrajAgcHJhdGlrMjAxOGlkQG0",
+      "created": "2022-05-28T16:45:19.000Z",
+      "updated": "2022-05-28T18:18:53.000Z",
+      "summary": "Flight to Bengaluru (6E 5034)",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. https://mail.google.com/mail?extsrc=cal&plid=ACUX6DMpGDXEd4FsXxs0iBpYugEAzASLJvTKFJk\n",
+      "location": "Surat STV",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com"
+      },
+      "start": {
+        "dateTime": "2022-05-30T19:25:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2022-05-30T21:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "transparency": "transparent",
+      "visibility": "private",
+      "iCalUID": "7kukuqrfedlm2f9te9raj8rktldk8jiae904tgvl4fu1p9m98mappp1091nkqe0grei0",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "guestsCanInviteOthers": false,
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": false
+      },
+      "source": {
+        "url": "https://mail.google.com/mail?extsrc=cal&plid=ACUX6DMpGDXEd4FsXxs0iBpYugEAzASLJvTKFJk",
+        "title": ""
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3307947430722000\"",
+      "id": "rq264egb2bk2qsn66mc2165ji0",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=cnEyNjRlZ2IyYmsycXNuNjZtYzIxNjVqaTAgcHJhdGlrMjAxOGlkQG0",
+      "created": "2022-05-31T05:08:34.000Z",
+      "updated": "2022-05-31T05:08:35.361Z",
+      "summary": "Pratik Tiwari and snehita dey\n",
+      "description": "Agenda:\nCounsellor will discuss shortlisted colleges with you and finalise the list based on your feedback\nMeeting with your counsellor is scheduled for Tue 31 May 22\nJoin the meeting: https://leapfinance.zoom.us/j/82264434668\n\nContact your counsellor: 7378888946\nTo Confirm your meeting: https://leapscholar.com/profile/counselling\nTo Reschedule your meeting: https://leapscholar.com/profile/counselling",
+      "creator": {
+        "email": "snehita.dey@leapfinance.com"
+      },
+      "organizer": {
+        "email": "snehita.dey@leapfinance.com"
+      },
+      "start": {
+        "dateTime": "2022-05-31T11:30:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2022-05-31T12:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "rq264egb2bk2qsn66mc2165ji0@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "needsAction"
+        }
+      ],
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3319727933494000\"",
+      "id": "_6tlnaqrle5p6cpb4dhmj4phpehj34prm6ppm6dj7dtq68sb76or6aor8e5lmudrj75o6uqrecsp68chie4p3apr8e9k6ss9nedqmmqr26di6e",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=XzZ0bG5hcXJsZTVwNmNwYjRkaG1qNHBocGVoajM0cHJtNnBwbTZkajdkdHE2OHNiNzZvcjZhb3I4ZTVsbXVkcmo3NW82dXFyZWNzcDY4Y2hpZTRwM2FwcjhlOWs2c3M5bmVkcW1tcXIyNmRpNmUgcHJhdGlrMjAxOGlkQG0",
+      "created": "2022-08-07T09:19:26.000Z",
+      "updated": "2022-08-07T09:19:26.798Z",
+      "summary": "Flight to New Delhi (6E 2752)",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. https://mail.google.com/mail?extsrc=cal&plid=ACUX6DM0PWRDgVrLTeXD2BX2rNxYieHHxWctqWY\n",
+      "location": "Chennai MAA",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com"
+      },
+      "start": {
+        "dateTime": "2022-08-07T19:35:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2022-08-07T22:25:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "transparency": "transparent",
+      "visibility": "private",
+      "iCalUID": "7kukuqrfedlm2f9tf2gv6sc6gotdqg66echqko7s9pokng2d22q25ghrhnq7sukkb3dg",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "guestsCanInviteOthers": false,
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": false
+      },
+      "source": {
+        "url": "https://mail.google.com/mail?extsrc=cal&plid=ACUX6DM0PWRDgVrLTeXD2BX2rNxYieHHxWctqWY",
+        "title": ""
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3319727933494000\"",
+      "id": "_6tlnaqrle5p6cpb4dhmj4phpehm32qpkchl6mtbl64qnctjj6dpmuorccpr6ar3jc5om2tj961gn2ebicpl32cj274qj0rb575lj2tb2cplme",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=XzZ0bG5hcXJsZTVwNmNwYjRkaG1qNHBocGVobTMycXBrY2hsNm10Ymw2NHFuY3RqajZkcG11b3JjY3ByNmFyM2pjNW9tMnRqOTYxZ24yZWJpY3BsMzJjajI3NHFqMHJiNTc1bGoydGIyY3BsbWUgcHJhdGlrMjAxOGlkQG0",
+      "created": "2022-08-07T09:19:26.000Z",
+      "updated": "2022-08-07T09:19:26.798Z",
+      "summary": "Flight to Surat (6E 6272)",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. https://mail.google.com/mail?extsrc=cal&plid=ACUX6DM0PWRDgVrLTeXD2BX2rNxYieHHxWctqWY\n",
+      "location": "New Delhi DEL",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com"
+      },
+      "start": {
+        "dateTime": "2022-08-08T05:35:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2022-08-08T07:25:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "transparency": "transparent",
+      "visibility": "private",
+      "iCalUID": "7kukuqrfedlm2f9tl1k4djkuu15vvs3soclfvelsaqavi0aq9rfj12b950me9k1ubfkg",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "guestsCanInviteOthers": false,
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": false
+      },
+      "source": {
+        "url": "https://mail.google.com/mail?extsrc=cal&plid=ACUX6DM0PWRDgVrLTeXD2BX2rNxYieHHxWctqWY",
+        "title": ""
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3323251544076000\"",
+      "id": "4cmh267pfb4q83qj3s0suuntim",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=NGNtaDI2N3BmYjRxODNxajNzMHN1dW50aW0gcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-08-26T10:22:24.000Z",
+      "updated": "2022-08-27T18:42:52.038Z",
+      "summary": "Building a Strong Resume and preparing for Interviews 🚀",
+      "description": "Students make a lot of mistakes while preparing their resume, in this session I'll talk about some personal tips and tricks to keep in mind while preparing a resume. \n\nIn the second half of the session, we will also talk about preparation strategy for Coding Interviews! \nSession link: https://akshaymarch7.graphy.com/learner?session=c6b691d1-a717-4a37-8650-a2283c083b95",
+      "location": "Online",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "start": {
+        "dateTime": "2021-08-26T21:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-08-26T22:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "4cmh267pfb4q83qj3s0suuntim@google.com",
+      "sequence": 0,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3342887689588000\"",
+      "id": "_6tlnaqrle5p6cpb4dhmj4phpehl6arr9ctjn4ohnd1ojcebh60q6gobh6pjm4rjheor6ir9gdtomct3m74s72pj96hkjcsrb6tj62r3gddime",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=XzZ0bG5hcXJsZTVwNmNwYjRkaG1qNHBocGVobDZhcnI5Y3RqbjRvaG5kMW9qY2ViaDYwcTZnb2JoNnBqbTRyamhlb3I2aXI5Z2R0b21jdDNtNzRzNzJwajk2aGtqY3NyYjZ0ajYycjNnZGRpbWUgcHJhdGlrMjAxOGlkQG0",
+      "created": "2022-12-19T09:57:10.000Z",
+      "updated": "2022-12-19T09:57:38.783Z",
+      "summary": "Flight to Bengaluru (6E 6564)",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. https://mail.google.com/mail?extsrc=cal&plid=ACUX6DPZB3kcuMIvHHKk7ZnD6Rv1eJFC_ghNCmE\n",
+      "location": "Pune PNQ",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com"
+      },
+      "start": {
+        "dateTime": "2022-12-26T02:45:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2022-12-26T04:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "transparency": "transparent",
+      "visibility": "private",
+      "iCalUID": "7kukuqrfedlm2f9tjeoiggrb7hq69q04haq6gbnqv6im0oqftv98qfi4i6sk7falpkeg",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "guestsCanInviteOthers": false,
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": false
+      },
+      "source": {
+        "url": "https://mail.google.com/mail?extsrc=cal&plid=ACUX6DPZB3kcuMIvHHKk7ZnD6Rv1eJFC_ghNCmE",
+        "title": ""
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3344046775290000\"",
+      "id": "_6tlnaqrle5p6cpb4dhmj4phpehq74c1ke9hmmq9pe9k34drf75o6mobfckqmior5cdm64djj65nmcrbgdlj3csbdelr70sjfcdo78dbh6dpj0",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=XzZ0bG5hcXJsZTVwNmNwYjRkaG1qNHBocGVocTc0YzFrZTlobW1xOXBlOWszNGRyZjc1bzZtb2JmY2txbWlvcjVjZG02NGRqajY1bm1jcmJnZGxqM2NzYmRlbHI3MHNqZmNkbzc4ZGJoNmRwajAgcHJhdGlrMjAxOGlkQG0",
+      "created": "2022-12-26T02:31:58.000Z",
+      "updated": "2022-12-26T03:20:57.238Z",
+      "summary": "Flight to Bengaluru (I5 975)",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. https://mail.google.com/mail?extsrc=cal&plid=ACUX6DOU65kJnOBM25ULTvDU7rgrtqf35l2UNGI\n",
+      "location": "Pune PNQ",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com"
+      },
+      "start": {
+        "dateTime": "2022-12-26T23:10:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2022-12-27T00:40:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "transparency": "transparent",
+      "visibility": "private",
+      "iCalUID": "7kukuqrfedlm2f9ttr04rcki9rh27o9pkaoe5iceclb6s1ofmpmf6qmuvprocpt5q3s0",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "guestsCanInviteOthers": false,
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": false
+      },
+      "source": {
+        "url": "https://mail.google.com/mail?extsrc=cal&plid=ACUX6DOU65kJnOBM25ULTvDU7rgrtqf35l2UNGI",
+        "title": ""
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3345702678068000\"",
+      "id": "_6tlnaqrle5p6cpb4dhmj4phpeho6uq1kcgrnctbi61oj6rhm75p6et3lego6icpj6kq3et3ee1kn6t3k6dj3adhjcsom6p3gd1mmgd9le5qme",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=XzZ0bG5hcXJsZTVwNmNwYjRkaG1qNHBocGVobzZ1cTFrY2dybmN0Ymk2MW9qNnJobTc1cDZldDNsZWdvNmljcGo2a3EzZXQzZWUxa242dDNrNmRqM2FkaGpjc29tNnAzZ2QxbW1nZDlsZTVxbWUgcHJhdGlrMjAxOGlkQG0",
+      "created": "2023-01-04T16:55:39.000Z",
+      "updated": "2023-01-04T16:55:39.034Z",
+      "summary": "react meetup #62",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. https://mail.google.com/mail?extsrc=cal&plid=ACUX6DNvKBhAJpQsyLuvXMGQHc-q6SCM1alXzHo\n",
+      "location": "Rubrik India Private Limited, Bengaluru, al, in",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com",
+        "displayName": "Unknown Organizer"
+      },
+      "start": {
+        "dateTime": "2023-01-07T14:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2023-01-07T17:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "transparency": "transparent",
+      "visibility": "private",
+      "iCalUID": "7kukuqrfedlm2f9tpoh4d7vur0q3n69rgtut0i33547tnpistt3f563g1cdphmh55qug",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "guestsCanInviteOthers": false,
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "source": {
+        "url": "https://mail.google.com/mail?extsrc=cal&plid=ACUX6DNvKBhAJpQsyLuvXMGQHc-q6SCM1alXzHo",
+        "title": ""
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814502506000\"",
+      "id": "joqlfm98f3pfmvldf937goim58",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=am9xbGZtOThmM3BmbXZsZGY5Mzdnb2ltNTggcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-05-07T18:05:56.000Z",
+      "updated": "2023-03-04T05:20:51.253Z",
+      "summary": "Work out",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com",
+        "displayName": "Google Calendar"
+      },
+      "start": {
+        "dateTime": "2021-05-14T08:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-05-14T08:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "joqlfm98f3pfmvldf937goim58@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814504242000\"",
+      "id": "nakjoos6q6l3vi0ouv99pk2s5s",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=bmFram9vczZxNmwzdmkwb3V2OTlwazJzNXMgcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-05-07T18:05:56.000Z",
+      "updated": "2023-03-04T05:20:52.121Z",
+      "summary": "Work out",
+      "description": "This event was marked as completed from Goals in Google Calendar.",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com",
+        "displayName": "Google Calendar"
+      },
+      "start": {
+        "dateTime": "2021-05-24T08:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-05-24T08:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "nakjoos6q6l3vi0ouv99pk2s5s@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814506182000\"",
+      "id": "s8lapdv7lanqps4jdgg0fgnse4",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=czhsYXBkdjdsYW5xcHM0amRnZzBmZ25zZTQgcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-05-07T18:05:56.000Z",
+      "updated": "2023-03-04T05:20:53.091Z",
+      "summary": "Work out",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com",
+        "displayName": "Google Calendar"
+      },
+      "start": {
+        "dateTime": "2021-05-19T08:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-05-19T08:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "s8lapdv7lanqps4jdgg0fgnse4@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814508378000\"",
+      "id": "tihpi9p3j10l205r3mnkblei98",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=dGlocGk5cDNqMTBsMjA1cjNtbmtibGVpOTggcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-05-07T18:05:56.000Z",
+      "updated": "2023-03-04T05:20:54.189Z",
+      "summary": "Work out",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com",
+        "displayName": "Google Calendar"
+      },
+      "start": {
+        "dateTime": "2021-05-10T08:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-05-10T08:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "tihpi9p3j10l205r3mnkblei98@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814510464000\"",
+      "id": "o3b702dg7dhldvt9cffprf2t48",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=bzNiNzAyZGc3ZGhsZHZ0OWNmZnByZjJ0NDggcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-05-07T18:05:56.000Z",
+      "updated": "2023-03-04T05:20:55.232Z",
+      "summary": "Work out",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com",
+        "displayName": "Google Calendar"
+      },
+      "start": {
+        "dateTime": "2021-05-16T08:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-05-16T08:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "o3b702dg7dhldvt9cffprf2t48@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814512704000\"",
+      "id": "v9kuq0tv8lne5cc1lat1o2h9ro",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=djlrdXEwdHY4bG5lNWNjMWxhdDFvMmg5cm8gcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-05-07T18:05:56.000Z",
+      "updated": "2023-03-04T05:20:56.352Z",
+      "summary": "Work out",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com",
+        "displayName": "Google Calendar"
+      },
+      "start": {
+        "dateTime": "2021-05-25T08:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-05-25T08:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "v9kuq0tv8lne5cc1lat1o2h9ro@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814515076000\"",
+      "id": "82e6th867heindto0o7v0qs6as",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=ODJlNnRoODY3aGVpbmR0bzBvN3YwcXM2YXMgcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-05-07T18:05:56.000Z",
+      "updated": "2023-03-04T05:20:57.538Z",
+      "summary": "Work out",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com",
+        "displayName": "Google Calendar"
+      },
+      "start": {
+        "dateTime": "2021-05-11T08:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-05-11T08:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "82e6th867heindto0o7v0qs6as@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814517336000\"",
+      "id": "bqbkpdesm8a1rcltjb5iqsoueo",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=YnFia3BkZXNtOGExcmNsdGpiNWlxc291ZW8gcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-05-07T18:05:56.000Z",
+      "updated": "2023-03-04T05:20:58.668Z",
+      "summary": "Work out",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com",
+        "displayName": "Google Calendar"
+      },
+      "start": {
+        "dateTime": "2021-05-13T08:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-05-13T08:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "bqbkpdesm8a1rcltjb5iqsoueo@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814519722000\"",
+      "id": "2s9fqhr1ig3kvehg5o66g4riao",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MnM5ZnFocjFpZzNrdmVoZzVvNjZnNHJpYW8gcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-05-07T18:05:56.000Z",
+      "updated": "2023-03-04T05:20:59.861Z",
+      "summary": "Work out",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com",
+        "displayName": "Google Calendar"
+      },
+      "start": {
+        "dateTime": "2021-05-22T08:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-05-22T08:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "2s9fqhr1ig3kvehg5o66g4riao@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814521718000\"",
+      "id": "lf7vbk0fik92en55ps5lotqpcc",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=bGY3dmJrMGZpazkyZW41NXBzNWxvdHFwY2MgcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-05-07T18:05:56.000Z",
+      "updated": "2023-03-04T05:21:00.859Z",
+      "summary": "Work out",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com",
+        "displayName": "Google Calendar"
+      },
+      "start": {
+        "dateTime": "2021-05-15T08:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-05-15T08:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "lf7vbk0fik92en55ps5lotqpcc@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814523540000\"",
+      "id": "1qou6s2j02dje8lf1l74l08d0r",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MXFvdTZzMmowMmRqZThsZjFsNzRsMDhkMHIgcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-03-10T17:22:18.000Z",
+      "updated": "2023-03-04T05:21:01.770Z",
+      "summary": "Serverless Next.js Livestream w/ HarperDB & Vercel",
+      "description": "<p>Please click the link below to join the webinar:<br><a href=\"https://harperdb-io.zoom.us/j/96899987181\" id=\"ow9940\" __is_owner=\"true\">https://harperdb-io.zoom.us/j/<wbr>96899987181</a><br>Or Join by Telephone:<br>+1 669 900 6833&nbsp;<br>Webinar ID: 968 9998 7181<br><strong><br><br>*Before the Event:&nbsp;</strong>Don't forget to spin up a free HarperDB instance through the&nbsp;<a href=\"https://studio.harperdb.io/sign-up\">Studio</a>&nbsp;so you are ready to code with Lee!&nbsp;<br><br>Thanks for your RSVP to our interactive event: Build a Serverless Next.js application using HarperDB, and deploy to Vercel. This code along will be led by Lee Robinson.</p><p><strong>When:</strong>&nbsp;March 23rd, 6:00 PM - 7:30 PM MT</p><p><strong>Where:</strong>&nbsp;Virtual! We will send you the meeting link closer to the event&nbsp;</p><p><br></p><p>See you there!</p>",
+      "location": "https://harperdb-io.zoom.us/j/96899987181",
+      "creator": {
+        "email": "margo@harperdb.io"
+      },
+      "organizer": {
+        "email": "margo@harperdb.io"
+      },
+      "start": {
+        "dateTime": "2021-03-24T05:30:00+05:30"
+      },
+      "end": {
+        "dateTime": "2021-03-24T07:00:00+05:30"
+      },
+      "iCalUID": "1qou6s2j02dje8lf1l74l08d0r@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "needsAction"
+        }
+      ],
+      "guestsCanInviteOthers": false,
+      "guestsCanSeeOtherGuests": false,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814525452000\"",
+      "id": "nr5r1cq86vgealefo9lli4bld0",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=bnI1cjFjcTg2dmdlYWxlZm85bGxpNGJsZDAgcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-05-07T18:05:56.000Z",
+      "updated": "2023-03-04T05:21:02.726Z",
+      "summary": "Work out",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com",
+        "displayName": "Google Calendar"
+      },
+      "start": {
+        "dateTime": "2021-05-12T08:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-05-12T08:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "nr5r1cq86vgealefo9lli4bld0@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814527362000\"",
+      "id": "ilukpvnr330s9dqp2rlke0emtk",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=aWx1a3B2bnIzMzBzOWRxcDJybGtlMGVtdGsgcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-05-07T18:05:56.000Z",
+      "updated": "2023-03-04T05:21:03.681Z",
+      "summary": "Work out",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com",
+        "displayName": "Google Calendar"
+      },
+      "start": {
+        "dateTime": "2021-05-21T08:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-05-21T08:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "ilukpvnr330s9dqp2rlke0emtk@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814529268000\"",
+      "id": "orrb9k4v21k2dlbi7likusad2o",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=b3JyYjlrNHYyMWsyZGxiaTdsaWt1c2FkMm8gcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-05-07T18:05:56.000Z",
+      "updated": "2023-03-04T05:21:04.634Z",
+      "summary": "Work out",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com",
+        "displayName": "Google Calendar"
+      },
+      "start": {
+        "dateTime": "2021-05-18T08:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-05-18T08:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "orrb9k4v21k2dlbi7likusad2o@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814531290000\"",
+      "id": "47pdj765eg73f1fdq0hkf5qoas",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=NDdwZGo3NjVlZzczZjFmZHEwaGtmNXFvYXMgcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-11-25T07:41:32.000Z",
+      "updated": "2023-03-04T05:21:05.645Z",
+      "summary": "2nd year Anniversary | Webknot",
+      "creator": {
+        "email": "pranav.ks@webknot.in",
+        "displayName": "Pranav K Sathish"
+      },
+      "organizer": {
+        "email": "pranav.ks@webknot.in",
+        "displayName": "Pranav K Sathish"
+      },
+      "start": {
+        "dateTime": "2021-11-25T17:30:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-11-25T18:30:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "47pdj765eg73f1fdq0hkf5qoas@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "bharath@gowebknot.com",
+          "responseStatus": "needsAction"
+        },
+        {
+          "email": "praveen@gowebknot.com",
+          "responseStatus": "accepted"
+        },
+        {
+          "email": "kalpaj@gowebknot.com",
+          "responseStatus": "needsAction"
+        },
+        {
+          "email": "jagdeepsingh8562@gmail.com",
+          "responseStatus": "needsAction"
+        },
+        {
+          "email": "cnishmitha08@gmail.com",
+          "responseStatus": "needsAction"
+        },
+        {
+          "email": "vaibhavvarunkar2001@gmail.com",
+          "responseStatus": "accepted"
+        },
+        {
+          "email": "pranav.ks@webknot.in",
+          "displayName": "Pranav K Sathish",
+          "organizer": true,
+          "responseStatus": "accepted"
+        },
+        {
+          "email": "saikiranrudra2@gmail.com",
+          "responseStatus": "needsAction"
+        },
+        {
+          "email": "kartiksaxena2000@gmail.com",
+          "responseStatus": "accepted"
+        },
+        {
+          "email": "nishanth@gowebknot.com",
+          "responseStatus": "needsAction"
+        },
+        {
+          "email": "tarushjreddy63@gmail.com",
+          "responseStatus": "needsAction"
+        },
+        {
+          "email": "anil@gowebknot.com",
+          "responseStatus": "needsAction"
+        },
+        {
+          "email": "vinaymaheshwari35@gmail.com",
+          "responseStatus": "accepted"
+        },
+        {
+          "email": "vivek@gowebknot.com",
+          "responseStatus": "accepted"
+        },
+        {
+          "email": "harsha.s@gowebknot.com",
+          "responseStatus": "accepted"
+        },
+        {
+          "email": "kavya2528@gmail.com",
+          "responseStatus": "accepted"
+        },
+        {
+          "email": "vijay.anand@gowebknot.com",
+          "responseStatus": "needsAction"
+        },
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "needsAction"
+        },
+        {
+          "email": "yugdeepriar@gmail.com",
+          "responseStatus": "accepted"
+        },
+        {
+          "email": "kumarshashi5294@gmail.com",
+          "responseStatus": "accepted"
+        },
+        {
+          "email": "dhruvsharmads9@gmail.com",
+          "responseStatus": "needsAction"
+        },
+        {
+          "email": "saurav@gowebknot.com",
+          "responseStatus": "needsAction"
+        },
+        {
+          "email": "sumanth.s@gowebknot.com",
+          "responseStatus": "needsAction"
+        },
+        {
+          "email": "ajaychoudhary19990@gmail.com",
+          "responseStatus": "needsAction"
+        },
+        {
+          "email": "saisumanth2303@gmail.com",
+          "responseStatus": "needsAction"
+        },
+        {
+          "email": "skr571999@gmail.com",
+          "responseStatus": "accepted"
+        },
+        {
+          "email": "dipanshu@gowebknot.com",
+          "responseStatus": "needsAction"
+        },
+        {
+          "email": "soham.poddar23@gmail.com",
+          "responseStatus": "accepted"
+        }
+      ],
+      "hangoutLink": "https://meet.google.com/mdh-zpxy-mpi",
+      "conferenceData": {
+        "entryPoints": [
+          {
+            "entryPointType": "video",
+            "uri": "https://meet.google.com/mdh-zpxy-mpi",
+            "label": "meet.google.com/mdh-zpxy-mpi"
+          },
+          {
+            "entryPointType": "more",
+            "uri": "https://tel.meet/mdh-zpxy-mpi?pin=6501208000528",
+            "pin": "6501208000528"
+          },
+          {
+            "regionCode": "US",
+            "entryPointType": "phone",
+            "uri": "tel:+1-502-791-5480",
+            "label": "+1 502-791-5480",
+            "pin": "594711809"
+          }
+        ],
+        "conferenceSolution": {
+          "key": {
+            "type": "hangoutsMeet"
+          },
+          "name": "Google Meet",
+          "iconUri": "https://fonts.gstatic.com/s/i/productlogos/meet_2020q4/v6/web-512dp/logo_meet_2020q4_color_2x_web_512dp.png"
+        },
+        "conferenceId": "mdh-zpxy-mpi"
+      },
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814533182000\"",
+      "id": "kbb1d4j3va89dqto08675fqa3s",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=a2JiMWQ0ajN2YTg5ZHF0bzA4Njc1ZnFhM3MgcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-05-07T18:05:56.000Z",
+      "updated": "2023-03-04T05:21:06.591Z",
+      "summary": "Work out",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com",
+        "displayName": "Google Calendar"
+      },
+      "start": {
+        "dateTime": "2021-05-09T08:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-05-09T08:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "kbb1d4j3va89dqto08675fqa3s@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814534978000\"",
+      "id": "dnbdeskcnsbubfnnq5iq2a9g4s",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=ZG5iZGVza2Nuc2J1YmZubnE1aXEyYTlnNHMgcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-05-07T18:05:56.000Z",
+      "updated": "2023-03-04T05:21:07.489Z",
+      "summary": "Work out",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com",
+        "displayName": "Google Calendar"
+      },
+      "start": {
+        "dateTime": "2021-05-17T08:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-05-17T08:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "dnbdeskcnsbubfnnq5iq2a9g4s@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814536888000\"",
+      "id": "4bmea0r29eakrrorcnh00pghlv",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=NGJtZWEwcjI5ZWFrcnJvcmNuaDAwcGdobHYgcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-06-20T11:49:57.000Z",
+      "updated": "2023-03-04T05:21:08.444Z",
+      "summary": "LIVE DEMO Session with Kartik and Shubham Bhaiya",
+      "description": "<p>Hey,<br><br>This is a reminder email for your DEMO Session today at:<br><br><strong>Timings:</strong> 07:00 PM - 08:00 PM<br><br><strong>C++</strong>&nbsp;by Kartik Mathur: <a href=\"https://us02web.zoom.us/j/82070811953\">https://us02web.zoom.us/j/82070811953</a></p><p><br><strong>Java </strong>by&nbsp;Shubham Singhal: <a href=\"https://us02web.zoom.us/j/81753186630\">https://us02web.zoom.us/j/81753186630</a></p><p>&nbsp;</p><p>Learn More about our <strong>LIVE Courses</strong> here: <a href=\"https://codingblocks.com/live-classes.html\" id=\"ow1001\" __is_owner=\"true\">https://codingblocks.com/live-classes.html</a></p>",
+      "creator": {
+        "email": "rishabh.bansal@codingblocks.com"
+      },
+      "organizer": {
+        "email": "rishabh.bansal@codingblocks.com"
+      },
+      "start": {
+        "dateTime": "2021-06-20T19:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-06-20T20:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "4bmea0r29eakrrorcnh00pghlv@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "needsAction"
+        }
+      ],
+      "guestsCanInviteOthers": false,
+      "guestsCanSeeOtherGuests": false,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814539000000\"",
+      "id": "26m296323ku46ir5e5pogo6a3e",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjZtMjk2MzIza3U0NmlyNWU1cG9nbzZhM2UgcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-01-13T15:47:45.000Z",
+      "updated": "2023-03-04T05:21:09.500Z",
+      "summary": "Build a REST API with Fastify and HarperDB",
+      "description": "<p>Please click the link below to join the webinar:<br><a href=\"https://harperdb-io.zoom.us/j/98074828155\">https://harperdb-io.zoom.us/j/<wbr>98074828155</a><br><br>Or iPhone one-tap :<br>US: +13462487799,,98074828155# or +14086380968,,98074828155#<br>Or Telephone:<br>Dial:<br>US: +1 346 248 7799&nbsp;<br>Webinar ID: 980 7482 8155<br><br><br>Thanks for your RSVP to our interactive event: Building a REST API using Fastify and HarperDB, with top Fastify maintainer, Ethan Arrowood.</p><p><strong>When:</strong>&nbsp;January 26th, 6:00 pm - 7:30 pm MT&nbsp;</p><p><strong>Where:</strong>&nbsp;Livestream from anywhere!</p><p>&nbsp;<strong>Event Agenda:</strong></p><p>→ Introductions: Ethan &amp; HarperDB</p><p>→ Build a REST API using&nbsp;Fastify&nbsp;&amp; HarperDB</p><p>→ Q&amp;A w/ Ethan, HarperDB, &amp; Audience</p><p>&nbsp;<strong>Resources</strong>:&nbsp;If you would like to get a head start before the event, you can create a free&nbsp;<a href=\"https://studio.harperdb.io/sign-up?code=FASTIFYEVENT\">HarperDB Account here</a>&nbsp;or find the <a href=\"https://hub.docker.com/r/harperdb/hdb\">HarperDB Container on Docker Hub</a>.&nbsp; (To code with Ethan you will need Node version 14 and Docker)&nbsp;</p>",
+      "location": "https://harperdb-io.zoom.us/j/98074828155",
+      "creator": {
+        "email": "margo@harperdb.io"
+      },
+      "organizer": {
+        "email": "margo@harperdb.io"
+      },
+      "start": {
+        "dateTime": "2021-01-27T06:30:00+05:30"
+      },
+      "end": {
+        "dateTime": "2021-01-27T08:00:00+05:30"
+      },
+      "iCalUID": "26m296323ku46ir5e5pogo6a3e@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "needsAction"
+        }
+      ],
+      "guestsCanInviteOthers": false,
+      "guestsCanSeeOtherGuests": false,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814541412000\"",
+      "id": "qpbfs114qm1oscghiareq8tjig",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=cXBiZnMxMTRxbTFvc2NnaGlhcmVxOHRqaWcgcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-05-07T18:05:56.000Z",
+      "updated": "2023-03-04T05:21:10.706Z",
+      "summary": "Work out",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com",
+        "displayName": "Google Calendar"
+      },
+      "start": {
+        "dateTime": "2021-05-20T08:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-05-20T08:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "qpbfs114qm1oscghiareq8tjig@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814543292000\"",
+      "id": "jn78063jasghrqnlrr6oqp6o3g",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=am43ODA2M2phc2docnFubHJyNm9xcDZvM2cgcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-05-07T18:05:56.000Z",
+      "updated": "2023-03-04T05:21:11.646Z",
+      "summary": "Work out",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com",
+        "displayName": "Google Calendar"
+      },
+      "start": {
+        "dateTime": "2021-05-26T08:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-05-26T08:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "jn78063jasghrqnlrr6oqp6o3g@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814545036000\"",
+      "id": "rt48gpgr7gbvli69m7raqg469s",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=cnQ0OGdwZ3I3Z2J2bGk2OW03cmFxZzQ2OXMgcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-05-07T18:05:56.000Z",
+      "updated": "2023-03-04T05:21:12.518Z",
+      "summary": "Work out",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com",
+        "displayName": "Google Calendar"
+      },
+      "start": {
+        "dateTime": "2021-05-08T08:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-05-08T08:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "rt48gpgr7gbvli69m7raqg469s@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814546794000\"",
+      "id": "_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g8co36gpi8kpj2e9n61148dpg64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g88sk2g9h6gq3ie2460qj6gpk8gsj4c9h852j4hi16gpjegph84q0",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=XzYwcTMwYzFnNjBvMzBlMWk2MG80YWMxZzYwcmo4Z3BsODhyajJjMWg4NHMzNGg5ZzYwczMwYzFnNjBvMzBjMWc4Y28zNmdwaThrcGoyZTluNjExNDhkcGc2NG8zMGMxZzYwbzMwYzFnNjBvMzBjMWc2MG8zMmMxZzYwbzMwYzFnODhzazJnOWg2Z3EzaWUyNDYwcWo2Z3BrOGdzajRjOWg4NTJqNGhpMTZncGplZ3BoODRxMCBwcmF0aWsyMDE4aWRAbQ",
+      "created": "2021-03-22T13:55:25.000Z",
+      "updated": "2023-03-04T05:21:13.397Z",
+      "summary": "EY Entrepreneur Of The Year 2020 India - Link to watch the virtual Awards ceremony",
+      "description": "[cid:image001.jpg@01D71F51.04FAB430]<https://www.cnbctv18.com/ms/ey-eoy2020/>\n\n[cid:image002.jpg@01D71F51.04FAB430]<https://www.ey.com/en_in/entrepreneur-of-the-year/finalists-2020>\n\n[cid:image004.jpg@01D71F51.04FAB430]\n\n[cid:image005.jpg@01D71F51.04FAB430]<https://www.ey.com/en_in/entrepreneur-of-the-year>\n\n\n\n\nThe information contained in this communication is intended solely for the use of the individual or entity to whom it is addressed and others authorized to receive it. It may contain confidential or legally privileged information. If you are not the intended recipient you are hereby notified that any disclosure, copying, distribution or taking any action in reliance on the contents of this information is strictly prohibited and may be unlawful. If you have received this communication in error, please notify us immediately by responding to this email and then delete it from your system. The firm is neither liable for the proper and complete transmission of the information contained in this communication nor for any delay in its receipt.\n",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "eoy.india@in.ey.com",
+        "displayName": "EY Entrepreneur Of The Year India"
+      },
+      "start": {
+        "dateTime": "2021-03-25T19:00:00+05:30",
+        "timeZone": "UTC"
+      },
+      "end": {
+        "dateTime": "2021-03-25T20:30:00+05:30",
+        "timeZone": "UTC"
+      },
+      "iCalUID": "040000008200E00074C5B7101A82E00800000000C03C2E31970BD701000000000000000010000000B9AA14498D053C4D9211AE2FA437C1A4",
+      "sequence": 1,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "guestsCanInviteOthers": false,
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "attachments": [
+        {
+          "fileUrl": "https://mail.google.com/?view=att&th=1785a3b52ceacc87&attid=0.1&disp=attd&zw",
+          "title": "image001.jpg",
+          "iconLink": ""
+        },
+        {
+          "fileUrl": "https://mail.google.com/?view=att&th=1785a3b52ceacc87&attid=0.2&disp=attd&zw",
+          "title": "image002.jpg",
+          "iconLink": ""
+        },
+        {
+          "fileUrl": "https://mail.google.com/?view=att&th=1785a3b52ceacc87&attid=0.3&disp=attd&zw",
+          "title": "image004.jpg",
+          "iconLink": ""
+        },
+        {
+          "fileUrl": "https://mail.google.com/?view=att&th=1785a3b52ceacc87&attid=0.4&disp=attd&zw",
+          "title": "image005.jpg",
+          "iconLink": ""
+        }
+      ],
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3355814548870000\"",
+      "id": "o8v6lbjjjlhuk4p0353rt7543o",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=bzh2NmxiampqbGh1azRwMDM1M3J0NzU0M28gcHJhdGlrMjAxOGlkQG0",
+      "created": "2021-05-07T18:05:56.000Z",
+      "updated": "2023-03-04T05:21:14.435Z",
+      "summary": "Work out",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com",
+        "displayName": "Google Calendar"
+      },
+      "start": {
+        "dateTime": "2021-05-23T08:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2021-05-23T08:15:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "o8v6lbjjjlhuk4p0353rt7543o@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3356732582255000\"",
+      "id": "_6tlnaqrle5p6cpb4dhmj4phpehnm4cb7d0p6ishncgpmqeb86lgmgqrme5r7cp9ndkqj4p35epo6esr8ekp74cj86hn3gprgcoqmgc9h60sj0",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=XzZ0bG5hcXJsZTVwNmNwYjRkaG1qNHBocGVobm00Y2I3ZDBwNmlzaG5jZ3BtcWViODZsZ21ncXJtZTVyN2NwOW5ka3FqNHAzNWVwbzZlc3I4ZWtwNzRjajg2aG4zZ3ByZ2NvcW1nYzloNjBzajAgcHJhdGlrMjAxOGlkQG0",
+      "created": "2023-03-09T12:51:31.000Z",
+      "updated": "2023-03-09T12:51:31.180Z",
+      "summary": "Flight to Pune (UK 553)",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. https://mail.google.com/mail?extsrc=cal&plid=ACUX6DPY4FqzEFbV77N-FUYUtff8bXAOs_jNFiE\n",
+      "location": "Bengaluru BLR",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "unknownorganizer@calendar.google.com"
+      },
+      "start": {
+        "dateTime": "2023-03-19T20:30:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2023-03-19T22:05:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "transparency": "transparent",
+      "visibility": "private",
+      "iCalUID": "7kukuqrfedlm2f9tob1gh2ir7d3m9h5ahkvqvve7m52devpgshu2r2h4n8gpf5h11090",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "pratik2018id@gmail.com",
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "guestsCanInviteOthers": false,
+      "privateCopy": true,
+      "reminders": {
+        "useDefault": false
+      },
+      "source": {
+        "url": "https://mail.google.com/mail?extsrc=cal&plid=ACUX6DPY4FqzEFbV77N-FUYUtff8bXAOs_jNFiE",
+        "title": ""
+      },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3369363586962000\"",
+      "id": "6spnm0vjat3k8ll9jprk38msti",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=NnNwbm0wdmphdDNrOGxsOWpwcmszOG1zdGkgcHJhdGlrMjAxOGlkQG0",
+      "created": "2023-05-21T15:09:53.000Z",
+      "updated": "2023-05-21T15:09:53.481Z",
+      "summary": "test",
+      "creator": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "organizer": {
+        "email": "pratik2018id@gmail.com",
+        "self": true
+      },
+      "start": {
+        "dateTime": "2023-05-21T22:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "end": {
+        "dateTime": "2023-05-21T23:00:00+05:30",
+        "timeZone": "Asia/Kolkata"
+      },
+      "iCalUID": "6spnm0vjat3k8ll9jprk38msti@google.com",
+      "sequence": 0,
+      "reminders": {
+        "useDefault": true
+      },
+      "eventType": "default"
+    }
+  ]
+}

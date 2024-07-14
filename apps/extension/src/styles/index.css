@@ -1,0 +1,228 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #101010;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Roboto',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.fading-shadow::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to top, rgba(0, 0, 1, 1), rgba(0, 0, 0, 0));
+}
+
+a {
+  cursor: pointer;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.clockdate-wrapper {
+  position: absolute;
+  top: 38%;
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.qoutes-wrapper {
+  position: absolute;
+  bottom: 0%;
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+#clock {
+  font-size: 14rem;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -2px;
+  font-weight: 600;
+}
+
+.qoutes {
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-shadow: 0px 0px 1px #fff;
+  color: #fff;
+  z-index: -1;
+}
+
+#clock span {
+  font-size: 80px;
+  top: -5px;
+  left: 10px;
+}
+
+#date {
+  letter-spacing: 3px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 5px;
+}
+
+.inset-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* css for glass bgs  */
+
+.glass {
+  background: rgba(5, 0, 0, 0.55);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: transform 0.2s ease-in;
+}
+
+.glasshover {
+  background: rgba(5, 0, 0, 0.55);
+  box-shadow:
+    2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+    12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+    100px 100px 80px rgba(0, 0, 0, 0.07);
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(5.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: transform 0.2s ease-in;
+}
+
+.glasslink:hover {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.glasslink:hover .editlink {
+  display: block;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* css for scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 80px;
+  box-shadow: inset 0px 0px rgb(192, 192, 192);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: rgb(196, 196, 196);
+}
+
+/* loader css */
+.spinner {
+  animation: spin 2s linear infinite;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+  width: 50px;
+  height: 50px;
+}
+
+.spinner .path {
+  stroke: rgb(105, 30, 255);
+  stroke-linecap: round;
+  animation: spinner-path 1.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: spin(360deg);
+  }
+}
+
+@keyframes spinner-path {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+/* todo component */
+
+.todo:hover .tododelete {
+  display: flex;
+}
+
+/* Toggle B */
+.toggle-checkbox:checked {
+  @apply: right-0 border-green-400;
+  right: 0;
+  border-color: #68d391;
+}
+.toggle-checkbox:checked + .toggle-label {
+  @apply: bg-green-400;
+  background-color: #68d391;
+}
+
+.focus-container {
+  flex-direction: row;
+  position: absolute;
+  top: 70%;
+  width: 100%;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: normal;
+  color: #fff;
+  font-weight: 600;
+}

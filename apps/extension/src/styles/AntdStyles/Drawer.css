@@ -1,0 +1,20 @@
+.ant-drawer-header {
+  border-bottom: black !important;
+}
+
+.ant-drawer-wrapper-body {
+  background: black !important;
+}
+
+.ant-drawer-title {
+  color: white !important;
+  font-weight: bold !important;
+}
+
+.ant-drawer-header {
+  display: none !important;
+}
+
+.ant-drawer-body {
+  padding: 0px !important;
+}

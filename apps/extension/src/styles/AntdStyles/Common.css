@@ -1,0 +1,32 @@
+.my-checkbox input[type='checkbox']:checked + .ant-checkbox-inner {
+  background-color: black;
+  border-color: black;
+}
+
+.my-checkbox .ant-checkbox-checked .ant-checkbox-inner::after {
+  border-color: white;
+}
+
+.ant-switch {
+  background-color: #282828 !important;
+}
+
+.ant-switch-checked {
+  background-color: #3730a3 !important;
+}
+
+.ant-tooltip-inner {
+  font-weight: bold !important;
+  border: 3px #2730a3 solid !important;
+  padding: 10px !important;
+  background: black !important;
+  border-radius: 15px !important;
+}
+
+.ant-tooltip-arrow {
+  display: none !important;
+}
+
+.ant-alert {
+  border-radius: 15px !important;
+}
