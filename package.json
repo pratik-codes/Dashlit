@@ -1,5 +1,5 @@
 {
-  "name": "my-turborepo",
+  "name": "Dashlit",
   "private": true,
   "scripts": {
     "build": "turbo build",
@@ -9,11 +9,13 @@
   },
   "devDependencies": {
     "prettier": "^3.2.5",
-    "turbo": "^2.0.7",
-    "typescript": "^5.4.5"
+    "turbo": "^2.1.1",
+    "typescript": "^4.8.4"
   },
   "packageManager": "pnpm@8.15.6",
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
   }
 }
