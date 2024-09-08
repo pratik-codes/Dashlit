@@ -3,7 +3,6 @@ import "wxt/browser";
 
 declare module "wxt/browser" {
   export type PublicPath =
-    | "/background.js"
     | "/content-scripts/content.js"
     | "/icon/128.png"
     | "/icon/16.png"
