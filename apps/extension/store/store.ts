@@ -1,17 +1,9 @@
-import { create } from 'zustand';
-import { Bear, BearState } from './types/bear';
+import { create } from 'zustand'
+import { CounterState } from './types/counter';
 
-export const useStore = create<BearState>((set) => ({
-  bears: [],
-  addBear: (bear: Bear) => set((state) => ({ 
-    bears: [...state.bears, bear] 
-  })),
-  removeBear: (id: string) => set((state) => ({ 
-    bears: state.bears.filter(bear => bear.id !== id) 
-  })),
-  updateBear: (id: string, updates: Partial<Bear>) => set((state) => ({
-    bears: state.bears.map(bear => 
-      bear.id === id ? { ...bear, ...updates } : bear
-    )
-  })),
-}));
+export const useCounterStore = create<CounterState>((set) => ({
+  count: 0,
+  increment: () => set((state) => ({ count: state.count + 1 })),
+  decrement: () => set((state) => ({ count: state.count - 1 })),
+  reset: () => set({ count: 0 })
+}))
