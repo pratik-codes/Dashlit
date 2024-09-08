@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect,useState} from "react";
 
 const Time: React.FC = () => {
   const [time, setTime] = useState(new Date());
@@ -16,10 +16,23 @@ const Time: React.FC = () => {
       second: "2-digit",
     });
   };
+  const formatDate = (date: Date) => {
+    const options: Intl.DateTimeFormatOptions = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }
+    return date.toLocaleDateString(undefined, options)
+  }
 
   return (
-    <div className="text-9xl font-bold absolute inset-0 flex items-center justify-center text-white [animation-duration:1s]">
+    <div className="text-9xl font-bold flex-col absolute inset-0 flex items-center justify-center text-white [animation-duration:1s]">
       {formatTime(time)}
+      <div className="text-4xl">
+        {formatDate(time)}
+      </div>
+      
     </div>
   );
 };
