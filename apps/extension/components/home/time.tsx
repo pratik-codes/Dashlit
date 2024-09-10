@@ -28,7 +28,7 @@ const Time: React.FC = () => {
   };
 
   return (
-    <div className="text-9xl font-bold flex-col absolute inset-0 flex items-center justify-center text-white [animation-duration:1s]">
+    <div className="text-9xl relative font-bold flex-col top-[30%] inset-0 flex items-center justify-center text-white [animation-duration:1s]">
       {formatTime(time)}
       <div className="text-2xl">
         {formatDate(time)}

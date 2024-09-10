@@ -2,6 +2,7 @@ import Focus from "./focus";
 import Time from "./time";
 import { useState } from "react";
 import Quotes from "./quotes";
+import Links from "./Links/Links";
 interface TodoItem {
   date: string;
   task: string;
@@ -50,6 +51,7 @@ const Home: React.FC = () => {
   };
   return (
     <div className="h-screen bg-cover bg-center">
+      <Links/>
       <Time />
       <Focus todos={todos} onToggleComplete={handleToggleComplete} onDeleteTodo={handleDeleteTodo} />
       <Quotes quotes={quotes}/>
