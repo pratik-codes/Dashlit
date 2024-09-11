@@ -5,7 +5,7 @@ declare global {
   const InvalidMatchPattern: typeof import('wxt/sandbox')['InvalidMatchPattern']
   const MatchPattern: typeof import('wxt/sandbox')['MatchPattern']
   const browser: typeof import('wxt/browser')['browser']
-  const cn: typeof import('D:/Dashlit/apps/extension/utils/tailwind')['cn']
+  const cn: typeof import('/Users/pratik/code/personal/personal-projects/DashlitV2/apps/extension/utils/tailwind')['cn']
   const createIframeUi: typeof import('wxt/client')['createIframeUi']
   const createIntegratedUi: typeof import('wxt/client')['createIntegratedUi']
   const createShadowRootUi: typeof import('wxt/client')['createShadowRootUi']
