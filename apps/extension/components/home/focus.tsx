@@ -1,4 +1,5 @@
 import React from 'react';
+import { Checkbox } from '../ui/checkbox';
 
 interface TodoItem {
   date: string;
@@ -17,26 +18,18 @@ const Focus: React.FC<FocusProps> = ({ todos, onToggleComplete, onDeleteTodo }) 
   const todayTodo = todos.find((todo) => todo.date === today);
 
   return (
-    <div className=" absolute top-[43%] inset-0 flex items-center justify-center">
+    <div className="absolute top-[43%] inset-0 flex items-center justify-center">
       <div>
         <h3 className="text-2xl font-bold mb-4 text-center">TODAY</h3>
         {todayTodo ? (
           <div className="text-lg flex items-center space-x-2">
-            <div
-              className="group flex items-center space-x-2 focus-within:outline-none"
-              tabIndex={0}
-            >
-              <input
-                type="checkbox"
+            <div className="group flex items-center space-x-2 focus-within:outline-none" tabIndex={0}>
+              {/* Replace the native checkbox with shadcn's Checkbox */}
+              <Checkbox
                 checked={todayTodo.completed}
-                onChange={() => onToggleComplete(todayTodo.date)}
-                className="invisible group-hover:visible group-focus-within:visible"
+                onCheckedChange={() => onToggleComplete(todayTodo.date)}
               />
-              <p
-                className={`${
-                  todayTodo.completed ? 'line-through text-gray-400' : ''
-                }`}
-              >
+              <p className={`${todayTodo.completed ? 'line-through text-gray-400' : ''}`}>
                 {todayTodo.task}
               </p>
 
@@ -44,7 +37,7 @@ const Focus: React.FC<FocusProps> = ({ todos, onToggleComplete, onDeleteTodo }) 
                 onClick={() => onDeleteTodo(todayTodo.date)}
                 className="text-red-500 hover:text-red-700 ml-4"
               >
-                Delete
+                X
               </button>
             </div>
           </div>

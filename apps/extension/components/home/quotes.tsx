@@ -20,7 +20,7 @@ const Quotes: React.FC<QuotesProps> = ({ quotes }) => {
   }, [quotes]);
 
   return (
-    <div className="absolute top-[85%] flex items-center justify-center w-full">
+    <div className="absolute bottom-0 mb-2 flex items-center justify-center w-full">
       {randomQuote ? (
         <div className="relative p-6 text-white rounded-lg shadow-lg transition-transform transform hover:scale-105 group flex items-center justify-center">
           <div className="text-center">
