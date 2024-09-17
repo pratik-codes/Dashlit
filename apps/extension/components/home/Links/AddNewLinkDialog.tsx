@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Plus ,CirclePlus} from 'lucide-react';
+import { X, Plus ,PlusCircle} from 'lucide-react';
 
 interface Link {
   id: number;
@@ -20,12 +20,12 @@ const AddNewLinkModal: React.FC = () => {
   };
 
   return (
-    <div className="mx-3 bg-gray-900">
+    <div>
       <button
         onClick={() => setIsOpen(true)}
-        className="text-white flex gap-3 text-md px-3 py-2 rounded-md"
-      > <CirclePlus />
-        Add a new link or folder
+        className="text-white flex gap-3 text-md py-2 rounded-md"
+      > <PlusCircle size={20}/>
+      Add link or folder
       </button>
 
       {isOpen && (
@@ -78,7 +78,6 @@ const AddNewLinkModal: React.FC = () => {
                 <button
                   className="bg-purple-600 text-white px-4 py-2 rounded-md"
                   onClick={() => {
-                    // Handle adding logic here
                     setIsOpen(false);
                   }}
                 >

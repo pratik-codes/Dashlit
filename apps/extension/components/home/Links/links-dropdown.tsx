@@ -1,18 +1,5 @@
 import {
-  Cloud,
-  CreditCard,
-  Github,
-  Keyboard,
-  LifeBuoy,
-  LogOut,
-  Mail,
-  MessageSquare,
-  Plus,
   PlusCircle,
-  Settings,
-  User,
-  UserPlus,
-  Users,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -32,6 +19,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import LinkComponent from "./LinkComponent";
+import { useState } from "react";
+import AddNewLinkModal from "./AddNewLinkDialog";
 
 const links = [
   {
@@ -65,6 +54,7 @@ const links = [
 ];
 
 export function LinksDropDown() {
+  const [searchTerm, setSearchTerm] = useState("");
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -76,11 +66,13 @@ export function LinksDropDown() {
             type="text"
             className="border-2 ring-2 ring-black w-full rounded-lg p-2 font-medium"
             placeholder="Search links..."
+            value={searchTerm}
+            onChange={(e)=>setSearchTerm(e.target.value)}
           />
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <LinkComponent links={links} />
+          <LinkComponent links={links} searchTerm={searchTerm} />
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
@@ -88,8 +80,7 @@ export function LinksDropDown() {
             variant="ghost"
             className="min-w-full rounded-xl flex items-center py-0 justify-start px-2"
           >
-            <PlusCircle size={14} className="mr-2" />
-            Add link or folder
+            <AddNewLinkModal/>
           </Button>
         </DropdownMenuGroup>
       </DropdownMenuContent>
