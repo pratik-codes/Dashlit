@@ -3,6 +3,7 @@ export {}
 declare global {
   const ContentScriptContext: typeof import('wxt/client')['ContentScriptContext']
   const InvalidMatchPattern: typeof import('wxt/sandbox')['InvalidMatchPattern']
+  const LinkClickHandler: typeof import('D:/Dashlit/apps/extension/utils/helpers')['LinkClickHandler']
   const MatchPattern: typeof import('wxt/sandbox')['MatchPattern']
   const browser: typeof import('wxt/browser')['browser']
   const cn: typeof import('D:/Dashlit/apps/extension/utils/tailwind')['cn']

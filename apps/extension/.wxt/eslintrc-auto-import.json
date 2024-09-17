@@ -2,6 +2,7 @@
   "globals": {
     "ContentScriptContext": true,
     "InvalidMatchPattern": true,
+    "LinkClickHandler": true,
     "MatchPattern": true,
     "browser": true,
     "cn": true,
