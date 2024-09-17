@@ -1,26 +1,17 @@
-import {
-  PlusCircle,
-} from "lucide-react";
-
-import { Button } from "@/components/ui/button";
+import React, { useState } from 'react';
+import { PlusCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
-  DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
-import LinkComponent from "./LinkComponent";
-import { useState } from "react";
-import AddNewLinkModal from "./AddNewLinkDialog";
+} from '@/components/ui/dropdown-menu';
+import { Input } from '@/components/ui/input';
+import LinkComponent from './LinkComponent';
+import AddNewLinkDialog from './AddNewLinkDialog'
 
 const links = [
   {
@@ -54,7 +45,12 @@ const links = [
 ];
 
 export function LinksDropDown() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+
+  const openDialog = () => setIsDialogOpen(true);
+  const closeDialog = () => setIsDialogOpen(false);
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -67,7 +63,7 @@ export function LinksDropDown() {
             className="border-2 ring-2 ring-black w-full rounded-lg p-2 font-medium"
             placeholder="Search links..."
             value={searchTerm}
-            onChange={(e)=>setSearchTerm(e.target.value)}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
@@ -79,11 +75,18 @@ export function LinksDropDown() {
           <Button
             variant="ghost"
             className="min-w-full rounded-xl flex items-center py-0 justify-start px-2"
+            onClick={openDialog}
           >
-            <AddNewLinkModal/>
+            <PlusCircle size={20} className="mr-2" />
+            Add link or folder
           </Button>
         </DropdownMenuGroup>
       </DropdownMenuContent>
+
+      <AddNewLinkDialog
+        isOpen={isDialogOpen}
+        closeModal={closeDialog}
+      />
     </DropdownMenu>
   );
 }
