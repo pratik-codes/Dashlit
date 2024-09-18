@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogFooter } from "@/components/ui/dialog";
 import { Button } from '@/components/ui/button';
 import { Plus, X } from 'lucide-react';
+import { Input } from '@/components/ui/input';
 
 interface Link {
   title: string;
@@ -53,22 +54,22 @@ const AddNewLinkDialog: React.FC<AddNewLinkDialogProps> = ({ isOpen, closeModal,
           <h2 className="text-2xl font-bold text-white mb-4">Add new link</h2>
         </DialogHeader>
 
-        <input
+        <Input
           type="text"
           placeholder="Link title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full bg-gray-700 text-white placeholder-gray-400 rounded-md p-2 mb-4"
+          className="w-full bg-gray-700 text-white placeholder-gray-400 border-2 border-gray-500 rounded-md p-2 mb-4 focus:border-purple-500 focus:outline-none"
         />
 
         {urls.map((url, index) => (
           <div key={index} className="flex items-center mb-4">
-            <input
+            <Input
               type="text"
               placeholder="Link URL"
               value={url}
               onChange={(e) => handleUrlChange(index, e.target.value)}
-              className="w-full bg-gray-700 text-white placeholder-gray-400 rounded-md p-2 mr-2"
+              className="w-full bg-gray-700 text-white border-2 border-gray-500 placeholder-gray-400 rounded-md focus:border-purple-500 focus:outline-none"
             />
             {urls.length > 1 && (
               <Button
@@ -82,24 +83,24 @@ const AddNewLinkDialog: React.FC<AddNewLinkDialogProps> = ({ isOpen, closeModal,
         ))}
 
         <Button
-          className="flex items-center bg-purple-600 text-white px-4 py-2 rounded-md mb-4"
+          className="flex items-center bg-purple-600 text-white px-4 py-2 rounded-md mb-4 hover:bg-purple-400"
           onClick={addUrlField}
         >
           <Plus size={16} className="mr-2" /> Add another link
         </Button>
 
-        <input
+        <Input
           type="text"
           placeholder="Link type (documentation, css, etc.)"
           value={urls.length > 1 ? 'folder' : type}
           onChange={(e) => setType(e.target.value)}
-          className="w-full bg-gray-700 text-white placeholder-gray-400 rounded-md p-2 mb-4"
+          className="w-full bg-gray-700 text-white border-2 border-gray-500 placeholder-gray-400 rounded-md p-2 mb-4 focus:border-purple-500 focus:outline-none"
           disabled={urls.length > 1}
         />
 
         <DialogFooter>
           <Button
-            className="bg-purple-600 text-white px-4 py-2 rounded-md"
+            className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-400"
             onClick={handleSubmit}
           >
             Add
