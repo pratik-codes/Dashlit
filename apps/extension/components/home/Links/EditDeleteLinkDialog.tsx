@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { DialogTitle } from "@radix-ui/react-dialog";
 import { Input } from "@/components/ui/input";
 
 const EditDeleteLinkDialog = ({ isOpen, closeModal, link, onSave, onDelete }: any) => {
@@ -18,7 +17,6 @@ const EditDeleteLinkDialog = ({ isOpen, closeModal, link, onSave, onDelete }: an
   };
 
   const handleDelete = () => {
-    // Use title and URLs to identify which link to delete
     onDelete(link.title, urls);
     closeModal();
   };
@@ -32,15 +30,14 @@ const EditDeleteLinkDialog = ({ isOpen, closeModal, link, onSave, onDelete }: an
   return (
     <Dialog open={isOpen} onOpenChange={closeModal}>
       <DialogContent aria-describedby={link.title}>
-        <DialogHeader>
-          <DialogTitle>Edit Link</DialogTitle>
-        </DialogHeader>
+        {/* <DialogHeader>
+          Edit Link
+        </DialogHeader> */}
 
-        {/* Editable Form */}
-        <div className="space-y-4">
+        <div className="space-y-4 mt-8">
           <div>
-            <label htmlFor="title" className="block text-sm font-medium text-gray-700">
-              Title
+            <label htmlFor="title" className="block text-sm font-medium text-white">
+              Edit Title
             </label>
             <Input
               id="title"
@@ -50,11 +47,10 @@ const EditDeleteLinkDialog = ({ isOpen, closeModal, link, onSave, onDelete }: an
             />
           </div>
 
-          {/* URL Inputs */}
           {urls.map((url, index) => (
             <div key={index}>
-              <label htmlFor={`url-${index}`} className="block text-sm font-medium text-gray-700">
-                URL {index + 1}
+              <label htmlFor={`url-${index}`} className="block text-sm font-medium text-white">
+                Edit URL {index + 1}
               </label>
               <Input
                 id={`url-${index}`}
