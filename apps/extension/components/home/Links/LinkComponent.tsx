@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import BookmarkIcons from "./BookmarkIcons";
 import { LinkClickHandler } from "@/utils/helpers";
 import EditDeleteLinkDialog from "./EditDeleteLinkDialog";
+import { Links } from '../Links/links-dropdown';
 
 interface LinkItem {
   title: string;
@@ -18,8 +19,13 @@ interface LinkComponentProps {
 const LinkComponent: React.FC<LinkComponentProps> = ({ links, searchTerm }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedLink, setSelectedLink] = useState<LinkItem | null>(null);
+  const [currentLinks, setCurrentLinks] = useState<LinkItem[]>(Links);
 
-  const filteredLinks = links.filter((link) =>
+  React.useEffect(() => {
+    setCurrentLinks(links);
+  }, [links]);
+
+  const filteredLinks = currentLinks.filter((link) =>
     link.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -28,10 +34,29 @@ const LinkComponent: React.FC<LinkComponentProps> = ({ links, searchTerm }) => {
     setIsDialogOpen(true);
   };
 
-  // Function to close the dialog
   const closeDialog = () => {
     setIsDialogOpen(false);
     setSelectedLink(null);
+  };
+
+  const handleSaveLink = (updatedLink: LinkItem) => {
+    const updatedLinks = currentLinks.map((link) =>
+      link.title === updatedLink.title ? updatedLink : link
+    );
+    setCurrentLinks(updatedLinks);
+  };
+
+  const handleDeleteLink = (title: string, urls: string[]) => {
+    const filteredLinks = currentLinks.filter((link) => {
+      if (link.title === title) {
+        if (Array.isArray(link.url)) {
+          return JSON.stringify(link.url) !== JSON.stringify(urls);
+        }
+        return link.url !== urls[0]; 
+      }
+      return true;
+    });
+    setCurrentLinks(filteredLinks);
   };
 
   return (
@@ -72,6 +97,8 @@ const LinkComponent: React.FC<LinkComponentProps> = ({ links, searchTerm }) => {
           isOpen={isDialogOpen}
           closeModal={closeDialog}
           link={selectedLink}
+          onSave={handleSaveLink}
+          onDelete={handleDeleteLink}
         />
       )}
     </div>

@@ -11,9 +11,15 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
 import LinkComponent from './LinkComponent';
-import AddNewLinkDialog from './AddNewLinkDialog'
+import AddNewLinkDialog from './AddNewLinkDialog';
 
-const links = [
+interface Link {
+  title: string;
+  url: string | string[];
+  type: string;
+}
+
+export const Links = [
   {
     title: "React Official Documentation",
     url: [
@@ -42,15 +48,20 @@ const links = [
     url: "github.com",
     type: "tool",
   },
-];
+]
 
 export function LinksDropDown() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [links, setLinks] = useState<Link[]>(Links);
 
   const openDialog = () => setIsDialogOpen(true);
   const closeDialog = () => setIsDialogOpen(false);
 
+  const handleAddLinkToList = (newLink: Link) => {
+    setLinks([...links, newLink]);
+  };  
+  
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -86,6 +97,7 @@ export function LinksDropDown() {
       <AddNewLinkDialog
         isOpen={isDialogOpen}
         closeModal={closeDialog}
+        handleAddLinkToList={handleAddLinkToList}
       />
     </DropdownMenu>
   );
