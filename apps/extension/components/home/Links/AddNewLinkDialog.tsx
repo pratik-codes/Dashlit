@@ -1,28 +1,49 @@
 import React, { useState } from 'react';
-import { X, Plus } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogFooter } from "@/components/ui/dialog";
 import { Button } from '@/components/ui/button';
+import { Plus, X } from 'lucide-react';
 
 interface Link {
-  id: number;
-  url: string;
+  title: string;
+  url: string | string[];
+  type: string;
 }
 
-interface AddNewLinkModalProps {
+interface AddNewLinkDialogProps {
   isOpen: boolean;
   closeModal: () => void;
+  handleAddLinkToList: (newLink: Link) => void;
 }
 
-const AddNewLinkDialog: React.FC<AddNewLinkModalProps> = ({ isOpen, closeModal }) => {
+const AddNewLinkDialog: React.FC<AddNewLinkDialogProps> = ({ isOpen, closeModal, handleAddLinkToList }) => {
   const [title, setTitle] = useState('');
-  const [links, setLinks] = useState<Link[]>([{ id: 1, url: '' }]);
+  const [urls, setUrls] = useState<string[]>(['']);
+  const [type, setType] = useState('');
 
-  const handleAddLink = () => {
-    setLinks([...links, { id: links.length + 1, url: '' }]);
+  const handleUrlChange = (index: number, value: string) => {
+    const updatedUrls = [...urls];
+    updatedUrls[index] = value;
+    setUrls(updatedUrls);
   };
 
-  const handleRemoveLink = (id: number) => {
-    setLinks(links.filter(link => link.id !== id));
+  const addUrlField = () => {
+    setUrls([...urls, '']);
+  };
+
+  const removeUrlField = (index: number) => {
+    const updatedUrls = urls.filter((_, i) => i !== index);
+    setUrls(updatedUrls);
+  };
+
+  const handleSubmit = () => {
+    const newLink: Link = {
+      title,
+      url: urls.length > 1 ? urls : urls[0],
+      type: urls.length > 1 ? 'folder' : type, 
+    };
+
+    handleAddLinkToList(newLink);
+    closeModal();
   };
 
   return (
@@ -31,6 +52,7 @@ const AddNewLinkDialog: React.FC<AddNewLinkModalProps> = ({ isOpen, closeModal }
         <DialogHeader>
           <h2 className="text-2xl font-bold text-white mb-4">Add new link</h2>
         </DialogHeader>
+
         <input
           type="text"
           placeholder="Link title"
@@ -38,38 +60,47 @@ const AddNewLinkDialog: React.FC<AddNewLinkModalProps> = ({ isOpen, closeModal }
           onChange={(e) => setTitle(e.target.value)}
           className="w-full bg-gray-700 text-white placeholder-gray-400 rounded-md p-2 mb-4"
         />
-        {links.map((link) => (
-          <div key={link.id} className="flex mb-2">
+
+        {urls.map((url, index) => (
+          <div key={index} className="flex items-center mb-4">
             <input
               type="text"
-              placeholder="Add link here"
-              value={link.url}
-              onChange={(e) => {
-                const newLinks = links.map(l =>
-                  l.id === link.id ? { ...l, url: e.target.value } : l
-                );
-                setLinks(newLinks);
-              }}
-              className="flex-grow bg-gray-700 text-white placeholder-gray-400 rounded-l-md p-2"
+              placeholder="Link URL"
+              value={url}
+              onChange={(e) => handleUrlChange(index, e.target.value)}
+              className="w-full bg-gray-700 text-white placeholder-gray-400 rounded-md p-2 mr-2"
             />
-            <button
-              onClick={() => handleRemoveLink(link.id)}
-              className="bg-gray-700 text-gray-400 hover:text-white px-2 rounded-r-md"
-            >
-              <X size={24} />
-            </button>
+            {urls.length > 1 && (
+              <Button
+                className="bg-red-600 text-white px-2 py-1 rounded-md"
+                onClick={() => removeUrlField(index)}
+              >
+                <X size={16} />
+              </Button>
+            )}
           </div>
         ))}
-        <button
-          onClick={handleAddLink}
-          className="bg-purple-600 py-2 text-white text-md flex justify-center items-center gap-3 rounded-full mt-2"
+
+        <Button
+          className="flex items-center bg-purple-600 text-white px-4 py-2 rounded-md mb-4"
+          onClick={addUrlField}
         >
-          <Plus size={20}/> Add More Links...
-        </button>
+          <Plus size={16} className="mr-2" /> Add another link
+        </Button>
+
+        <input
+          type="text"
+          placeholder="Link type (documentation, css, etc.)"
+          value={urls.length > 1 ? 'folder' : type}
+          onChange={(e) => setType(e.target.value)}
+          className="w-full bg-gray-700 text-white placeholder-gray-400 rounded-md p-2 mb-4"
+          disabled={urls.length > 1}
+        />
+
         <DialogFooter>
           <Button
             className="bg-purple-600 text-white px-4 py-2 rounded-md"
-            onClick={closeModal}
+            onClick={handleSubmit}
           >
             Add
           </Button>
