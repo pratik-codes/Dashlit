@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import {Link } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -65,7 +66,10 @@ export function LinksDropDown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="focus:outline-none m-2">Open</Button>
+        <Button className="focus:outline-none m-2 group">
+          <Link size={18}/>
+          {/* <span className='hidden ml-2 group-hover:inline group-focus:inline'>Links</span> */}
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-[18rem] ml-2 mt-1 rounded-xl">
         <DropdownMenuLabel>

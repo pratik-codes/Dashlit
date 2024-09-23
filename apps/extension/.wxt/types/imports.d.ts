@@ -16,5 +16,7 @@ declare global {
   const defineUnlistedScript: typeof import('wxt/sandbox')['defineUnlistedScript']
   const defineWxtPlugin: typeof import('wxt/sandbox')['defineWxtPlugin']
   const fakeBrowser: typeof import('wxt/testing')['fakeBrowser']
+  const settingsBackgroundData: typeof import('D:/Dashlit/apps/extension/utils/commonData')['settingsBackgroundData']
+  const settingsTabHeaders: typeof import('D:/Dashlit/apps/extension/utils/commonData')['settingsTabHeaders']
   const storage: typeof import('wxt/storage')['storage']
 }

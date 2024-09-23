@@ -15,6 +15,8 @@
     "defineUnlistedScript": true,
     "defineWxtPlugin": true,
     "fakeBrowser": true,
+    "settingsBackgroundData": true,
+    "settingsTabHeaders": true,
     "storage": true
   }
 }
