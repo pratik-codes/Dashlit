@@ -3,9 +3,10 @@ export {}
 declare global {
   const ContentScriptContext: typeof import('wxt/client')['ContentScriptContext']
   const InvalidMatchPattern: typeof import('wxt/sandbox')['InvalidMatchPattern']
+  const LinkClickHandler: typeof import('D:/Dashlit/apps/extension/utils/helpers')['LinkClickHandler']
   const MatchPattern: typeof import('wxt/sandbox')['MatchPattern']
   const browser: typeof import('wxt/browser')['browser']
-  const cn: typeof import('/Users/pratik/code/personal/personal-projects/DashlitV2/apps/extension/utils/tailwind')['cn']
+  const cn: typeof import('D:/Dashlit/apps/extension/utils/tailwind')['cn']
   const createIframeUi: typeof import('wxt/client')['createIframeUi']
   const createIntegratedUi: typeof import('wxt/client')['createIntegratedUi']
   const createShadowRootUi: typeof import('wxt/client')['createShadowRootUi']
@@ -15,5 +16,7 @@ declare global {
   const defineUnlistedScript: typeof import('wxt/sandbox')['defineUnlistedScript']
   const defineWxtPlugin: typeof import('wxt/sandbox')['defineWxtPlugin']
   const fakeBrowser: typeof import('wxt/testing')['fakeBrowser']
+  const settingsBackgroundData: typeof import('D:/Dashlit/apps/extension/utils/commonData')['settingsBackgroundData']
+  const settingsTabHeaders: typeof import('D:/Dashlit/apps/extension/utils/commonData')['settingsTabHeaders']
   const storage: typeof import('wxt/storage')['storage']
 }

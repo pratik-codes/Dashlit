@@ -2,6 +2,7 @@
   "globals": {
     "ContentScriptContext": true,
     "InvalidMatchPattern": true,
+    "LinkClickHandler": true,
     "MatchPattern": true,
     "browser": true,
     "cn": true,
@@ -14,6 +15,8 @@
     "defineUnlistedScript": true,
     "defineWxtPlugin": true,
     "fakeBrowser": true,
+    "settingsBackgroundData": true,
+    "settingsTabHeaders": true,
     "storage": true
   }
 }
