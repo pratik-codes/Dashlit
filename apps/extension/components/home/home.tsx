@@ -3,6 +3,8 @@ import Time from "./time";
 import { useState } from "react";
 import Quotes from "./quotes";
 import Links from "./Links/Links";
+import Settings from "./Settings/Settings";
+
 interface TodoItem {
   date: string;
   task: string;
@@ -54,6 +56,7 @@ const Home: React.FC = () => {
       <Time />
       <Focus todos={todos} onToggleComplete={handleToggleComplete} onDeleteTodo={handleDeleteTodo} />
       <Quotes quotes={quotes}/>
+      <Settings/>
     </div>
   );
 };
