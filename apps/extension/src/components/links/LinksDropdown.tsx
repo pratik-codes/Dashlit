@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux'
 import { animate, motion, stagger } from 'framer-motion'
 
 import { RootStore } from '../../redux/Store'
-import InputComponent from '../common/InputComponent'
 import Loader from '../common/Loader'
 import SvgButton from '../common/button/SvgButton'
 import AddNewLinkDialog from './AddNewLinkDialog'
 import LinkComponent from './LinkComponent'
+import { Input } from '../ui/input'
 
 const fetchBookmarks = async () => {
   console.log('fetching bookmarks...')
@@ -64,19 +64,17 @@ const LinksDropdown: React.FC<{
         <SvgButton type="link" position="top-0 left-0" cta="Links" />
       </div>
       {openDialog && (
-        <div className="dropdown-menu link-dropdown ml-4 pt-4 text-white">
-          <ul className={`rounded-t-common bg-black`}>
+        <div className="dropdown-menu link-dropdown ml-4 pt-2 bg-white dark:bg-black rounded-t-common mt-4 z-0">
+          <ul className={`rounded-t-common`}>
             <div className="align-center flex justify-center">
               <div className="px-3 my-1 w-full">
-                <InputComponent
+                <Input
                   ref={inputRef}
                   onChange={(e: any) => setSearchValue(e.target.value)}
                   value={searchValue}
-                  style={{
-                    minWidth: '92%'
-                  }}
                   type="text"
-                  placeholder="Search links"
+                  placeholder="Search"
+                  className="mb-2"
                 />
               </div>
             </div>
@@ -103,7 +101,7 @@ const LinksDropdown: React.FC<{
                       return value
                     }
                   })
-                  .sort(function (a: any, b: any) {
+                  .sort(function(a: any, b: any) {
                     let textA = a?.data?.linkTitle?.toUpperCase()
                     let textB = b?.data?.linkTitle?.toUpperCase()
                     return textA < textB ? -1 : textA > textB ? 1 : 0
@@ -143,11 +141,11 @@ const LinksDropdown: React.FC<{
           </ul>
           <div
             onClick={() => openModal()}
-            className={`absolute w-full cursor-pointer flex py-3 px-2 rounded-b-common bg-grey2 hover:bg-grey1`}
+            className={`absolute w-full cursor-pointer flex py-3 px-2 rounded-b-common bg-white dark:bg-black hover:bg-gray-200 dark:hover:bg-gray-800`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 mx-3 my-auto text-white w-5"
+              className="h-5 mx-3 my-auto w-5"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
@@ -157,7 +155,7 @@ const LinksDropdown: React.FC<{
                 clipRule="evenodd"
               />
             </svg>
-            <h1 className="font-bold p-1 text-white">
+            <h1 className="font-bold p-1">
               Add a new link or folder
             </h1>
           </div>

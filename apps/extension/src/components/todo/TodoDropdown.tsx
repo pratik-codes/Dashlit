@@ -9,6 +9,7 @@ import { RootStore } from '../../redux/Store'
 import Loader from '../common/Loader'
 import SvgButton from '../common/button/SvgButton'
 import TodoComponent from './TodoComponent'
+import { ListTodo } from 'lucide-react'
 
 const TodoDropdown = ({
   openTasks,

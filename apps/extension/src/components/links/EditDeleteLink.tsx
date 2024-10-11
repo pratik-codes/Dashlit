@@ -5,6 +5,15 @@ import { useDispatch } from 'react-redux'
 import { mutateDataHandler } from 'utils/demoapp.utils'
 import EditLinkDialog from './EditLinkDialog'
 import { linkDeleteHandler } from './utils'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { Delete, Settings2, Trash } from 'lucide-react'
 
 const EditDeleteLink = ({ link }: any) => {
   console.log('link', link)
@@ -22,48 +31,33 @@ const EditDeleteLink = ({ link }: any) => {
   }
 
   return (
-    <Popover
-      content={
-        <div>
-          <h6
-            onClick={(e) => {
-              e.stopPropagation()
-              openModal()
-            }}
-            className="font-bold cursor-pointer hover:bg-grey2 py-1 px-2 rounded-lg text-white"
-          >
-            Edit
-          </h6>
-          <Popconfirm
-            title="Are you sure to delete this link/folder?"
-            onConfirm={(e: any) => {
-              e.stopPropagation()
-              mutateDataHandler(() => linkDeleteHandler(id, dispatch))
-            }}
-            okText="Yes"
-            cancelText="No"
-          >
-            <h1 className="font-bold cursor-pointer hover:bg-grey2 py-1 px-2 rounded-lg text-white">
-              Delete
-            </h1>
-          </Popconfirm>
-          <EditLinkDialog
-            isOpen={isOpen}
-            id={id}
-            linkTitle={title}
-            links={url}
-            type={type}
-            closeModal={closeModal}
-            openModal={openModal}
-          />
-        </div>
-      }
-      trigger="hover"
-    >
-      <button className="focus:outline-none mx-1 mt-1 text-white">
-        <Svg type="dot-dot" />
-      </button>
-    </Popover>
+    <div className=''>
+      <div className="focus:outline-none mx-1 mt-1 text-black dark:text-white flex justify-center items-center space-x-1">
+        <Settings2
+          onClick={(e) => {
+            e.stopPropagation()
+            openModal()
+          }}
+          className='hover:bg-gray-300 dark:hover-gray-900 rounded-full p-1' />
+        <Trash
+          onClick={(e: any) => {
+            e.stopPropagation()
+            mutateDataHandler(() => linkDeleteHandler(id, dispatch))
+          }}
+
+          className='hover:bg-gray-300 dark:hover-gray-900 rounded-full p-1' />
+      </div>
+
+      <EditLinkDialog
+        isOpen={isOpen}
+        id={id}
+        linkTitle={title}
+        links={url}
+        type={type}
+        closeModal={closeModal}
+        openModal={openModal}
+      />
+    </div >
   )
 }
 

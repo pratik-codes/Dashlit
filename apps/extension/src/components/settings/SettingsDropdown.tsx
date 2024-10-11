@@ -10,6 +10,8 @@ const SettingsDropdown = ({
   openSettings: boolean
   isMinimalMode: Boolean
 }) => {
+  console.log('SettingsDropdown', { setOpenSettings, openSettings, isMinimalMode });
+
   return (
     <div>
       <div onClick={() => setOpenSettings(!openSettings)}>

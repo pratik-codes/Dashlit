@@ -27,7 +27,7 @@ const Home = () => {
   const [openDialog, setOpenDialog] = useState(false)
   const [openSearchBar, setOpenSearchBar] = useState(false)
   const [openSettings, setOpenSettings] = useState(false)
-const [openTasks, setOpenTasks] = useState(false)
+  const [openTasks, setOpenTasks] = useState(false)
   const [userSettings, setUserSettings] = useState<any>()
 
   const dispatch: any = useDispatch()
@@ -118,7 +118,7 @@ const [openTasks, setOpenTasks] = useState(false)
   useEffect(() => {
     try {
       const bodyStyle: any = document.body.style
-      bodyStyle.zoom = '80%'
+      bodyStyle.zoom = '100%'
     } catch (error) {
       console.log('error in zooming', error)
     }

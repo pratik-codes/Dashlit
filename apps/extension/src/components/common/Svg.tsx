@@ -1,3 +1,4 @@
+import { Link2, ListTodoIcon } from 'lucide-react'
 import React from 'react'
 
 const LinkSvg = () => {
@@ -55,7 +56,7 @@ interface Props {
 const Svg: React.FC<Props> = ({ type, size, classNames }) => {
   return (
     <>
-      {type === 'link' && <LinkSvg />}
+      {type === 'link' && <Link2 />}
       {type === 'settings' && <SettingsSvg />}
       {type === 'weather' && (
         <div>
@@ -75,22 +76,7 @@ const Svg: React.FC<Props> = ({ type, size, classNames }) => {
           </svg>
         </div>
       )}
-      {type === 'todo' && (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className={'cursor-pointer h-5 w-5'}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-          />
-        </svg>
-      )}
+      {type === 'todo' && <ListTodoIcon />}
       {type === 'deleteEdited' && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -152,7 +138,7 @@ const Svg: React.FC<Props> = ({ type, size, classNames }) => {
       {type === 'edit' && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className={'cursor-pointer h-6 hover:-400 my-auto p-1 -900 w-6'}
+          className={'cursor-pointer h-6 hover:-400 my-auto p-1 text-black dark:text-white'}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -427,7 +413,7 @@ const Svg: React.FC<Props> = ({ type, size, classNames }) => {
           className={
             size
               ? `h-${size} w-${size} cursor-pointer`
-              : 'h-5 w-5 cursor-pointer'
+              : 'h-5 w-5 cursor-pointer text-gray-800 dark:text-gray-800'
           }
           viewBox="0 0 20 20"
           fill="currentColor"
