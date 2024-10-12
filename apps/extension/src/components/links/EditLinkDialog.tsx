@@ -147,7 +147,7 @@ export default function EditLinkDialog({ isOpen, closeModal, openModal, id, link
           ))}
           <Button
             variant="outline"
-            className="ml-auto"
+            className="mr-auto"
             onClick={() => setLinkAdded([...linkAdded, { link: '', id: uuidv4() }])}
           >
             <PlusCircle className="mr-2 h-4 w-4" />
