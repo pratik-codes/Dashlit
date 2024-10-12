@@ -157,7 +157,7 @@ const Home = () => {
         {getPreferenceValue('quotes-settings') === true &&
           !MINIMAL_HOME &&
           local_storage_quote && (
-            <div className="qoutes qoutes-wrapper group">
+            <div className="text-2xl font-bold text-white qoutes-wrapper group">
               <p>"{local_storage_quote || quote}"</p>
               <p className="text-sm ml-4 opacity-0 group-hover:mb-2 group-hover:opacity-100 transition-all duration-300 delay-200">
                 {' '}

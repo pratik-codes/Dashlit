@@ -10,7 +10,7 @@ export function startTime(setClockTimer: any, setDate: any) {
   hr = checkTime(hr)
   min = checkTime(min)
   sec = checkTime(sec)
-  setClockTimer(hr + ':' + min)
+  setClockTimer(hr + ':' + min + ':' + sec)
 
   const months = [
     'JANUARY',

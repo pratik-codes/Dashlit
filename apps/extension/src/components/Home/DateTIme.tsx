@@ -19,18 +19,20 @@ const DateTime = ({
     return (
       <div className="mx-14 mt-10 space-y-2">
         <div className="text-white font-bold text-8xl">{clockTimer}</div>
-        <div className="text-white font-bold text-2xl ml-2">{date}</div>
+        {/* <div className="text-white font-bold text-2xl ml-2">{date}</div> */}
       </div>
     )
 
   return (
     <div className="clockdate-wrapper">
       {getPreferenceValue('clock-settings') === true && (
-        <div id="clock">{clockTimer}</div>
+        <div className="relative text-[12rem] font-thin text-white font-sans tracking-tight mr-2">
+          {clockTimer}
+        </div>
       )}
-      {getPreferenceValue('date-settings') === true && (
+      {/* {getPreferenceValue('date-settings') === true && (
         <div id="date">{date}</div>
-      )}
+      )} */}
     </div>
   )
 }

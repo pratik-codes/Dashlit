@@ -10,7 +10,6 @@ import {
 } from 'firebase/firestore'
 import { db } from '../firebase-config'
 import { links } from '../../components/links/EditLinkDialog'
-import { error } from 'console'
 
 // global data used in the services
 const userId = localStorage.getItem('user_uid')

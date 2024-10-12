@@ -4,6 +4,7 @@ import GoogleCalendar from './components/calendar/GoogleCalendar'
 import Gmail from './components/emails/Gmail'
 import { mockGoogleData } from './mock'
 import { fetchGoogleData } from './utils'
+import CalendarEvent from '../animata/widget/calendar-event'
 
 const Google = ({ settingsData, show }: any) => {
   const [googleCalendarSettings, SetGoogleCalendarSettings] = useState<any>()
@@ -31,9 +32,9 @@ const Google = ({ settingsData, show }: any) => {
     setGoogleData(
       window.location.origin.includes('chrome-extension')
         ? {
-            emails: JSON.parse(localStorage.getItem('emailData') || '{}'),
-            events: JSON.parse(localStorage.getItem('calendarEvents') || '{}')
-          }
+          emails: JSON.parse(localStorage.getItem('emailData') || '{}'),
+          events: JSON.parse(localStorage.getItem('calendarEvents') || '{}')
+        }
         : mockGoogleData
     )
   }, [
@@ -47,6 +48,7 @@ const Google = ({ settingsData, show }: any) => {
         (setting: any) => setting.type == 'calendar-settings'
       )
     )
+    console.log({ googleData });
   }, [])
 
   // useEffect(() => console.log(googleData), [googleData])
@@ -73,10 +75,7 @@ const Google = ({ settingsData, show }: any) => {
   return (
     <div className="absolute top-0 right-0 display flex gap-2 m-4">
       {show?.calendar && (
-        <GoogleCalendar
-          calendarEvents={googleData?.events}
-          showEmails={show?.emails}
-        />
+        <CalendarEvent events={googleData?.events} />
       )}
       {show?.emails && <Gmail emails={googleData?.emails} />}
     </div>

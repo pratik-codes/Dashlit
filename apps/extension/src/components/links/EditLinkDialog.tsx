@@ -28,22 +28,22 @@ interface Props {
   type: string
 }
 
+export interface links {
+  link: string
+  id: string
+}
+
 interface Link {
   link: string
   id: string
 }
 
 export default function EditLinkDialog({ isOpen, closeModal, openModal, id, linkTitle, links, type }: Props) {
-  const [title, setTitle] = useState('')
-  const [urls, setUrls] = useState<Link[]>([])
+  const [title, setTitle] = useState(linkTitle)
+  const [urls, setUrls] = useState<Link[]>([...links])
   const [linkAdded, setLinkAdded] = useState<Link[]>([])
 
   const dispatch: any = useDispatch()
-
-  useEffect(() => {
-    setTitle(linkTitle)
-    setUrls(links)
-  }, [linkTitle, links])
 
   const editHandler = async () => {
     const data = {
@@ -78,11 +78,11 @@ export default function EditLinkDialog({ isOpen, closeModal, openModal, id, link
 
   return (
     <Dialog open={isOpen} onOpenChange={closeModal}>
-      <DialogContent className='max-w-fit'>
+      <DialogContent className='max-w-[550px] rounded-common'>
         <DialogHeader>
           <DialogTitle>Edit link</DialogTitle>
         </DialogHeader>
-        <div className="grid gap-2 py-4 my-4 w-fit">
+        <div className="grid gap-2 py-4 my-4 w-full">
           <div className="grid gap-2">
             <Label htmlFor="link-title">Title</Label>
             <Input
@@ -98,15 +98,17 @@ export default function EditLinkDialog({ isOpen, closeModal, openModal, id, link
                   <TooltipTrigger asChild>
                     <Button
                       variant="outline"
-                      className="w-full justify-start text-left font-normal"
+                      className="w-full justify-between text-left font-normal items-center"
                       onClick={() => window.open(`https://${link.link}`, '_blank')}
                     >
-                      <img
-                        className="mr-2 h-4 w-4 rounded-full flex justify-between items-center"
-                        src={`https://s2.googleusercontent.com/s2/favicons?domain_url=https://${link.link}`}
-                        alt="favicon"
-                      />
-                      <div className="truncate">{link.link.length < 40 ? link.link : link.link.substr(0, 40)}...</div>
+                      <div className='flex items-center'>
+                        <img
+                          className="mr-2 h-4 w-4 rounded-full flex justify-between items-center"
+                          src={`https://s2.googleusercontent.com/s2/favicons?domain_url=https://${link.link}`}
+                          alt="favicon"
+                        />
+                        <div className="truncate">{link.link.length < 50 ? link.link : link.link.substr(0, 50)}...</div>
+                      </div>
                       <ExternalLink className="h-4 w-4 opacity-50 ml-2" />
                     </Button>
                   </TooltipTrigger>

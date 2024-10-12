@@ -1,6 +1,7 @@
 import { FolderClosed, Layers } from "lucide-react";
 
 const BookmarkIcons = ({ url, type }: { url: string; type: string }) => {
+  console.log({ url, type })
 
   // const parsedUrl = new URL(url && url[0]?.link);
 

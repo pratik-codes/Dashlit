@@ -7,7 +7,7 @@ import useMeasure from 'react-use-measure'
 import ShowMore from '../ShowMore'
 import CalendarCad from './CalendarCard'
 
-const GoogleCalendar = ({ calendarEvents, showEmails }: any) => {
+const GoogleCalendar = ({ calendarEvents }: any) => {
   const [showMore, setShowMore] = useState(false)
   const [ref, bounds] = useMeasure()
 
