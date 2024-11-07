@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { Key, useState } from 'react';
+import { Key, useState } from 'react'
 import {
   Dialog,
   DialogContent,
@@ -7,20 +7,20 @@ import {
   DialogTitle,
   DialogTrigger
 } from '@/components/ui/dialog'
-import { ScrollArea } from '@/components/ui/scroll-area'
-
+import { Button } from '@/components/ui/button'
+import { DialogDescription } from '@radix-ui/react-dialog'
 
 interface CalendarEvent {
-  title: string;
-  time: string;
-  color: string;
-  bgcolor: string;
-  barColor: string;
-  dateColor: string;
+  title: string
+  time: string
+  color: string
+  bgcolor: string
+  barColor: string
+  dateColor: string
 }
 
 interface CalendarEventProps {
-  events: any,
+  events: any
 }
 
 const colors = [
@@ -123,13 +123,41 @@ const colors = [
   }
 ]
 
-
 function getRandomColor() {
   const randomIndex = Math.floor(Math.random() * colors.length)
   return colors[randomIndex]
 }
 
-const maxEvents = 2;
+const maxEvents = 2
+
+function appendURLOptions(url: string) {
+  const index = url.indexOf('calendar')
+  if (index !== -1) {
+    const modifiedURL =
+      url?.slice(0, index + 8) + '/u/0/r' + url?.slice(index + 8)
+    return modifiedURL
+  }
+  return url
+}
+
+function formatTimeRange(startDateTime: any, endDateTime: any) {
+  const start = new Date(startDateTime)
+  const end = new Date(endDateTime)
+
+  const formatTime = (date: any) => {
+    const hours = date.getHours().toString().padStart(2, '0')
+    const minutes = date.getMinutes().toString().padStart(2, '0')
+    return `${hours}:${minutes}`
+  }
+
+  const sameDate = start.getDate() === end.getDate()
+
+  if (sameDate) {
+    return `${formatTime(start)} - ${formatTime(end)}`
+  } else {
+    return `Different dates: ${formatTime(start)} - ${formatTime(end)}`
+  }
+}
 
 function EventCard({ item }: any) {
   const [color] = useState<any>(getRandomColor())
@@ -140,58 +168,69 @@ function EventCard({ item }: any) {
 
   return (
     <div
+      onClick={() => window.open(appendURLOptions(item.htmlLink), '_blank')}
       className={cn(
-        'relative flex h-10 w-full mr-10 items-center gap-2 overflow-hidden rounded-md pl-1 transition-all',
+        'relative cursor-pointer flex w-full mr-20 items-center gap-2 overflow-hidden rounded-sm pl-1 transition-all hover:bg-gray-200 py-1',
         color?.bgcolor
       )}
     >
-      <div className={cn('h-5 w-1 rounded-sm ml-1', color.barColor)}></div>
+      <div className={cn('h-8 w-1 rounded-sm ml-1', color.barColor)}></div>
       <div className="flex-col items-center justify-center">
         <h4 className={cn('text-sm font-bold', item.color)}>{item.summary}</h4>
-        <p className={cn('whitespace-pre text-xs', item.dateColor)}>
-          {item.time}
-        </p>
+        <div className="">
+          <div className={cn('whitespace-pre text-xs', item.dateColor)}>
+            {item.time}
+          </div>
+          <div className="">
+            {formatTimeRange(item.start.dateTime, item.end.dateTime)}
+          </div>
+        </div>
       </div>
     </div>
   )
 }
 
-function AllEventsModal({ events }: { events: any[] }) {
+function AllEventsModal({
+  events,
+  showAllEvents,
+  closeModal
+}: {
+  events: any[]
+  showAllEvents: boolean
+  closeModal: () => void
+}) {
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <div className="flex cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 h-8 w-full items-center justify-between rounded-md border-2 border-slate-200 bg-slate-50 p-1">
-          <p className="text-xs font-bold text-neutral-800">
-            +{events.length - maxEvents} event
-            {events.length - maxEvents > 1 && 's'}
-          </p>
-        </div>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+    <Dialog open={showAllEvents} onOpenChange={closeModal}>
+      <DialogTrigger asChild></DialogTrigger>
+      <DialogContent className="sm:max-w-[725px]">
         <DialogHeader>
           <DialogTitle>All Events</DialogTitle>
+          <DialogDescription>{events.length} events</DialogDescription>
         </DialogHeader>
-        <ScrollArea className="h-[300px] w-full rounded-md border p-4">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-2">
           {events.map((item, index) => (
             <EventCard key={index} item={item} />
           ))}
-        </ScrollArea>
+        </div>
+        <div className="flex justify-end mt-8">
+          <Button disabled={true} className="font-bold">
+            Add new google account (coming soon)
+          </Button>
+        </div>
       </DialogContent>
     </Dialog>
   )
 }
 
-export default function calendarevent({
-  events,
-}: CalendarEventProps) {
-  // const []
-  const extraCount = events?.items?.length - maxEvents;
-  console.log(events?.items);
+export default function calendarevent({ events }: CalendarEventProps) {
+  const [showAllEvents, setShowAllEvents] = useState(false)
+  const extraCount = events?.items?.length - maxEvents
+  console.log('event item', extraCount, events?.items)
 
   return (
     <div
       className={cn(
-        'group relative flex size-52 flex-col overflow-hidden rounded-common border-2 bg-white p-4'
+        'group relative flex size-52 flex-col overflow-hidden rounded-common bg-white p-4'
       )}
     >
       <div className="flex gap-1">
@@ -207,21 +246,31 @@ export default function calendarevent({
             <EventCard hides key={index} item={item} />
           ))}
       </div>
-      {extraCount ? (
+      {extraCount > 0 ? (
         <>
-          <div className="flex cursor-pointer hover:bg-gray-200 dark:hover-bg-gray-800 h-8 w-full items-center justify-between rounded-md border-2 border-slate-200 bg-slate-50 p-1">
+          <div
+            onClick={() => setShowAllEvents(!showAllEvents)}
+            className="flex cursor-pointer hover:bg-gray-200 dark:hover-bg-gray-800 h-8 w-full items-center justify-between rounded-sm border-2 border-slate-200 bg-slate-50 p-1"
+          >
             <p className="text-xs font-bold text-neutral-800">
               +{extraCount} event{extraCount > 1 && 's'}
             </p>
             {/* <p className="text-[10px] text-gray-500">16:15 - 20:00</p> */}
           </div>
+          {showAllEvents && (
+            <AllEventsModal
+              closeModal={() => setShowAllEvents(!showAllEvents)}
+              events={events?.items}
+              showAllEvents={showAllEvents}
+            />
+          )}
           {events?.items
             ?.slice(maxEvents, maxEvents + 3)
             .map((item: any, index: any) => (
               <div
                 key={index}
                 style={{
-                  paddingInline: `${(index + 1) * 6}px`
+                  paddingInline: `${(index + 2) * 6}px`
                 }}
               >
                 <div className="mt-[1px] h-[2px] w-full rounded-full bg-gray-200" />
@@ -229,11 +278,10 @@ export default function calendarevent({
             ))}
         </>
       ) : (
-        <div className="w-full text-center text-xs font-bold text-gray-500">
+        <div className="w-full text-md font-bold text-gray-500 mr-20">
           No more events
         </div>
       )}
     </div>
   )
 }
-

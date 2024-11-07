@@ -32,9 +32,9 @@ const Google = ({ settingsData, show }: any) => {
     setGoogleData(
       window.location.origin.includes('chrome-extension')
         ? {
-          emails: JSON.parse(localStorage.getItem('emailData') || '{}'),
-          events: JSON.parse(localStorage.getItem('calendarEvents') || '{}')
-        }
+            emails: JSON.parse(localStorage.getItem('emailData') || '{}'),
+            events: JSON.parse(localStorage.getItem('calendarEvents') || '{}')
+          }
         : mockGoogleData
     )
   }, [
@@ -48,10 +48,9 @@ const Google = ({ settingsData, show }: any) => {
         (setting: any) => setting.type == 'calendar-settings'
       )
     )
-    console.log({ googleData });
   }, [])
 
-  // useEffect(() => console.log(googleData), [googleData])
+  useEffect(() => console.log(googleData), [googleData])
 
   if (!googleCalendarSettings?.isAuthenticated) {
     return (
@@ -74,9 +73,7 @@ const Google = ({ settingsData, show }: any) => {
 
   return (
     <div className="absolute top-0 right-0 display flex gap-2 m-4">
-      {show?.calendar && (
-        <CalendarEvent events={googleData?.events} />
-      )}
+      {show?.calendar && <CalendarEvent events={googleData?.events} />}
       {show?.emails && <Gmail emails={googleData?.emails} />}
     </div>
   )

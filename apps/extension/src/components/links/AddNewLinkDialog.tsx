@@ -94,7 +94,7 @@ export default function AddNewLinkDialog({ isOpen, closeModal, openModal }: Prop
           ))}
           <Button
             variant="outline"
-            className="ml-auto"
+            className="mr-auto"
             onClick={() => setLinks([...links, { link: '', id: uuidv4() }])}
           >
             <PlusCircle className="mr-2 h-4 w-4" />
