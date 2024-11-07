@@ -1,148 +1,183 @@
-import Button from 'components/common/button/button'
-import { animate, motion, stagger } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+'use client'
+
+import * as React from 'react'
+import { AnimatePresence } from 'framer-motion'
 import { useDispatch, useSelector } from 'react-redux'
+import { ListTodo, CheckSquare, FileText, Menu, Send } from 'lucide-react'
 import { mutateDataHandler } from 'utils/demoapp.utils'
 import { addTodoService } from '../../firebase/functions/TodoActions'
 import { getTodoList } from '../../redux/Actions/User.actions'
 import { RootStore } from '../../redux/Store'
-import Loader from '../common/Loader'
-import SvgButton from '../common/button/SvgButton'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from '@/components/ui/dialog'
 import TodoComponent from './TodoComponent'
-import { ListTodo } from 'lucide-react'
 
-const TodoDropdown = ({
-  openTasks,
-  setOpenTasks
-}: {
-  openTasks: boolean
-  setOpenTasks: any
-}) => {
-  const [addTodoValue, setAddTodoValue] = useState('')
-  const [addTodo, setAddTodo] = useState(false)
+type SidebarOption = 'TODOS' | 'Notes'
 
-  const TodoDataLocalStorage = localStorage.getItem('TodoData')
-  const TodoDataRedux: any = useSelector(
-    (state: RootStore) => state.userTodoData
-  )
+const TodoDropdown = () => {
+  const [isOpen, setIsOpen] = React.useState(false)
+  const [isSidebarExpanded, setIsSidebarExpanded] = React.useState(true)
+  const [selectedOption, setSelectedOption] = React.useState<SidebarOption>('TODOS')
+  const [inputValue, setInputValue] = React.useState('')
+  const inputRef = React.useRef<HTMLInputElement>(null)
 
-  const TODO_DATA =
-    { loading: false, data: JSON.parse(TodoDataLocalStorage || '{}') } ||
-    TodoDataRedux
+  const TodoDataRedux: any = useSelector((state: RootStore) => state.userTodoData)
+  const TODO_DATA = TodoDataRedux || { loading: false, data: [] }
 
   const dispatch: any = useDispatch()
 
-  const addTodoHandler = () => {
-    addTodoService(addTodoValue)
-    setAddTodoValue('')
-    dispatch(getTodoList())
-  }
-
-  const inputRef: any = useRef()
-  useEffect(() => {
-    if (openTasks) {
-      animate(
-        '.todo-card',
-        { y: -10, fillOpacity: 1 },
-        { delay: stagger(0.1), type: 'spring', damping: 15, stiffness: 500 }
-      )
+  const addItemHandler = React.useCallback(() => {
+    if (selectedOption === 'TODOS' && inputValue.trim()) {
+      mutateDataHandler(() => {
+        addTodoService(inputValue)
+        dispatch(getTodoList())
+      })
+      setInputValue('')
+    } else if (selectedOption === 'Notes') {
+      console.log('Adding note:', inputValue)
+      setInputValue('')
     }
-  }, [openTasks])
+  }, [selectedOption, inputValue, dispatch])
+
+  React.useEffect(() => {
+    if (isOpen) {
+      dispatch(getTodoList())
+    }
+  }, [isOpen, dispatch])
+
+  const toggleSidebar = () => setIsSidebarExpanded(!isSidebarExpanded)
 
   return (
-    <div>
-      <div onClick={() => setOpenTasks(!openTasks)}>
-        <SvgButton type="todo" position="bottom-0 right-0" cta="Todo" />
-      </div>
-      {openTasks && (
-        <div
-          className={`text-gray-700 pt-4 absolute bottom-0 right-0 mb-16 mr-6 todo-card z-10`}
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <DialogTrigger asChild>
+        <Button
+          variant="outline"
+          size="icon"
+          className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300"
         >
-          <ul className="bg-black rounded-common h-full w-full">
-            <div
-              style={{
-                minWidth: '25rem',
-                maxWidth: '25rem',
-                minHeight: '20rem',
-                maxHeight: '25rem',
-                overflowY: 'auto',
-                overflowX: 'hidden'
-              }}
-              className="w-full p-2"
-            >
-              <div className="flex my-auto">
-                <h1 className="font-bold m-2 text-white  text-xl mb-4">
-                  Today
-                </h1>
-                {/* <div className="div my-auto">
-                <Svg type="dropdown" />
-              </div> */}
-              </div>
-              <div className="h-full w-full">
-                <div>
-                  {TODO_DATA.data ? (
-                    TODO_DATA.data.map((link: any) => {
-                      return (
-                        <motion.li
-                          className="w-full"
-                          key={link.id}
-                          initial={{ y: 0, opacity: 0, x: 120 }}
-                          animate={{ y: 0, opacity: 1, x: -5 }}
-                          exit={{ y: 10, opacity: 0 }}
-                          transition={{ duration: 0.3, ease: 'easeInOut' }}
-                        >
+          <ListTodo className="h-6 w-6" />
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[1000px] h-[80vh] p-0 overflow-hidden">
+        <div className="flex h-full">
+          <div
+            className={`bg-secondary transition-all duration-300 ease-in-out ${
+              isSidebarExpanded ? 'w-72' : 'w-20'
+            }`}
+          >
+            <div className="flex flex-col h-full">
+              <Button
+                variant="ghost"
+                size="icon"
+                className={`mt-5 mb-4 justify-center items-center ${isSidebarExpanded ? "ml-[4%]" : "ml-[30%]"} `}
+                onClick={toggleSidebar}
+              >
+                <Menu className="h-6 w-6" />
+              </Button>
+              <Button
+                variant="ghost"
+                className={`flex w-full mb-4 justify-start items-center transition-colors duration-150 ${
+                  selectedOption === 'TODOS' ? 'bg-primary text-primary-foreground' : ''
+                }`}
+                onClick={() => setSelectedOption('TODOS')}
+              >
+                <CheckSquare
+                  className={`h-6 w-6 transition-all duration-200 ${
+                    isSidebarExpanded ? 'mr-3' : 'mx-auto'
+                  }`}
+                />
+                {isSidebarExpanded && 'TODOS'}
+              </Button>
+              <Button
+                variant="ghost"
+                className={`flex w-full mb-4 justify-start items-center transition-colors duration-150 ${
+                  selectedOption === 'Notes' ? 'bg-primary text-primary-foreground' : ''
+                }`}
+                onClick={() => setSelectedOption('Notes')}
+              >
+                <FileText
+                  className={`h-6 w-6 transition-all duration-200 ${
+                    isSidebarExpanded ? 'mr-3' : 'mx-auto'
+                  }`}
+                />
+                {isSidebarExpanded && 'Notes'}
+              </Button>
+            </div>
+          </div>
+          <div className="flex-1 flex flex-col h-full">
+            <div className="flex-shrink-0 p-8 pb-4 border-b bg-background">
+              <h2 className="text-3xl font-bold">
+                {selectedOption === 'TODOS' ? "Today's Tasks" : 'Notes'}
+              </h2>
+            </div>
+            <div className="flex-1 overflow-hidden">
+              <ScrollArea className="h-full">
+                <div className="p-8 space-y-6">
+                  {selectedOption === 'TODOS' ? (
+                    TODO_DATA.loading ? (
+                      <div className="flex items-center justify-center h-32">
+                        <span className="loading loading-spinner loading-lg"></span>
+                      </div>
+                    ) : TODO_DATA.data && TODO_DATA.data.length > 0 ? (
+                      <AnimatePresence>
+                        {TODO_DATA.data.map((todo: any) => (
                           <TodoComponent
-                            todoId={link.id}
-                            todoName={link.data.todoName}
-                            checked={link.data.checked}
+                            key={todo.id}
+                            todoId={todo.id}
+                            todoName={todo.data.todoName}
+                            checked={todo.data.checked}
                           />
-                        </motion.li>
-                      )
-                    })
+                        ))}
+                      </AnimatePresence>
+                    ) : (
+                      <div className="text-center py-8">
+                        <p className="text-lg text-muted-foreground">No tasks found. Add a new task below!</p>
+                      </div>
+                    )
                   ) : (
-                    <Loader />
+                    <div className="space-y-6">
+                      <p className="text-lg text-muted-foreground">Notes feature coming soon. Stay tuned!</p>
+                    </div>
                   )}
                 </div>
-                {TODO_DATA.loading === false && TODO_DATA.data.length === 0 && (
-                  <div className="absolute flex h-full inset-0 items-center justify-center w-full">
-                    <h1 className="my-auto text-white  text-sm">
-                      No Todo found.
-                    </h1>
-                    <Button
-                      type="secondary"
-                      onClick={() => {
-                        setAddTodo(true)
-                        setTimeout(() => {
-                          inputRef.current.focus()
-                        }, 500)
-                      }}
-                      className="focus:outline-none font-bold ml-2 p-1 px-2 rounded-common text-sm text-white hover:underline"
-                    >
-                      Add todo
-                    </Button>
-                  </div>
-                )}
+              </ScrollArea>
+            </div>
+            <div className="flex-shrink-0 p-8 border-t bg-background">
+              <div className="relative">
+                <Input
+                  ref={inputRef}
+                  className="pr-12 py-6 text-lg bg-secondary/50 border-2 border-secondary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  placeholder={`Add new ${selectedOption === 'TODOS' ? 'todo' : 'note'}...`}
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault()
+                      addItemHandler()
+                    }
+                  }}
+                />
+                <Button
+                  size="icon"
+                  variant="ghost"
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 h-10 w-10"
+                  onClick={addItemHandler}
+                  disabled={!inputValue.trim()}
+                >
+                  <Send className="h-5 w-5" />
+                </Button>
               </div>
             </div>
-            <div>
-              {(addTodo || TODO_DATA?.data?.length > 0) && (
-                <input
-                  className="bg-transparent border-none focus:outline-none m-1 p-1 text-white w-full ml-3"
-                  placeholder="Add todo here..."
-                  ref={inputRef}
-                  value={addTodoValue}
-                  onChange={(e) => setAddTodoValue(e.target.value)}
-                  onKeyPress={(e) =>
-                    e.key === 'Enter' &&
-                    mutateDataHandler(() => addTodoHandler())
-                  }
-                />
-              )}
-            </div>
-          </ul>
+          </div>
         </div>
-      )}
-    </div>
+      </DialogContent>
+    </Dialog>
   )
 }
 
