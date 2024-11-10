@@ -1,4 +1,4 @@
-import { Link2, ListTodoIcon } from 'lucide-react'
+import { Home, Link2, ListTodoIcon } from 'lucide-react'
 import React from 'react'
 
 const LinkSvg = () => {
@@ -56,6 +56,7 @@ interface Props {
 const Svg: React.FC<Props> = ({ type, size, classNames }) => {
   return (
     <>
+      {type === "home" && <Home />}
       {type === 'link' && <Link2 />}
       {type === 'settings' && <SettingsSvg />}
       {type === 'weather' && (

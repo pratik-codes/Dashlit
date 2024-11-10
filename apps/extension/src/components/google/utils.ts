@@ -118,3 +118,14 @@ export const fetchGoogleData = async (isAuthenticated: boolean) => {
     return []
   }
 }
+
+export function authenticate() {
+  chrome.identity.getAuthToken({ interactive: true }, (token) => {
+    if (chrome.runtime.lastError) {
+      console.error(chrome.runtime.lastError.message);
+      return;
+    }
+    console.log({ token });
+    // callback(token);
+  });
+}

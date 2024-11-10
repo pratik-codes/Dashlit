@@ -19,9 +19,8 @@ const TabsComponent = ({
             setActiveTab(tab.id)
             onClick(tab.id)
           }}
-          className={`${
-            activeTab === tab.id ? '' : 'hover:text-white/60'
-          } relative rounded-full px-3 py-1.5 text-sm font-medium text-white outline-sky-400 transition focus-visible:outline-2`}
+          className={`${activeTab === tab.id ? '' : 'hover:text-white/60'
+            } relative rounded-full px-3 py-1.5 text-sm font-medium text-white outline-sky-400 transition focus-visible:outline-2`}
           style={{
             WebkitTapHighlightColor: 'transparent'
           }}
