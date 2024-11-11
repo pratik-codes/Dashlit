@@ -16,6 +16,7 @@ import {
   DialogContent,
   DialogTrigger,
 } from '@/components/ui/dialog'
+import SvgButton from '../common/button/SvgButton';
 import TodoComponent from './TodoComponent'
 
 type SidebarOption = 'TODOS' | 'Notes'
@@ -56,13 +57,9 @@ const TodoDropdown = () => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button
-          variant="outline"
-          size="icon"
-          className="absolute bottom-0 right-0 h-10 w-13 shadow-lg hover:shadow-xl transition-shadow duration-300 group z-10 rounded-2xl border-none font-bold p-3 m-4 focus:outline-none flex justify-between items-center"
-        >
-          <ListTodo className="h-5 w-5" />
-        </Button>
+        <div>
+          <SvgButton type="todo" position="bottom-0 right-0" cta="Todos" />
+        </div>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[1000px] h-[80vh] p-0 overflow-hidden">
         <div className="flex h-full">
