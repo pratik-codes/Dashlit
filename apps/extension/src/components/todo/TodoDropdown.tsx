@@ -59,9 +59,9 @@ const TodoDropdown = () => {
         <Button
           variant="outline"
           size="icon"
-          className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300"
+          className="absolute bottom-0 right-0 h-10 w-13 shadow-lg hover:shadow-xl transition-shadow duration-300 group z-10 rounded-2xl border-none font-bold p-3 m-4 focus:outline-none flex justify-between items-center"
         >
-          <ListTodo className="h-6 w-6" />
+          <ListTodo className="h-5 w-5" />
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[1000px] h-[80vh] p-0 overflow-hidden">
