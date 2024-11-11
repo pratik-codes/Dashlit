@@ -9,8 +9,8 @@ interface Props {
 
 const MyPictures: React.FC<Props> = ({ data, refreshPictures }) => {
   return (
-    <div className="w-full h-[10ch]">
-      <div className="p-2 m-2 w-full">
+    <div className="">
+      <div className="m-2 w-full overflow-y-scroll mb-10">
         <div className="grid grid-cols-2 gap-6 w-full mb-10">
           {data ? (
             data.map((pic: any) => {

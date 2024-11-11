@@ -20,8 +20,8 @@ const FavouritePictures: React.FC<any> = () => {
 
   return (
     <div>
-      <div className="w-full">
-        <div className="p-2 m-2 w-full">
+      <div className="">
+        <div className="m-2 w-full">
           <div className="grid grid-cols-2 gap-6 w-full mb-10">
             {FAV_PICTURES ? (
               FAV_PICTURES.map((pic: any) => {

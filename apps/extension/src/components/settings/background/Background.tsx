@@ -72,7 +72,7 @@ const Background: any = () => {
         closeModal={() => setIsUploadModal(false)}
         loadPictures={() => getImages()}
       />
-      <div className="flex justify-start">
+      <div className="flex justify-start h-full overflow-y-scroll">
         {activeTab === 'my_pictures' && (
           <MyPictures data={IMAGES} refreshPictures={getImages} />
         )}

@@ -4,7 +4,6 @@ import {
   TooltipProvider,
   TooltipTrigger
 } from '@/components/ui/tooltip' // Importing Tooltip from shadcn
-import Svg from 'components/common/Svg'
 
 const EmailCard = ({ email }: any) => {
   const emailFrom = email.payload.headers.find(
@@ -41,14 +40,14 @@ const EmailCard = ({ email }: any) => {
 
   // Tooltip content with email details
   const tooltipContent = (
-    <div>
-      <div className="text-md">
+    <div className='text-lg max-w-[400px] word-break'>
+      <div>
         <strong>From:</strong> {emailFromName}
       </div>
-      <div>
+      <div className='word-break'>
         <strong>Subject:</strong> {emailSubject?.value}
       </div>
-      <div>
+      <div className='word-break'>
         <strong>Content:</strong> {content}
       </div>
       <div>

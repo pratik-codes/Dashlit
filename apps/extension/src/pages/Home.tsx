@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import DateTime from 'components/Home/DateTIme'
 import MinimalHomeLinks from 'components/Home/MinimalHomeLinks'
 import SetBodyStyle from 'components/theme/SetBodyStyle'
-import Focus from '../components/focus/Focus'
 import Google from '../components/google/Google'
 import LinksDropdown from '../components/links/LinksDropdown'
 import SearchBar from '../components/searchbar/Searchbar'
@@ -20,6 +19,7 @@ import {
 } from '../redux/Actions/User.actions'
 import { RootStore } from '../redux/Store'
 import { handleKeyBindings } from 'utils/home.utils'
+import MainHomeModal from '@/components/home-modal/main'
 
 const Home = () => {
   const [liveData, setLiveData] = useState<any>([])
@@ -142,9 +142,9 @@ const Home = () => {
         isMinimalHome={MINIMAL_HOME}
       />
       <div className="h-screen w-full">
-        {getPreferenceValue('focus-settings') === true && !MINIMAL_HOME && (
-          <Focus />
-        )}
+        {/* {getPreferenceValue('focus-settings') === true && !MINIMAL_HOME && ( */}
+        {/*   <Focus /> */}
+        {/* )} */}
         {getPreferenceValue('links-settings') === true && !MINIMAL_HOME && (
           <LinksDropdown
             openDialog={openDialog}
@@ -174,11 +174,7 @@ const Home = () => {
             emails: getPreferenceValue('email-settings')
           }}
         />
-        <SettingsDropdown
-          setOpenSettings={setOpenSettings}
-          openSettings={openSettings}
-          isMinimalMode={MINIMAL_HOME}
-        />
+        <MainHomeModal />
         {openSearchBar && <SearchBar setOpenSearchBar={setOpenSearchBar} />}
       </div>
     </div>

@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
-import Button from '../common/button/button'
-import GoogleCalendar from './components/calendar/GoogleCalendar'
 import Gmail from './components/emails/Gmail'
 import { mockGoogleData } from './mock'
-import { fetchGoogleData } from './utils'
 import CalendarEvent from '../animata/widget/calendar-event'
+import { Button } from '../ui/button'
+import { authenticate, fetchGoogleData } from './utils'
 
 const Google = ({ settingsData, show }: any) => {
   const [googleCalendarSettings, SetGoogleCalendarSettings] = useState<any>()
@@ -20,6 +19,7 @@ const Google = ({ settingsData, show }: any) => {
   const getData = async (bypassAuth = false) => {
     if (googleCalendarSettings?.isAuthenticated || bypassAuth) {
       await fetchGoogleData(googleCalendarSettings?.isAuthenticated)
+      await authenticate();
     }
   }
 
@@ -32,9 +32,9 @@ const Google = ({ settingsData, show }: any) => {
     setGoogleData(
       window.location.origin.includes('chrome-extension')
         ? {
-            emails: JSON.parse(localStorage.getItem('emailData') || '{}'),
-            events: JSON.parse(localStorage.getItem('calendarEvents') || '{}')
-          }
+          emails: JSON.parse(localStorage.getItem('emailData') || '{}'),
+          events: JSON.parse(localStorage.getItem('calendarEvents') || '{}')
+        }
         : mockGoogleData
     )
   }, [
@@ -50,14 +50,13 @@ const Google = ({ settingsData, show }: any) => {
     )
   }, [])
 
-  useEffect(() => console.log(googleData), [googleData])
+  // useEffect(() => console.log(googleData), [googleData])
 
   if (!googleCalendarSettings?.isAuthenticated) {
     return (
       <div className="my-4 absolute right-0 top-0 m-4">
         <Button
           onClick={async () => await getData(false)}
-          type="secondary"
           className="flex items-center space-x-2"
         >
           <img
