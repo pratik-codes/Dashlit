@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import { loginDemoUser } from 'utils/demoapp.utils'
 import Auth from './pages/Auth'
@@ -9,7 +9,7 @@ import './styles/AntdStyles/Common.css'
 import './styles/index.css'
 
 const App = () => {
-  const user_uid = localStorage.getItem('user_uid')
+  const user_uid = localStorage.getItem('refreshToken')
   const isDemoApp = import.meta.env.VITE_DEMO_APP === 'true'
 
   useEffect(() => {
