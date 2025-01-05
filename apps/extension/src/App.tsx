@@ -9,7 +9,7 @@ import './styles/AntdStyles/Common.css'
 import './styles/index.css'
 
 const App = () => {
-  const user_uid = localStorage.getItem('refreshToken')
+  const user_uid = localStorage.getItem('user_uid')
   const isDemoApp = import.meta.env.VITE_DEMO_APP === 'true'
 
   useEffect(() => {
