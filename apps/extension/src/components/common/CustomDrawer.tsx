@@ -3,13 +3,7 @@ import Svg from './Svg'
 
 import '../../styles/AntdStyles/Drawer.css'
 
-const CustomDrawer: React.FC<{
-  onClose: any
-  open: boolean
-  children: any
-  headerTitle: string
-  width: string
-}> = ({ onClose, open, children, headerTitle, width }) => {
+const CustomDrawer: React.FC<any> = ({ onClose, open, children, headerTitle, width }) => {
   return (
     <Drawer
       width={width}

@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./components/**/*.{js,ts,jsx,tsx}", "./app/**/*.{ts,tsx}"],
+  content: ["./components/**/*.{js,ts,jsx,tsx}", "./app/**/*.{ts,tsx}", "./styles/**/*.{css}", "./pages/**/*.{ts,tsx}"],
   extend: {
     animation: {
       tilt: "tilt 10s infinite linear",

@@ -80,3 +80,8 @@
   }
 }
 
+@layer utilities {
+  .border-border {
+    border-color: var(--border);
+  }
+}
