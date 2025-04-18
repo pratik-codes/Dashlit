@@ -19,38 +19,36 @@ const FavouritePictures: React.FC<any> = () => {
     JSON.parse(localStorage.getItem('fav_pictures') as any) || favouriteImages
 
   return (
-    <div>
-      <div className="">
-        <div className="m-2 w-full">
-          <div className="grid grid-cols-2 gap-6 w-full mb-10">
-            {FAV_PICTURES ? (
-              FAV_PICTURES.map((pic: any) => {
-                return (
-                  <div key={pic?.id} className="full h-full">
-                    <PictureComponent
-                      data={pic?.data}
-                      id={pic?.id}
-                      type="fav"
-                      refreshPictures={getFavouriteImages}
-                    />
-                  </div>
-                )
-              })
-            ) : (
-              <div>
-                <Loader />
-              </div>
-            )}
-          </div>
-          {FAV_PICTURES && FAV_PICTURES?.length === 0 && (
-            <div className="">
-              <span className="font-bold text-white text-xl">
-                No Favourites found.
-              </span>
-              <span className="text-gray-900 ml-2 text-xl">Add now...</span>
+    <div className="h-full w-full">
+      <div className="p-2 w-full h-full">
+        <div className="grid grid-cols-2 gap-6 w-full pb-6">
+          {FAV_PICTURES ? (
+            FAV_PICTURES.map((pic: any) => {
+              return (
+                <div key={pic?.id} className="w-full">
+                  <PictureComponent
+                    data={pic?.data}
+                    id={pic?.id}
+                    type="fav"
+                    refreshPictures={getFavouriteImages}
+                  />
+                </div>
+              )
+            })
+          ) : (
+            <div>
+              <Loader />
             </div>
           )}
         </div>
+        {FAV_PICTURES && FAV_PICTURES?.length === 0 && (
+          <div className="">
+            <span className="font-bold text-white text-xl">
+              No Favourites found.
+            </span>
+            <span className="text-gray-900 ml-2 text-xl">Add now...</span>
+          </div>
+        )}
       </div>
     </div>
   )

@@ -1,86 +1,88 @@
-import TabsComponent from 'components/common/TabsComponent'
 import { useEffect, useState } from 'react'
 
 import { getAllImages } from '../../../firebase/functions/UploadActions'
-import Svg from '../../common/Svg'
-import Button from '../../common/button/button'
 import FavouritePictures from './components/FavouritePictures'
 import MyPictures from './components/MyPictures'
 import PublicPictures from './components/PublicPictures'
 import UploadPictureModal from './components/UploadPictureModal'
 
-const Background: any = () => {
-  const [activeTab, setActiveTab] = useState('my_pictures')
-  const [isUploadModal, setIsUploadModal] = useState(false)
-  const [images, setImages] = useState()
+// Shadcn UI components
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Button } from "@/components/ui/button"
+import { PlusIcon } from "lucide-react"
+import { Card } from "@/components/ui/card"
 
-  const getImages = async () => {
-    const res: any = await getAllImages()
-    setImages(res)
-  }
+const Background = () => {
+     const [activeTab, setActiveTab] = useState('my_pictures')
+     const [isUploadModal, setIsUploadModal] = useState(false)
+     const [images, setImages] = useState()
 
-  useEffect(() => {
-    getImages()
-  }, [])
+     const getImages = async () => {
+          const res: any = await getAllImages()
+          setImages(res)
+     }
 
-  const storedImages = localStorage.getItem('background_images')
-  const parsedImages = storedImages ? JSON.parse(storedImages) : []
+     useEffect(() => {
+          getImages()
+     }, [])
 
-  const IMAGES = images || parsedImages
-  // JSON.stringify(localStorage.getItem('background_images') || images
+     const storedImages = localStorage.getItem('background_images')
+     const parsedImages = storedImages ? JSON.parse(storedImages) : []
 
-  const tabsProps = {
-    tabs: [
-      {
-        id: 'my_pictures',
-        label: 'My pictures'
-      },
-      {
-        id: 'public_pictures',
-        label: 'Public pictures'
-      },
-      {
-        id: 'Favourites',
-        label: 'Favourites'
-      }
-    ],
-    onClick: (id: string) => {
-      setActiveTab(id)
-    }
-  }
+     const IMAGES = images || parsedImages
 
-  return (
-    <div className="h-full w-full">
-      <div className="div flex justify-between p-2 w-full">
-        <div className="border-b border-gray-200 dark:border-gray-700">
-          <TabsComponent {...tabsProps} />
-        </div>
-        {activeTab === 'my_pictures' && (
-          <Button
-            kind="elevated"
-            className="focus:outline-none"
-            onClick={() => setIsUploadModal(true)}
-          >
-            <Svg type="add" />
-          </Button>
-        )}
-      </div>
+     return (
+          <Card className="h-full w-full flex flex-col rounded-lg border dark:border-gray-800 bg-white dark:bg-gray-950">
+               <div className="flex justify-between items-center p-4 w-full border-b dark:border-gray-800">
+                    <Tabs
+                         defaultValue="my_pictures"
+                         onValueChange={setActiveTab}
+                         value={activeTab}
+                         className="w-full"
+                    >
+                         <TabsList className="grid w-full grid-cols-3 dark:bg-gray-800/50">
+                              <TabsTrigger value="my_pictures">My pictures</TabsTrigger>
+                              <TabsTrigger value="public_pictures">Public pictures</TabsTrigger>
+                              <TabsTrigger value="Favourites">Favourites</TabsTrigger>
+                         </TabsList>
+                    </Tabs>
 
-      <UploadPictureModal
-        isOpen={isUploadModal}
-        openModal={() => setIsUploadModal(true)}
-        closeModal={() => setIsUploadModal(false)}
-        loadPictures={() => getImages()}
-      />
-      <div className="flex justify-start h-full overflow-y-scroll">
-        {activeTab === 'my_pictures' && (
-          <MyPictures data={IMAGES} refreshPictures={getImages} />
-        )}
-        {activeTab === 'Favourites' && <FavouritePictures />}
-        {activeTab === 'public_pictures' && <PublicPictures />}
-      </div>
-    </div>
-  )
+                    {activeTab === 'my_pictures' && (
+                         <Button
+                              variant="outline"
+                              size="icon"
+                              className="ml-4 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200"
+                              onClick={() => setIsUploadModal(true)}
+                         >
+                              <PlusIcon className="h-4 w-4" />
+                         </Button>
+                    )}
+               </div>
+
+               <UploadPictureModal
+                    isOpen={isUploadModal}
+                    openModal={() => setIsUploadModal(true)}
+                    closeModal={() => setIsUploadModal(false)}
+                    loadPictures={() => getImages()}
+               />
+
+               <div className="flex flex-1 overflow-hidden p-4">
+                    <div className="w-full h-full overflow-y-auto">
+                         <Tabs value={activeTab} className="w-full">
+                              <TabsContent value="my_pictures" className="m-0">
+                                   <MyPictures data={IMAGES} refreshPictures={getImages} />
+                              </TabsContent>
+                              <TabsContent value="Favourites" className="m-0">
+                                   <FavouritePictures />
+                              </TabsContent>
+                              <TabsContent value="public_pictures" className="m-0">
+                                   <PublicPictures />
+                              </TabsContent>
+                         </Tabs>
+                    </div>
+               </div>
+          </Card>
+     )
 }
 
 export default Background
